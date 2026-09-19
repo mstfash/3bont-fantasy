@@ -1,4 +1,5 @@
 import { requireCurrentStaffWrite } from './staff-write-access.ts';
+import { protectFixtureAssignments } from './fixture-assignment-lock.ts';
 import { reviewInitialPricePublication } from './initial-price-publication.ts';
 import { protectRuleNotice } from './rule-notice.ts';
 import { createHash, randomUUID } from 'node:crypto';
@@ -45,6 +46,7 @@ export async function executeSetupCommand(
       'competition.manage',
       command.competitionId,
     );
+    await protectFixtureAssignments(tx);
     await sql`SELECT pg_advisory_xact_lock(hashtextextended(${`${principal.accountId}:${command.commandId}`},0))`.execute(
       tx,
     );

@@ -26,6 +26,9 @@ export async function standingsWithinTransaction(
   options: {
     readonly entryIds?: readonly string[];
     readonly fromRound?: number;
+    /** Cumulative table at the end of this gameweek, excluding later entrants. */
+    readonly throughRound?: number;
+    readonly scoredOnly?: boolean;
     /** Hypothetical complete replacement of one round; never writes published scores. */
     readonly replacement?: {
       readonly gameweekId: string;
@@ -41,6 +44,23 @@ export async function standingsWithinTransaction(
       .select('data')
       .where('competition_id', '=', competition.id)
       .where(sql<string>`data->>'status'`, '!=', 'draft')
+      .$if(options.throughRound !== undefined, (query) =>
+        query.where(
+          'id',
+          'in',
+          tx
+            .selectFrom('entries as eligible')
+            .innerJoin('gameweeks as first', (join) =>
+              join.onRef(
+                'first.id',
+                '=',
+                sql<string>`(eligible.data->>'firstGameweekId')::uuid`,
+              ),
+            )
+            .select('eligible.id')
+            .where('first.number', '<=', options.throughRound ?? 0),
+        ),
+      )
       .$if(options.entryIds !== undefined, (query) =>
         query.where('id', 'in', options.entryIds ?? []),
       )
@@ -58,6 +78,9 @@ export async function standingsWithinTransaction(
         query.where('entry_results.entry_id', 'in', options.entryIds ?? []),
       )
       .where('gameweeks.number', '>=', options.fromRound ?? 1)
+      .$if(options.throughRound !== undefined, (query) =>
+        query.where('gameweeks.number', '<=', options.throughRound ?? 0),
+      )
       .whereRef(
         'entry_results.revision',
         '=',
@@ -75,7 +98,9 @@ export async function standingsWithinTransaction(
     }));
   if (
     options.replacement &&
-    options.replacement.number >= (options.fromRound ?? 1)
+    options.replacement.number >= (options.fromRound ?? 1) &&
+    (options.throughRound === undefined ||
+      options.replacement.number <= options.throughRound)
   ) {
     const included = new Set(entries.map((entry) => entry.id));
     for (const [entryId, score] of options.replacement.results)
@@ -89,18 +114,20 @@ export async function standingsWithinTransaction(
   }
   const entryById = new Map(entries.map((e) => [e.id, e]));
   const ranks = rankEntries(
-    entries.map((entry) => {
-      const scores = byEntry.get(entry.id) ?? [];
-      return {
-        entryId: entry.id,
-        accountId: entry.accountId,
-        points: sumPoints(scores.map((r) => r.score.total)),
-        transferDeductions: sumPoints(
-          scores.map((r) => r.score.transferDeduction),
-        ),
-        effectiveGoals: scores.reduce((sum, r) => sum + r.score.goals, 0),
-      };
-    }),
+    entries
+      .filter((entry) => !options.scoredOnly || byEntry.has(entry.id))
+      .map((entry) => {
+        const scores = byEntry.get(entry.id) ?? [];
+        return {
+          entryId: entry.id,
+          accountId: entry.accountId,
+          points: sumPoints(scores.map((r) => r.score.total)),
+          transferDeductions: sumPoints(
+            scores.map((r) => r.score.transferDeduction),
+          ),
+          effectiveGoals: scores.reduce((sum, r) => sum + r.score.goals, 0),
+        };
+      }),
     competition.rules.ranking,
   );
   return ranks.map((rank) => ({

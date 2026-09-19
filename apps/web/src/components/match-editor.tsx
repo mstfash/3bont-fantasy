@@ -1,9 +1,12 @@
 'use client';
 import { TopicHelp } from './help/page-help';
-import { useState, type SubmitEvent } from 'react';
+import { MatchReviewSummary } from './match-review-summary';
+import { useRef, useState, type SubmitEvent } from 'react';
 import { z } from 'zod';
 import {
   matchDataCommandSchema,
+  matchReviewPreviewSchema,
+  type MatchReviewPreview,
   type Fixture,
   type Footballer,
   type FixtureObservation,
@@ -79,10 +82,14 @@ export function MatchEditor({
   );
   const [editing, setEditing] = useState(footballers[0]?.id ?? '');
   const [pending, setPending] = useState<MatchDataCommand | null>(null);
+  const [impact, setImpact] = useState<MatchReviewPreview | null>(null);
+  const editVersion = useRef(0);
   const [notice, setNotice] = useState('');
   const [busy, setBusy] = useState(false);
   const current = performances.find((p) => p.footballerId === editing);
   function update(value: Performance): void {
+    editVersion.current++;
+    setImpact(null);
     setPerformances(
       performances.map((p) =>
         p.footballerId === value.footballerId ? value : p,
@@ -90,7 +97,7 @@ export function MatchEditor({
     );
     setPending(null);
   }
-  function review(event: SubmitEvent<HTMLFormElement>): void {
+  async function review(event: SubmitEvent<HTMLFormElement>): Promise<void> {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
     const kind = form.get('action');
@@ -158,17 +165,59 @@ export function MatchEditor({
       return;
     }
     setNotice('');
-    setPending(parsed.data);
+    setPending(null);
+    setImpact(null);
+    setBusy(true);
+    const version = editVersion.current;
+    try {
+      const response = await fetch('/api/v1/admin/matches', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ kind: 'preview', command: parsed.data }),
+      });
+      const payload: unknown = await response.json();
+      if (version !== editVersion.current) return;
+      if (!response.ok) {
+        setNotice(
+          commandError(
+            z.object({ code: z.string() }).parse(payload).code,
+            locale,
+          ),
+        );
+        return;
+      }
+      const result = z
+        .object({
+          kind: z.literal('preview'),
+          preview: matchReviewPreviewSchema,
+        })
+        .parse(payload);
+      setPending(parsed.data);
+      setImpact(result.preview);
+    } catch {
+      if (version !== editVersion.current) return;
+      setNotice(
+        ar
+          ? 'تعذرت المعاينة. حاول مرة أخرى.'
+          : 'Preview could not be completed. Try again.',
+      );
+    } finally {
+      setBusy(false);
+    }
   }
   async function save(): Promise<void> {
-    if (!pending) return;
+    if (!pending || !impact) return;
     setBusy(true);
     setNotice('');
     try {
       const response = await fetch('/api/v1/admin/matches', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(pending),
+        body: JSON.stringify({
+          kind: 'apply',
+          command: pending,
+          expectedFingerprint: impact.fingerprint,
+        }),
       });
       if (response.ok) {
         window.location.reload();
@@ -177,6 +226,10 @@ export function MatchEditor({
       const payload: unknown = await response.json();
       const error = z.object({ code: z.string() }).parse(payload);
       setNotice(commandError(error.code, locale));
+      if (error.code === 'match-preview-changed') {
+        setPending(null);
+        setImpact(null);
+      }
     } catch {
       setNotice(
         ar
@@ -198,9 +251,13 @@ export function MatchEditor({
       </p>
       <form
         className="admin-form"
-        onSubmit={review}
+        onSubmit={(event) => {
+          void review(event);
+        }}
         onChange={() => {
+          editVersion.current++;
           setPending(null);
+          setImpact(null);
         }}
       >
         <div className="form-pair">
@@ -460,6 +517,7 @@ export function MatchEditor({
         </button>
       </form>
       {notice && <p role="alert">{notice}</p>}
+      {impact && <MatchReviewSummary preview={impact} locale={locale} />}
       {pending && (
         <div className="admin-confirmation">
           <h3>{ar ? 'تأكيد بيانات المباراة' : 'Confirm match data'}</h3>

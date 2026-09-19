@@ -1,5 +1,9 @@
 import type { Locale } from './brand';
 const messages: Readonly<Record<string, { ar: string; en: string }>> = {
+  'match-preview-changed': {
+    ar: 'تغيّر أثر التصحيح. راجع معاينة جديدة قبل الحفظ.',
+    en: 'The correction impact changed. Review a fresh preview before saving.',
+  },
   'provider-collection-expired': {
     ar: 'تباعدت المصادر زمنياً. ستُجمع دفعة جديدة وفق الجدول؛ راجع الحصة والتأخير.',
     en: 'The source bundle expired. A new batch follows the schedule; check quota and delays.',

@@ -122,3 +122,9 @@ export {
 } from './provider-normalization.ts';
 
 export { previewPrizeResultCorrection } from './prize-result-preview.ts';
+export { executeMatchReview } from './match-review.ts';
+export {
+  readCompetitionPulse,
+  readPublicRoundStandings,
+} from './competition-pulse.ts';
+export { readPublicLineup } from './public-lineup.ts';

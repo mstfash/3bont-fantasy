@@ -1,3 +1,4 @@
+import { exerciseHomeBoard } from './browser-home-board.mjs';
 import { exerciseAdminLayout } from './browser-admin-layout.mjs';
 import { withAuthRateLimit } from './browser-auth-retry.mjs';
 import { monitorPageHealth } from './browser-health.mjs';
@@ -91,6 +92,7 @@ async function mailLink(subject, excluded = new Set()) {
 }
 try {
   await mkdir('artifacts/web', { recursive: true });
+  await exerciseHomeBoard(page, pool, base);
   await page.goto(`${base}/en/register`);
   await page.getByLabel('Your name').fill('Browser QA');
   await page.getByLabel('Email address').fill(email);

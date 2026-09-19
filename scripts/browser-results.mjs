@@ -1,3 +1,4 @@
+import { reviewedMatchPost } from './browser-match-review.mjs';
 import assert from 'node:assert/strict';
 import { exerciseResultImpact } from './browser-result-impact.mjs';
 import { randomUUID } from 'node:crypto';
@@ -125,6 +126,9 @@ export async function exerciseRoundResults(
   await page
     .getByRole('button', { name: 'REVIEW REPORT', exact: true })
     .click();
+  await expect(
+    page.getByRole('region', { name: 'Shared match impact', exact: true }),
+  ).toBeVisible();
   await page
     .getByRole('button', { name: 'CONFIRM & SAVE', exact: true })
     .click();
@@ -157,24 +161,21 @@ export async function exerciseRoundResults(
     savesIncludingPenalties: 0,
     penaltySaves: 0,
   };
-  const imported = await page.request.post(`${base}/api/v1/admin/matches`, {
-    headers: { Origin: base },
-    data: {
-      kind: 'import',
-      commandId: randomUUID(),
-      expectedRevision: recorded.revision,
-      source: 'browser-synthetic-fixture',
-      reason: 'Completed synthetic statistics for browser verification',
-      observation: {
-        fixture: recorded,
-        eligibilityComplete: true,
-        eligibleFootballerIds: footballers.map((p) => p.id),
-        performances: footballers.map((p) => ({
-          footballerId: p.id,
-          statistics,
-          discipline: { kind: 'none' },
-        })),
-      },
+  const imported = await reviewedMatchPost(page, base, {
+    kind: 'import',
+    commandId: randomUUID(),
+    expectedRevision: recorded.revision,
+    source: 'browser-synthetic-fixture',
+    reason: 'Completed synthetic statistics for browser verification',
+    observation: {
+      fixture: recorded,
+      eligibilityComplete: true,
+      eligibleFootballerIds: footballers.map((p) => p.id),
+      performances: footballers.map((p) => ({
+        footballerId: p.id,
+        statistics,
+        discipline: { kind: 'none' },
+      })),
     },
   });
   assert.equal(imported.status(), 200);

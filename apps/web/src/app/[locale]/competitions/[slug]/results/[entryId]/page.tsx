@@ -1,12 +1,14 @@
-import { readEntryAchievements } from '@fantasy/application';
+import { WinningPitch } from '@/components/winning-pitch';
+import '@/styles/home-board.css';
+import {
+  AccessDenied,
+  readPublicLineup,
+  readEntryAchievements,
+} from '@fantasy/application';
 import { AchievementBadges } from '@/components/achievement-badges';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import {
-  entryResultSchema,
-  gameweekSchema,
-  idSchema,
-} from '@fantasy/contracts';
+import { idSchema } from '@fantasy/contracts';
 import { SiteShell } from '@/components/site-shell';
 import { requireLocale } from '@/lib/locale';
 import { competitionDetails } from '@/server/competition';
@@ -29,47 +31,36 @@ const categories: Record<string, { ar: string; en: string }> = {
 };
 export default async function ScorePage({
   params,
+  searchParams,
 }: {
   readonly params: Promise<{ locale: string; slug: string; entryId: string }>;
+  readonly searchParams: Promise<{ gameweek?: string }>;
 }) {
   const p = await params;
   const locale = requireLocale(p.locale);
   const ar = locale === 'ar';
   if (!idSchema.safeParse(p.entryId).success) notFound();
-  const [{ competition, players, synthetic }, session] = await Promise.all([
+  const [{ synthetic }, session] = await Promise.all([
     competitionDetails(p.slug),
     currentSession(),
   ]);
   const db = getRuntime().db;
-  const [entry, latestSnapshot] = await Promise.all([
-    db
-      .selectFrom('entries')
-      .select('data')
-      .where('id', '=', p.entryId)
-      .where('competition_id', '=', competition.id)
-      .executeTakeFirst(),
-    db
-      .selectFrom('entry_snapshots')
-      .innerJoin('gameweeks', 'gameweeks.id', 'entry_snapshots.gameweek_id')
-      .select('gameweeks.data as round')
-      .where('entry_snapshots.entry_id', '=', p.entryId)
-      .where('entry_snapshots.competition_id', '=', competition.id)
-      .orderBy('gameweeks.number', 'desc')
-      .executeTakeFirst(),
-  ]);
-  if (!entry || !latestSnapshot) notFound();
+  const query = await searchParams;
+  if (query.gameweek && !idSchema.safeParse(query.gameweek).success) notFound();
+  const publicResult = await readPublicLineup(
+    db,
+    p.slug,
+    p.entryId,
+    query.gameweek,
+  ).catch((error: unknown) => {
+    if (error instanceof AccessDenied) notFound();
+    throw error;
+  });
+  const { entry, round, lineup } = publicResult;
+  const result = lineup?.result ?? null;
   const badges = await readEntryAchievements(db, p.entryId);
-  const round = gameweekSchema.parse(latestSnapshot.round);
-  const row = await db
-    .selectFrom('entry_results')
-    .select('payload')
-    .where('entry_id', '=', p.entryId)
-    .where('gameweek_id', '=', round.id)
-    .where('revision', '=', round.resultRevision)
-    .executeTakeFirst();
-  const result = row ? entryResultSchema.parse(row.payload) : null;
   const name = (id: string) =>
-    players.find((p) => p.footballer.id === id)?.footballer.name[locale] ??
+    lineup?.players.find((p) => p.id === id)?.name[locale] ??
     (ar ? 'لاعب' : 'Footballer');
   return (
     <SiteShell locale={locale} signedIn={session !== null}>
@@ -85,11 +76,11 @@ export default async function ScorePage({
         >
           {ar ? 'الترتيب' : 'STANDINGS'} ↗ {round.name[locale]}
         </Link>
-        <h1 className="page-title">{entry.data.name}</h1>
+        <h1 className="page-title">{entry.name}</h1>
         <p className="hero-description">
           {ar
-            ? 'آخر تشكيلة مغلقة فقط. اختيارات الجولة القادمة خاصة بصاحب الفريق.'
-            : 'The latest locked lineup. Next gameweek’s selections remain private.'}
+            ? 'تشكيلة جولة منشورة. اختيارات الجولة القادمة خاصة بصاحب الفريق.'
+            : 'A published gameweek lineup. Next gameweek’s selections remain private.'}
         </p>
         {!result ? (
           <div className="empty-state">
@@ -118,6 +109,7 @@ export default async function ScorePage({
                 </p>
               </div>
             </div>
+            {lineup && <WinningPitch lineup={lineup} locale={locale} />}
             <div className="results-scroll">
               <table className="results-table">
                 <thead>
