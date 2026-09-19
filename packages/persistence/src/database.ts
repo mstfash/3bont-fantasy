@@ -1,6 +1,8 @@
 import { Kysely, PostgresDialect, type ColumnType } from 'kysely';
 import type { Pool } from 'pg';
 import type {
+  ProviderAcceptancePolicy,
+  ProviderAcceptance,
   SnapshotRepair,
   FixtureDisposition,
   ProviderSchedule,
@@ -70,6 +72,22 @@ export interface Database {
     batch_id: string;
     step: number;
     attempt_id: string;
+  };
+  provider_acceptance_policies: {
+    binding_id: string;
+    account_id: string;
+    revision: number;
+    data: Document<ProviderAcceptancePolicy>;
+  };
+  provider_acceptances: {
+    batch_id: string;
+    policy_revision: number;
+    fixture_id: string;
+    report_evidence_id: string | null;
+    state: ProviderAcceptance['state'];
+    source_at: Timestamp | null;
+    decided_at: DefaultTimestamp;
+    data: Document<ProviderAcceptance>;
   };
   provider_normalization_sources: {
     report_evidence_id: string;

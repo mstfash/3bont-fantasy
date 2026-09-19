@@ -1,0 +1,161 @@
+{
+  "slice": 40,
+  "date": "2026-09-19",
+  "providerRequests": 0,
+  "deploymentAutomationEnabled": false,
+  "localVerification": {
+    "status": "passed",
+    "command": "pnpm verify:local",
+    "unitAndHarnessCases": 117,
+    "postgresCases": 150,
+    "publicSmokeCombinations": 56,
+    "authenticatedE2E": "passed",
+    "providerAcceptanceE2E": "passed",
+    "typecheck": "passed",
+    "lint": "passed",
+    "productionBuild": "passed",
+    "visualReview": ["English desktop", "Arabic mobile"]
+  },
+  "sources": [
+    {
+      "path": "apps/web/src/app/[locale]/admin/providers/acceptance/page.tsx",
+      "sha256": "4bed2b1ed043bcb66b8fb94779712aea86945edac3d73d2069745b34374c1c3c"
+    },
+    {
+      "path": "apps/web/src/app/[locale]/admin/providers/page.tsx",
+      "sha256": "5974de8042def6b675ab53740a2092ebd3f61037b7af88aec25f6fdcd397f095"
+    },
+    {
+      "path": "apps/web/src/app/api/v1/admin/providers/acceptance/route.ts",
+      "sha256": "6305f9f700e76f19bda57c5df39a2a1b4b67ac42d075be393530fcb5ee5979ed"
+    },
+    {
+      "path": "apps/web/src/components/providers/provider-acceptance-controls.tsx",
+      "sha256": "6c3304510c2391e8e1ead507c97259951290350d004023ba3c174082e4943e50"
+    },
+    {
+      "path": "apps/web/src/lib/command-errors.ts",
+      "sha256": "ce3efc3f78666ff439845c74ddfa8c141863ab08f72100429860a692cafbbc57"
+    },
+    {
+      "path": "apps/web/src/lib/help/admin-workflows.ts",
+      "sha256": "41b8fcac6d7e58b880cb23f8dc3bf48b663732eab8cd5462e13a9b3c75d280e7"
+    },
+    {
+      "path": "apps/web/src/lib/help/topics.ts",
+      "sha256": "404f7c26314965bb5b6d46213e29b70ec45d6478fcb036b988b94ec3f21c9f73"
+    },
+    {
+      "path": "apps/worker/src/index.ts",
+      "sha256": "e6a84dac3b554dce6d0470f8e8b159b2862eafdd8307f3f45ad1a4c1f49618c3"
+    },
+    {
+      "path": "packages/application/src/authorization.ts",
+      "sha256": "f38f0ac58f740f1a112ca78b999ddffc2e121902ba9d6b5bbf1df14d59ba6537"
+    },
+    {
+      "path": "packages/application/src/fixture-observations.ts",
+      "sha256": "9a1d180c3db0508007d59847b3e156609698c512e1845254d45b0ed266b8c369"
+    },
+    {
+      "path": "packages/application/src/index.ts",
+      "sha256": "0dc1458b1a21a4fc7d75c585ab8fc130ae2a0b16e23ba84d92bf5a191f238b62"
+    },
+    {
+      "path": "packages/application/src/match-data.ts",
+      "sha256": "1d7607fa5ab73e4ed57b78e38543d8de2cb78673fa5c594e7a00ff18ef29608c"
+    },
+    {
+      "path": "packages/application/src/provider-acceptance-inputs.ts",
+      "sha256": "dd2ec9e41b55f9091daa20cabcdd8fff582f54f58de2c67c57176f01d34c0c4d"
+    },
+    {
+      "path": "packages/application/src/provider-acceptance-policy.ts",
+      "sha256": "81af77418384e74607d58a5095653d8beba1a1a2fd7ac0e47b393413b6e0c8a9"
+    },
+    {
+      "path": "packages/application/src/provider-acceptance-query.ts",
+      "sha256": "9d88cd5cd6599dda204274c312c50665c98bdff03cf757b0e7d222a2b9b3e188"
+    },
+    {
+      "path": "packages/application/src/provider-acceptance.ts",
+      "sha256": "f6e0f205f7a8f646bd091dea0fcc026454868fb23582eace4fc64c3490854550"
+    },
+    {
+      "path": "packages/application/src/provider-event-timeline.ts",
+      "sha256": "79117354c248ad08d6a00b094587ad098162bd5a44744e914248e7c0d1dd7179"
+    },
+    {
+      "path": "packages/application/src/provider-match-parser.ts",
+      "sha256": "34631b42b2e0e26e387a415cab836ccc68b52fc35261e15cd3888ee3ced2660f"
+    },
+    {
+      "path": "packages/application/src/provider-normalization.ts",
+      "sha256": "080f948a2f372c823c18489d0fc3f0fb0928fca7b30f52db31160d31d161d35d"
+    },
+    {
+      "path": "packages/application/tests/postgres-provider-normalization.test.ts",
+      "sha256": "59587f25b240501892a7d3aa82574117a55329de8240be1568d0a5ea5c1b554e"
+    },
+    {
+      "path": "packages/application/tests/postgres-provider-report-acceptance.test.ts",
+      "sha256": "945e9bd1c6791f7d33ce3067c89c25b09f5c9a2b9f59d3ad07442e30054297df"
+    },
+    {
+      "path": "packages/application/tests/postgres.test.ts",
+      "sha256": "047022f046452f4957b6d51acfa5966ea2b8060f0d88246951b4543996082417"
+    },
+    {
+      "path": "packages/application/tests/provider-acceptance-fixture.ts",
+      "sha256": "bd6146234f2666e0f5177ba45aa243e9e1ae773b34d12f74eeedc178705540da"
+    },
+    {
+      "path": "packages/application/tests/provider-acceptance-rounds.ts",
+      "sha256": "9c831293563fec5ff6567bd6d650d92aa95b306637c47ed4b1b27c9dd5530534"
+    },
+    {
+      "path": "packages/application/tests/provider-event-timeline.test.ts",
+      "sha256": "6735eb96cb46ef72f38fd454da44130eeb65a2863f6c01c81fea35cbcb30d3c1"
+    },
+    {
+      "path": "packages/application/tests/required-fixture-value.ts",
+      "sha256": "226d842c937644f35d9f0234ee4465771ee999b568d5f7f745eb85eb961eaab1"
+    },
+    {
+      "path": "packages/contracts/src/index.ts",
+      "sha256": "a20a53c616a6325c819569839e0fb93c56832948543033aa1d9f34432197f194"
+    },
+    {
+      "path": "packages/contracts/src/provider-acceptance.ts",
+      "sha256": "f7298e55102f88fe627d1d17cdb041472f1bc46ff9bafe61e8a68d2c5c9c8df5"
+    },
+    {
+      "path": "packages/contracts/src/results.ts",
+      "sha256": "42ea9e8a3de031beb23f79a40b34f2f35c747304febed4f74554df85406eb47b"
+    },
+    {
+      "path": "packages/persistence/src/database.ts",
+      "sha256": "3bd6a3a2aeed2c6903a28a2a0c6f7248156af65afe5dcc0d086359a3e743c2dc"
+    },
+    {
+      "path": "packages/persistence/src/migrate.ts",
+      "sha256": "228f00e5470435f0989735b2539318b5a5822bafb7a6a5be0660118ba122b145"
+    },
+    {
+      "path": "packages/persistence/src/migrations/0025-provider-acceptance.ts",
+      "sha256": "5c9bbc37f34e9aa64a13d8d1b34a5797a4e345b67fa8698844674e2283da1922"
+    },
+    {
+      "path": "packages/persistence/tests/postgres.test.ts",
+      "sha256": "22a2012bfca12bac788d6bc1492c1eefd149366ea0fdae8cad696a953b009141"
+    },
+    {
+      "path": "scripts/browser-provider-acceptance.mjs",
+      "sha256": "59f3ced674410276a9152808bbc6a52818584ff8aeea5dc91e88698b544daf24"
+    },
+    {
+      "path": "scripts/browser-provider-normalization.mjs",
+      "sha256": "0dc4b7960e8ad930040fdcece7ffa6a1fcd1a948b8e6136971f565e429e8af56"
+    }
+  ]
+}

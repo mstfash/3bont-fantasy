@@ -4,6 +4,7 @@ export type Capability =
   | 'staff.manage'
   | 'competition.manage'
   | 'results.replay'
+  | 'provider.acceptance.manage'
   | 'facts.manage'
   | 'moderation.manage'
   | 'prizes.prepare'
@@ -29,6 +30,7 @@ const capabilities: Readonly<Record<StaffRole, readonly Capability[]>> = {
     'competition.manage',
     'facts.manage',
     'results.replay',
+    'provider.acceptance.manage',
     'moderation.manage',
     'prizes.prepare',
     'prizes.approve',

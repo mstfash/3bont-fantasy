@@ -152,6 +152,7 @@ export const providerNormalizationPreviewSchema = z.strictObject({
   adapterVersion: z.enum([
     'api-football-reviewed-v1',
     'api-football-reviewed-v2',
+    'api-football-reviewed-v3',
   ]),
   fingerprint: z.string().regex(/^[a-f0-9]{64}$/u),
   observation: fixtureObservationSchema,

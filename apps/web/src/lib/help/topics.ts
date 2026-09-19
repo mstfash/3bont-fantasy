@@ -81,9 +81,9 @@ export const helpTopics = {
   ],
   providers: [
     'Provider collection',
-    'Coverage, rights, identity mappings, quota reconciliation and explicit activation are required. Saved source responses still need validation. Missing data stays unknown; a successful request does not publish match facts.',
+    'Coverage, rights, identity mappings, quota reconciliation and explicit activation are required. An owner-approved season policy can accept complete finished-match reports. Missing or ambiguous data stays held for review; collection alone does not publish match facts.',
     'جمع بيانات المزود',
-    'يلزم التحقق من التغطية والحقوق وربط المعرّفات وتسوية الحصة والتفعيل الصريح. تظل الاستجابات المحفوظة بحاجة للتحقق. البيانات المفقودة مجهولة، ونجاح الطلب لا ينشر حقائق المباراة.',
+    'يلزم التحقق من التغطية والحقوق وربط المعرّفات وتسوية الحصة والتفعيل الصريح. تسمح سياسة موسم يوافق عليها المالك بقبول التقارير المكتملة للمباريات المنتهية. تبقى البيانات الناقصة أو الملتبسة للمراجعة؛ الجمع وحده لا ينشر حقائق المباراة.',
   ],
   matches: [
     'Match reports and corrections',

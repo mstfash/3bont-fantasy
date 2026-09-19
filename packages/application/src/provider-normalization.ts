@@ -131,7 +131,7 @@ export async function loadProviderNormalization(
     .executeTakeFirst();
   const basis = {
     selection,
-    adapterVersion: 'api-football-reviewed-v2',
+    adapterVersion: 'api-football-reviewed-v3',
     ...normalized,
     binding,
     sources: ids.map((id) => {
@@ -264,7 +264,7 @@ export async function readSavedProviderReview(
     .executeTakeFirst();
   const parsed = z
     .object({
-      kind: z.literal('reviewed-provider-report'),
+      kind: z.enum(['reviewed-provider-report', 'automatic-provider-report']),
       eligibilityReference: z.string(),
       normalization: z.object({
         sources: providerNormalizationPreviewSchema.shape.sources,

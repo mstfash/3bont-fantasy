@@ -226,7 +226,7 @@ void test('reviewed provider drafts retain evidence/mapping history, reject stal
     grants,
     selection,
   );
-  assert.equal(preview.adapterVersion, 'api-football-reviewed-v2');
+  assert.equal(preview.adapterVersion, 'api-football-reviewed-v3');
   const historic = providerNormalizationPreviewSchema.parse({
     ...preview,
     adapterVersion: 'api-football-reviewed-v1',
@@ -300,7 +300,7 @@ void test('reviewed provider drafts retain evidence/mapping history, reject stal
     .executeTakeFirstOrThrow();
   assert.partialDeepStrictEqual(retained.payload, {
     kind: 'reviewed-provider-report',
-    normalization: { adapterVersion: 'api-football-reviewed-v2' },
+    normalization: { adapterVersion: 'api-football-reviewed-v3' },
   });
   assert.equal(
     (

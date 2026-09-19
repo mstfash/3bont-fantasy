@@ -144,3 +144,7 @@ export {
   executeSnapshotRepair,
   readSnapshotRepairWorkspace,
 } from './snapshot-repair.ts';
+
+export { acceptNextProviderReport } from './provider-acceptance.ts';
+export { executeProviderAcceptancePolicy } from './provider-acceptance-policy.ts';
+export { readProviderAcceptance } from './provider-acceptance-query.ts';

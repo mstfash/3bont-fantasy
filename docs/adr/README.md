@@ -46,3 +46,5 @@ All records currently accepted. Routine defaults are in canonical specifications
 - [0032 - Evidenced exceptional fixture settlement](0032-evidenced-exceptional-fixture-settlement.md)
 
 [0033 — Restore snapshots from accepted decisions](0033-restore-snapshots-from-accepted-decisions.md)
+
+[0034 — Governed provider report acceptance](0034-governed-provider-report-acceptance.md)

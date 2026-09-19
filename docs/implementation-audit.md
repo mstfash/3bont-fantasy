@@ -1,6 +1,6 @@
 # Implementation audit — remaining release work
 
-Updated 2026-09-19 against the shipped slice-37 baseline and the active production-readiness work. This replaces stale slice-29 assumptions; documentation is not completion evidence. The full release ledger is [production readiness](production-readiness.md).
+Updated 2026-09-19 against the shipped slice-39 baseline and the active production-readiness work. This replaces stale slice-29 assumptions; documentation is not completion evidence. The full release ledger is [production readiness](production-readiness.md).
 
 ## Implemented in the baseline
 
@@ -15,9 +15,9 @@ Updated 2026-09-19 against the shipped slice-37 baseline and the active producti
 
 - Exceptional fixture decisions need explicit official evidence and retained disposition history; a full replay has a new identity, while resumed play replaces the cumulative report. Zero-performance rounds require reviewed settlement after lock. Merged after exact-head required CI in PR 13.
 - Historical participant-snapshot repair now derives from the latest original accepted command before deadline, retains original/repair versions and atomically publishes the repaired result. Slice 39 includes private exports, version-safe public reads and failure/concurrency/browser coverage.
-- Provider automatic acceptance needs a versioned worker path, strict ambiguity/source/freshness gates, atomic acceptance and idempotency. Current collection does not imply accepted football facts.
+- Slice 40 adds owner-approved automatic FT acceptance, strict data/source/freshness holds, atomic evidence and idempotency. Full local verification passed; licensed provider validation remains separate.
 
-- A01–A62 are indexed in [acceptance evidence](acceptance-evidence.md). Add a dedicated persisted club-move/next-transfer replay for A13/A59; static cap validation is not complete scenario evidence.
+- A01–A62 are indexed in [acceptance evidence](acceptance-evidence.md). A dedicated persisted club-move/next-transfer replay for A13/A59 now exercises actual catalogue moves and repair transfers.
 
 ## Release evidence still required
 

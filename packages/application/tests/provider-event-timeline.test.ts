@@ -77,6 +77,22 @@ void test('complete scoreless regulation evidence establishes clean-sheet inputs
   assert.deepEqual(result.facts.get(12)?.discipline, { kind: 'none' });
   assert.equal(result.facts.has(24), false);
 });
+void test('only explicit zero participation and discipline establish an unused reserve performance', () => {
+  const f = fixture();
+  player(f, 23, { minutes: 0, goals: 0, yellow: 0, red: 0 });
+  const result = deriveProviderTimeline(f);
+  assert.deepEqual(result.facts.get(23), {
+    goals: 0,
+    ownGoals: 0,
+    penaltyMisses: 0,
+    concededWhileOnPitch: 0,
+    concededAfterDismissal: 0,
+    discipline: { kind: 'none' },
+  });
+  assert.equal(result.facts.has(24), false);
+  player(f, 23, { yellow: null });
+  assert.equal(deriveProviderTimeline(f).facts.has(23), false);
+});
 for (const minute of [59, 60]) {
   void test(`substitution at ${String(minute)} preserves exact reported minutes and excludes later conceded goals`, () => {
     const f = fixture([sub(12, 24, minute), goal(1, 1, 70)]);

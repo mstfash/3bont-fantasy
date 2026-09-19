@@ -1,8 +1,6 @@
+import { applyFixtureObservation } from './fixture-observations.ts';
 import { freezeFixtureAssignments } from './fixture-assignment-lock.ts';
-import {
-  applyFixtureDisposition,
-  latestFixtureDisposition,
-} from './fixture-dispositions.ts';
+import { applyFixtureDisposition } from './fixture-dispositions.ts';
 import { loadProviderNormalization } from './provider-normalization.ts';
 import { requireCurrentStaffWrite } from './staff-write-access.ts';
 import { createHash, randomUUID } from 'node:crypto';
@@ -11,10 +9,8 @@ import type { createDatabase, Database } from '@fantasy/persistence';
 import {
   factChangeSchema,
   fixtureSchema,
-  fixtureObservationSchema,
   matchDataCommandSchema,
   type MatchDataCommand,
-  type FixtureObservation,
 } from '@fantasy/contracts';
 import {
   requireCapability,
@@ -88,143 +84,24 @@ export async function applyMatchDataWithinTransaction(
     .executeTakeFirst();
   if (!currentRow) throw new CommandRejected('fixture-unavailable');
   const current = fixtureSchema.parse(currentRow.data);
-  let updated = current;
+  let updated: typeof current;
   if (command.kind === 'disposition') {
     updated = await applyFixtureDisposition(tx, principal, current, command);
   } else if (command.kind === 'import') {
-    const disposition = await latestFixtureDisposition(tx, fixtureId);
-    if (disposition && disposition.choice.outcome !== 'release')
-      throw new CommandRejected('fixture-disposition-active');
-    if (['void', 'awarded'].includes(command.observation.fixture.status))
-      throw new CommandRejected('fixture-disposition-required');
-    if (current.revision !== command.expectedRevision)
-      throw new CommandRejected('fixture-changed');
-    const incoming = command.observation;
-    if (
-      incoming.fixture.seasonId !== current.seasonId ||
-      incoming.fixture.homeClubId !== current.homeClubId ||
-      incoming.fixture.awayClubId !== current.awayClubId
-    )
-      throw new CommandRejected('fixture-identity-changed');
-    // Resuming an interrupted match keeps the same identity. A replay must be a new fixture.
-    if (
-      ['live', 'suspended', 'finished'].includes(current.status) &&
-      ['scheduled', 'postponed'].includes(incoming.fixture.status)
-    )
-      throw new CommandRejected('started-fixture-cannot-be-unplayed');
-    const eligible =
-      incoming.eligibleFootballerIds.length > 0
-        ? await tx
-            .selectFrom('footballers')
-            .select('id')
-            .where('season_id', '=', current.seasonId)
-            .where('id', 'in', incoming.eligibleFootballerIds)
-            .execute()
-        : [];
-    if (eligible.length !== incoming.eligibleFootballerIds.length)
-      throw new CommandRejected('footballer-outside-season');
-    if (incoming.eligibilityComplete && eligible.length === 0)
-      throw new CommandRejected('empty-eligibility-roster');
-    const last = await tx
-      .selectFrom('fixture_observations')
-      .select('payload')
-      .where('fixture_id', '=', fixtureId)
-      .orderBy('revision', 'desc')
-      .executeTakeFirst();
-    const evidencePayload =
+    const saved = await applyFixtureObservation(
+      tx,
+      principal.accountId,
+      current,
+      command,
       normalization && command.providerReview
         ? {
             kind: 'reviewed-provider-report',
-            observation: incoming,
             normalization,
             eligibilityReference: command.providerReview.eligibilityReference,
           }
-        : incoming;
-    const evidenceId = randomUUID();
-    await tx
-      .insertInto('provider_evidence')
-      .values({
-        id: evidenceId,
-        provider: command.source,
-        resource: `fixture:${fixtureId}`,
-        checksum: createHash('sha256')
-          .update(JSON.stringify(evidencePayload))
-          .digest('hex'),
-        payload: evidencePayload,
-      })
-      .execute();
-    if (normalization) {
-      await tx
-        .insertInto('provider_normalization_sources')
-        .values(
-          normalization.sources.map((source) => ({
-            report_evidence_id: evidenceId,
-            attempt_id: source.attemptId,
-          })),
-        )
-        .execute();
-      await tx
-        .insertInto('provider_normalization_mappings')
-        .values(
-          normalization.mappings.map((mapping) => ({
-            report_evidence_id: evidenceId,
-            mapping_id: mapping.id,
-            revision: mapping.revision,
-          })),
-        )
-        .execute();
-    }
-    const normalized = canonicalObservation(incoming, current.revision);
-    const previous = last
-      ? canonicalObservation(last.payload, current.revision)
-      : null;
-    if (
-      JSON.stringify(normalized) !== JSON.stringify(previous) ||
-      JSON.stringify(normalized.fixture) !== JSON.stringify(current)
-    ) {
-      updated = { ...normalized.fixture, revision: current.revision + 1 };
-      await tx
-        .insertInto('fixture_observations')
-        .values({
-          fixture_id: fixtureId,
-          revision: updated.revision,
-          evidence_id: evidenceId,
-          payload: { ...normalized, fixture: updated },
-        })
-        .execute();
-      for (const performance of normalized.performances) {
-        const latest = await tx
-          .selectFrom('fact_revisions')
-          .select('revision')
-          .where('fixture_id', '=', fixtureId)
-          .where('footballer_id', '=', performance.footballerId)
-          .orderBy('revision', 'desc')
-          .executeTakeFirst();
-        await tx
-          .insertInto('fact_revisions')
-          .values({
-            id: randomUUID(),
-            fixture_id: fixtureId,
-            footballer_id: performance.footballerId,
-            revision: (latest?.revision ?? 0) + 1,
-            evidence_id: evidenceId,
-            is_override: false,
-            actor_id: principal.accountId,
-            reason: command.reason,
-            payload: {
-              kind: 'performance',
-              statistics: performance.statistics,
-              discipline: performance.discipline,
-            },
-          })
-          .execute();
-      }
-      await tx
-        .updateTable('fixtures')
-        .set({ data: updated, kickoff: updated.kickoff })
-        .where('id', '=', fixtureId)
-        .execute();
-    }
+        : null,
+    );
+    updated = saved.fixture;
   } else {
     const latest = await tx
       .selectFrom('fact_revisions')
@@ -304,19 +181,4 @@ export async function applyMatchDataWithinTransaction(
     })
     .execute();
   return updated;
-}
-
-/** PostgreSQL JSON object order and source array order must not create a new football observation. */
-function canonicalObservation(
-  observation: FixtureObservation,
-  revision: number,
-): FixtureObservation {
-  return fixtureObservationSchema.parse({
-    ...observation,
-    fixture: { ...observation.fixture, revision },
-    eligibleFootballerIds: [...observation.eligibleFootballerIds].sort(),
-    performances: [...observation.performances].sort((a, b) =>
-      a.footballerId.localeCompare(b.footballerId),
-    ),
-  });
 }

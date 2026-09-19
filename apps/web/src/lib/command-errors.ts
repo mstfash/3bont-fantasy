@@ -1,5 +1,13 @@
 import type { Locale } from './brand';
 const messages: Readonly<Record<string, { ar: string; en: string }>> = {
+  'provider-acceptance-changed': {
+    en: 'The acceptance policy changed. Reload and review the current version.',
+    ar: 'تغيرت سياسة القبول. أعد التحميل وراجع الإصدار الحالي.',
+  },
+  'provider-report-held': {
+    en: 'A collected report is held for review. Open report acceptance for its evidence and missing-data details.',
+    ar: 'تقرير مجمع يحتاج مراجعة. افتح صفحة قبول التقارير للاطلاع على الأدلة والبيانات الناقصة.',
+  },
   'fixture-disposition-required': {
     en: 'Record a reviewed official disposition before excluding this fixture’s performance.',
     ar: 'سجّل قراراً رسمياً مُراجعاً قبل استبعاد أداء المباراة.',

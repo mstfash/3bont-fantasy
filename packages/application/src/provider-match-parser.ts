@@ -242,13 +242,7 @@ export function parseProviderMatch(
       ] as const;
     }),
   );
-  const issues: string[] = [
-    ...timeline.issues,
-    'eligibility-needs-evidence',
-    'defensive-timeline-needs-review',
-    'penalties-and-own-goals-need-review',
-    'discipline-needs-review',
-  ];
+  const issues: string[] = [...timeline.issues, 'eligibility-needs-evidence'];
   const seen = new Set<number>();
   const performances = teams.data.flatMap((team) =>
     team.players.map((row) => {
@@ -346,6 +340,29 @@ export function parseProviderMatch(
       a.footballerId.localeCompare(b.footballerId),
     ),
   });
+  if (
+    performances.some(
+      (p) =>
+        p.statistics.concededWhileOnPitch === null ||
+        p.statistics.concededAfterDismissal === null,
+    )
+  )
+    issues.push('defensive-timeline-needs-review');
+  if (
+    performances.some(
+      (p) =>
+        p.statistics.ownGoals === null || p.statistics.penaltyMisses === null,
+    )
+  )
+    issues.push('penalties-and-own-goals-need-review');
+  if (performances.some((p) => p.discipline === null))
+    issues.push('discipline-needs-review');
+  if (
+    performances.some(
+      (p) => p.statistics.minutes === 0 && (p.statistics.assists ?? 0) > 0,
+    )
+  )
+    issues.push('aggregate-values-conflict');
   return {
     observation,
     issues: [...new Set(issues)].sort(),

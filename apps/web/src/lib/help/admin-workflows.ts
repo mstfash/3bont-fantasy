@@ -98,6 +98,23 @@ export const adminWorkflows = [
     ],
   },
   {
+    topic: 'providers',
+    capability: 'provider.acceptance.manage',
+    path: '/admin/providers/acceptance',
+    en: [
+      'Verify licensed season coverage and complete matchday participation before enabling an acceptance policy.',
+      'Choose the provider account and maximum source age, record the evidence reference and review the exact settings before confirming.',
+      'Only unambiguous regular-time finished reports pass. Missing minutes and statistics stay unknown; review held reports on the match page.',
+      'Account, collection schedule and worker automation need their own activation. Corrections retain admin overrides and place finalized results under review.',
+    ],
+    ar: [
+      'تحقق من تغطية الموسم المرخصة واكتمال بيانات المشاركة قبل تفعيل سياسة القبول.',
+      'اختر حساب المزود وأقصى عمر للمصادر وسجّل مرجع الأدلة، ثم راجع الإعدادات قبل التأكيد.',
+      'تُقبل فقط التقارير المكتملة للمباريات المنتهية في الوقت الأصلي دون التباس. تبقى الدقائق والإحصاءات الناقصة مجهولة؛ راجع التقارير المحجوبة من صفحة المباراة.',
+      'يلزم تفعيل الحساب وجدول الجمع والعامل كل على حدة. تحتفظ التصحيحات بالتعديلات الإدارية وتضع النتائج النهائية قيد المراجعة.',
+    ],
+  },
+  {
     topic: 'matches',
     capability: 'facts.manage',
     path: '/admin/matches',
