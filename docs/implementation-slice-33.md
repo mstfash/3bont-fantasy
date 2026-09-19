@@ -14,7 +14,7 @@ The resolver checks event totals against the final score and playing intervals a
 
 The draft adapter uses coherent timelines for own goals, penalty misses and defensive facts. Card totals must corroborate card events; disagreements withhold the affected player's derived fields. Goalkeeper saves remain unknown unless both save totals and penalty-save totals are supplied consistently. Penalty saves are included in the supplied total saves, not added a second time, and team goalkeeper totals cannot exceed the opposing missed-penalty events. A reported penalty-miss total must match the event count before becoming a draft fact.
 
-Arabic and English staff explanations identify the new timeline holds. Source attempts/mappings and the reviewed-report transaction remain the authority for storing a draft. `factsComplete` and `eligibilityComplete` still start false: this change does not authorize automatic acceptance, infer unused-bench minutes, establish historical eligibility or prove target-season provider semantics.
+New previews and retained report evidence identify adapter version `api-football-reviewed-v2`; the read contract still accepts version 1 without relabeling historical evidence. The adapter version participates in the confirmation fingerprint. Arabic and English staff explanations identify the new timeline holds. Source attempts/mappings and the reviewed-report transaction remain the authority for storing a draft. `factsComplete` and `eligibilityComplete` still start false: this change does not authorize automatic acceptance, infer unused-bench minutes, establish historical eligibility or prove target-season provider semantics.
 
 ## Regression evidence and limits
 
@@ -25,3 +25,5 @@ The resolver intentionally holds whole timelines when participation or score evi
 Golden fixtures here are synthetic. The free key cannot access 2026/27; no further live API calls were made. Automatic report acceptance, cross-competition correction projections, historical rule replay and production recovery evidence remain open in the [execution plan](release-execution-plan.md).
 
 Full local verification passed: 108 unit/harness cases, 83 PostgreSQL cases, 56 public smoke combinations and authenticated E2E. The final dismissal-total safeguard separately passed application type checking, lint and 31 unit cases. See [the scoped proof record](../artifacts/verification/timeline-proof.json); remote PR CI checks the final complete tree.
+
+The version-2 compatibility change also passed dependency builds, application types/lint, 31 unit cases and all 74 application PostgreSQL cases. The integration proof verifies the version persisted with reviewed source evidence and that historical version-1 records retain their original label. Main CI for the baseline merge passed at [run 35444105345](https://github.com/mstfash/3bont-fantasy/actions/runs/35444105345).

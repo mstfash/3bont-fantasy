@@ -8,6 +8,7 @@ import {
   footballerSchema,
   seasonSchema,
   providerNormalizationSelectionSchema,
+  providerNormalizationPreviewSchema,
   type MatchDataCommand,
   type ProviderNormalizationPreview,
 } from '@fantasy/contracts';
@@ -225,6 +226,12 @@ void test('reviewed provider drafts retain evidence/mapping history, reject stal
     grants,
     selection,
   );
+  assert.equal(preview.adapterVersion, 'api-football-reviewed-v2');
+  const historic = providerNormalizationPreviewSchema.parse({
+    ...preview,
+    adapterVersion: 'api-football-reviewed-v1',
+  });
+  assert.equal(historic.adapterVersion, 'api-football-reviewed-v1');
   assert.equal(preview.observation.performances.length, 3);
   assert.equal(preview.observation.eligibilityComplete, false);
   assert.equal(
@@ -285,6 +292,16 @@ void test('reviewed provider drafts retain evidence/mapping history, reject stal
   ]);
   assert.equal(results[0].revision, 2);
   assert.deepEqual(results[0], results[1]);
+  const retained = await db
+    .selectFrom('provider_evidence')
+    .select('payload')
+    .where('provider', '=', 'api-football-reviewed')
+    .where('resource', '=', `fixture:${f.fixture.id}`)
+    .executeTakeFirstOrThrow();
+  assert.partialDeepStrictEqual(retained.payload, {
+    kind: 'reviewed-provider-report',
+    normalization: { adapterVersion: 'api-football-reviewed-v2' },
+  });
   assert.equal(
     (
       await db

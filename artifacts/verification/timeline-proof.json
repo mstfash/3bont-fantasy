@@ -6,7 +6,9 @@
   "sources": {
     "packages/application/src/provider-event-timeline.ts": "6631990ac5ffbca0c504c67ae548b55f0789cff25411da682f617c3a2fddf6dd",
     "packages/application/src/provider-match-parser.ts": "d9df91fb7fd685089969ad875ff3872a3c43148fac0c5a3aefd10de7bfabf8d8",
-    "apps/web/src/components/provider-match-workspace.tsx": "f5a890b99633f0b02eba3c256b1bc90fdb9fc52b17c85dc0960180e03ca6f66f"
+    "apps/web/src/components/provider-match-workspace.tsx": "f5a890b99633f0b02eba3c256b1bc90fdb9fc52b17c85dc0960180e03ca6f66f",
+    "packages/contracts/src/results.ts": "ecfb972e5230b87f7a7c294efd9e2e1caa72561ccd5f9791c57d7bd5d97c85cc",
+    "packages/application/src/provider-normalization.ts": "042af32015efb414ae39bdf90d97c6511abae1a0552017bad70039fb349c98e4"
   },
   "localFullVerification": {
     "status": "passed",
@@ -19,7 +21,8 @@
   "finalApplicationChecks": {
     "typecheck": "passed",
     "lint": "passed",
-    "unitCases": 31
+    "unitCases": 31,
+    "postgresCases": 74
   },
   "ciBaseline": {
     "checkpoint": "d7ca961f09b96f3423803a3488b1dbe0eb2d1394",
@@ -29,7 +32,8 @@
     "requiredCheck": "Required checks",
     "githubAppId": 15368,
     "enforceAdmins": true,
-    "strictCurrentHead": true
+    "strictCurrentHead": true,
+    "passingMainRun": "https://github.com/mstfash/3bont-fantasy/actions/runs/35444105345"
   },
   "limits": [
     "Synthetic source evidence only",
@@ -40,5 +44,13 @@
   "review": {
     "structure": "Reviewed provider parsing and pure event reconstruction remain separate; no automatic publication or persistence bypass.",
     "visual": "English desktop and Arabic mobile review screens inspected; introduction updated to describe the derived draft facts."
+  },
+  "adapterVersions": {
+    "new": "api-football-reviewed-v2",
+    "historicalReadSupport": [
+      "api-football-reviewed-v1",
+      "api-football-reviewed-v2"
+    ],
+    "storedEvidenceVersionTest": "passed"
   }
 }

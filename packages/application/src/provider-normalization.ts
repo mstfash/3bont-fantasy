@@ -131,7 +131,7 @@ export async function loadProviderNormalization(
     .executeTakeFirst();
   const basis = {
     selection,
-    adapterVersion: 'api-football-reviewed-v1',
+    adapterVersion: 'api-football-reviewed-v2',
     ...normalized,
     binding,
     sources: ids.map((id) => {
