@@ -1,0 +1,177 @@
+{
+  "slice": 36,
+  "date": "2026-09-19",
+  "providerRequests": 0,
+  "automaticAcceptanceEnabled": false,
+  "localVerification": {
+    "status": "passed",
+    "unitAndHarnessCases": 116,
+    "postgresCases": 113,
+    "publicSmokeCombinations": 56,
+    "anonymousHomeBoardE2E": "passed",
+    "authenticatedE2E": "passed",
+    "typecheck": "passed",
+    "lint": "passed",
+    "productionBuild": "passed"
+  },
+  "sources": [
+    {
+      "path": "apps/web/src/app/[locale]/competitions/[slug]/results/[entryId]/page.tsx",
+      "sha256": "f59daaf62912a534987f24279a50702a1c9d8ccf5917b569ce3c9939778d18cd"
+    },
+    {
+      "path": "apps/web/src/app/[locale]/competitions/[slug]/standings/page.tsx",
+      "sha256": "25ab8f91a4de402c98093d4cd3ec7e10ae23d7c52dbdaa07ca3bcd0090bb94a3"
+    },
+    {
+      "path": "apps/web/src/app/[locale]/page.tsx",
+      "sha256": "ffc265161481c9f00dea4489a65e01e9ebc5f3a6ade48b0ce0259ba65c6b7b79"
+    },
+    {
+      "path": "apps/web/src/app/api/v1/admin/matches/route.ts",
+      "sha256": "0084656d74fe04f067cd4152acbc706abe945a81c3a6596f1b02b52051d72fbe"
+    },
+    {
+      "path": "apps/web/src/components/board-refresh.tsx",
+      "sha256": "7ba434a2a9e14511c6a2275ba74f28c64d780fcc4e693e434ce19fe3df47c324"
+    },
+    {
+      "path": "apps/web/src/components/catalogue/catalogue-editor.tsx",
+      "sha256": "e3f5b554ef204c7506e358dab9ac5772009f9f602c10958ef8fcfd5d431223c3"
+    },
+    {
+      "path": "apps/web/src/components/catalogue/catalogue-importer.tsx",
+      "sha256": "7d3340d4ced7a1390e9ed1d851fc7f652ffa6dd30f7a76729c2c0f41391e3a60"
+    },
+    {
+      "path": "apps/web/src/components/football-shirt.tsx",
+      "sha256": "2ca89f5b6aab7a1c82bfa1b97186d78bef1a911012304a0b48ba28c1bc04b927"
+    },
+    {
+      "path": "apps/web/src/components/home-board.tsx",
+      "sha256": "4ee34458e6906b52dd5592c2ea46fd2da77819e8341519435d8c1a345579dd7c"
+    },
+    {
+      "path": "apps/web/src/components/match-editor.tsx",
+      "sha256": "09d52f2a75742d49d78c8335ead1faf3f5b791007816f75c97dc089b8aca7d29"
+    },
+    {
+      "path": "apps/web/src/components/match-review-summary.tsx",
+      "sha256": "af7a7b64127d079294328b4ab661691041334fcd306879df3aa7026adcaf250e"
+    },
+    {
+      "path": "apps/web/src/components/site-shell.tsx",
+      "sha256": "6fc416033bdc7ec3a9671bc354d0295a19179b74fb5c3963dcd695b1cd62442f"
+    },
+    {
+      "path": "apps/web/src/components/standings-movement.tsx",
+      "sha256": "b2a8577005cf60d355088b86669233b445c12fb44a5af08dac5694cce286efff"
+    },
+    {
+      "path": "apps/web/src/components/winning-pitch.tsx",
+      "sha256": "07cea1d8a2874617a279dde812a3fbcd946e2914600b43b8ea110fa499651abe"
+    },
+    {
+      "path": "apps/web/src/lib/command-errors.ts",
+      "sha256": "34077f6133d440fb19a7e11d7882157ce80ab7952e9db5492b694e19590a66b4"
+    },
+    {
+      "path": "apps/web/src/lib/help/admin-workflows.ts",
+      "sha256": "52639df05659a43c87618c0b51c1673c18357f36b7fe79c7881fcee7b679c65a"
+    },
+    {
+      "path": "apps/web/src/styles/home-board.css",
+      "sha256": "13e52478c597a732a4d056042560f674aba4ba0b2af4579a5e6672c9037c1a16"
+    },
+    {
+      "path": "apps/web/src/styles/site.css",
+      "sha256": "dc7c264a5da7c88e7ffe5dc34bf1e02d711c2bb66520352ce501b0d53ad8e12b"
+    },
+    {
+      "path": "packages/application/src/competition-pulse.ts",
+      "sha256": "c8d15cdaa99e8d6568b7944b320a1d9418be4475f55cb56bfc61f10bd3ede8be"
+    },
+    {
+      "path": "packages/application/src/competition-setup.ts",
+      "sha256": "2a78179355cdaf3f7e2cc99010d89c05a8fe38fd923e70ebfe41a8b805128a71"
+    },
+    {
+      "path": "packages/application/src/demo.ts",
+      "sha256": "c6d9c2465bcf988c11997b342599dc30cb980877c254dc85a06b28314379f150"
+    },
+    {
+      "path": "packages/application/src/fixture-assignment-lock.ts",
+      "sha256": "1517a02f476ed5afb58476550e3f685534be68ce534e2169a67e61aaecc2922a"
+    },
+    {
+      "path": "packages/application/src/index.ts",
+      "sha256": "d720327f6412ec7356694a69787323eb47c82e4503cb89b285cfb0f231a35f94"
+    },
+    {
+      "path": "packages/application/src/leaderboard.ts",
+      "sha256": "61547e21b14767194af64116137a73b36445a59c5bde83e92621abe0650ef016"
+    },
+    {
+      "path": "packages/application/src/match-data.ts",
+      "sha256": "0bf89de95bb21ffe9aaa97a1bb41667cc74aa32eb43d998eff34e08e7082d1fd"
+    },
+    {
+      "path": "packages/application/src/match-review.ts",
+      "sha256": "54272992583d8c84a80cd14543dc85dce0e86ad146875b4462e5a560092b7d3a"
+    },
+    {
+      "path": "packages/application/src/public-lineup.ts",
+      "sha256": "e58dbb4730e7bd16cfcdb1afd28ba19a7df52579c68a9efbea51eed677cc85d6"
+    },
+    {
+      "path": "packages/application/tests/postgres-competition-pulse.test.ts",
+      "sha256": "982ed26810404f4cb084c8610f7e2b3f02870592fe966676f089d433255cf1a9"
+    },
+    {
+      "path": "packages/application/tests/postgres-match-review.test.ts",
+      "sha256": "d96cf4b2d91edcbe5da8630ac0aff3242972d29832ae3b6768ade8e75d41e946"
+    },
+    {
+      "path": "packages/contracts/src/football.ts",
+      "sha256": "5bff5b5e1a12e42e20c3c4278fc001e7a5af9d445801f3f9396e76d72af97e58"
+    },
+    {
+      "path": "packages/contracts/src/index.ts",
+      "sha256": "a109b863d3630574e82c905be49ca9b54c99b7159bf493f6e07795fe3da30a82"
+    },
+    {
+      "path": "packages/contracts/src/match-review.ts",
+      "sha256": "aac313158db2df8c883b3e9c278f9017bdd0cf620b9b926ba30506346dd4c8fb"
+    },
+    {
+      "path": "scripts/browser-home-board.mjs",
+      "sha256": "4d5f3c65dc64e3fbc20790a7919fbb9347b0d89c52a9142b16aea0d1188ab103"
+    },
+    {
+      "path": "scripts/browser-match-review.mjs",
+      "sha256": "86078e46f91b22a0ff327c23cfba9228c7e9dc495ca64efe4e7a3d7b8f01bc55"
+    },
+    {
+      "path": "scripts/browser-result-impact.mjs",
+      "sha256": "aafe4d18da5c2589675b78cae314ebfeacfed80c2ef93f2efe077905dd40c74a"
+    },
+    {
+      "path": "scripts/browser-results.mjs",
+      "sha256": "cf50b5b4952217fbce1200fc0a00e4dfc2870266aa2484f1f8c6282f9b2be979"
+    },
+    {
+      "path": "scripts/browser-smoke.mjs",
+      "sha256": "a7288ff9542aa29abfcc0e3fe3aa94dc9289217a14a1a0e223fe25d9fcb85485"
+    }
+  ],
+  "review": {
+    "structure": "Canonical mutation, ranking and result projection functions are reused. Rollback previews remain inside the application transaction boundary; public readers expose locked published lineups only. No high-confidence structural blockers found.",
+    "visual": "English desktop and Arabic mobile home boards inspected in dark/light themes. Jersey numbers, standings arrows, benches and localized help render correctly. Authenticated mobile navigation overflow was caught by E2E and fixed with wrapping."
+  },
+  "limits": [
+    "Results are published database data refreshed every minute, not live provider ingestion. Synthetic replay is explicitly labeled.",
+    "Shirt numbers are current optional catalogue metadata, not historical match identity. Unknown values remain unknown.",
+    "Controlled historical rules replay and exceptional fixture handling remain open.",
+    "No current-season entitlement validation, licensed valuation delivery, staging deployment or production load/restore proof."
+  ]
+}

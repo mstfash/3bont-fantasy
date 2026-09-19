@@ -36,6 +36,7 @@ export const footballerSchema = z.strictObject({
   clubId: idSchema,
   name: localizedSchema,
   defaultPosition: positionSchema,
+  shirtNumber: z.int().min(0).max(99).nullable().optional(),
   status: z.enum(['available', 'injured', 'suspended', 'unavailable']),
   valuation: valuationSchema.nullable(),
   synthetic: z.boolean(),

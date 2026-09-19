@@ -36,6 +36,7 @@ const labels: Record<string, { en: string; ar: string }> = {
   seasonId: { en: 'Season reference', ar: 'مرجع الموسم' },
   clubId: { en: 'Club reference', ar: 'مرجع النادي' },
   defaultPosition: { en: 'Position', ar: 'المركز' },
+  shirtNumber: { en: 'Shirt number', ar: 'رقم القميص' },
   status: { en: 'Availability', ar: 'الإتاحة' },
   valuation: { en: 'Market valuation', ar: 'القيمة السوقية' },
   'valuation.amountMinor': {

@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { competitionSchema } from '@fantasy/contracts';
+import { readCompetitionPulse } from '@fantasy/application';
+import { HomeBoard } from '@/components/home-board';
 import { SiteShell } from '@/components/site-shell';
 import { requireLocale } from '@/lib/locale';
 import { getRuntime } from '@/server/runtime';
@@ -7,8 +9,10 @@ import { currentSession } from '@/server/session';
 
 export default async function Home({
   params,
+  searchParams,
 }: {
   readonly params: Promise<{ locale: string }>;
+  readonly searchParams: Promise<{ competition?: string; winner?: string }>;
 }) {
   const locale = requireLocale((await params).locale);
   const ar = locale === 'ar';
@@ -22,7 +26,23 @@ export default async function Home({
   ]);
   const competitions = rows
     .map((row) => competitionSchema.parse(row.data))
-    .filter((c) => ['published', 'running'].includes(c.status));
+    .filter((c) => ['published', 'running', 'completed'].includes(c.status))
+    .sort(
+      (a, b) =>
+        Number(b.status === 'running') - Number(a.status === 'running') ||
+        a.slug.localeCompare(b.slug),
+    );
+  const selection = await searchParams;
+  const featured =
+    competitions.find((c) => c.slug === selection.competition) ??
+    competitions[0];
+  const pulse = featured
+    ? await readCompetitionPulse(
+        getRuntime().db,
+        featured.slug,
+        typeof selection.winner === 'string' ? selection.winner : undefined,
+      )
+    : null;
   return (
     <SiteShell locale={locale} signedIn={session !== null}>
       <section className="home-hero">
@@ -84,6 +104,9 @@ export default async function Home({
         <span aria-hidden="true">✳</span>
         <span>3BONT FANTASY</span>
       </section>
+      {pulse && (
+        <HomeBoard pulse={pulse} locale={locale} competitions={competitions} />
+      )}
       <section className="content-section" id="competitions">
         <div className="section-heading">
           <span className="eyebrow">

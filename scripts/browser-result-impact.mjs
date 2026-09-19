@@ -1,3 +1,4 @@
+import { reviewedMatchPost } from './browser-match-review.mjs';
 import assert from 'node:assert/strict';
 import { exerciseGroupImpact } from './browser-group-impact.mjs';
 import { exercisePrizeImpact } from './browser-prize-impact.mjs';
@@ -26,20 +27,17 @@ export async function exerciseResultImpact(
       [fixture.id, player.id],
     )
   ).rows[0];
-  const response = await page.request.post(`${base}/api/v1/admin/matches`, {
-    headers: { Origin: base },
-    data: {
-      kind: 'override',
-      commandId: randomUUID(),
-      fixtureId: fixture.id,
-      footballerId: player.id,
-      expectedRevision: fact.revision,
-      reason: 'Synthetic assist correction for impact preview rehearsal',
-      change: {
-        kind: 'performance',
-        statistics: { ...statistics, assists: 1 },
-        discipline: { kind: 'none' },
-      },
+  const response = await reviewedMatchPost(page, base, {
+    kind: 'override',
+    commandId: randomUUID(),
+    fixtureId: fixture.id,
+    footballerId: player.id,
+    expectedRevision: fact.revision,
+    reason: 'Synthetic assist correction for impact preview rehearsal',
+    change: {
+      kind: 'performance',
+      statistics: { ...statistics, assists: 1 },
+      discipline: { kind: 'none' },
     },
   });
   assert.equal(response.status(), 200);

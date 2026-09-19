@@ -164,6 +164,7 @@ export async function seedDemo(
             en: `${first.en} ${clubName.short}-${String(number + 1)}`,
           },
           defaultPosition: position,
+          shirtNumber: number + 1,
           status: 'available',
           valuation: null,
           synthetic: true,

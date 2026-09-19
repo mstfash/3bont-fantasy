@@ -79,6 +79,10 @@ export function CatalogueEditor({
                   name,
                   clubId: str('clubId'),
                   defaultPosition: str('position'),
+                  shirtNumber:
+                    str('shirtNumber') === ''
+                      ? null
+                      : Number(str('shirtNumber')),
                   status: str('status'),
                   valuation: form.has('hasValuation')
                     ? {
@@ -278,6 +282,24 @@ export function CatalogueEditor({
               </select>
             </label>
           </div>
+          <label>
+            {ar
+              ? 'رقم القميص الحالي (اختياري)'
+              : 'Current shirt number (optional)'}
+            <input
+              name="shirtNumber"
+              type="number"
+              min="0"
+              max="99"
+              step="1"
+              defaultValue={initial.footballer.shirtNumber ?? ''}
+            />
+            <small>
+              {ar
+                ? 'اتركه فارغاً إذا كان غير معروف. لا يغير احتساب النقاط.'
+                : 'Leave blank when unknown. This does not change scoring.'}
+            </small>
+          </label>
           <ValuationFields
             locale={locale}
             valuation={initial.footballer.valuation}

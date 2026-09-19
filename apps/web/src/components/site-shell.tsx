@@ -50,6 +50,9 @@ export async function SiteShell({
           <Link href={`/${locale}#competitions`}>
             {ar ? 'البطولات' : 'Competitions'}
           </Link>
+          <Link href={`/${locale}#scoreboard`}>
+            {ar ? 'النتائج' : 'Scoreboard'}
+          </Link>
           <Link href={`/${locale}/how-to-play`}>
             {ar ? 'إزاي تلعب' : 'How to play'}
           </Link>

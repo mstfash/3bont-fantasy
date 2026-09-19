@@ -86,13 +86,13 @@ export const adminWorkflows = [
     path: '/admin/matches',
     en: [
       'Select a fixture and review eligibility, minutes and all scoring facts.',
-      'Import or correct the report with a reason and source evidence; explicit overrides persist until removed.',
+      'Preview the report or correction with a reason and source evidence. Inspect the shared-match impact across every linked competition before confirming. Restricted competitions remain part of the check; changed dependencies require a fresh preview. Explicit overrides persist until removed.',
       'Inspect overall, classic-league and H2H projections and pending issues. Private league details follow group read access. Reopen finalized rounds only through the reviewed result workflow.',
       'Check standings, affected prizes and delivered-award correction cases after publication.',
     ],
     ar: [
       'اختر مباراة وراجع الأهلية والدقائق وجميع حقائق احتساب النقاط.',
-      'استورد التقرير أو صححه بسبب ودليل؛ تبقى التجاوزات الصريحة حتى إزالتها.',
+      'عاين التقرير أو التصحيح مع السبب والدليل. راجع أثر المباراة على كل البطولات المرتبطة قبل التأكيد؛ تشمل المراجعة البطولات المحجوبة حسب الصلاحيات. تغيّر البيانات يتطلب معاينة جديدة. تبقى التجاوزات الصريحة حتى إزالتها.',
       'افحص معاينات الترتيب العام والدوريات الكلاسيكية والمواجهات والمشكلات المعلّقة. تخضع تفاصيل الدوريات الخاصة لصلاحية القراءة. أعد فتح الجولات المعتمدة فقط عبر مسار النتائج المراجَع.',
       'راجع الترتيب والجوائز المتأثرة وحالات تصحيح الجوائز المسلّمة بعد النشر.',
     ],
