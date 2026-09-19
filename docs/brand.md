@@ -19,6 +19,8 @@ Both public and administrative interfaces use the same locale/theme asset mappin
 
 Vikings informs layout structure, typography scale, density, borders and spacing. Its name, crest, images and restricted demo fonts are not part of this identity.
 
+The homepage pitch uses the exact numeral from `originals/en-light.png` as a CSS alpha mask, with its original proportions and no extra skew or RTL mirroring. The mask displays only the numeral's source rectangle (2366, 1636, 600, 488) in the 5331 × 4450 image. This decorative hero mark follows `--accent`; the complete logos retain their supplied colors. Keep the mask coordinates in sync if replacing the source image.
+
 ## Exports and preview
 
 The four app assets live in `apps/web/public/brand/`, named `3bont-fantasy-{ar|en}-{dark|light}.png`. The originals are preserved in the `originals/` subdirectory. `/brand` is a local, non-indexed comparison page with download links for all four.

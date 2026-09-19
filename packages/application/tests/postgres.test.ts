@@ -101,8 +101,9 @@ void test('competition edits preserve locked rules and require recent scoped MFA
     accountId: 'configuration-owner',
     sessionId: 'admin-session',
     emailVerified: true,
-    mfaVerifiedAt: new Date(),
-    authenticatedAt: new Date(),
+    // This session already exists; do not compare simultaneous host/VM clocks.
+    mfaVerifiedAt: new Date(Date.now() - 1000),
+    authenticatedAt: new Date(Date.now() - 1000),
   };
   const grants = [{ role: 'owner' as const, competitionId: null }];
   await grantProofStaff(db, owner.accountId, grants);

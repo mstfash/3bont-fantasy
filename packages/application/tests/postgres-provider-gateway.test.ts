@@ -55,8 +55,9 @@ void test('provider gateway proves durable ceilings, dispatch contention, header
       accountId: operator,
       sessionId: randomUUID(),
       emailVerified: true,
-      mfaVerifiedAt: new Date(),
-      authenticatedAt: new Date(),
+      // This session already exists; do not compare simultaneous host/VM clocks.
+      mfaVerifiedAt: new Date(Date.now() - 1000),
+      authenticatedAt: new Date(Date.now() - 1000),
     },
     grants = [{ role: 'data-steward' as const, competitionId: null }];
   const configured = await executeProviderCommand(db, principal, grants, {

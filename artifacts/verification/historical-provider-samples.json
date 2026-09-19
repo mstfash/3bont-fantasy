@@ -1,0 +1,177 @@
+{
+  "observedAt": "2026-09-19T22:02:54.201Z",
+  "purpose": "Historical provider quality review, no accepted scores",
+  "provider": "api-football-direct",
+  "seasonYear": 2024,
+  "leagueId": 233,
+  "newRequestsThisTurn": 11,
+  "manualReservationsToday": 19,
+  "dedicatedKeyConfirmed": false,
+  "automaticCollectionEnabled": false,
+  "samples": [
+    {
+      "fixtureId": 1312376,
+      "conflicts": [
+        {
+          "team": "Smouha SC",
+          "lineupOnly": [
+            {
+              "id": 146035,
+              "name": "Mohamed Mostafa Mido",
+              "number": 21,
+              "pos": null,
+              "grid": "2:3"
+            }
+          ],
+          "statisticsOnly": [
+            {
+              "id": 342744,
+              "name": "Mido Mostafa",
+              "number": 21
+            }
+          ]
+        }
+      ],
+      "lastObservedDailyRemaining": "95",
+      "sourceAt": "2026-09-19T13:07:58.007Z"
+    },
+    {
+      "fixtureId": 1312378,
+      "conflicts": [
+        {
+          "team": "El Gouna FC",
+          "lineupOnly": [
+            {
+              "id": 295234,
+              "name": "Hassan Yassin",
+              "number": 17,
+              "pos": null,
+              "grid": null
+            }
+          ],
+          "statisticsOnly": [
+            {
+              "id": 456457,
+              "name": "Hassan Samir",
+              "number": 17
+            }
+          ]
+        }
+      ],
+      "lastObservedDailyRemaining": "91",
+      "sourceAt": "2026-09-19T21:56:27.631Z"
+    },
+    {
+      "fixtureId": 1312380,
+      "conflicts": [
+        {
+          "team": "Pharco",
+          "lineupOnly": [
+            {
+              "id": 356530,
+              "name": "Mohamed Saeed",
+              "number": 25,
+              "pos": null,
+              "grid": "1:1"
+            }
+          ],
+          "statisticsOnly": [
+            {
+              "id": 16876,
+              "name": "Mohamed Saeed Shika",
+              "number": 25
+            }
+          ]
+        }
+      ],
+      "lastObservedDailyRemaining": "89",
+      "sourceAt": "2026-09-19T21:58:12.636Z"
+    },
+    {
+      "fixtureId": 1312383,
+      "conflicts": [
+        {
+          "team": "Ghazl El Mehalla",
+          "lineupOnly": [
+            {
+              "id": 498398,
+              "name": "Amr El Gazar",
+              "number": 5,
+              "pos": null,
+              "grid": "2:4"
+            },
+            {
+              "id": 498399,
+              "name": "Abdelrahim Amoory",
+              "number": 24,
+              "pos": null,
+              "grid": "2:3"
+            },
+            {
+              "id": 498400,
+              "name": "M. Touré",
+              "number": 33,
+              "pos": null,
+              "grid": "3:2"
+            },
+            {
+              "id": 498397,
+              "name": "Mohamed Ashraf",
+              "number": 25,
+              "pos": null,
+              "grid": null
+            },
+            {
+              "id": 312844,
+              "name": "Ahmed El Nafarawy",
+              "number": 1,
+              "pos": null,
+              "grid": null
+            },
+            {
+              "id": 498401,
+              "name": "A. Coulibaly",
+              "number": 38,
+              "pos": null,
+              "grid": null
+            }
+          ],
+          "statisticsOnly": [
+            {
+              "id": 0,
+              "name": "Abdelrahim Amoory",
+              "number": 24
+            },
+            {
+              "id": 0,
+              "name": "Amr El Gazar",
+              "number": 5
+            },
+            {
+              "id": 0,
+              "name": "Mory Touré",
+              "number": 33
+            },
+            {
+              "id": 0,
+              "name": "Mohamed Ashraf",
+              "number": 25
+            },
+            {
+              "id": 0,
+              "name": "Ahmed Ibrahim",
+              "number": 1
+            },
+            {
+              "id": 0,
+              "name": "Abdoul Coulibaly",
+              "number": 38
+            }
+          ]
+        }
+      ],
+      "lastObservedDailyRemaining": "86",
+      "sourceAt": "2026-09-19T21:58:36.393Z"
+    }
+  ]
+}

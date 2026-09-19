@@ -13,6 +13,7 @@
     "start": "node --env-file-if-exists=../../.env.local dist/index.js",
     "dev": "node --env-file-if-exists=../../.env.local --watch src/index.ts",
     "demo:replay": "node --env-file-if-exists=../../.env.local dist/replay-demo.js",
+    "test:historical:setup": "node --env-file-if-exists=../../.env.local dist/historical-test.js",
     "provider:fetch": "node --env-file-if-exists=../../.env.local dist/provider-fetch.js",
     "provider:pause-after-restore": "node --env-file-if-exists=../../.env.local dist/provider-restore-pause.js"
   },
