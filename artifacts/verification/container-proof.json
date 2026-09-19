@@ -1,0 +1,41 @@
+{
+  "verifiedAt": "2026-09-19T12:14:12.387Z",
+  "images": [
+    {
+      "target": "web",
+      "id": "sha256:fd4bfebb0714469bc410063316487bfdf2b9754eb4c189dd2d4079a4e3bc0fac",
+      "os": "linux",
+      "architecture": "arm64",
+      "sizeBytes": 107925628,
+      "user": "node"
+    },
+    {
+      "target": "worker",
+      "id": "sha256:d7ccd43bffc2b8eebcae5aab08392c7dd18be8b15f464a48bba803d15f70f8b3",
+      "os": "linux",
+      "architecture": "arm64",
+      "sizeBytes": 217007562,
+      "user": "node"
+    }
+  ],
+  "checks": [
+    "unmigrated web unavailable",
+    "unmigrated worker refused",
+    "migration command",
+    "ready response and no-store",
+    "changed checksum unavailable",
+    "non-root web and worker",
+    "read-only web filesystem",
+    "Arabic page and PNG asset",
+    "bilingual guides with no published competition and protected admin handbook",
+    "durable game-cycle job",
+    "provider automation disabled by default",
+    "graceful worker shutdown"
+  ],
+  "environment": "Isolated local Docker database and network; no live mail or provider traffic",
+  "limitations": [
+    "No production deployment",
+    "No off-host restoration or load benchmark",
+    "Source checkout has no committed release revision"
+  ]
+}

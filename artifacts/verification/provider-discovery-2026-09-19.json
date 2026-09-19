@@ -1,0 +1,105 @@
+{
+  "observedDate": "2026-09-19",
+  "purpose": "Manual account and season discovery; no automated ingestion",
+  "outboundRequests": 3,
+  "lastObservedDailyRemaining": 98,
+  "automationEnabled": false,
+  "applicationProviderAccountCreated": false,
+  "status": {
+    "observedAt": "2026-09-19T12:20:13.908Z",
+    "request": "status",
+    "httpStatus": 200,
+    "quota": {
+      "x-ratelimit-requests-limit": "100",
+      "x-ratelimit-requests-remaining": "100",
+      "x-ratelimit-limit": "10",
+      "x-ratelimit-remaining": "9"
+    },
+    "errors": [],
+    "results": 0,
+    "subscription": {
+      "plan": "Free",
+      "end": "2027-09-19T00:00:00+00:00",
+      "active": true
+    },
+    "requests": {
+      "current": 0,
+      "limit_day": 100
+    }
+  },
+  "targetSeasonDenial": {
+    "observedAt": "2026-09-19T12:20:21.210Z",
+    "request": "leagues?country=Egypt&season=2026",
+    "httpStatus": 200,
+    "quota": {
+      "x-ratelimit-requests-limit": null,
+      "x-ratelimit-requests-remaining": null,
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null
+    },
+    "errors": {
+      "plan": "Free plans do not have access to this season, try from 2022 to 2024."
+    },
+    "results": 0,
+    "response": []
+  },
+  "historicalPremierLeague": {
+    "observedAt": "2026-09-19T12:20:36.721Z",
+    "request": "leagues?country=Egypt&season=2024",
+    "quota": {
+      "x-ratelimit-requests-limit": "100",
+      "x-ratelimit-requests-remaining": "98",
+      "x-ratelimit-limit": "10",
+      "x-ratelimit-remaining": "8"
+    },
+    "record": {
+      "league": {
+        "id": 233,
+        "name": "Premier League",
+        "type": "League",
+        "logo": "https://media.api-sports.io/football/leagues/233.png"
+      },
+      "country": {
+        "name": "Egypt",
+        "code": "EG",
+        "flag": "https://media.api-sports.io/flags/eg.svg"
+      },
+      "seasons": [
+        {
+          "year": 2024,
+          "start": "2024-10-30",
+          "end": "2025-06-01",
+          "current": false,
+          "coverage": {
+            "fixtures": {
+              "events": true,
+              "lineups": true,
+              "statistics_fixtures": true,
+              "statistics_players": true
+            },
+            "standings": true,
+            "players": true,
+            "top_scorers": true,
+            "top_assists": true,
+            "top_cards": true,
+            "injuries": false,
+            "predictions": true,
+            "odds": false
+          }
+        }
+      ]
+    }
+  },
+  "limits": "Historical catalogue flags do not establish target-season or per-fixture coverage. Reconcile all external usage before gateway activation.",
+  "verification": {
+    "applicationTypecheck": "passed",
+    "applicationLint": "passed",
+    "applicationPostgresIntegration": {
+      "passed": 74,
+      "failed": 0,
+      "liveProviderRequests": 0
+    },
+    "gitVisibleCredentialMatches": 0,
+    "privateEnvironmentMode": "0600"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "fantasy-platform",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.14.0",
+  "engines": {
+    "node": ">=24.14.0 <25",
+    "pnpm": "10.14.0"
+  },
+  "scripts": {
+    "test:browser": "node scripts/browser-smoke.mjs",
+    "db:seed": "pnpm --filter @fantasy/worker... build && pnpm --filter @fantasy/worker db:seed",
+    "dev": "turbo run dev",
+    "local:setup": "node scripts/local-setup.mjs",
+    "db:migrate": "pnpm --filter @fantasy/worker... build && pnpm --filter @fantasy/worker db:migrate",
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "test:integration": "pnpm --filter @fantasy/application... build && pnpm --filter @fantasy/persistence test:integration && pnpm --filter @fantasy/application test:integration",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm build && pnpm test && pnpm test:harness",
+    "demo:replay": "pnpm --filter @fantasy/worker... build && pnpm --filter @fantasy/worker demo:replay",
+    "container:build": "node scripts/build-containers.mjs",
+    "test:containers": "node scripts/container-smoke.mjs",
+    "test:harness": "node --test scripts/tests/*.test.mjs",
+    "test:smoke": "node scripts/public-smoke.mjs",
+    "test:e2e": "pnpm test:browser",
+    "verify:local": "node scripts/verify-local.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.63.0",
+    "eslint": "10.10.0",
+    "otpauth": "9.5.2",
+    "prettier": "3.9.8",
+    "turbo": "2.10.13",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.70.0"
+  }
+}

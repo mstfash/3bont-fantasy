@@ -1,0 +1,45 @@
+{
+  "verifiedAt": "2026-09-19T11:38:48.250Z",
+  "environment": "Local synthetic data; disposable integration PostgreSQL; Google Chrome; isolated Linux proof images",
+  "status": "passed",
+  "buildId": "LDY5N6h2IeiKt1wEzr-jo",
+  "commands": ["pnpm verify:local", "pnpm test:containers"],
+  "checks": {
+    "applicationUnitCases": 79,
+    "authHarnessCases": 4,
+    "persistenceIntegrationCases": 9,
+    "applicationIntegrationCasesIncludingSubcases": 73,
+    "publicPageMatrixCases": 40,
+    "authenticatedEndToEnd": "passed",
+    "fixedSidebarAndRtlScrolling": "passed",
+    "containerRuntime": "passed",
+    "verificationOwnedPreviewStopped": true,
+    "occupiedPreviewPortRefused": true
+  },
+  "cleanup": {
+    "qaCompetitions": 0,
+    "qaStaffGrants": 0,
+    "qaProviderSeasons": 0,
+    "providerSchedules": 0
+  },
+  "transcriptSha256": "67b8b38c35ec767a52f187aa285722e30c16eca40b58b0ece60e259c9d738486",
+  "containerImages": [
+    {
+      "target": "web",
+      "id": "sha256:5142e8ccdec1df617698bf5d2e377626dd8b387827d060227044f12915236c06"
+    },
+    {
+      "target": "worker",
+      "id": "sha256:eec76ad87379f4c6a9b11efe8f75ecfcb3869930faf48aba356f9cf57204fc0a"
+    }
+  ],
+  "observedIssue": {
+    "description": "Two logo HTTP 500 responses during an overlapping local standalone rebuild",
+    "resolution": "Stable rebuilt preview passed; verify:local now refuses an occupied preview port and builds before starting its owned server"
+  },
+  "limitations": [
+    "Synthetic provider inputs only",
+    "No production load or off-host restore proof",
+    "No guarantee of zero defects"
+  ]
+}

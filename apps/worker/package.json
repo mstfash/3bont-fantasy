@@ -1,0 +1,35 @@
+{
+  "name": "@fantasy/worker",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "owner:bootstrap": "node --env-file-if-exists=../../.env.local dist/bootstrap-owner.js",
+    "db:seed": "node --env-file-if-exists=../../.env.local dist/seed.js",
+    "db:migrate": "node --env-file-if-exists=../../.env.local dist/migrate.js",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src --max-warnings 0",
+    "start": "node --env-file-if-exists=../../.env.local dist/index.js",
+    "dev": "node --env-file-if-exists=../../.env.local --watch src/index.ts",
+    "demo:replay": "node --env-file-if-exists=../../.env.local dist/replay-demo.js",
+    "provider:fetch": "node --env-file-if-exists=../../.env.local dist/provider-fetch.js",
+    "provider:pause-after-restore": "node --env-file-if-exists=../../.env.local dist/provider-restore-pause.js"
+  },
+  "dependencies": {
+    "@fantasy/application": "workspace:*",
+    "@fantasy/contracts": "workspace:*",
+    "@fantasy/persistence": "workspace:*",
+    "pg": "8.23.0",
+    "pg-boss": "12.11.2",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@fantasy/typescript-config": "workspace:*",
+    "@types/node": "24.13.5",
+    "@types/pg": "8.23.1"
+  },
+  "files": [
+    "dist"
+  ]
+}

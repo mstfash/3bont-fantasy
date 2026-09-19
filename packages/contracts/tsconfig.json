@@ -1,0 +1,12 @@
+{
+  "extends": "@fantasy/typescript-config/base.json",
+  "compilerOptions": {
+    "lib": ["ES2023", "DOM"],
+    "rootDir": "src",
+    "outDir": "dist",
+    "rewriteRelativeImportExtensions": true,
+    "erasableSyntaxOnly": true,
+    "types": []
+  },
+  "include": ["src/**/*.ts"]
+}

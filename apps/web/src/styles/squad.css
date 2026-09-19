@@ -1,0 +1,336 @@
+.squad-deadline,
+.deadline-panel {
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  border: 1px solid var(--border);
+  background: var(--surface-raised);
+  flex-wrap: wrap;
+}
+.squad-deadline {
+  font-size: 13px;
+  border-inline-start: 3px solid var(--secondary);
+  margin-bottom: 24px;
+}
+.editor-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 32px;
+}
+.squad-name {
+  display: grid;
+  gap: 10px;
+  font-size: 13px;
+}
+.squad-editor input:not([type='checkbox']),
+.squad-editor select {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 12px;
+  min-height: 46px;
+}
+.squad-metrics {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid var(--border);
+  margin-block: 20px;
+  padding: 20px 8px;
+}
+.squad-metrics div {
+  display: grid;
+  text-align: center;
+  gap: 8px;
+}
+.squad-metrics strong {
+  font-size: 24px;
+}
+.squad-metrics span {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+.squad-pitch {
+  border: 1px solid var(--border);
+  background: repeating-linear-gradient(
+    0deg,
+    var(--surface-raised) 0px,
+    var(--surface-raised) 80px,
+    var(--surface) 80px,
+    var(--surface) 160px
+  );
+  padding: 24px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  min-height: 450px;
+  justify-content: space-around;
+}
+.squad-pitch-row {
+  display: flex;
+  gap: 8px;
+  justify-content: space-evenly;
+  min-height: 60px;
+}
+.pitch-player {
+  display: grid;
+  gap: 4px;
+  text-align: center;
+  min-width: 0;
+  flex: 1;
+}
+.pitch-player strong {
+  font-size: 11px;
+  line-height: 1.5;
+}
+.pitch-player > span:last-child {
+  font-size: 9px;
+  color: var(--text-muted);
+}
+.shirt {
+  font-size: 40px;
+  line-height: 1;
+  text-shadow: 0 1px 1px var(--border);
+}
+.button-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 12px 18px;
+  font-size: 12px;
+  margin-top: 12px;
+}
+.editor-hint {
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.9;
+}
+.squad-board fieldset {
+  margin: 20px 0 0;
+  padding: 16px;
+  border: 1px solid var(--border);
+}
+.squad-board legend {
+  padding-inline: 6px;
+  font-size: 12px;
+}
+.lineup-player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+}
+.lineup-player input {
+  accent-color: var(--secondary);
+  width: 17px;
+  height: 17px;
+}
+.lineup-player span {
+  flex: 1;
+}
+.lineup-player small {
+  color: var(--text-muted);
+}
+.bench-order {
+  padding-inline-start: 24px;
+}
+.bench-order li {
+  font-size: 12px;
+  padding: 5px 0;
+}
+.bench-order button {
+  border: 1px solid var(--border);
+  background: var(--surface-raised);
+  color: var(--text);
+  padding: 5px 10px;
+  margin-inline-start: 5px;
+}
+.bench-order span {
+  display: inline-block;
+  min-width: 50%;
+}
+.captain-selects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.captain-selects label {
+  display: grid;
+  gap: 8px;
+  font-size: 12px;
+}
+.market-heading h2 {
+  font-size: 23px;
+  margin-top: 0;
+}
+.market-heading p,
+.chips-panel > p {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.market-filters {
+  display: grid;
+  grid-template-columns: 1fr 130px;
+  gap: 10px;
+}
+.quota-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-block: 20px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.quota-row strong {
+  color: var(--text);
+}
+.market-list {
+  border-top: 1px solid var(--border);
+  max-height: 1050px;
+  overflow: auto;
+}
+.market-player {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 8px;
+  border-bottom: 1px solid var(--border);
+}
+.market-player.selected {
+  background: var(--surface-raised);
+}
+.player-club-mark {
+  border-inline-start: 4px solid;
+  padding: 8px;
+  font-family: var(--font-display);
+  width: 52px;
+  flex-shrink: 0;
+  font-size: 14px;
+}
+.player-identity {
+  display: grid;
+  gap: 5px;
+  flex: 1;
+}
+.player-identity strong {
+  font-size: 13px;
+}
+.player-identity span,
+.player-identity small {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+.fantasy-price {
+  font-size: 16px;
+}
+.market-player button {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  font-size: 22px;
+}
+.chips-panel {
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+  padding-top: 24px;
+}
+.chip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.chip-card {
+  text-align: start;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  padding: 24px 16px;
+  display: grid;
+  gap: 16px;
+}
+.chip-card.active {
+  border-color: var(--secondary);
+  background: var(--surface-raised);
+}
+.chip-card span {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+.change-preview {
+  border: 2px solid var(--secondary);
+  padding: 32px;
+  margin-top: 32px;
+}
+.change-preview dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.change-preview dt {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.change-preview dd {
+  margin: 8px 0 0;
+  font-weight: 700;
+  font-size: 22px;
+}
+.change-preview p {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.change-preview > div {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.editor-notice {
+  padding: 18px;
+  background: var(--surface-raised);
+  border-inline-start: 3px solid var(--danger);
+  line-height: 1.8;
+  color: var(--danger);
+}
+@media (max-width: 900px) {
+  .editor-grid {
+    grid-template-columns: 1fr;
+  }
+  .player-market {
+    order: -1;
+  }
+  .market-list {
+    max-height: 470px;
+  }
+  .chip-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 450px) {
+  .market-player {
+    gap: 8px;
+  }
+  .player-club-mark {
+    width: 38px;
+    padding: 5px;
+    font-size: 11px;
+  }
+  .player-identity strong {
+    font-size: 11px;
+  }
+  .change-preview {
+    padding: 20px;
+  }
+  .change-preview dl {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "recordedAt": "2026-09-19T09:21:42.505Z",
+  "node": "v24.14.0",
+  "platform": "darwin",
+  "architecture": "arm64",
+  "calculationVersion": "price-calibration-v1",
+  "synthetic": true,
+  "players": 1000,
+  "clubs": 40,
+  "calendarRounds": 100,
+  "finalizedRounds": 99,
+  "candidates": 3,
+  "simulatedBatches": 297,
+  "engineMilliseconds": 648,
+  "heapUsedAfterMiB": 32,
+  "scope": "One local pure-engine run; excludes fixture setup, database reads, serialization and concurrent requests. Not a production load qualification."
+}

@@ -1,0 +1,25 @@
+{
+  "mode": "built-in image_gen",
+  "variants": [
+    {
+      "variant": "ar-dark",
+      "source": "04",
+      "prompt": "Use case: text-localization. Asset type: finished transparent PNG brand lockup for the 3BONT FANTASY app. EDIT TARGET: the attached official 3BONT logo image. Preserve the existing stylized numeral 3 and the Arabic بونط wordmark EXACTLY in shape, relative placement, weight, angle, proportions, color and registered symbol. Do not redraw or reinterpret the main brand. Only replace the small bottom text \"Play . Train . Compete\" with the exact text \"فانتازي\". Make this new descriptor warm off-white matching the original Arabic mark, substantially bolder and slightly larger than the previous tagline, centered below the original mark with careful spacing. Match the logo's strong forward-slanted geometric sports lettering; use correct connected Arabic spelling فانتازي, professionally shaped, no extra dots or glyphs. Make the mark and descriptor fill a tightly framed canvas with modest 7% safe padding. Genuinely transparent alpha background; remove empty outer artboard, no white rectangle, no checkerboard baked in, no additional shapes or badges, no mockup, no gradients, no shadows. Flat clean print-ready sharp edges. Output only this one finished ar-dark logo variant."
+    },
+    {
+      "variant": "en-dark",
+      "source": "05",
+      "prompt": "Use case: text-localization. Asset type: finished transparent PNG brand lockup for the 3BONT FANTASY app. EDIT TARGET: the attached official 3BONT logo image. Preserve the existing stylized numeral 3 and the English BONT wordmark EXACTLY in shape, relative placement, weight, angle, proportions, color and registered symbol. Do not redraw or reinterpret the main brand. Only replace the small bottom text \"Play . Train . Compete\" with the exact text \"FANTASY\". Make this new descriptor warm off-white matching the original English mark, substantially bolder and slightly larger than the previous tagline, centered below the original mark with careful spacing. Match the logo's strong forward-slanted geometric sports lettering; use wide heavy italic uppercase FANTASY, all seven letters clear. Make the mark and descriptor fill a tightly framed canvas with modest 7% safe padding. Genuinely transparent alpha background; remove empty outer artboard, no white rectangle, no checkerboard baked in, no additional shapes or badges, no mockup, no gradients, no shadows. Flat clean print-ready sharp edges. Output only this one finished en-dark logo variant."
+    },
+    {
+      "variant": "ar-light",
+      "source": "12",
+      "prompt": "Use case: text-localization. Asset type: finished transparent PNG brand lockup for the 3BONT FANTASY app. EDIT TARGET: the attached official 3BONT logo image. Preserve the existing stylized numeral 3 and the Arabic بونط wordmark EXACTLY in shape, relative placement, weight, angle, proportions, color and registered symbol. Do not redraw or reinterpret the main brand. Only replace the small bottom text \"Play . Train . Compete\" with the exact text \"فانتازي\". Make this new descriptor deep navy matching the original Arabic mark, substantially bolder and slightly larger than the previous tagline, centered below the original mark with careful spacing. Match the logo's strong forward-slanted geometric sports lettering; use correct connected Arabic spelling فانتازي, professionally shaped, no extra dots or glyphs. Make the mark and descriptor fill a tightly framed canvas with modest 7% safe padding. Genuinely transparent alpha background; remove empty outer artboard, no white rectangle, no checkerboard baked in, no additional shapes or badges, no mockup, no gradients, no shadows. Flat clean print-ready sharp edges. Output only this one finished ar-light logo variant."
+    },
+    {
+      "variant": "en-light",
+      "source": "13",
+      "prompt": "Use case: text-localization. Asset type: finished transparent PNG brand lockup for the 3BONT FANTASY app. EDIT TARGET: the attached official 3BONT logo image. Preserve the existing stylized numeral 3 and the English BONT wordmark EXACTLY in shape, relative placement, weight, angle, proportions, color and registered symbol. Do not redraw or reinterpret the main brand. Only replace the small bottom text \"Play . Train . Compete\" with the exact text \"FANTASY\". Make this new descriptor deep navy matching the original English mark, substantially bolder and slightly larger than the previous tagline, centered below the original mark with careful spacing. Match the logo's strong forward-slanted geometric sports lettering; use wide heavy italic uppercase FANTASY, all seven letters clear. Make the mark and descriptor fill a tightly framed canvas with modest 7% safe padding. Genuinely transparent alpha background; remove empty outer artboard, no white rectangle, no checkerboard baked in, no additional shapes or badges, no mockup, no gradients, no shadows. Flat clean print-ready sharp edges. Output only this one finished en-light logo variant."
+    }
+  ]
+}

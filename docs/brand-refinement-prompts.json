@@ -1,0 +1,13 @@
+{
+  "mode": "built-in image_gen",
+  "variants": [
+    {
+      "variant": "ar-dark",
+      "prompt": "Edit the provided official 3BONT logo. Preserve its original numeral 3 and Arabic بونط wordmark, proportions, shapes and registered symbol. Replace only the small tagline with \"فانتازي\" in matching bold forward-leaning geometric lettering. Main mark and descriptor in warm white #EFEBEA. The result is a production logo asset, not an artistic interpretation. Extremely clean flat solid colors. Important technical correction: previous transparent exports acquired unwanted white dust/flecks outside the glyphs. Ensure perfectly clean negative spaces and ZERO stray pixels, distressed textures, speckles or debris. Use a completely uniform solid dark background #0A0A0B for this version, fully opaque, including all spaces inside and outside letters. No transparency, no alpha extraction, no gradients, no shadows. Close crop with consistent 8% padding. One square finished PNG, lettering centered, logo filling 84% of width. Render exact Arabic connected word فانتازي below. Keep the brand faithful to input."
+    },
+    {
+      "variant": "en-dark",
+      "prompt": "Edit the provided official 3BONT logo. Preserve its original numeral 3 and English BONT wordmark, proportions, shapes and registered symbol. Replace only the small tagline with \"FANTASY\" in matching bold forward-leaning geometric lettering. Main mark and descriptor in warm white #EFEBEA. The result is a production logo asset, not an artistic interpretation. Extremely clean flat solid colors. Important technical correction: previous transparent exports acquired unwanted white dust/flecks outside the glyphs. Ensure perfectly clean negative spaces and ZERO stray pixels, distressed textures, speckles or debris. Use a completely uniform solid dark background #0A0A0B for this version, fully opaque, including all spaces inside and outside letters. No transparency, no alpha extraction, no gradients, no shadows. Close crop with consistent 8% padding. One square finished PNG, lettering centered, logo filling 84% of width. Render exact seven-letter word FANTASY below. Keep the brand faithful to input."
+    }
+  ]
+}

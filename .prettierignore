@@ -1,0 +1,8 @@
+pnpm-lock.yaml
+node_modules/
+.turbo/
+.next/
+next-env.d.ts
+dist/
+docs/sources/chat-export.json
+docs/sources/chat-transcript.md

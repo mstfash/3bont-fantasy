@@ -1,0 +1,23 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "globalDependencies": ["eslint.config.mjs"],
+  "tasks": {
+    "dev": { "dependsOn": ["^build"], "cache": false, "persistent": true },
+    "test": {
+      "dependsOn": ["build"],
+      "outputs": []
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
+    },
+    "typecheck": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "lint": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    }
+  }
+}

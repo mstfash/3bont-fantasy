@@ -1,0 +1,19 @@
+# Slice 28 — Reviewed provider match drafts
+
+Implementation 2026-09-19, migration `0021-provider-normalization`.
+
+Staff can select four retained responses for a mapped fixture, preview the available player statistics in Arabic/English, and stage the draft in the existing match editor. The preview uses the fixture, player-statistics, lineup and event endpoints. It validates successful evidence from one provider account, exact request/response scope, complete single-page envelopes, mapped clubs/players/fixture, and a maximum ten-minute span between responses. That span is a consistency guard, not proof that the provider snapshots agree.
+
+This first adapter supports ordinary `FT` matches. It prefills reported minutes, goals and assists. It leaves defensive timelines, saves, penalties, own goals and discipline unknown for explicit review; ratings never become points. An unused reserve omitted from player statistics retains unknown minutes. Exceptional statuses, changed kickoff times, duplicate players and contradictory team/lineup identities cannot silently become ordinary observations.
+
+The source lineup is a starting list, not a complete eligibility declaration. All season footballers remain available when staging a draft, including footballers who have since transferred. Staff record the historical eligibility evidence and any manual completion, then explicitly review the report. Neither preview nor staging writes match facts, marks data complete or publishes fantasy results.
+
+Confirmation recomputes the source/mapping fingerprint while holding the staff, catalogue, provider-mapping and fixture barriers. It rejects stale mappings or fixture state. The canonical match-data transaction retains the proposed draft, all source references, used mapping versions, final edited observation and staff eligibility reference in evidence. Foreign keys retain the contributing attempts and mapping history. Persistent overrides remain authoritative; identical command retries retain current-authorization checks.
+
+The integration proof also found and fixed a pre-existing observation comparison bug: JSONB object ordering could make unchanged reports appear different. Both reports now use the same schema projection and sorted footballer arrays before comparison. A repeated semantic observation produces no new observation, fixture revision or correction-window reset, while its reviewed evidence remains auditable.
+
+Verification targets conservative parsing, foreign/incomplete sources, missing bench minutes, unsupported shootout/exceptional statuses, stale mapping rejection, concurrent retries, retained source/history references, historical club transfers, unchanged imports and persistent overrides. Browser coverage stages a report, retains its four source references, checks anonymous denial and reviews the Arabic mobile layout. Completed totals are maintained in [project status](status.md).
+
+Real provider coverage, licensed target-season samples, validated defensive-event normalization and automatic fixture scheduling remain open. The source semantics and rollout gates remain in [provider normalization](provider-normalization-plan.md). No provider request is made by previewing or saving a retained-source draft.
+
+Completed verification: formatting/lint/strict type checks, production build, 79 unit cases, nine persistence cases and 63 application cases/subcases passed. The full browser suite passed, including retained-source normalization and bilingual mobile review. Isolated Linux runtime proof passed on 2026-09-19 for web `sha256:0c5dbc63c0e8945caa3b1ca7812b7c45a763f52b8be77562ad8517f131077266` and worker `sha256:439931b251ceb63bde602cceeaed7ef8720ba26bc13544807664d5a9df71f9dc`. This proof includes slices 27–28 and the fixed sidebar; later source changes need their own image rebuild.

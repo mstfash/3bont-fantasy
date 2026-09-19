@@ -1,0 +1,3 @@
+# Keep H2H pairings immutable and apply withdrawal at future deadlines
+
+An H2H edition freezes its reviewed roster, random seed and complete-cycle schedule at publication, while its scores follow the competition's published gameweek revisions. Withdrawal or group-membership removal records forfeits against specific future unlocked gameweeks; locked contests remain intact and rejoining never removes those forfeits. Inferring withdrawal from current membership or regenerating pairings is simpler, but would rewrite past contests after rejoining or allow reactions to live scores to change an already locked matchup.

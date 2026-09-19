@@ -1,0 +1,39 @@
+{
+  "name": "@fantasy/application",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tests/tsconfig.json",
+    "lint": "eslint src tests --max-warnings 0",
+    "test": "node --test tests/authorization.test.ts tests/provider-identity-evidence.test.ts tests/provider-match-parser.test.ts",
+    "test:integration": "node ../persistence/tests/run-integration.ts"
+  },
+  "dependencies": {
+    "@fantasy/contracts": "workspace:*",
+    "@fantasy/domain": "workspace:*",
+    "@fantasy/persistence": "workspace:*",
+    "better-auth": "1.7.5",
+    "kysely": "0.29.6",
+    "pg": "8.23.0",
+    "pg-boss": "12.11.2",
+    "sharp": "0.35.4",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@fantasy/typescript-config": "workspace:*",
+    "@types/node": "24.13.5",
+    "@types/pg": "8.23.1",
+    "bun-types": "1.4.2"
+  },
+  "files": [
+    "dist"
+  ]
+}

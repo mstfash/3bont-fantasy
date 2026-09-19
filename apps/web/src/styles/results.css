@@ -1,0 +1,87 @@
+.results-scroll {
+  overflow-x: auto;
+  border-block: 1px solid var(--border);
+  margin-block: 2rem;
+}
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: start;
+}
+.results-table th {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+}
+.results-table th,
+.results-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+}
+.results-table td small {
+  display: block;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+.rank-number,
+.score-number {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+}
+.results-note {
+  margin-block: 2rem;
+  color: var(--text-muted);
+  max-width: 55rem;
+  line-height: 1.7;
+}
+.result-summary {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 2rem;
+  border-block: 1px solid var(--border);
+}
+.result-summary > strong {
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 15vw, 10rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+.unused-player {
+  color: var(--text-muted);
+}
+.score-ledger {
+  max-width: 30rem;
+  margin-inline-start: auto;
+}
+.score-ledger p,
+.breakdown-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.5rem;
+}
+.score-detail {
+  border-bottom: 1px solid var(--border);
+  padding: 1.2rem 0;
+}
+.score-detail summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+.score-detail summary strong {
+  float: inline-end;
+}
+.score-detail > div {
+  padding: 1rem;
+  max-width: 35rem;
+}
+@media (max-width: 600px) {
+  .results-table th,
+  .results-table td {
+    padding: 0.7rem 0.4rem;
+    font-size: 0.8rem;
+  }
+}

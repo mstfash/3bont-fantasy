@@ -1,0 +1,3 @@
+# Freeze eligibility history and preserve award decisions
+
+Prize terms define a fixed scoring interval and membership cutoff; immutable membership transitions preserve that cutoff even when a member later leaves or rejoins. Award proposals bind finalized result revisions and reviewed eligibility, while approval and fulfillment also check current football facts so a delayed scoring worker cannot permit stale awards. Distinct-account approval and append-only fulfillment history cost more operating steps than a mutable winner list, but preserve the evidence needed to review corrections without pretending a completed external payment was undone.

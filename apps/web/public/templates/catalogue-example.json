@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "sourceName": "Fictional practice data",
+  "sourceEvidenceReference": "Synthetic template; not real football records",
+  "items": [
+    {
+      "commandId": "7687d56e-575f-4555-b610-057f3a3e4983",
+      "expectedFingerprint": null,
+      "reason": "Fictional example for import rehearsal",
+      "kind": "season",
+      "season": {
+        "id": "1af28db1-9e43-4bc6-95f4-ee9113f72785",
+        "name": {
+          "en": "Import practice season",
+          "ar": "موسم تدريب الاستيراد"
+        },
+        "startsAt": "2026-01-01T00:00:00Z",
+        "endsAt": "2027-01-01T00:00:00Z",
+        "synthetic": true
+      }
+    },
+    {
+      "commandId": "66457b32-b0f6-4c99-b67e-f58534e18758",
+      "expectedFingerprint": null,
+      "reason": "Fictional example for import rehearsal",
+      "kind": "club",
+      "club": {
+        "id": "74ad53dd-7aba-47b1-8ded-c259a7525106",
+        "seasonId": "1af28db1-9e43-4bc6-95f4-ee9113f72785",
+        "name": {
+          "en": "Practice club",
+          "ar": "نادي التدريب"
+        },
+        "shortName": "PRC",
+        "color": "#80e5ac"
+      }
+    },
+    {
+      "commandId": "9af7e84f-e7e3-4819-86d4-3c0ddec01dcd",
+      "expectedFingerprint": null,
+      "reason": "Fictional example for import rehearsal",
+      "kind": "footballer",
+      "footballer": {
+        "id": "422bc93b-bb35-4e39-8068-40da2c333170",
+        "seasonId": "1af28db1-9e43-4bc6-95f4-ee9113f72785",
+        "clubId": "74ad53dd-7aba-47b1-8ded-c259a7525106",
+        "name": {
+          "en": "Practice footballer",
+          "ar": "لاعب التدريب"
+        },
+        "defaultPosition": "MID",
+        "status": "available",
+        "synthetic": true,
+        "valuation": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+.import-record {
+  border-block-end: 1px solid var(--border);
+  padding-block: 1rem;
+}
+.import-record summary {
+  cursor: pointer;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+.import-record td {
+  max-width: 28rem;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+.import-evidence {
+  overflow-wrap: anywhere;
+}

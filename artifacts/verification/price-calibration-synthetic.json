@@ -1,0 +1,4367 @@
+{
+  "id": "3f0279fe-65d6-46f4-b920-391d52d0ba57",
+  "basis": {
+    "squad": {
+      "quotas": {
+        "GK": 2,
+        "DEF": 5,
+        "FWD": 3,
+        "MID": 5
+      },
+      "clubCap": 3,
+      "squadSize": 15,
+      "formations": [
+        {
+          "GK": 1,
+          "DEF": 3,
+          "FWD": 3,
+          "MID": 4
+        },
+        {
+          "GK": 1,
+          "DEF": 3,
+          "FWD": 2,
+          "MID": 5
+        },
+        {
+          "GK": 1,
+          "DEF": 4,
+          "FWD": 3,
+          "MID": 3
+        },
+        {
+          "GK": 1,
+          "DEF": 4,
+          "FWD": 2,
+          "MID": 4
+        },
+        {
+          "GK": 1,
+          "DEF": 4,
+          "FWD": 1,
+          "MID": 5
+        },
+        {
+          "GK": 1,
+          "DEF": 5,
+          "FWD": 3,
+          "MID": 2
+        },
+        {
+          "GK": 1,
+          "DEF": 5,
+          "FWD": 2,
+          "MID": 3
+        },
+        {
+          "GK": 1,
+          "DEF": 5,
+          "FWD": 1,
+          "MID": 4
+        }
+      ],
+      "starterCount": 11,
+      "startingBudget": 1000,
+      "captaincyEnabled": true
+    },
+    "cutoff": "2026-09-19T09:10:26.464Z",
+    "rounds": [
+      {
+        "id": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+        "number": 1,
+        "deadline": "2026-08-28T21:08:09.279Z",
+        "revision": 1,
+        "finalizedAt": "2026-09-18T21:08:09.503Z",
+        "observations": [
+          {
+            "number": 1,
+            "points": 9000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "06b7377b-f0e2-4dcc-a9ad-7a1ee05ccd21"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "0d11cbb3-4325-4106-aa09-66e73f9c4016"
+          },
+          {
+            "number": 1,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "116a4634-251f-4569-a355-3c57c4dc247c"
+          },
+          {
+            "number": 1,
+            "points": 7000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "15682f1e-8888-4743-aa23-939ae9401185"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "1811077a-5328-4c68-a88c-870d35429f1e"
+          },
+          {
+            "number": 1,
+            "points": 5000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "1b70223e-dce0-4d03-a22b-8cd73bf141a1"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "1b86f217-1c1d-4df4-a3b3-83ca4e27a75a"
+          },
+          {
+            "number": 1,
+            "points": 10000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "22a8ad61-b681-445e-a2e8-585b936fd060"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "2455de68-516f-4620-ac4f-e7258c0ebf11"
+          },
+          {
+            "number": 1,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "29161111-4740-402e-a569-dadccd07335a"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "2a5b2b3f-298c-4cfd-a997-33de7bbae3b0"
+          },
+          {
+            "number": 1,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "2b7bf9e0-65b9-45ce-a0f1-64293d27d79a"
+          },
+          {
+            "number": 1,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "2ff18477-5ac4-47ee-abcb-dee47db14ac5"
+          },
+          {
+            "number": 1,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "301f6ca0-4a45-4999-ad19-daefe61632cd"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "347daef4-17cc-48f9-a52e-1ba63032a29f"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "35a30cf5-f691-4803-a1f2-88d57d2cb320"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "38b333b9-6fa4-42f3-a1ff-570a9e4d84fe"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "3adfd68e-f299-4e75-a191-8a28049b45ca"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "3b483449-0220-4d13-ac65-67385727bd15"
+          },
+          {
+            "number": 1,
+            "points": 8000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "3bfcaa83-d52c-4279-a27b-21f54b163323"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "4ca18e11-7df7-4fe6-a1e7-06fd23e48a0a"
+          },
+          {
+            "number": 1,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "4de296b5-a8ee-4790-a21d-5c22e2fedc81"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "4f9ebee9-2f9a-41e3-ad4a-fc04e0ea02a3"
+          },
+          {
+            "number": 1,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "4fc0d4e4-c581-4b5e-abbe-87d03f55d28e"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "5086ac4d-b0e8-4103-a02d-bb987887af9b"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "53cc16d9-7910-4a57-aa1a-ea43981120b4"
+          },
+          {
+            "number": 1,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "546f666b-fe3f-4a4d-a454-f28687d7f8eb"
+          },
+          {
+            "number": 1,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "5a5e7679-a23a-40d8-a0fd-4d561d7bb5f6"
+          },
+          {
+            "number": 1,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "5d002867-fe2e-44cc-a456-87547cafe0aa"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "63cd7f50-d40b-4022-a7a9-215c21beab57"
+          },
+          {
+            "number": 1,
+            "points": 10000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "69af50e7-b469-4b80-ad2b-8344ff178cdc"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "69b05742-eeb3-424c-afe3-55c1834a6a5a"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "6ba04255-ab99-45b0-a933-d459433dc445"
+          },
+          {
+            "number": 1,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "6c818ac7-964d-431c-ad45-416657bf3a19"
+          },
+          {
+            "number": 1,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "6d4ab174-dc5e-4175-a81f-714e9ce676d3"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "6e21065c-299c-4baa-a53f-67b166c57385"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "6e671e3b-0012-4027-a126-971de1312502"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "73b11e60-e934-463f-a0d7-a1abea097cff"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "78f14dae-33af-40db-abd5-ff3dd559c639"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "79bfa216-1cc4-499d-abd4-0147ab7b5913"
+          },
+          {
+            "number": 1,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "7b629d25-b1e6-467a-a28b-de52d415d7ca"
+          },
+          {
+            "number": 1,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "7ce78932-f914-4309-af4b-0d77369a590c"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "804013b7-0c9e-48de-a3ae-628eba4a426d"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "86217730-8836-4099-a8e7-5844a83d3a24"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "89e27eb5-4fe6-4d4b-ab01-9cf9f835fe52"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "90ec2804-8731-4040-a4b1-3b0ebf957b6d"
+          },
+          {
+            "number": 1,
+            "points": 7000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "97522146-98d3-42f2-a12c-8bc8ff9b3cbc"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "9881e4cf-3c86-4422-a214-340b49099026"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "9aac70b2-cc1d-45b5-acff-305dd14432e3"
+          },
+          {
+            "number": 1,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "9b63c040-13ba-4f37-aec0-c3e97656824a"
+          },
+          {
+            "number": 1,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "9c705655-f7f9-4036-a7a9-fff25be82105"
+          },
+          {
+            "number": 1,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "9f429438-8509-4071-a189-095fbf637775"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "9f606d62-6c31-42cd-a0c2-937d2cf2c0c5"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "a2a6ec1a-60aa-4169-a0b1-bc87bbd24b83"
+          },
+          {
+            "number": 1,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "a43e2358-ac32-4172-a129-078afc124c34"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "a719b85a-dc3d-4f58-a829-61c10472f98e"
+          },
+          {
+            "number": 1,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "a817e388-c3fd-4674-ad3f-961e0c459688"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "ab585b3c-ae12-4f3f-a81d-50e44a152b90"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "ac3ccb91-f967-4c57-af35-d57ad08ef62b"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "ac41eeee-fe3c-43c2-acd0-26adfb2b6f8a"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "ad558267-6034-475a-a880-a16e32da7886"
+          },
+          {
+            "number": 1,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "ae44e89f-0dd5-4236-a41d-1bf1e0240692"
+          },
+          {
+            "number": 1,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "b8709ede-156c-40d8-a507-df7e0f307f50"
+          },
+          {
+            "number": 1,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "b9ac7db9-0a01-4abc-a74e-413639ea976f"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "b9d33f1b-cd9a-407a-a65f-ed8707ae91fd"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "bfcb8648-5d0f-402b-a095-7b036f8cbfdd"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "c1c33721-1d51-46fe-af93-0acf29720f2a"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "c77ec825-f20f-4f63-a309-fc24325554b4"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "cc2878fe-c272-4f1f-a40a-17dd99d917ec"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "ccb68529-64c8-4056-a187-1dc0524b919e"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "d1d7d256-bfe0-477e-adcb-623b8d1baaef"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "d2191dc7-d695-4e5c-afc8-0f52d8caef49"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "d48bf8c8-1404-4e0f-aadb-d1a3780c7a00"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "d712baf6-0154-42ac-add4-7a9472461a70"
+          },
+          {
+            "number": 1,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "d81601de-b008-4cf7-a0e4-72e000d89e66"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "dabc88c8-4368-4e55-ace7-c9b0c788abdf"
+          },
+          {
+            "number": 1,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "de91a5f4-1d09-41b0-a587-27fdfabcc618"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "e6a48fd8-6d56-480c-a4b9-dadd94f05031"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "e8c946f6-b27c-4622-a7d5-9c2bbc6e0201"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "e9ce8c9e-3aee-4720-a832-2f11ad07e5d8"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "eb446365-dfc5-4a8a-acb0-0be18dbd435d"
+          },
+          {
+            "number": 1,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "f081453e-b06b-49ac-ae03-bd5b93be77ee"
+          },
+          {
+            "number": 1,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "f0f12d05-6b47-4602-adbd-f1c1d5ed6204"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "f165733f-4f11-4b6a-af54-919f5bc4bf08"
+          },
+          {
+            "number": 1,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "f59d7b89-b73a-4169-a3e4-0329fd8550e4"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "f6075c2b-6bfb-4d72-a726-be4aaedc38ff"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "f75f8b73-0748-4e64-ac2a-a15b73a5b339"
+          },
+          {
+            "number": 1,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "f971d32a-5c9f-4269-a4c1-7bf393082b6b"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "fb0c947f-c01e-499d-a18c-0caa3d0cda1a"
+          },
+          {
+            "number": 1,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "5a86e0d6-6cf2-46e0-a850-bde027917eff",
+            "footballerId": "ff5f8737-690d-4c56-a4b6-ee4330bc8504"
+          }
+        ]
+      },
+      {
+        "id": "ec360df5-5179-415d-afd4-34f2f251cdce",
+        "number": 2,
+        "deadline": "2026-09-04T21:08:09.279Z",
+        "revision": 1,
+        "finalizedAt": "2026-09-18T21:08:09.520Z",
+        "observations": [
+          {
+            "number": 2,
+            "points": 9000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "06b7377b-f0e2-4dcc-a9ad-7a1ee05ccd21"
+          },
+          {
+            "number": 2,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "0d11cbb3-4325-4106-aa09-66e73f9c4016"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "116a4634-251f-4569-a355-3c57c4dc247c"
+          },
+          {
+            "number": 2,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "15682f1e-8888-4743-aa23-939ae9401185"
+          },
+          {
+            "number": 2,
+            "points": 5000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "1811077a-5328-4c68-a88c-870d35429f1e"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "1b70223e-dce0-4d03-a22b-8cd73bf141a1"
+          },
+          {
+            "number": 2,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "1b86f217-1c1d-4df4-a3b3-83ca4e27a75a"
+          },
+          {
+            "number": 2,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "22a8ad61-b681-445e-a2e8-585b936fd060"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "2455de68-516f-4620-ac4f-e7258c0ebf11"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "29161111-4740-402e-a569-dadccd07335a"
+          },
+          {
+            "number": 2,
+            "points": 8000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "2a5b2b3f-298c-4cfd-a997-33de7bbae3b0"
+          },
+          {
+            "number": 2,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "2b7bf9e0-65b9-45ce-a0f1-64293d27d79a"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "2ff18477-5ac4-47ee-abcb-dee47db14ac5"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "301f6ca0-4a45-4999-ad19-daefe61632cd"
+          },
+          {
+            "number": 2,
+            "points": 10000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "347daef4-17cc-48f9-a52e-1ba63032a29f"
+          },
+          {
+            "number": 2,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "35a30cf5-f691-4803-a1f2-88d57d2cb320"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "38b333b9-6fa4-42f3-a1ff-570a9e4d84fe"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "3adfd68e-f299-4e75-a191-8a28049b45ca"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "3b483449-0220-4d13-ac65-67385727bd15"
+          },
+          {
+            "number": 2,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "3bfcaa83-d52c-4279-a27b-21f54b163323"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "4ca18e11-7df7-4fe6-a1e7-06fd23e48a0a"
+          },
+          {
+            "number": 2,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "4de296b5-a8ee-4790-a21d-5c22e2fedc81"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "4f9ebee9-2f9a-41e3-ad4a-fc04e0ea02a3"
+          },
+          {
+            "number": 2,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "4fc0d4e4-c581-4b5e-abbe-87d03f55d28e"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "5086ac4d-b0e8-4103-a02d-bb987887af9b"
+          },
+          {
+            "number": 2,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "53cc16d9-7910-4a57-aa1a-ea43981120b4"
+          },
+          {
+            "number": 2,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "546f666b-fe3f-4a4d-a454-f28687d7f8eb"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "5a5e7679-a23a-40d8-a0fd-4d561d7bb5f6"
+          },
+          {
+            "number": 2,
+            "points": 7000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "5d002867-fe2e-44cc-a456-87547cafe0aa"
+          },
+          {
+            "number": 2,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "63cd7f50-d40b-4022-a7a9-215c21beab57"
+          },
+          {
+            "number": 2,
+            "points": 10000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "69af50e7-b469-4b80-ad2b-8344ff178cdc"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "69b05742-eeb3-424c-afe3-55c1834a6a5a"
+          },
+          {
+            "number": 2,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "6ba04255-ab99-45b0-a933-d459433dc445"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "6c818ac7-964d-431c-ad45-416657bf3a19"
+          },
+          {
+            "number": 2,
+            "points": 5000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "6d4ab174-dc5e-4175-a81f-714e9ce676d3"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "6e21065c-299c-4baa-a53f-67b166c57385"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "6e671e3b-0012-4027-a126-971de1312502"
+          },
+          {
+            "number": 2,
+            "points": 5000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "73b11e60-e934-463f-a0d7-a1abea097cff"
+          },
+          {
+            "number": 2,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "78f14dae-33af-40db-abd5-ff3dd559c639"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "79bfa216-1cc4-499d-abd4-0147ab7b5913"
+          },
+          {
+            "number": 2,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "7b629d25-b1e6-467a-a28b-de52d415d7ca"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "7ce78932-f914-4309-af4b-0d77369a590c"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "804013b7-0c9e-48de-a3ae-628eba4a426d"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "86217730-8836-4099-a8e7-5844a83d3a24"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "89e27eb5-4fe6-4d4b-ab01-9cf9f835fe52"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "90ec2804-8731-4040-a4b1-3b0ebf957b6d"
+          },
+          {
+            "number": 2,
+            "points": 7000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "97522146-98d3-42f2-a12c-8bc8ff9b3cbc"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "9881e4cf-3c86-4422-a214-340b49099026"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "9aac70b2-cc1d-45b5-acff-305dd14432e3"
+          },
+          {
+            "number": 2,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "9b63c040-13ba-4f37-aec0-c3e97656824a"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "9c705655-f7f9-4036-a7a9-fff25be82105"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "9f429438-8509-4071-a189-095fbf637775"
+          },
+          {
+            "number": 2,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "9f606d62-6c31-42cd-a0c2-937d2cf2c0c5"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "a2a6ec1a-60aa-4169-a0b1-bc87bbd24b83"
+          },
+          {
+            "number": 2,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "a43e2358-ac32-4172-a129-078afc124c34"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "a719b85a-dc3d-4f58-a829-61c10472f98e"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "a817e388-c3fd-4674-ad3f-961e0c459688"
+          },
+          {
+            "number": 2,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "ab585b3c-ae12-4f3f-a81d-50e44a152b90"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "ac3ccb91-f967-4c57-af35-d57ad08ef62b"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "ac41eeee-fe3c-43c2-acd0-26adfb2b6f8a"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "ad558267-6034-475a-a880-a16e32da7886"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "ae44e89f-0dd5-4236-a41d-1bf1e0240692"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "b8709ede-156c-40d8-a507-df7e0f307f50"
+          },
+          {
+            "number": 2,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "b9ac7db9-0a01-4abc-a74e-413639ea976f"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "b9d33f1b-cd9a-407a-a65f-ed8707ae91fd"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "bfcb8648-5d0f-402b-a095-7b036f8cbfdd"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "c1c33721-1d51-46fe-af93-0acf29720f2a"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "c77ec825-f20f-4f63-a309-fc24325554b4"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "cc2878fe-c272-4f1f-a40a-17dd99d917ec"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "ccb68529-64c8-4056-a187-1dc0524b919e"
+          },
+          {
+            "number": 2,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "d1d7d256-bfe0-477e-adcb-623b8d1baaef"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "d2191dc7-d695-4e5c-afc8-0f52d8caef49"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "d48bf8c8-1404-4e0f-aadb-d1a3780c7a00"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "d712baf6-0154-42ac-add4-7a9472461a70"
+          },
+          {
+            "number": 2,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "d81601de-b008-4cf7-a0e4-72e000d89e66"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "dabc88c8-4368-4e55-ace7-c9b0c788abdf"
+          },
+          {
+            "number": 2,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "de91a5f4-1d09-41b0-a587-27fdfabcc618"
+          },
+          {
+            "number": 2,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "e6a48fd8-6d56-480c-a4b9-dadd94f05031"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "e8c946f6-b27c-4622-a7d5-9c2bbc6e0201"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "e9ce8c9e-3aee-4720-a832-2f11ad07e5d8"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "eb446365-dfc5-4a8a-acb0-0be18dbd435d"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "f081453e-b06b-49ac-ae03-bd5b93be77ee"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "f0f12d05-6b47-4602-adbd-f1c1d5ed6204"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "f165733f-4f11-4b6a-af54-919f5bc4bf08"
+          },
+          {
+            "number": 2,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "f59d7b89-b73a-4169-a3e4-0329fd8550e4"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "f6075c2b-6bfb-4d72-a726-be4aaedc38ff"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "f75f8b73-0748-4e64-ac2a-a15b73a5b339"
+          },
+          {
+            "number": 2,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "f971d32a-5c9f-4269-a4c1-7bf393082b6b"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "fb0c947f-c01e-499d-a18c-0caa3d0cda1a"
+          },
+          {
+            "number": 2,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "ec360df5-5179-415d-afd4-34f2f251cdce",
+            "footballerId": "ff5f8737-690d-4c56-a4b6-ee4330bc8504"
+          }
+        ]
+      },
+      {
+        "id": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+        "number": 3,
+        "deadline": "2026-09-11T21:08:09.279Z",
+        "revision": 1,
+        "finalizedAt": "2026-09-18T21:08:09.534Z",
+        "observations": [
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "06b7377b-f0e2-4dcc-a9ad-7a1ee05ccd21"
+          },
+          {
+            "number": 3,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "0d11cbb3-4325-4106-aa09-66e73f9c4016"
+          },
+          {
+            "number": 3,
+            "points": 10000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "116a4634-251f-4569-a355-3c57c4dc247c"
+          },
+          {
+            "number": 3,
+            "points": 7000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "15682f1e-8888-4743-aa23-939ae9401185"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "1811077a-5328-4c68-a88c-870d35429f1e"
+          },
+          {
+            "number": 3,
+            "points": 8000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "1b70223e-dce0-4d03-a22b-8cd73bf141a1"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "1b86f217-1c1d-4df4-a3b3-83ca4e27a75a"
+          },
+          {
+            "number": 3,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "22a8ad61-b681-445e-a2e8-585b936fd060"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "2455de68-516f-4620-ac4f-e7258c0ebf11"
+          },
+          {
+            "number": 3,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "29161111-4740-402e-a569-dadccd07335a"
+          },
+          {
+            "number": 3,
+            "points": 5000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "2a5b2b3f-298c-4cfd-a997-33de7bbae3b0"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "2b7bf9e0-65b9-45ce-a0f1-64293d27d79a"
+          },
+          {
+            "number": 3,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "2ff18477-5ac4-47ee-abcb-dee47db14ac5"
+          },
+          {
+            "number": 3,
+            "points": 10000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "301f6ca0-4a45-4999-ad19-daefe61632cd"
+          },
+          {
+            "number": 3,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "347daef4-17cc-48f9-a52e-1ba63032a29f"
+          },
+          {
+            "number": 3,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "35a30cf5-f691-4803-a1f2-88d57d2cb320"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "38b333b9-6fa4-42f3-a1ff-570a9e4d84fe"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "3adfd68e-f299-4e75-a191-8a28049b45ca"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "3b483449-0220-4d13-ac65-67385727bd15"
+          },
+          {
+            "number": 3,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "3bfcaa83-d52c-4279-a27b-21f54b163323"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "4ca18e11-7df7-4fe6-a1e7-06fd23e48a0a"
+          },
+          {
+            "number": 3,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "4de296b5-a8ee-4790-a21d-5c22e2fedc81"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "4f9ebee9-2f9a-41e3-ad4a-fc04e0ea02a3"
+          },
+          {
+            "number": 3,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "4fc0d4e4-c581-4b5e-abbe-87d03f55d28e"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "5086ac4d-b0e8-4103-a02d-bb987887af9b"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "53cc16d9-7910-4a57-aa1a-ea43981120b4"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "546f666b-fe3f-4a4d-a454-f28687d7f8eb"
+          },
+          {
+            "number": 3,
+            "points": 9000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "5a5e7679-a23a-40d8-a0fd-4d561d7bb5f6"
+          },
+          {
+            "number": 3,
+            "points": 7000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "5d002867-fe2e-44cc-a456-87547cafe0aa"
+          },
+          {
+            "number": 3,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "63cd7f50-d40b-4022-a7a9-215c21beab57"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "69af50e7-b469-4b80-ad2b-8344ff178cdc"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "69b05742-eeb3-424c-afe3-55c1834a6a5a"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "6ba04255-ab99-45b0-a933-d459433dc445"
+          },
+          {
+            "number": 3,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "6c818ac7-964d-431c-ad45-416657bf3a19"
+          },
+          {
+            "number": 3,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "6d4ab174-dc5e-4175-a81f-714e9ce676d3"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "6e21065c-299c-4baa-a53f-67b166c57385"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "6e671e3b-0012-4027-a126-971de1312502"
+          },
+          {
+            "number": 3,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "73b11e60-e934-463f-a0d7-a1abea097cff"
+          },
+          {
+            "number": 3,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "78f14dae-33af-40db-abd5-ff3dd559c639"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "79bfa216-1cc4-499d-abd4-0147ab7b5913"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "7b629d25-b1e6-467a-a28b-de52d415d7ca"
+          },
+          {
+            "number": 3,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "7ce78932-f914-4309-af4b-0d77369a590c"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "804013b7-0c9e-48de-a3ae-628eba4a426d"
+          },
+          {
+            "number": 3,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "86217730-8836-4099-a8e7-5844a83d3a24"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "89e27eb5-4fe6-4d4b-ab01-9cf9f835fe52"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "90ec2804-8731-4040-a4b1-3b0ebf957b6d"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "97522146-98d3-42f2-a12c-8bc8ff9b3cbc"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "9881e4cf-3c86-4422-a214-340b49099026"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "9aac70b2-cc1d-45b5-acff-305dd14432e3"
+          },
+          {
+            "number": 3,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "9b63c040-13ba-4f37-aec0-c3e97656824a"
+          },
+          {
+            "number": 3,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "9c705655-f7f9-4036-a7a9-fff25be82105"
+          },
+          {
+            "number": 3,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "9f429438-8509-4071-a189-095fbf637775"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "9f606d62-6c31-42cd-a0c2-937d2cf2c0c5"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "a2a6ec1a-60aa-4169-a0b1-bc87bbd24b83"
+          },
+          {
+            "number": 3,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "a43e2358-ac32-4172-a129-078afc124c34"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "a719b85a-dc3d-4f58-a829-61c10472f98e"
+          },
+          {
+            "number": 3,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "a817e388-c3fd-4674-ad3f-961e0c459688"
+          },
+          {
+            "number": 3,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "ab585b3c-ae12-4f3f-a81d-50e44a152b90"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "ac3ccb91-f967-4c57-af35-d57ad08ef62b"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "ac41eeee-fe3c-43c2-acd0-26adfb2b6f8a"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "ad558267-6034-475a-a880-a16e32da7886"
+          },
+          {
+            "number": 3,
+            "points": 6000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "ae44e89f-0dd5-4236-a41d-1bf1e0240692"
+          },
+          {
+            "number": 3,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "b8709ede-156c-40d8-a507-df7e0f307f50"
+          },
+          {
+            "number": 3,
+            "points": 1000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "b9ac7db9-0a01-4abc-a74e-413639ea976f"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "b9d33f1b-cd9a-407a-a65f-ed8707ae91fd"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "bfcb8648-5d0f-402b-a095-7b036f8cbfdd"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "c1c33721-1d51-46fe-af93-0acf29720f2a"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "c77ec825-f20f-4f63-a309-fc24325554b4"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "cc2878fe-c272-4f1f-a40a-17dd99d917ec"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "ccb68529-64c8-4056-a187-1dc0524b919e"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "d1d7d256-bfe0-477e-adcb-623b8d1baaef"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "d2191dc7-d695-4e5c-afc8-0f52d8caef49"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "d48bf8c8-1404-4e0f-aadb-d1a3780c7a00"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "d712baf6-0154-42ac-add4-7a9472461a70"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "d81601de-b008-4cf7-a0e4-72e000d89e66"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "dabc88c8-4368-4e55-ace7-c9b0c788abdf"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "de91a5f4-1d09-41b0-a587-27fdfabcc618"
+          },
+          {
+            "number": 3,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "e6a48fd8-6d56-480c-a4b9-dadd94f05031"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "e8c946f6-b27c-4622-a7d5-9c2bbc6e0201"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "e9ce8c9e-3aee-4720-a832-2f11ad07e5d8"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "eb446365-dfc5-4a8a-acb0-0be18dbd435d"
+          },
+          {
+            "number": 3,
+            "points": 3000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "f081453e-b06b-49ac-ae03-bd5b93be77ee"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "f0f12d05-6b47-4602-adbd-f1c1d5ed6204"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "f165733f-4f11-4b6a-af54-919f5bc4bf08"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "f59d7b89-b73a-4169-a3e4-0329fd8550e4"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "f6075c2b-6bfb-4d72-a726-be4aaedc38ff"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "f75f8b73-0748-4e64-ac2a-a15b73a5b339"
+          },
+          {
+            "number": 3,
+            "points": 2000,
+            "minutes": 90,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "f971d32a-5c9f-4269-a4c1-7bf393082b6b"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "fb0c947f-c01e-499d-a18c-0caa3d0cda1a"
+          },
+          {
+            "number": 3,
+            "points": 0,
+            "minutes": 0,
+            "revision": 1,
+            "gameweekId": "6e8b1743-bf8b-4e5c-a465-0ced30300bb1",
+            "footballerId": "ff5f8737-690d-4c56-a4b6-ee4330bc8504"
+          }
+        ]
+      },
+      {
+        "id": "ab39659b-5a4c-4067-acc3-d31e7c487193",
+        "number": 4,
+        "deadline": "2026-09-21T21:08:09.279Z",
+        "revision": 0,
+        "finalizedAt": null,
+        "observations": []
+      },
+      {
+        "id": "ae480efb-d758-4154-a914-a9e9fc4373b0",
+        "number": 5,
+        "deadline": "2026-09-28T21:08:09.279Z",
+        "revision": 0,
+        "finalizedAt": null,
+        "observations": []
+      },
+      {
+        "id": "5239a7b7-7f3f-49e4-a2a6-93f2618dcc56",
+        "number": 6,
+        "deadline": "2026-10-05T21:08:09.279Z",
+        "revision": 0,
+        "finalizedAt": null,
+        "observations": []
+      }
+    ],
+    "players": [
+      {
+        "price": 65,
+        "clubId": "aea3acdf-699b-4a40-a2b4-e55efce41ab7",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "06b7377b-f0e2-4dcc-a9ad-7a1ee05ccd21"
+      },
+      {
+        "price": 50,
+        "clubId": "563bce7e-2493-4292-afa0-0614df99de3d",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "0d11cbb3-4325-4106-aa09-66e73f9c4016"
+      },
+      {
+        "price": 75,
+        "clubId": "2dbdff33-b7c8-41e4-ae7f-95780c0212f2",
+        "pinned": false,
+        "position": "FWD",
+        "selectable": true,
+        "footballerId": "116a4634-251f-4569-a355-3c57c4dc247c"
+      },
+      {
+        "price": 45,
+        "clubId": "2dbdff33-b7c8-41e4-ae7f-95780c0212f2",
+        "pinned": false,
+        "position": "GK",
+        "selectable": true,
+        "footballerId": "15682f1e-8888-4743-aa23-939ae9401185"
+      },
+      {
+        "price": 65,
+        "clubId": "3b8bff91-c2b2-44d6-a0f3-88041a1ce974",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "1811077a-5328-4c68-a88c-870d35429f1e"
+      },
+      {
+        "price": 65,
+        "clubId": "b144a664-ec8b-4546-aa84-4b9e60b7ecb5",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "1b70223e-dce0-4d03-a22b-8cd73bf141a1"
+      },
+      {
+        "price": 45,
+        "clubId": "91d4f421-d05b-41ff-a839-81288abb91c7",
+        "pinned": false,
+        "position": "GK",
+        "selectable": true,
+        "footballerId": "1b86f217-1c1d-4df4-a3b3-83ca4e27a75a"
+      },
+      {
+        "price": 75,
+        "clubId": "563bce7e-2493-4292-afa0-0614df99de3d",
+        "pinned": false,
+        "position": "FWD",
+        "selectable": true,
+        "footballerId": "22a8ad61-b681-445e-a2e8-585b936fd060"
+      },
+      {
+        "price": 75,
+        "clubId": "2dbdff33-b7c8-41e4-ae7f-95780c0212f2",
+        "pinned": false,
+        "position": "FWD",
+        "selectable": true,
+        "footballerId": "2455de68-516f-4620-ac4f-e7258c0ebf11"
+      },
+      {
+        "price": 50,
+        "clubId": "91d4f421-d05b-41ff-a839-81288abb91c7",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "29161111-4740-402e-a569-dadccd07335a"
+      },
+      {
+        "price": 65,
+        "clubId": "91d4f421-d05b-41ff-a839-81288abb91c7",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "2a5b2b3f-298c-4cfd-a997-33de7bbae3b0"
+      },
+      {
+        "price": 65,
+        "clubId": "aea3acdf-699b-4a40-a2b4-e55efce41ab7",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "2b7bf9e0-65b9-45ce-a0f1-64293d27d79a"
+      },
+      {
+        "price": 45,
+        "clubId": "3b8bff91-c2b2-44d6-a0f3-88041a1ce974",
+        "pinned": false,
+        "position": "GK",
+        "selectable": true,
+        "footballerId": "2ff18477-5ac4-47ee-abcb-dee47db14ac5"
+      },
+      {
+        "price": 75,
+        "clubId": "b144a664-ec8b-4546-aa84-4b9e60b7ecb5",
+        "pinned": false,
+        "position": "FWD",
+        "selectable": true,
+        "footballerId": "301f6ca0-4a45-4999-ad19-daefe61632cd"
+      },
+      {
+        "price": 75,
+        "clubId": "91d4f421-d05b-41ff-a839-81288abb91c7",
+        "pinned": false,
+        "position": "FWD",
+        "selectable": true,
+        "footballerId": "347daef4-17cc-48f9-a52e-1ba63032a29f"
+      },
+      {
+        "price": 50,
+        "clubId": "563bce7e-2493-4292-afa0-0614df99de3d",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "35a30cf5-f691-4803-a1f2-88d57d2cb320"
+      },
+      {
+        "price": 75,
+        "clubId": "91d4f421-d05b-41ff-a839-81288abb91c7",
+        "pinned": false,
+        "position": "FWD",
+        "selectable": true,
+        "footballerId": "38b333b9-6fa4-42f3-a1ff-570a9e4d84fe"
+      },
+      {
+        "price": 65,
+        "clubId": "91d4f421-d05b-41ff-a839-81288abb91c7",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "3adfd68e-f299-4e75-a191-8a28049b45ca"
+      },
+      {
+        "price": 45,
+        "clubId": "3b8bff91-c2b2-44d6-a0f3-88041a1ce974",
+        "pinned": false,
+        "position": "GK",
+        "selectable": true,
+        "footballerId": "3b483449-0220-4d13-ac65-67385727bd15"
+      },
+      {
+        "price": 65,
+        "clubId": "563bce7e-2493-4292-afa0-0614df99de3d",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "3bfcaa83-d52c-4279-a27b-21f54b163323"
+      },
+      {
+        "price": 65,
+        "clubId": "3b8bff91-c2b2-44d6-a0f3-88041a1ce974",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "4ca18e11-7df7-4fe6-a1e7-06fd23e48a0a"
+      },
+      {
+        "price": 50,
+        "clubId": "aea3acdf-699b-4a40-a2b4-e55efce41ab7",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "4de296b5-a8ee-4790-a21d-5c22e2fedc81"
+      },
+      {
+        "price": 65,
+        "clubId": "91d4f421-d05b-41ff-a839-81288abb91c7",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "4f9ebee9-2f9a-41e3-ad4a-fc04e0ea02a3"
+      },
+      {
+        "price": 50,
+        "clubId": "aea3acdf-699b-4a40-a2b4-e55efce41ab7",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "4fc0d4e4-c581-4b5e-abbe-87d03f55d28e"
+      },
+      {
+        "price": 75,
+        "clubId": "563bce7e-2493-4292-afa0-0614df99de3d",
+        "pinned": false,
+        "position": "FWD",
+        "selectable": true,
+        "footballerId": "5086ac4d-b0e8-4103-a02d-bb987887af9b"
+      },
+      {
+        "price": 50,
+        "clubId": "3b8bff91-c2b2-44d6-a0f3-88041a1ce974",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "53cc16d9-7910-4a57-aa1a-ea43981120b4"
+      },
+      {
+        "price": 65,
+        "clubId": "aea3acdf-699b-4a40-a2b4-e55efce41ab7",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "546f666b-fe3f-4a4d-a454-f28687d7f8eb"
+      },
+      {
+        "price": 65,
+        "clubId": "2dbdff33-b7c8-41e4-ae7f-95780c0212f2",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "5a5e7679-a23a-40d8-a0fd-4d561d7bb5f6"
+      },
+      {
+        "price": 45,
+        "clubId": "563bce7e-2493-4292-afa0-0614df99de3d",
+        "pinned": false,
+        "position": "GK",
+        "selectable": true,
+        "footballerId": "5d002867-fe2e-44cc-a456-87547cafe0aa"
+      },
+      {
+        "price": 65,
+        "clubId": "563bce7e-2493-4292-afa0-0614df99de3d",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "63cd7f50-d40b-4022-a7a9-215c21beab57"
+      },
+      {
+        "price": 75,
+        "clubId": "aea3acdf-699b-4a40-a2b4-e55efce41ab7",
+        "pinned": false,
+        "position": "FWD",
+        "selectable": true,
+        "footballerId": "69af50e7-b469-4b80-ad2b-8344ff178cdc"
+      },
+      {
+        "price": 65,
+        "clubId": "91d4f421-d05b-41ff-a839-81288abb91c7",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "69b05742-eeb3-424c-afe3-55c1834a6a5a"
+      },
+      {
+        "price": 75,
+        "clubId": "3b8bff91-c2b2-44d6-a0f3-88041a1ce974",
+        "pinned": false,
+        "position": "FWD",
+        "selectable": true,
+        "footballerId": "6ba04255-ab99-45b0-a933-d459433dc445"
+      },
+      {
+        "price": 50,
+        "clubId": "2dbdff33-b7c8-41e4-ae7f-95780c0212f2",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "6c818ac7-964d-431c-ad45-416657bf3a19"
+      },
+      {
+        "price": 50,
+        "clubId": "aea3acdf-699b-4a40-a2b4-e55efce41ab7",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "6d4ab174-dc5e-4175-a81f-714e9ce676d3"
+      },
+      {
+        "price": 65,
+        "clubId": "3b8bff91-c2b2-44d6-a0f3-88041a1ce974",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "6e21065c-299c-4baa-a53f-67b166c57385"
+      },
+      {
+        "price": 75,
+        "clubId": "3b8bff91-c2b2-44d6-a0f3-88041a1ce974",
+        "pinned": false,
+        "position": "FWD",
+        "selectable": true,
+        "footballerId": "6e671e3b-0012-4027-a126-971de1312502"
+      },
+      {
+        "price": 50,
+        "clubId": "563bce7e-2493-4292-afa0-0614df99de3d",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "73b11e60-e934-463f-a0d7-a1abea097cff"
+      },
+      {
+        "price": 65,
+        "clubId": "563bce7e-2493-4292-afa0-0614df99de3d",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "78f14dae-33af-40db-abd5-ff3dd559c639"
+      },
+      {
+        "price": 65,
+        "clubId": "3b8bff91-c2b2-44d6-a0f3-88041a1ce974",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "79bfa216-1cc4-499d-abd4-0147ab7b5913"
+      },
+      {
+        "price": 50,
+        "clubId": "b144a664-ec8b-4546-aa84-4b9e60b7ecb5",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "7b629d25-b1e6-467a-a28b-de52d415d7ca"
+      },
+      {
+        "price": 50,
+        "clubId": "2dbdff33-b7c8-41e4-ae7f-95780c0212f2",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "7ce78932-f914-4309-af4b-0d77369a590c"
+      },
+      {
+        "price": 75,
+        "clubId": "563bce7e-2493-4292-afa0-0614df99de3d",
+        "pinned": false,
+        "position": "FWD",
+        "selectable": true,
+        "footballerId": "804013b7-0c9e-48de-a3ae-628eba4a426d"
+      },
+      {
+        "price": 45,
+        "clubId": "b144a664-ec8b-4546-aa84-4b9e60b7ecb5",
+        "pinned": false,
+        "position": "GK",
+        "selectable": true,
+        "footballerId": "86217730-8836-4099-a8e7-5844a83d3a24"
+      },
+      {
+        "price": 75,
+        "clubId": "b144a664-ec8b-4546-aa84-4b9e60b7ecb5",
+        "pinned": false,
+        "position": "FWD",
+        "selectable": true,
+        "footballerId": "89e27eb5-4fe6-4d4b-ab01-9cf9f835fe52"
+      },
+      {
+        "price": 75,
+        "clubId": "b144a664-ec8b-4546-aa84-4b9e60b7ecb5",
+        "pinned": false,
+        "position": "FWD",
+        "selectable": true,
+        "footballerId": "90ec2804-8731-4040-a4b1-3b0ebf957b6d"
+      },
+      {
+        "price": 45,
+        "clubId": "aea3acdf-699b-4a40-a2b4-e55efce41ab7",
+        "pinned": false,
+        "position": "GK",
+        "selectable": true,
+        "footballerId": "97522146-98d3-42f2-a12c-8bc8ff9b3cbc"
+      },
+      {
+        "price": 65,
+        "clubId": "b144a664-ec8b-4546-aa84-4b9e60b7ecb5",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "9881e4cf-3c86-4422-a214-340b49099026"
+      },
+      {
+        "price": 45,
+        "clubId": "91d4f421-d05b-41ff-a839-81288abb91c7",
+        "pinned": false,
+        "position": "GK",
+        "selectable": true,
+        "footballerId": "9aac70b2-cc1d-45b5-acff-305dd14432e3"
+      },
+      {
+        "price": 50,
+        "clubId": "2dbdff33-b7c8-41e4-ae7f-95780c0212f2",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "9b63c040-13ba-4f37-aec0-c3e97656824a"
+      },
+      {
+        "price": 50,
+        "clubId": "91d4f421-d05b-41ff-a839-81288abb91c7",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "9c705655-f7f9-4036-a7a9-fff25be82105"
+      },
+      {
+        "price": 65,
+        "clubId": "2dbdff33-b7c8-41e4-ae7f-95780c0212f2",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "9f429438-8509-4071-a189-095fbf637775"
+      },
+      {
+        "price": 50,
+        "clubId": "3b8bff91-c2b2-44d6-a0f3-88041a1ce974",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "9f606d62-6c31-42cd-a0c2-937d2cf2c0c5"
+      },
+      {
+        "price": 45,
+        "clubId": "aea3acdf-699b-4a40-a2b4-e55efce41ab7",
+        "pinned": false,
+        "position": "GK",
+        "selectable": true,
+        "footballerId": "a2a6ec1a-60aa-4169-a0b1-bc87bbd24b83"
+      },
+      {
+        "price": 50,
+        "clubId": "91d4f421-d05b-41ff-a839-81288abb91c7",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "a43e2358-ac32-4172-a129-078afc124c34"
+      },
+      {
+        "price": 65,
+        "clubId": "3b8bff91-c2b2-44d6-a0f3-88041a1ce974",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "a719b85a-dc3d-4f58-a829-61c10472f98e"
+      },
+      {
+        "price": 65,
+        "clubId": "2dbdff33-b7c8-41e4-ae7f-95780c0212f2",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "a817e388-c3fd-4674-ad3f-961e0c459688"
+      },
+      {
+        "price": 50,
+        "clubId": "563bce7e-2493-4292-afa0-0614df99de3d",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "ab585b3c-ae12-4f3f-a81d-50e44a152b90"
+      },
+      {
+        "price": 75,
+        "clubId": "91d4f421-d05b-41ff-a839-81288abb91c7",
+        "pinned": false,
+        "position": "FWD",
+        "selectable": true,
+        "footballerId": "ac3ccb91-f967-4c57-af35-d57ad08ef62b"
+      },
+      {
+        "price": 75,
+        "clubId": "aea3acdf-699b-4a40-a2b4-e55efce41ab7",
+        "pinned": false,
+        "position": "FWD",
+        "selectable": true,
+        "footballerId": "ac41eeee-fe3c-43c2-acd0-26adfb2b6f8a"
+      },
+      {
+        "price": 45,
+        "clubId": "563bce7e-2493-4292-afa0-0614df99de3d",
+        "pinned": false,
+        "position": "GK",
+        "selectable": true,
+        "footballerId": "ad558267-6034-475a-a880-a16e32da7886"
+      },
+      {
+        "price": 50,
+        "clubId": "2dbdff33-b7c8-41e4-ae7f-95780c0212f2",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "ae44e89f-0dd5-4236-a41d-1bf1e0240692"
+      },
+      {
+        "price": 50,
+        "clubId": "91d4f421-d05b-41ff-a839-81288abb91c7",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "b8709ede-156c-40d8-a507-df7e0f307f50"
+      },
+      {
+        "price": 50,
+        "clubId": "aea3acdf-699b-4a40-a2b4-e55efce41ab7",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "b9ac7db9-0a01-4abc-a74e-413639ea976f"
+      },
+      {
+        "price": 65,
+        "clubId": "b144a664-ec8b-4546-aa84-4b9e60b7ecb5",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "b9d33f1b-cd9a-407a-a65f-ed8707ae91fd"
+      },
+      {
+        "price": 50,
+        "clubId": "aea3acdf-699b-4a40-a2b4-e55efce41ab7",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "bfcb8648-5d0f-402b-a095-7b036f8cbfdd"
+      },
+      {
+        "price": 50,
+        "clubId": "3b8bff91-c2b2-44d6-a0f3-88041a1ce974",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "c1c33721-1d51-46fe-af93-0acf29720f2a"
+      },
+      {
+        "price": 50,
+        "clubId": "2dbdff33-b7c8-41e4-ae7f-95780c0212f2",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "c77ec825-f20f-4f63-a309-fc24325554b4"
+      },
+      {
+        "price": 75,
+        "clubId": "aea3acdf-699b-4a40-a2b4-e55efce41ab7",
+        "pinned": false,
+        "position": "FWD",
+        "selectable": true,
+        "footballerId": "cc2878fe-c272-4f1f-a40a-17dd99d917ec"
+      },
+      {
+        "price": 65,
+        "clubId": "91d4f421-d05b-41ff-a839-81288abb91c7",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "ccb68529-64c8-4056-a187-1dc0524b919e"
+      },
+      {
+        "price": 50,
+        "clubId": "3b8bff91-c2b2-44d6-a0f3-88041a1ce974",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "d1d7d256-bfe0-477e-adcb-623b8d1baaef"
+      },
+      {
+        "price": 45,
+        "clubId": "2dbdff33-b7c8-41e4-ae7f-95780c0212f2",
+        "pinned": false,
+        "position": "GK",
+        "selectable": true,
+        "footballerId": "d2191dc7-d695-4e5c-afc8-0f52d8caef49"
+      },
+      {
+        "price": 75,
+        "clubId": "2dbdff33-b7c8-41e4-ae7f-95780c0212f2",
+        "pinned": false,
+        "position": "FWD",
+        "selectable": true,
+        "footballerId": "d48bf8c8-1404-4e0f-aadb-d1a3780c7a00"
+      },
+      {
+        "price": 75,
+        "clubId": "3b8bff91-c2b2-44d6-a0f3-88041a1ce974",
+        "pinned": false,
+        "position": "FWD",
+        "selectable": true,
+        "footballerId": "d712baf6-0154-42ac-add4-7a9472461a70"
+      },
+      {
+        "price": 65,
+        "clubId": "aea3acdf-699b-4a40-a2b4-e55efce41ab7",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "d81601de-b008-4cf7-a0e4-72e000d89e66"
+      },
+      {
+        "price": 50,
+        "clubId": "563bce7e-2493-4292-afa0-0614df99de3d",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "dabc88c8-4368-4e55-ace7-c9b0c788abdf"
+      },
+      {
+        "price": 50,
+        "clubId": "b144a664-ec8b-4546-aa84-4b9e60b7ecb5",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "de91a5f4-1d09-41b0-a587-27fdfabcc618"
+      },
+      {
+        "price": 65,
+        "clubId": "563bce7e-2493-4292-afa0-0614df99de3d",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "e6a48fd8-6d56-480c-a4b9-dadd94f05031"
+      },
+      {
+        "price": 50,
+        "clubId": "91d4f421-d05b-41ff-a839-81288abb91c7",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "e8c946f6-b27c-4622-a7d5-9c2bbc6e0201"
+      },
+      {
+        "price": 45,
+        "clubId": "b144a664-ec8b-4546-aa84-4b9e60b7ecb5",
+        "pinned": false,
+        "position": "GK",
+        "selectable": true,
+        "footballerId": "e9ce8c9e-3aee-4720-a832-2f11ad07e5d8"
+      },
+      {
+        "price": 65,
+        "clubId": "563bce7e-2493-4292-afa0-0614df99de3d",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "eb446365-dfc5-4a8a-acb0-0be18dbd435d"
+      },
+      {
+        "price": 65,
+        "clubId": "2dbdff33-b7c8-41e4-ae7f-95780c0212f2",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "f081453e-b06b-49ac-ae03-bd5b93be77ee"
+      },
+      {
+        "price": 50,
+        "clubId": "b144a664-ec8b-4546-aa84-4b9e60b7ecb5",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "f0f12d05-6b47-4602-adbd-f1c1d5ed6204"
+      },
+      {
+        "price": 50,
+        "clubId": "3b8bff91-c2b2-44d6-a0f3-88041a1ce974",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "f165733f-4f11-4b6a-af54-919f5bc4bf08"
+      },
+      {
+        "price": 50,
+        "clubId": "b144a664-ec8b-4546-aa84-4b9e60b7ecb5",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "f59d7b89-b73a-4169-a3e4-0329fd8550e4"
+      },
+      {
+        "price": 65,
+        "clubId": "aea3acdf-699b-4a40-a2b4-e55efce41ab7",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "f6075c2b-6bfb-4d72-a726-be4aaedc38ff"
+      },
+      {
+        "price": 50,
+        "clubId": "b144a664-ec8b-4546-aa84-4b9e60b7ecb5",
+        "pinned": false,
+        "position": "DEF",
+        "selectable": true,
+        "footballerId": "f75f8b73-0748-4e64-ac2a-a15b73a5b339"
+      },
+      {
+        "price": 65,
+        "clubId": "b144a664-ec8b-4546-aa84-4b9e60b7ecb5",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "f971d32a-5c9f-4269-a4c1-7bf393082b6b"
+      },
+      {
+        "price": 65,
+        "clubId": "b144a664-ec8b-4546-aa84-4b9e60b7ecb5",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "fb0c947f-c01e-499d-a18c-0caa3d0cda1a"
+      },
+      {
+        "price": 65,
+        "clubId": "2dbdff33-b7c8-41e4-ae7f-95780c0212f2",
+        "pinned": false,
+        "position": "MID",
+        "selectable": true,
+        "footballerId": "ff5f8737-690d-4c56-a4b6-ee4330bc8504"
+      }
+    ],
+    "synthetic": true,
+    "competitionId": "a95502c6-7bc0-4dea-ab2c-078b9665b2f4",
+    "competitionRevision": 2
+  },
+  "output": {
+    "results": [
+      {
+        "final": {
+          "positions": [
+            {
+              "count": 12,
+              "position": "GK",
+              "totalTicks": "540"
+            },
+            {
+              "count": 30,
+              "position": "DEF",
+              "totalTicks": "1500"
+            },
+            {
+              "count": 30,
+              "position": "MID",
+              "totalTicks": "1950"
+            },
+            {
+              "count": 18,
+              "position": "FWD",
+              "totalTicks": "1350"
+            }
+          ],
+          "affordable": true,
+          "totalTicks": "5340",
+          "cheapestSquad": [
+            "06b7377b-f0e2-4dcc-a9ad-7a1ee05ccd21",
+            "0d11cbb3-4325-4106-aa09-66e73f9c4016",
+            "116a4634-251f-4569-a355-3c57c4dc247c",
+            "15682f1e-8888-4743-aa23-939ae9401185",
+            "1811077a-5328-4c68-a88c-870d35429f1e",
+            "1b70223e-dce0-4d03-a22b-8cd73bf141a1",
+            "1b86f217-1c1d-4df4-a3b3-83ca4e27a75a",
+            "2455de68-516f-4620-ac4f-e7258c0ebf11",
+            "29161111-4740-402e-a569-dadccd07335a",
+            "2a5b2b3f-298c-4cfd-a997-33de7bbae3b0",
+            "301f6ca0-4a45-4999-ad19-daefe61632cd",
+            "35a30cf5-f691-4803-a1f2-88d57d2cb320",
+            "3bfcaa83-d52c-4279-a27b-21f54b163323",
+            "4de296b5-a8ee-4790-a21d-5c22e2fedc81",
+            "4fc0d4e4-c581-4b5e-abbe-87d03f55d28e"
+          ],
+          "minimumSquadTicks": "890"
+        },
+        "label": "Current settings",
+        "batches": [
+          {
+            "at": "2026-09-18T21:08:09.503Z",
+            "holds": {
+              "insufficient-history": 90
+            },
+            "market": {
+              "positions": [
+                {
+                  "count": 12,
+                  "position": "GK",
+                  "totalTicks": "540"
+                },
+                {
+                  "count": 30,
+                  "position": "DEF",
+                  "totalTicks": "1500"
+                },
+                {
+                  "count": 30,
+                  "position": "MID",
+                  "totalTicks": "1950"
+                },
+                {
+                  "count": 18,
+                  "position": "FWD",
+                  "totalTicks": "1350"
+                }
+              ],
+              "affordable": true,
+              "totalTicks": "5340",
+              "cheapestSquad": [
+                "06b7377b-f0e2-4dcc-a9ad-7a1ee05ccd21",
+                "0d11cbb3-4325-4106-aa09-66e73f9c4016",
+                "116a4634-251f-4569-a355-3c57c4dc247c",
+                "15682f1e-8888-4743-aa23-939ae9401185",
+                "1811077a-5328-4c68-a88c-870d35429f1e",
+                "1b70223e-dce0-4d03-a22b-8cd73bf141a1",
+                "1b86f217-1c1d-4df4-a3b3-83ca4e27a75a",
+                "2455de68-516f-4620-ac4f-e7258c0ebf11",
+                "29161111-4740-402e-a569-dadccd07335a",
+                "2a5b2b3f-298c-4cfd-a997-33de7bbae3b0",
+                "301f6ca0-4a45-4999-ad19-daefe61632cd",
+                "35a30cf5-f691-4803-a1f2-88d57d2cb320",
+                "3bfcaa83-d52c-4279-a27b-21f54b163323",
+                "4de296b5-a8ee-4790-a21d-5c22e2fedc81",
+                "4fc0d4e4-c581-4b5e-abbe-87d03f55d28e"
+              ],
+              "minimumSquadTicks": "890"
+            },
+            "changes": [],
+            "editingGameweekId": "ab39659b-5a4c-4067-acc3-d31e7c487193",
+            "sourceGameweekIds": ["5a86e0d6-6cf2-46e0-a850-bde027917eff"]
+          }
+        ],
+        "finalPrices": [
+          {
+            "price": 65,
+            "footballerId": "06b7377b-f0e2-4dcc-a9ad-7a1ee05ccd21"
+          },
+          {
+            "price": 50,
+            "footballerId": "0d11cbb3-4325-4106-aa09-66e73f9c4016"
+          },
+          {
+            "price": 75,
+            "footballerId": "116a4634-251f-4569-a355-3c57c4dc247c"
+          },
+          {
+            "price": 45,
+            "footballerId": "15682f1e-8888-4743-aa23-939ae9401185"
+          },
+          {
+            "price": 65,
+            "footballerId": "1811077a-5328-4c68-a88c-870d35429f1e"
+          },
+          {
+            "price": 65,
+            "footballerId": "1b70223e-dce0-4d03-a22b-8cd73bf141a1"
+          },
+          {
+            "price": 45,
+            "footballerId": "1b86f217-1c1d-4df4-a3b3-83ca4e27a75a"
+          },
+          {
+            "price": 75,
+            "footballerId": "22a8ad61-b681-445e-a2e8-585b936fd060"
+          },
+          {
+            "price": 75,
+            "footballerId": "2455de68-516f-4620-ac4f-e7258c0ebf11"
+          },
+          {
+            "price": 50,
+            "footballerId": "29161111-4740-402e-a569-dadccd07335a"
+          },
+          {
+            "price": 65,
+            "footballerId": "2a5b2b3f-298c-4cfd-a997-33de7bbae3b0"
+          },
+          {
+            "price": 65,
+            "footballerId": "2b7bf9e0-65b9-45ce-a0f1-64293d27d79a"
+          },
+          {
+            "price": 45,
+            "footballerId": "2ff18477-5ac4-47ee-abcb-dee47db14ac5"
+          },
+          {
+            "price": 75,
+            "footballerId": "301f6ca0-4a45-4999-ad19-daefe61632cd"
+          },
+          {
+            "price": 75,
+            "footballerId": "347daef4-17cc-48f9-a52e-1ba63032a29f"
+          },
+          {
+            "price": 50,
+            "footballerId": "35a30cf5-f691-4803-a1f2-88d57d2cb320"
+          },
+          {
+            "price": 75,
+            "footballerId": "38b333b9-6fa4-42f3-a1ff-570a9e4d84fe"
+          },
+          {
+            "price": 65,
+            "footballerId": "3adfd68e-f299-4e75-a191-8a28049b45ca"
+          },
+          {
+            "price": 45,
+            "footballerId": "3b483449-0220-4d13-ac65-67385727bd15"
+          },
+          {
+            "price": 65,
+            "footballerId": "3bfcaa83-d52c-4279-a27b-21f54b163323"
+          },
+          {
+            "price": 65,
+            "footballerId": "4ca18e11-7df7-4fe6-a1e7-06fd23e48a0a"
+          },
+          {
+            "price": 50,
+            "footballerId": "4de296b5-a8ee-4790-a21d-5c22e2fedc81"
+          },
+          {
+            "price": 65,
+            "footballerId": "4f9ebee9-2f9a-41e3-ad4a-fc04e0ea02a3"
+          },
+          {
+            "price": 50,
+            "footballerId": "4fc0d4e4-c581-4b5e-abbe-87d03f55d28e"
+          },
+          {
+            "price": 75,
+            "footballerId": "5086ac4d-b0e8-4103-a02d-bb987887af9b"
+          },
+          {
+            "price": 50,
+            "footballerId": "53cc16d9-7910-4a57-aa1a-ea43981120b4"
+          },
+          {
+            "price": 65,
+            "footballerId": "546f666b-fe3f-4a4d-a454-f28687d7f8eb"
+          },
+          {
+            "price": 65,
+            "footballerId": "5a5e7679-a23a-40d8-a0fd-4d561d7bb5f6"
+          },
+          {
+            "price": 45,
+            "footballerId": "5d002867-fe2e-44cc-a456-87547cafe0aa"
+          },
+          {
+            "price": 65,
+            "footballerId": "63cd7f50-d40b-4022-a7a9-215c21beab57"
+          },
+          {
+            "price": 75,
+            "footballerId": "69af50e7-b469-4b80-ad2b-8344ff178cdc"
+          },
+          {
+            "price": 65,
+            "footballerId": "69b05742-eeb3-424c-afe3-55c1834a6a5a"
+          },
+          {
+            "price": 75,
+            "footballerId": "6ba04255-ab99-45b0-a933-d459433dc445"
+          },
+          {
+            "price": 50,
+            "footballerId": "6c818ac7-964d-431c-ad45-416657bf3a19"
+          },
+          {
+            "price": 50,
+            "footballerId": "6d4ab174-dc5e-4175-a81f-714e9ce676d3"
+          },
+          {
+            "price": 65,
+            "footballerId": "6e21065c-299c-4baa-a53f-67b166c57385"
+          },
+          {
+            "price": 75,
+            "footballerId": "6e671e3b-0012-4027-a126-971de1312502"
+          },
+          {
+            "price": 50,
+            "footballerId": "73b11e60-e934-463f-a0d7-a1abea097cff"
+          },
+          {
+            "price": 65,
+            "footballerId": "78f14dae-33af-40db-abd5-ff3dd559c639"
+          },
+          {
+            "price": 65,
+            "footballerId": "79bfa216-1cc4-499d-abd4-0147ab7b5913"
+          },
+          {
+            "price": 50,
+            "footballerId": "7b629d25-b1e6-467a-a28b-de52d415d7ca"
+          },
+          {
+            "price": 50,
+            "footballerId": "7ce78932-f914-4309-af4b-0d77369a590c"
+          },
+          {
+            "price": 75,
+            "footballerId": "804013b7-0c9e-48de-a3ae-628eba4a426d"
+          },
+          {
+            "price": 45,
+            "footballerId": "86217730-8836-4099-a8e7-5844a83d3a24"
+          },
+          {
+            "price": 75,
+            "footballerId": "89e27eb5-4fe6-4d4b-ab01-9cf9f835fe52"
+          },
+          {
+            "price": 75,
+            "footballerId": "90ec2804-8731-4040-a4b1-3b0ebf957b6d"
+          },
+          {
+            "price": 45,
+            "footballerId": "97522146-98d3-42f2-a12c-8bc8ff9b3cbc"
+          },
+          {
+            "price": 65,
+            "footballerId": "9881e4cf-3c86-4422-a214-340b49099026"
+          },
+          {
+            "price": 45,
+            "footballerId": "9aac70b2-cc1d-45b5-acff-305dd14432e3"
+          },
+          {
+            "price": 50,
+            "footballerId": "9b63c040-13ba-4f37-aec0-c3e97656824a"
+          },
+          {
+            "price": 50,
+            "footballerId": "9c705655-f7f9-4036-a7a9-fff25be82105"
+          },
+          {
+            "price": 65,
+            "footballerId": "9f429438-8509-4071-a189-095fbf637775"
+          },
+          {
+            "price": 50,
+            "footballerId": "9f606d62-6c31-42cd-a0c2-937d2cf2c0c5"
+          },
+          {
+            "price": 45,
+            "footballerId": "a2a6ec1a-60aa-4169-a0b1-bc87bbd24b83"
+          },
+          {
+            "price": 50,
+            "footballerId": "a43e2358-ac32-4172-a129-078afc124c34"
+          },
+          {
+            "price": 65,
+            "footballerId": "a719b85a-dc3d-4f58-a829-61c10472f98e"
+          },
+          {
+            "price": 65,
+            "footballerId": "a817e388-c3fd-4674-ad3f-961e0c459688"
+          },
+          {
+            "price": 50,
+            "footballerId": "ab585b3c-ae12-4f3f-a81d-50e44a152b90"
+          },
+          {
+            "price": 75,
+            "footballerId": "ac3ccb91-f967-4c57-af35-d57ad08ef62b"
+          },
+          {
+            "price": 75,
+            "footballerId": "ac41eeee-fe3c-43c2-acd0-26adfb2b6f8a"
+          },
+          {
+            "price": 45,
+            "footballerId": "ad558267-6034-475a-a880-a16e32da7886"
+          },
+          {
+            "price": 50,
+            "footballerId": "ae44e89f-0dd5-4236-a41d-1bf1e0240692"
+          },
+          {
+            "price": 50,
+            "footballerId": "b8709ede-156c-40d8-a507-df7e0f307f50"
+          },
+          {
+            "price": 50,
+            "footballerId": "b9ac7db9-0a01-4abc-a74e-413639ea976f"
+          },
+          {
+            "price": 65,
+            "footballerId": "b9d33f1b-cd9a-407a-a65f-ed8707ae91fd"
+          },
+          {
+            "price": 50,
+            "footballerId": "bfcb8648-5d0f-402b-a095-7b036f8cbfdd"
+          },
+          {
+            "price": 50,
+            "footballerId": "c1c33721-1d51-46fe-af93-0acf29720f2a"
+          },
+          {
+            "price": 50,
+            "footballerId": "c77ec825-f20f-4f63-a309-fc24325554b4"
+          },
+          {
+            "price": 75,
+            "footballerId": "cc2878fe-c272-4f1f-a40a-17dd99d917ec"
+          },
+          {
+            "price": 65,
+            "footballerId": "ccb68529-64c8-4056-a187-1dc0524b919e"
+          },
+          {
+            "price": 50,
+            "footballerId": "d1d7d256-bfe0-477e-adcb-623b8d1baaef"
+          },
+          {
+            "price": 45,
+            "footballerId": "d2191dc7-d695-4e5c-afc8-0f52d8caef49"
+          },
+          {
+            "price": 75,
+            "footballerId": "d48bf8c8-1404-4e0f-aadb-d1a3780c7a00"
+          },
+          {
+            "price": 75,
+            "footballerId": "d712baf6-0154-42ac-add4-7a9472461a70"
+          },
+          {
+            "price": 65,
+            "footballerId": "d81601de-b008-4cf7-a0e4-72e000d89e66"
+          },
+          {
+            "price": 50,
+            "footballerId": "dabc88c8-4368-4e55-ace7-c9b0c788abdf"
+          },
+          {
+            "price": 50,
+            "footballerId": "de91a5f4-1d09-41b0-a587-27fdfabcc618"
+          },
+          {
+            "price": 65,
+            "footballerId": "e6a48fd8-6d56-480c-a4b9-dadd94f05031"
+          },
+          {
+            "price": 50,
+            "footballerId": "e8c946f6-b27c-4622-a7d5-9c2bbc6e0201"
+          },
+          {
+            "price": 45,
+            "footballerId": "e9ce8c9e-3aee-4720-a832-2f11ad07e5d8"
+          },
+          {
+            "price": 65,
+            "footballerId": "eb446365-dfc5-4a8a-acb0-0be18dbd435d"
+          },
+          {
+            "price": 65,
+            "footballerId": "f081453e-b06b-49ac-ae03-bd5b93be77ee"
+          },
+          {
+            "price": 50,
+            "footballerId": "f0f12d05-6b47-4602-adbd-f1c1d5ed6204"
+          },
+          {
+            "price": 50,
+            "footballerId": "f165733f-4f11-4b6a-af54-919f5bc4bf08"
+          },
+          {
+            "price": 50,
+            "footballerId": "f59d7b89-b73a-4169-a3e4-0329fd8550e4"
+          },
+          {
+            "price": 65,
+            "footballerId": "f6075c2b-6bfb-4d72-a726-be4aaedc38ff"
+          },
+          {
+            "price": 50,
+            "footballerId": "f75f8b73-0748-4e64-ac2a-a15b73a5b339"
+          },
+          {
+            "price": 65,
+            "footballerId": "f971d32a-5c9f-4269-a4c1-7bf393082b6b"
+          },
+          {
+            "price": 65,
+            "footballerId": "fb0c947f-c01e-499d-a18c-0caa3d0cda1a"
+          },
+          {
+            "price": 65,
+            "footballerId": "ff5f8737-690d-4c56-a4b6-ee4330bc8504"
+          }
+        ],
+        "deferredGameweekIds": [
+          "ec360df5-5179-415d-afd4-34f2f251cdce",
+          "6e8b1743-bf8b-4e5c-a465-0ced30300bb1"
+        ]
+      },
+      {
+        "final": {
+          "positions": [
+            {
+              "count": 12,
+              "position": "GK",
+              "totalTicks": "540"
+            },
+            {
+              "count": 30,
+              "position": "DEF",
+              "totalTicks": "1492"
+            },
+            {
+              "count": 30,
+              "position": "MID",
+              "totalTicks": "1939"
+            },
+            {
+              "count": 18,
+              "position": "FWD",
+              "totalTicks": "1346"
+            }
+          ],
+          "affordable": true,
+          "totalTicks": "5317",
+          "cheapestSquad": [
+            "0d11cbb3-4325-4106-aa09-66e73f9c4016",
+            "1811077a-5328-4c68-a88c-870d35429f1e",
+            "1b86f217-1c1d-4df4-a3b3-83ca4e27a75a",
+            "2455de68-516f-4620-ac4f-e7258c0ebf11",
+            "29161111-4740-402e-a569-dadccd07335a",
+            "2a5b2b3f-298c-4cfd-a997-33de7bbae3b0",
+            "2b7bf9e0-65b9-45ce-a0f1-64293d27d79a",
+            "35a30cf5-f691-4803-a1f2-88d57d2cb320",
+            "53cc16d9-7910-4a57-aa1a-ea43981120b4",
+            "6ba04255-ab99-45b0-a933-d459433dc445",
+            "73b11e60-e934-463f-a0d7-a1abea097cff",
+            "86217730-8836-4099-a8e7-5844a83d3a24",
+            "9881e4cf-3c86-4422-a214-340b49099026",
+            "ac41eeee-fe3c-43c2-acd0-26adfb2b6f8a",
+            "b9d33f1b-cd9a-407a-a65f-ed8707ae91fd"
+          ],
+          "minimumSquadTicks": "876"
+        },
+        "label": "Proposed settings",
+        "batches": [
+          {
+            "at": "2026-09-18T21:08:09.503Z",
+            "holds": {
+              "within-band": 9,
+              "insufficient-minutes": 24
+            },
+            "market": {
+              "positions": [
+                {
+                  "count": 12,
+                  "position": "GK",
+                  "totalTicks": "540"
+                },
+                {
+                  "count": 30,
+                  "position": "DEF",
+                  "totalTicks": "1492"
+                },
+                {
+                  "count": 30,
+                  "position": "MID",
+                  "totalTicks": "1939"
+                },
+                {
+                  "count": 18,
+                  "position": "FWD",
+                  "totalTicks": "1346"
+                }
+              ],
+              "affordable": true,
+              "totalTicks": "5317",
+              "cheapestSquad": [
+                "0d11cbb3-4325-4106-aa09-66e73f9c4016",
+                "1811077a-5328-4c68-a88c-870d35429f1e",
+                "1b86f217-1c1d-4df4-a3b3-83ca4e27a75a",
+                "2455de68-516f-4620-ac4f-e7258c0ebf11",
+                "29161111-4740-402e-a569-dadccd07335a",
+                "2a5b2b3f-298c-4cfd-a997-33de7bbae3b0",
+                "2b7bf9e0-65b9-45ce-a0f1-64293d27d79a",
+                "35a30cf5-f691-4803-a1f2-88d57d2cb320",
+                "53cc16d9-7910-4a57-aa1a-ea43981120b4",
+                "6ba04255-ab99-45b0-a933-d459433dc445",
+                "73b11e60-e934-463f-a0d7-a1abea097cff",
+                "86217730-8836-4099-a8e7-5844a83d3a24",
+                "9881e4cf-3c86-4422-a214-340b49099026",
+                "ac41eeee-fe3c-43c2-acd0-26adfb2b6f8a",
+                "b9d33f1b-cd9a-407a-a65f-ed8707ae91fd"
+              ],
+              "minimumSquadTicks": "876"
+            },
+            "changes": [
+              {
+                "reason": "rise",
+                "newPrice": 66,
+                "oldPrice": 65,
+                "footballerId": "06b7377b-f0e2-4dcc-a9ad-7a1ee05ccd21"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 49,
+                "oldPrice": 50,
+                "footballerId": "0d11cbb3-4325-4106-aa09-66e73f9c4016"
+              },
+              {
+                "reason": "rise",
+                "newPrice": 76,
+                "oldPrice": 75,
+                "footballerId": "116a4634-251f-4569-a355-3c57c4dc247c"
+              },
+              {
+                "reason": "rise",
+                "newPrice": 46,
+                "oldPrice": 45,
+                "footballerId": "15682f1e-8888-4743-aa23-939ae9401185"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 64,
+                "oldPrice": 65,
+                "footballerId": "1811077a-5328-4c68-a88c-870d35429f1e"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 44,
+                "oldPrice": 45,
+                "footballerId": "1b86f217-1c1d-4df4-a3b3-83ca4e27a75a"
+              },
+              {
+                "reason": "rise",
+                "newPrice": 76,
+                "oldPrice": 75,
+                "footballerId": "22a8ad61-b681-445e-a2e8-585b936fd060"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 74,
+                "oldPrice": 75,
+                "footballerId": "2455de68-516f-4620-ac4f-e7258c0ebf11"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 49,
+                "oldPrice": 50,
+                "footballerId": "29161111-4740-402e-a569-dadccd07335a"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 64,
+                "oldPrice": 65,
+                "footballerId": "2a5b2b3f-298c-4cfd-a997-33de7bbae3b0"
+              },
+              {
+                "reason": "rise",
+                "newPrice": 76,
+                "oldPrice": 75,
+                "footballerId": "301f6ca0-4a45-4999-ad19-daefe61632cd"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 74,
+                "oldPrice": 75,
+                "footballerId": "347daef4-17cc-48f9-a52e-1ba63032a29f"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 49,
+                "oldPrice": 50,
+                "footballerId": "35a30cf5-f691-4803-a1f2-88d57d2cb320"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 74,
+                "oldPrice": 75,
+                "footballerId": "38b333b9-6fa4-42f3-a1ff-570a9e4d84fe"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 64,
+                "oldPrice": 65,
+                "footballerId": "3adfd68e-f299-4e75-a191-8a28049b45ca"
+              },
+              {
+                "reason": "rise",
+                "newPrice": 66,
+                "oldPrice": 65,
+                "footballerId": "3bfcaa83-d52c-4279-a27b-21f54b163323"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 64,
+                "oldPrice": 65,
+                "footballerId": "4ca18e11-7df7-4fe6-a1e7-06fd23e48a0a"
+              },
+              {
+                "reason": "rise",
+                "newPrice": 51,
+                "oldPrice": 50,
+                "footballerId": "4de296b5-a8ee-4790-a21d-5c22e2fedc81"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 64,
+                "oldPrice": 65,
+                "footballerId": "4f9ebee9-2f9a-41e3-ad4a-fc04e0ea02a3"
+              },
+              {
+                "reason": "rise",
+                "newPrice": 51,
+                "oldPrice": 50,
+                "footballerId": "4fc0d4e4-c581-4b5e-abbe-87d03f55d28e"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 74,
+                "oldPrice": 75,
+                "footballerId": "5086ac4d-b0e8-4103-a02d-bb987887af9b"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 49,
+                "oldPrice": 50,
+                "footballerId": "53cc16d9-7910-4a57-aa1a-ea43981120b4"
+              },
+              {
+                "reason": "rise",
+                "newPrice": 66,
+                "oldPrice": 65,
+                "footballerId": "5a5e7679-a23a-40d8-a0fd-4d561d7bb5f6"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 64,
+                "oldPrice": 65,
+                "footballerId": "63cd7f50-d40b-4022-a7a9-215c21beab57"
+              },
+              {
+                "reason": "rise",
+                "newPrice": 76,
+                "oldPrice": 75,
+                "footballerId": "69af50e7-b469-4b80-ad2b-8344ff178cdc"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 64,
+                "oldPrice": 65,
+                "footballerId": "69b05742-eeb3-424c-afe3-55c1834a6a5a"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 74,
+                "oldPrice": 75,
+                "footballerId": "6ba04255-ab99-45b0-a933-d459433dc445"
+              },
+              {
+                "reason": "rise",
+                "newPrice": 51,
+                "oldPrice": 50,
+                "footballerId": "6c818ac7-964d-431c-ad45-416657bf3a19"
+              },
+              {
+                "reason": "rise",
+                "newPrice": 51,
+                "oldPrice": 50,
+                "footballerId": "6d4ab174-dc5e-4175-a81f-714e9ce676d3"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 64,
+                "oldPrice": 65,
+                "footballerId": "6e21065c-299c-4baa-a53f-67b166c57385"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 74,
+                "oldPrice": 75,
+                "footballerId": "6e671e3b-0012-4027-a126-971de1312502"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 49,
+                "oldPrice": 50,
+                "footballerId": "73b11e60-e934-463f-a0d7-a1abea097cff"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 64,
+                "oldPrice": 65,
+                "footballerId": "78f14dae-33af-40db-abd5-ff3dd559c639"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 64,
+                "oldPrice": 65,
+                "footballerId": "79bfa216-1cc4-499d-abd4-0147ab7b5913"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 49,
+                "oldPrice": 50,
+                "footballerId": "7b629d25-b1e6-467a-a28b-de52d415d7ca"
+              },
+              {
+                "reason": "rise",
+                "newPrice": 51,
+                "oldPrice": 50,
+                "footballerId": "7ce78932-f914-4309-af4b-0d77369a590c"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 44,
+                "oldPrice": 45,
+                "footballerId": "86217730-8836-4099-a8e7-5844a83d3a24"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 74,
+                "oldPrice": 75,
+                "footballerId": "89e27eb5-4fe6-4d4b-ab01-9cf9f835fe52"
+              },
+              {
+                "reason": "rise",
+                "newPrice": 46,
+                "oldPrice": 45,
+                "footballerId": "97522146-98d3-42f2-a12c-8bc8ff9b3cbc"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 64,
+                "oldPrice": 65,
+                "footballerId": "9881e4cf-3c86-4422-a214-340b49099026"
+              },
+              {
+                "reason": "rise",
+                "newPrice": 51,
+                "oldPrice": 50,
+                "footballerId": "9b63c040-13ba-4f37-aec0-c3e97656824a"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 49,
+                "oldPrice": 50,
+                "footballerId": "9c705655-f7f9-4036-a7a9-fff25be82105"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 49,
+                "oldPrice": 50,
+                "footballerId": "9f606d62-6c31-42cd-a0c2-937d2cf2c0c5"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 49,
+                "oldPrice": 50,
+                "footballerId": "a43e2358-ac32-4172-a129-078afc124c34"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 49,
+                "oldPrice": 50,
+                "footballerId": "ab585b3c-ae12-4f3f-a81d-50e44a152b90"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 74,
+                "oldPrice": 75,
+                "footballerId": "ac41eeee-fe3c-43c2-acd0-26adfb2b6f8a"
+              },
+              {
+                "reason": "rise",
+                "newPrice": 51,
+                "oldPrice": 50,
+                "footballerId": "ae44e89f-0dd5-4236-a41d-1bf1e0240692"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 49,
+                "oldPrice": 50,
+                "footballerId": "b8709ede-156c-40d8-a507-df7e0f307f50"
+              },
+              {
+                "reason": "rise",
+                "newPrice": 51,
+                "oldPrice": 50,
+                "footballerId": "b9ac7db9-0a01-4abc-a74e-413639ea976f"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 64,
+                "oldPrice": 65,
+                "footballerId": "b9d33f1b-cd9a-407a-a65f-ed8707ae91fd"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 49,
+                "oldPrice": 50,
+                "footballerId": "c1c33721-1d51-46fe-af93-0acf29720f2a"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 49,
+                "oldPrice": 50,
+                "footballerId": "d1d7d256-bfe0-477e-adcb-623b8d1baaef"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 49,
+                "oldPrice": 50,
+                "footballerId": "de91a5f4-1d09-41b0-a587-27fdfabcc618"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 64,
+                "oldPrice": 65,
+                "footballerId": "e6a48fd8-6d56-480c-a4b9-dadd94f05031"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 49,
+                "oldPrice": 50,
+                "footballerId": "f0f12d05-6b47-4602-adbd-f1c1d5ed6204"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 49,
+                "oldPrice": 50,
+                "footballerId": "f59d7b89-b73a-4169-a3e4-0329fd8550e4"
+              },
+              {
+                "reason": "fall",
+                "newPrice": 64,
+                "oldPrice": 65,
+                "footballerId": "f971d32a-5c9f-4269-a4c1-7bf393082b6b"
+              }
+            ],
+            "editingGameweekId": "ab39659b-5a4c-4067-acc3-d31e7c487193",
+            "sourceGameweekIds": ["5a86e0d6-6cf2-46e0-a850-bde027917eff"]
+          }
+        ],
+        "finalPrices": [
+          {
+            "price": 66,
+            "footballerId": "06b7377b-f0e2-4dcc-a9ad-7a1ee05ccd21"
+          },
+          {
+            "price": 49,
+            "footballerId": "0d11cbb3-4325-4106-aa09-66e73f9c4016"
+          },
+          {
+            "price": 76,
+            "footballerId": "116a4634-251f-4569-a355-3c57c4dc247c"
+          },
+          {
+            "price": 46,
+            "footballerId": "15682f1e-8888-4743-aa23-939ae9401185"
+          },
+          {
+            "price": 64,
+            "footballerId": "1811077a-5328-4c68-a88c-870d35429f1e"
+          },
+          {
+            "price": 65,
+            "footballerId": "1b70223e-dce0-4d03-a22b-8cd73bf141a1"
+          },
+          {
+            "price": 44,
+            "footballerId": "1b86f217-1c1d-4df4-a3b3-83ca4e27a75a"
+          },
+          {
+            "price": 76,
+            "footballerId": "22a8ad61-b681-445e-a2e8-585b936fd060"
+          },
+          {
+            "price": 74,
+            "footballerId": "2455de68-516f-4620-ac4f-e7258c0ebf11"
+          },
+          {
+            "price": 49,
+            "footballerId": "29161111-4740-402e-a569-dadccd07335a"
+          },
+          {
+            "price": 64,
+            "footballerId": "2a5b2b3f-298c-4cfd-a997-33de7bbae3b0"
+          },
+          {
+            "price": 65,
+            "footballerId": "2b7bf9e0-65b9-45ce-a0f1-64293d27d79a"
+          },
+          {
+            "price": 45,
+            "footballerId": "2ff18477-5ac4-47ee-abcb-dee47db14ac5"
+          },
+          {
+            "price": 76,
+            "footballerId": "301f6ca0-4a45-4999-ad19-daefe61632cd"
+          },
+          {
+            "price": 74,
+            "footballerId": "347daef4-17cc-48f9-a52e-1ba63032a29f"
+          },
+          {
+            "price": 49,
+            "footballerId": "35a30cf5-f691-4803-a1f2-88d57d2cb320"
+          },
+          {
+            "price": 74,
+            "footballerId": "38b333b9-6fa4-42f3-a1ff-570a9e4d84fe"
+          },
+          {
+            "price": 64,
+            "footballerId": "3adfd68e-f299-4e75-a191-8a28049b45ca"
+          },
+          {
+            "price": 45,
+            "footballerId": "3b483449-0220-4d13-ac65-67385727bd15"
+          },
+          {
+            "price": 66,
+            "footballerId": "3bfcaa83-d52c-4279-a27b-21f54b163323"
+          },
+          {
+            "price": 64,
+            "footballerId": "4ca18e11-7df7-4fe6-a1e7-06fd23e48a0a"
+          },
+          {
+            "price": 51,
+            "footballerId": "4de296b5-a8ee-4790-a21d-5c22e2fedc81"
+          },
+          {
+            "price": 64,
+            "footballerId": "4f9ebee9-2f9a-41e3-ad4a-fc04e0ea02a3"
+          },
+          {
+            "price": 51,
+            "footballerId": "4fc0d4e4-c581-4b5e-abbe-87d03f55d28e"
+          },
+          {
+            "price": 74,
+            "footballerId": "5086ac4d-b0e8-4103-a02d-bb987887af9b"
+          },
+          {
+            "price": 49,
+            "footballerId": "53cc16d9-7910-4a57-aa1a-ea43981120b4"
+          },
+          {
+            "price": 65,
+            "footballerId": "546f666b-fe3f-4a4d-a454-f28687d7f8eb"
+          },
+          {
+            "price": 66,
+            "footballerId": "5a5e7679-a23a-40d8-a0fd-4d561d7bb5f6"
+          },
+          {
+            "price": 45,
+            "footballerId": "5d002867-fe2e-44cc-a456-87547cafe0aa"
+          },
+          {
+            "price": 64,
+            "footballerId": "63cd7f50-d40b-4022-a7a9-215c21beab57"
+          },
+          {
+            "price": 76,
+            "footballerId": "69af50e7-b469-4b80-ad2b-8344ff178cdc"
+          },
+          {
+            "price": 64,
+            "footballerId": "69b05742-eeb3-424c-afe3-55c1834a6a5a"
+          },
+          {
+            "price": 74,
+            "footballerId": "6ba04255-ab99-45b0-a933-d459433dc445"
+          },
+          {
+            "price": 51,
+            "footballerId": "6c818ac7-964d-431c-ad45-416657bf3a19"
+          },
+          {
+            "price": 51,
+            "footballerId": "6d4ab174-dc5e-4175-a81f-714e9ce676d3"
+          },
+          {
+            "price": 64,
+            "footballerId": "6e21065c-299c-4baa-a53f-67b166c57385"
+          },
+          {
+            "price": 74,
+            "footballerId": "6e671e3b-0012-4027-a126-971de1312502"
+          },
+          {
+            "price": 49,
+            "footballerId": "73b11e60-e934-463f-a0d7-a1abea097cff"
+          },
+          {
+            "price": 64,
+            "footballerId": "78f14dae-33af-40db-abd5-ff3dd559c639"
+          },
+          {
+            "price": 64,
+            "footballerId": "79bfa216-1cc4-499d-abd4-0147ab7b5913"
+          },
+          {
+            "price": 49,
+            "footballerId": "7b629d25-b1e6-467a-a28b-de52d415d7ca"
+          },
+          {
+            "price": 51,
+            "footballerId": "7ce78932-f914-4309-af4b-0d77369a590c"
+          },
+          {
+            "price": 75,
+            "footballerId": "804013b7-0c9e-48de-a3ae-628eba4a426d"
+          },
+          {
+            "price": 44,
+            "footballerId": "86217730-8836-4099-a8e7-5844a83d3a24"
+          },
+          {
+            "price": 74,
+            "footballerId": "89e27eb5-4fe6-4d4b-ab01-9cf9f835fe52"
+          },
+          {
+            "price": 75,
+            "footballerId": "90ec2804-8731-4040-a4b1-3b0ebf957b6d"
+          },
+          {
+            "price": 46,
+            "footballerId": "97522146-98d3-42f2-a12c-8bc8ff9b3cbc"
+          },
+          {
+            "price": 64,
+            "footballerId": "9881e4cf-3c86-4422-a214-340b49099026"
+          },
+          {
+            "price": 45,
+            "footballerId": "9aac70b2-cc1d-45b5-acff-305dd14432e3"
+          },
+          {
+            "price": 51,
+            "footballerId": "9b63c040-13ba-4f37-aec0-c3e97656824a"
+          },
+          {
+            "price": 49,
+            "footballerId": "9c705655-f7f9-4036-a7a9-fff25be82105"
+          },
+          {
+            "price": 65,
+            "footballerId": "9f429438-8509-4071-a189-095fbf637775"
+          },
+          {
+            "price": 49,
+            "footballerId": "9f606d62-6c31-42cd-a0c2-937d2cf2c0c5"
+          },
+          {
+            "price": 45,
+            "footballerId": "a2a6ec1a-60aa-4169-a0b1-bc87bbd24b83"
+          },
+          {
+            "price": 49,
+            "footballerId": "a43e2358-ac32-4172-a129-078afc124c34"
+          },
+          {
+            "price": 65,
+            "footballerId": "a719b85a-dc3d-4f58-a829-61c10472f98e"
+          },
+          {
+            "price": 65,
+            "footballerId": "a817e388-c3fd-4674-ad3f-961e0c459688"
+          },
+          {
+            "price": 49,
+            "footballerId": "ab585b3c-ae12-4f3f-a81d-50e44a152b90"
+          },
+          {
+            "price": 75,
+            "footballerId": "ac3ccb91-f967-4c57-af35-d57ad08ef62b"
+          },
+          {
+            "price": 74,
+            "footballerId": "ac41eeee-fe3c-43c2-acd0-26adfb2b6f8a"
+          },
+          {
+            "price": 45,
+            "footballerId": "ad558267-6034-475a-a880-a16e32da7886"
+          },
+          {
+            "price": 51,
+            "footballerId": "ae44e89f-0dd5-4236-a41d-1bf1e0240692"
+          },
+          {
+            "price": 49,
+            "footballerId": "b8709ede-156c-40d8-a507-df7e0f307f50"
+          },
+          {
+            "price": 51,
+            "footballerId": "b9ac7db9-0a01-4abc-a74e-413639ea976f"
+          },
+          {
+            "price": 64,
+            "footballerId": "b9d33f1b-cd9a-407a-a65f-ed8707ae91fd"
+          },
+          {
+            "price": 50,
+            "footballerId": "bfcb8648-5d0f-402b-a095-7b036f8cbfdd"
+          },
+          {
+            "price": 49,
+            "footballerId": "c1c33721-1d51-46fe-af93-0acf29720f2a"
+          },
+          {
+            "price": 50,
+            "footballerId": "c77ec825-f20f-4f63-a309-fc24325554b4"
+          },
+          {
+            "price": 75,
+            "footballerId": "cc2878fe-c272-4f1f-a40a-17dd99d917ec"
+          },
+          {
+            "price": 65,
+            "footballerId": "ccb68529-64c8-4056-a187-1dc0524b919e"
+          },
+          {
+            "price": 49,
+            "footballerId": "d1d7d256-bfe0-477e-adcb-623b8d1baaef"
+          },
+          {
+            "price": 45,
+            "footballerId": "d2191dc7-d695-4e5c-afc8-0f52d8caef49"
+          },
+          {
+            "price": 75,
+            "footballerId": "d48bf8c8-1404-4e0f-aadb-d1a3780c7a00"
+          },
+          {
+            "price": 75,
+            "footballerId": "d712baf6-0154-42ac-add4-7a9472461a70"
+          },
+          {
+            "price": 65,
+            "footballerId": "d81601de-b008-4cf7-a0e4-72e000d89e66"
+          },
+          {
+            "price": 50,
+            "footballerId": "dabc88c8-4368-4e55-ace7-c9b0c788abdf"
+          },
+          {
+            "price": 49,
+            "footballerId": "de91a5f4-1d09-41b0-a587-27fdfabcc618"
+          },
+          {
+            "price": 64,
+            "footballerId": "e6a48fd8-6d56-480c-a4b9-dadd94f05031"
+          },
+          {
+            "price": 50,
+            "footballerId": "e8c946f6-b27c-4622-a7d5-9c2bbc6e0201"
+          },
+          {
+            "price": 45,
+            "footballerId": "e9ce8c9e-3aee-4720-a832-2f11ad07e5d8"
+          },
+          {
+            "price": 65,
+            "footballerId": "eb446365-dfc5-4a8a-acb0-0be18dbd435d"
+          },
+          {
+            "price": 65,
+            "footballerId": "f081453e-b06b-49ac-ae03-bd5b93be77ee"
+          },
+          {
+            "price": 49,
+            "footballerId": "f0f12d05-6b47-4602-adbd-f1c1d5ed6204"
+          },
+          {
+            "price": 50,
+            "footballerId": "f165733f-4f11-4b6a-af54-919f5bc4bf08"
+          },
+          {
+            "price": 49,
+            "footballerId": "f59d7b89-b73a-4169-a3e4-0329fd8550e4"
+          },
+          {
+            "price": 65,
+            "footballerId": "f6075c2b-6bfb-4d72-a726-be4aaedc38ff"
+          },
+          {
+            "price": 50,
+            "footballerId": "f75f8b73-0748-4e64-ac2a-a15b73a5b339"
+          },
+          {
+            "price": 64,
+            "footballerId": "f971d32a-5c9f-4269-a4c1-7bf393082b6b"
+          },
+          {
+            "price": 65,
+            "footballerId": "fb0c947f-c01e-499d-a18c-0caa3d0cda1a"
+          },
+          {
+            "price": 65,
+            "footballerId": "ff5f8737-690d-4c56-a4b6-ee4330bc8504"
+          }
+        ],
+        "deferredGameweekIds": [
+          "ec360df5-5179-415d-afd4-34f2f251cdce",
+          "6e8b1743-bf8b-4e5c-a465-0ced30300bb1"
+        ]
+      }
+    ],
+    "version": "price-calibration-v1",
+    "baseline": {
+      "positions": [
+        {
+          "count": 12,
+          "position": "GK",
+          "totalTicks": "540"
+        },
+        {
+          "count": 30,
+          "position": "DEF",
+          "totalTicks": "1500"
+        },
+        {
+          "count": 30,
+          "position": "MID",
+          "totalTicks": "1950"
+        },
+        {
+          "count": 18,
+          "position": "FWD",
+          "totalTicks": "1350"
+        }
+      ],
+      "affordable": true,
+      "totalTicks": "5340",
+      "cheapestSquad": [
+        "06b7377b-f0e2-4dcc-a9ad-7a1ee05ccd21",
+        "0d11cbb3-4325-4106-aa09-66e73f9c4016",
+        "116a4634-251f-4569-a355-3c57c4dc247c",
+        "15682f1e-8888-4743-aa23-939ae9401185",
+        "1811077a-5328-4c68-a88c-870d35429f1e",
+        "1b70223e-dce0-4d03-a22b-8cd73bf141a1",
+        "1b86f217-1c1d-4df4-a3b3-83ca4e27a75a",
+        "2455de68-516f-4620-ac4f-e7258c0ebf11",
+        "29161111-4740-402e-a569-dadccd07335a",
+        "2a5b2b3f-298c-4cfd-a997-33de7bbae3b0",
+        "301f6ca0-4a45-4999-ad19-daefe61632cd",
+        "35a30cf5-f691-4803-a1f2-88d57d2cb320",
+        "3bfcaa83-d52c-4279-a27b-21f54b163323",
+        "4de296b5-a8ee-4790-a21d-5c22e2fedc81",
+        "4fc0d4e4-c581-4b5e-abbe-87d03f55d28e"
+      ],
+      "minimumSquadTicks": "890"
+    }
+  },
+  "candidates": [
+    {
+      "label": "Current settings",
+      "rules": {
+        "step": 1,
+        "fallAt": 2000,
+        "riseAt": 6000,
+        "maximum": 150,
+        "minimum": 30,
+        "freezeHours": 24,
+        "minimumMinutes": 90,
+        "automaticUpdates": false,
+        "observedGameweeks": 3
+      }
+    },
+    {
+      "label": "Proposed settings",
+      "rules": {
+        "step": 1,
+        "fallAt": 2000,
+        "riseAt": 6000,
+        "maximum": 150,
+        "minimum": 30,
+        "freezeHours": 24,
+        "minimumMinutes": 90,
+        "automaticUpdates": false,
+        "observedGameweeks": 1
+      }
+    }
+  ],
+  "basisFingerprint": "7fd6a44d90852a1ae5355fcdeebc1b55db1441609657eb401498a9b267d09e8f"
+}

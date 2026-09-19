@@ -1,0 +1,3 @@
+# Room access and moderation evidence have different lifetimes
+
+Group conversation belongs to current account members, with posting limits counted across rooms so multiple squads or room changes cannot bypass them. Ordinary messages expire after 90 days, while a restricted report/removal snapshot and moderation reasons expire after 180 days; deleting the public text therefore preserves review evidence without keeping an indefinite duplicate in receipts or audit logs. Organizers moderate only their group, staff access follows competition scope and current MFA, and each request rechecks membership or staff authority rather than trusting an earlier room connection.

@@ -1,0 +1,18 @@
+node_modules/
+.turbo/
+.next/
+.local/
+dist/
+coverage/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+# Private source conversations and generated browser captures are local evidence.
+docs/sources/chat-export.json
+docs/sources/chat-transcript.md
+artifacts/web/
+artifacts/brand/desktop.png
+artifacts/brand/mobile.png

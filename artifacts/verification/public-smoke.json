@@ -1,0 +1,406 @@
+{
+  "checkedAt": "2026-09-19T12:30:09.028Z",
+  "base": "http://127.0.0.1:3100",
+  "status": "passed",
+  "cases": [
+    {
+      "path": "/en",
+      "locale": "en",
+      "theme": "dark",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/en/login",
+      "locale": "en",
+      "theme": "dark",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/en/register",
+      "locale": "en",
+      "theme": "dark",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/en/how-to-play",
+      "locale": "en",
+      "theme": "dark",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/en/playbook",
+      "locale": "en",
+      "theme": "dark",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/en/competitions/cairo-demo",
+      "locale": "en",
+      "theme": "dark",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/en/competitions/cairo-demo/rules",
+      "locale": "en",
+      "theme": "dark",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/en",
+      "locale": "en",
+      "theme": "dark",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/en/login",
+      "locale": "en",
+      "theme": "dark",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/en/register",
+      "locale": "en",
+      "theme": "dark",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/en/how-to-play",
+      "locale": "en",
+      "theme": "dark",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/en/playbook",
+      "locale": "en",
+      "theme": "dark",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/en/competitions/cairo-demo",
+      "locale": "en",
+      "theme": "dark",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/en/competitions/cairo-demo/rules",
+      "locale": "en",
+      "theme": "dark",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/en",
+      "locale": "en",
+      "theme": "light",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/en/login",
+      "locale": "en",
+      "theme": "light",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/en/register",
+      "locale": "en",
+      "theme": "light",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/en/how-to-play",
+      "locale": "en",
+      "theme": "light",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/en/playbook",
+      "locale": "en",
+      "theme": "light",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/en/competitions/cairo-demo",
+      "locale": "en",
+      "theme": "light",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/en/competitions/cairo-demo/rules",
+      "locale": "en",
+      "theme": "light",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/en",
+      "locale": "en",
+      "theme": "light",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/en/login",
+      "locale": "en",
+      "theme": "light",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/en/register",
+      "locale": "en",
+      "theme": "light",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/en/how-to-play",
+      "locale": "en",
+      "theme": "light",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/en/playbook",
+      "locale": "en",
+      "theme": "light",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/en/competitions/cairo-demo",
+      "locale": "en",
+      "theme": "light",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/en/competitions/cairo-demo/rules",
+      "locale": "en",
+      "theme": "light",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/ar",
+      "locale": "ar",
+      "theme": "dark",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/login",
+      "locale": "ar",
+      "theme": "dark",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/register",
+      "locale": "ar",
+      "theme": "dark",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/how-to-play",
+      "locale": "ar",
+      "theme": "dark",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/playbook",
+      "locale": "ar",
+      "theme": "dark",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/competitions/cairo-demo",
+      "locale": "ar",
+      "theme": "dark",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/competitions/cairo-demo/rules",
+      "locale": "ar",
+      "theme": "dark",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/ar",
+      "locale": "ar",
+      "theme": "dark",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/login",
+      "locale": "ar",
+      "theme": "dark",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/register",
+      "locale": "ar",
+      "theme": "dark",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/how-to-play",
+      "locale": "ar",
+      "theme": "dark",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/playbook",
+      "locale": "ar",
+      "theme": "dark",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/competitions/cairo-demo",
+      "locale": "ar",
+      "theme": "dark",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/competitions/cairo-demo/rules",
+      "locale": "ar",
+      "theme": "dark",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/ar",
+      "locale": "ar",
+      "theme": "light",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/login",
+      "locale": "ar",
+      "theme": "light",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/register",
+      "locale": "ar",
+      "theme": "light",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/how-to-play",
+      "locale": "ar",
+      "theme": "light",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/playbook",
+      "locale": "ar",
+      "theme": "light",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/competitions/cairo-demo",
+      "locale": "ar",
+      "theme": "light",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/competitions/cairo-demo/rules",
+      "locale": "ar",
+      "theme": "light",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "path": "/ar",
+      "locale": "ar",
+      "theme": "light",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/login",
+      "locale": "ar",
+      "theme": "light",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/register",
+      "locale": "ar",
+      "theme": "light",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/how-to-play",
+      "locale": "ar",
+      "theme": "light",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/playbook",
+      "locale": "ar",
+      "theme": "light",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/competitions/cairo-demo",
+      "locale": "ar",
+      "theme": "light",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "path": "/ar/competitions/cairo-demo/rules",
+      "locale": "ar",
+      "theme": "light",
+      "width": 390,
+      "status": "passed"
+    }
+  ],
+  "additionalChecks": [
+    "anonymous protected-page redirects",
+    "missing competition 404",
+    "readiness contract",
+    "visible brand assets",
+    "no browser crashes or HTTP 5xx"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "verifiedAt": "2026-09-19T12:15:10.193Z",
+  "status": "passed",
+  "buildId": "NiglDYJufqSJ2_ElELyi9",
+  "applicationUnitCases": 82,
+  "harnessCases": 4,
+  "persistenceIntegrationCases": 9,
+  "applicationIntegrationCasesIncludingSubcases": 73,
+  "publicPageCombinations": 56,
+  "authenticatedBrowser": "passed",
+  "coverage": [
+    "saved admin values in the public guide",
+    "future versus explicitly selected historical rules",
+    "competition and round preserved across language switches",
+    "keyboard focus and Escape",
+    "touch and outside dismissal",
+    "tooltip viewport bounds",
+    "current unsaved rule-field values",
+    "protected admin handbook",
+    "empty-database guides in Linux containers"
+  ],
+  "cleanup": {
+    "qaCompetitions": 0,
+    "qaStaffGrants": 0,
+    "qaGuideRounds": 0,
+    "providerSchedules": 0
+  },
+  "containerImages": [
+    {
+      "target": "web",
+      "id": "sha256:fd4bfebb0714469bc410063316487bfdf2b9754eb4c189dd2d4079a4e3bc0fac"
+    },
+    {
+      "target": "worker",
+      "id": "sha256:d7ccd43bffc2b8eebcae5aab08392c7dd18be8b15f464a48bba803d15f70f8b3"
+    }
+  ],
+  "transcriptSha256": "4c4f5e27b0b32ff1f4a44050f831aef3ce5878ea3cb7cb901ad9cc6005a59067",
+  "limitations": [
+    "Saved rule changes appear on a new page request or refresh, not through live push",
+    "Provider inputs and browser fixtures are synthetic; production release gates remain"
+  ]
+}

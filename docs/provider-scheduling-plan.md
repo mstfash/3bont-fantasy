@@ -1,0 +1,13 @@
+# Fixture-aware provider collection
+
+The next implementation extends the existing quota gateway with durable, explicitly enabled season schedules. It collects retained source evidence; it does not publish football facts, assign fantasy gameweeks or establish provider coverage.
+
+A reviewed schedule belongs to one provider account and season binding. It defines a pre-kickoff window, frequent collection interval, active post-kickoff window and slower bounded correction window. Fixtures must have an active provider identity and be assigned to a published/running/completed fantasy competition. Multiple fantasy games sharing the same real fixture use one collection batch. No synthetic season may use the native live transport.
+
+A batch stores the reviewed schedule and fixture mapping versions, kickoff and four typed requests: season fixtures, fixture players, lineups and events. Only one active batch per schedule/fixture exists. A worker claims the oldest batch with an expiring lease and fetches one resource at a time, through the existing ordinary quota budget. All attempts are linked to the batch in the same transaction that reserves quota. A crash after a successful fetch adopts the recorded outcome instead of sending that resource again; an unconfirmed expired attempt may be retried, consuming another allowance. Attempts remain chargeable even if a batch is later cancelled.
+
+Season pause, account pause, retired/remapped identities, changed kickoff, withdrawn assignments and changed schedule revisions prevent new reservations. Already reserved short dispatch leases retain the gateway's existing semantics. Collection expires if its successful sources can no longer fit the normalizer's ten-minute coherence window. Bounded retries cannot loop forever or consume the protected correction reserve. Backoff and exhausted quotas defer dispatch; they do not refund usage or bypass the account gate.
+
+The worker deployment must separately enable automation and supply its private provider key. Defaults remain disabled. Local proofs use synthetic transports and disposable schedules only. UI controls explain the requested cadence, four-call batch cost, queue lag and holds; cadence is not a guarantee of provider latency or sufficient quota. Source normalization still validates exact evidence and mappings before an operator can save a report.
+
+Verification must cover concurrent planning/claiming, one active batch across shared fantasy competitions, crash recovery, pause/revision/mapping races, quota exhaustion, retry bounds, partial/expired bundles, no guessed zero statistics, protected history, current staff authority, and bilingual controls. Real licensed samples and a measured quota/cadence rehearsal remain activation evidence.

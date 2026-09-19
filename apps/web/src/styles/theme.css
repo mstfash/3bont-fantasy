@@ -1,0 +1,119 @@
+/* Change semantic tokens here to restyle both the participant and admin shells. */
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+  --surface: #0a0a0b;
+  --surface-raised: #131418;
+  --surface-inset: #07080a;
+  --text: #efebea;
+  --text-muted: #aaa9b3;
+  --border: #2c2d33;
+  --accent: #d7e279;
+  --on-accent: #0a1b30;
+  --secondary: #a0a8ff;
+  --danger: #ff9298;
+  --success: #a5dcb1;
+  --focus: #a0a8ff;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+  --surface: #f7f6f3;
+  --surface-raised: #ffffff;
+  --surface-inset: #eeece9;
+  --text: #0a1b30;
+  --text-muted: #566170;
+  --border: #d4d5d8;
+  --accent: #d7e279;
+  --on-accent: #0a1b30;
+  --secondary: #4854b9;
+  --danger: #ab2336;
+  --success: #26633a;
+  --focus: #4854b9;
+}
+
+:root {
+  --font-body: 'Inter Variable', sans-serif;
+  --font-display: 'Oswald Variable', sans-serif;
+  --font-arabic: 'Cairo Variable', sans-serif;
+  --content-width: 1480px;
+  --space-page: clamp(20px, 4vw, 72px);
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+[dir='rtl'] {
+  font-family: var(--font-arabic);
+}
+a {
+  color: inherit;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 5px;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.brand-logo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+.button-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+}
+.confirmation-check {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+}
+.confirmation-check input {
+  width: 18px;
+  min-height: 18px;
+  flex: 0 0 18px;
+}

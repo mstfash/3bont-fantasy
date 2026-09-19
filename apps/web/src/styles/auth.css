@@ -1,0 +1,234 @@
+.account-layout {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+}
+.account-story {
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--surface);
+  padding: 30px clamp(28px, 4vw, 72px);
+  border-inline-end: 1px solid var(--border);
+}
+.account-brand {
+  display: block;
+  width: 155px;
+  margin-block: -22px 0;
+}
+.account-story-copy {
+  padding-block: 60px;
+}
+.eyebrow {
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+.account-story h1 {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 6.8vw, 112px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  margin: 26px 0;
+}
+[dir='rtl'] .account-story h1 {
+  font-family: var(--font-arabic);
+  font-size: clamp(45px, 5.5vw, 86px);
+  font-weight: 900;
+  line-height: 1.4;
+}
+.account-story h1 em {
+  color: var(--accent);
+  font-style: normal;
+}
+.account-story-copy p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-width: 390px;
+}
+.account-edition {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+}
+.account-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 40px clamp(28px, 5vw, 90px);
+  background: var(--surface-raised);
+}
+.account-panel nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 11px;
+}
+.account-panel a {
+  text-decoration: none;
+}
+.account-panel a:hover {
+  text-decoration: underline;
+}
+.account-fields {
+  width: 100%;
+  max-width: 430px;
+  margin: auto;
+  padding-block: 60px;
+}
+.account-fields h2 {
+  font-family: var(--font-display);
+  font-size: 42px;
+  line-height: 1.15;
+  margin: 20px 0;
+}
+[dir='rtl'] .account-fields h2 {
+  font-family: var(--font-arabic);
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.5;
+}
+.account-fields > p {
+  color: var(--text-muted);
+  line-height: 1.8;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+.auth-form {
+  display: grid;
+  gap: 22px;
+}
+.auth-form label {
+  display: grid;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.auth-form input {
+  width: 100%;
+  min-height: 50px;
+  background: var(--surface-inset);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 12px 14px;
+  border-radius: 0;
+}
+.field-hint {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+.button-primary {
+  background: var(--accent);
+  color: var(--on-accent);
+  border: 0;
+  min-height: 52px;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 13px;
+  font-weight: 800;
+}
+.auth-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+.form-notice {
+  color: var(--success);
+  font-size: 13px;
+  line-height: 1.8;
+  border-inline-start: 2px solid currentColor;
+  padding-inline-start: 14px;
+}
+.form-notice.error {
+  color: var(--danger);
+}
+.account-panel footer {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+@media (max-width: 800px) {
+  .account-layout {
+    grid-template-columns: 1fr;
+  }
+  .account-story {
+    padding: 22px 28px;
+    border-inline-end: 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .account-story-copy {
+    padding-block: 10px;
+  }
+  .account-brand {
+    width: 110px;
+    margin-block: -20px -10px;
+  }
+  .account-story h1,
+  [dir='rtl'] .account-story h1 {
+    font-size: 38px;
+    margin: 15px 0;
+  }
+  .account-story-copy p,
+  .account-edition {
+    display: none;
+  }
+  .account-panel {
+    padding: 28px;
+  }
+  .account-fields {
+    padding-block: 45px;
+  }
+}
+.security-form {
+  max-width: 580px;
+}
+.security-form > p,
+.enrollment-details p {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+.enrollment-details {
+  padding: 24px;
+  border: 1px solid var(--border);
+}
+.recovery-codes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding-block: 18px;
+}
+.recovery-codes code {
+  font-size: 12px;
+}
+.confirmation-check {
+  display: flex !important;
+  align-items: center;
+}
+.confirmation-check input {
+  width: 18px;
+  min-height: 18px;
+}
+.security-reset {
+  max-width: 580px;
+  margin-top: 36px;
+  padding: 24px;
+  border: 1px solid var(--border);
+}
+.security-reset > p {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.auth-form .button-outline {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  padding: 12px;
+}

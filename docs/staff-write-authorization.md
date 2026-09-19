@@ -1,0 +1,7 @@
+# Staff authorization at the write boundary
+
+A verified request context is an input, not a replacement for current database authority. Competition/rule/setup, catalogue/import, match facts/results, pricing, chip grants, achievements, prizes and sponsor writes now acquire the shared staff-management lock before command/entity locks and reload current account state and scoped grants. Staff changes, suspension, closure, bootstrap and independent delivered-prize resolution use the exclusive counterpart. A role change either completes before a write's authority check or waits until that write commits; it cannot revoke authority halfway through an accepted transaction.
+
+Chat moderation retains its organizer path. Staff overrides use the intersection of the supplied and currently stored grants under the same transaction barrier. Freshness is checked against the database clock after the authorization lock wait; cached command results also require current authority. Ordinary participant game operations and background scoring do not acquire this staff barrier.
+
+Integration fixtures now persist their declared staff identities/grants. Race tests prove revocation before a waiting write, revoked retry denial, permission retention until commit, expiry during an authorization wait and closed-account denial. This does not replace current HTTP session/MFA verification or operator credential management.

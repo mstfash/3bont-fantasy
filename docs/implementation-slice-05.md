@@ -1,0 +1,13 @@
+# Slice 05 — League groups and head-to-head operation
+
+Implemented group/H2H paths, 2026-09-19; full release work continues.
+
+Classic groups now select existing active entries from one competition. Public groups are discoverable; private groups require a revocable 256-bit invitation code. Only a hash is retained, never the raw code or a code-bearing URL. Optional organizer approval keeps pending applicants outside private standings. Limits count pending and active entries per account. An organizer retains at least one active membership; additional entries can leave.
+
+The scoring start and per-account limit are chosen before the group opens at creation. Competition-to-date is the default, explicitly including pre-join scores. A future gameweek may define the scoring interval. Group ranks are recomputed within the membership from coherent published gameweek revisions, using the competition's tie policy. No alternate player scoring or squad copy is introduced.
+
+Group creation, admission, removal and invitation rotation are audited and retry-safe. Private reads authorize current membership on every request; leaving/removal immediately excludes subsequent reads. Names and published scores are public group data; upcoming lineup state and account identifiers are not returned to the group UI.
+
+Head-to-head editions now open registration, bind publication to the reviewed roster and immutable seed, publish complete cycles only, and derive coherent tables from published gameweek revisions. New scoring revisions change outcomes without changing opponents. Withdrawal and membership loss record future-gameweek forfeits; locked contests remain and rejoining cannot erase forfeits. Byes, shared ranks, configurable win/draw/loss points and optional net-fantasy-point ties are supported. Prizes, achievements, chat/moderation, sponsors, staff administration and operating gates remain in the launch scope. Creating the group tables does not establish those modules as complete.
+
+Verification: strict build and domain checks pass. Disposable group scenarios cover private access, approval authority, retry identity, ownership, entry caps, invitation revocation and future-only scoring. The real-browser journey passes group creation, hashed invitation rotation, anonymous denial, two-entry H2H registration, schedule publication, table display and Arabic mobile layouts. Disposable PostgreSQL now runs nine persistence and fifteen application cases/subcases; domain/authorization/date tests total sixty. Migrations 0005 and 0006 are applied locally and immutable. See implementation-audit for remaining configuration and operational work.

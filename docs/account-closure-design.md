@@ -1,0 +1,11 @@
+# Account closure and public pseudonymization
+
+Selected under delegated recommendations, 2026-09-19. Closure is a separately reviewed, irreversible application action; it is not represented as deletion of every retained record or a complete legal erasure response.
+
+Before closure, the participant must retire activated squads (or discard unactivated drafts), hand over owned groups, remove staff roles through another authorized operator and resolve assigned unfulfilled prizes/open prize correction cases. A server-generated preview lists these blockers and the affected entries, available chat content and downloadable archives. The participant must have signed in within 15 minutes and confirm the reviewed fingerprint. Suspended accounts use the operator support process instead of bypassing an active restriction.
+
+The closing transaction marks the retained account closed, replaces its public name and squad names with neutral labels, removes ordinary authored message content, deletes preferences/blocks and pending handovers, purges archives and credentials, and revokes every session. Historical membership, locked choices, points, H2H forfeits and fulfilled-prize evidence remain. Closed accounts cannot be restored with the suspension control, receive staff grants or perform new game actions. New registration never acquires the closed account's entries or history.
+
+Closure does not turn a previously verified participant into an unverified historical prize candidate or rewrite past payouts. Existing retired-entry rules exclude future award windows. Public prize labels use current pseudonyms while the original award evidence remains restricted. A correction discovered after closure is still an operator review case; exceptional follow-up/contact handling belongs to published operator terms.
+
+Ordinary chat bodies are removed immediately; restricted report/moderation evidence retains its existing 180-day expiry. Authentication records are deleted; expiring verification artifacts and encrypted backup expiry require operational retention controls. Competition/audit/fulfillment references remain restricted and must have the operator's published retention basis before launch. The interface explains these retained categories and directs exceptional access/erasure requests to support.

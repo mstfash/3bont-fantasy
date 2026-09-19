@@ -1,0 +1,94 @@
+@import './groups.css';
+.chat-page {
+  max-inline-size: 1100px;
+  margin-inline: auto;
+}
+.chat-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+}
+.chat-policy {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-inline-size: 70ch;
+  margin-block: 1.5rem;
+}
+.chat-messages {
+  list-style: none;
+  padding: 0;
+  margin-block: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+.chat-message {
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  min-inline-size: 0;
+}
+.chat-own {
+  border-inline-start: 3px solid var(--accent);
+}
+.chat-message header {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+}
+.chat-message p {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.8;
+}
+.chat-message-actions {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+}
+.chat-message-actions button {
+  background: none;
+  border: 0;
+  color: var(--text-muted);
+  cursor: pointer;
+  text-decoration: underline;
+}
+.chat-message-actions details {
+  max-inline-size: 100%;
+}
+.chat-message-actions form {
+  margin-block-start: 1rem;
+}
+.chat-empty {
+  padding: 3rem 1rem;
+  border: 1px dashed var(--border);
+  text-align: center;
+}
+.chat-composer {
+  border-block-start: 1px solid var(--border);
+  padding-block-start: 1.5rem;
+  margin-block: 2rem;
+}
+.chat-notice {
+  min-block-size: 1.5rem;
+}
+.chat-evidence {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 600px) {
+  .chat-page .page-title {
+    font-size: clamp(2.3rem, 10vw, 4rem);
+  }
+  .chat-message {
+    padding: 1rem;
+  }
+  .chat-toolbar .button-outline {
+    padding: 0.7rem;
+  }
+}
