@@ -1,6 +1,7 @@
 import { Kysely, PostgresDialect, type ColumnType } from 'kysely';
 import type { Pool } from 'pg';
 import type {
+  FixtureDisposition,
   ProviderSchedule,
   ProviderCollection,
   PriceCalibrationReport,
@@ -523,6 +524,19 @@ export interface Database {
     reason: string | null;
     created_at: DefaultTimestamp;
     payload: unknown;
+  };
+  fixture_dispositions: {
+    id: string;
+    fixture_id: string;
+    revision: number;
+    data: Document<FixtureDisposition>;
+  };
+  empty_round_settlements: {
+    gameweek_id: string;
+    fingerprint: string;
+    actor_id: string;
+    reason: string;
+    settled_at: DefaultTimestamp;
   };
   result_reviews: {
     id: string;

@@ -1,10 +1,10 @@
+import { readFixtureSettlementInputs } from './fixture-settlement-inputs.ts';
 import { createHash } from 'node:crypto';
 import type { Kysely, Transaction } from 'kysely';
 import type { Database } from '@fantasy/persistence';
 import {
   competitionRulesSchema,
   factChangeSchema,
-  fixtureSchema,
   fixtureObservationSchema,
   poolPlayerSchema,
   type Gameweek,
@@ -29,23 +29,43 @@ export async function calculateRoundInputs(
   const pool = (frozen?.payload.players ?? []).map((p) =>
     poolPlayerSchema.parse(p),
   );
-  const fixtures = (
-    await tx
-      .selectFrom('fixture_assignments')
-      .innerJoin('fixtures', 'fixtures.id', 'fixture_assignments.fixture_id')
-      .select('fixtures.data')
-      .where('fixture_assignments.gameweek_id', '=', round.id)
-      .orderBy('fixtures.id')
-      .execute()
-  ).map((f) => fixtureSchema.parse(f.data));
+  const settlementInputs = await readFixtureSettlementInputs(tx, round.id);
+  const { fixtures } = settlementInputs;
   const issues: string[] = frozen ? [] : ['missing-locked-player-pool'];
   const contributions = new Map<string, FixturePerformance[]>();
   const unresolved = new Set<string>();
-  let settled = fixtures.every((f) => ['finished', 'void'].includes(f.status));
+  let settled = fixtures.every((f) =>
+    ['finished', 'void', 'awarded'].includes(f.status),
+  );
   const evidence: object[] = [];
+  if (settlementInputs.zeroPerformance) {
+    if (!settlementInputs.approved) {
+      settled = false;
+      issues.push('empty-gameweek-needs-settlement');
+    }
+    evidence.push({
+      emptyRoundSettled: settlementInputs.approved,
+      scope: settlementInputs.fingerprint,
+    });
+  }
   for (const fixture of fixtures) {
-    if (fixture.status === 'void') {
-      evidence.push({ fixtureId: fixture.id, status: 'void' });
+    if (['void', 'awarded'].includes(fixture.status)) {
+      const disposition = settlementInputs.dispositions.get(fixture.id);
+      if (!disposition || disposition.choice.outcome === 'release') {
+        settled = false;
+        issues.push(`${fixture.id}:fixture-disposition-required`);
+      }
+      evidence.push({
+        fixtureId: fixture.id,
+        status: fixture.status,
+        disposition: disposition
+          ? {
+              revision: disposition.revision,
+              choice: disposition.choice,
+              officialReference: disposition.officialReference,
+            }
+          : null,
+      });
       continue;
     }
     const observationRow = await tx

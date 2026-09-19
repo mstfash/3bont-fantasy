@@ -1,11 +1,26 @@
-# Implementation audit — remaining correctness work
+# Implementation audit — remaining release work
 
-Updated 2026-09-19. These are implementation findings, not changed product decisions or completed features.
+Updated 2026-09-19 against the shipped slice-37 baseline and the active production-readiness work. This replaces stale slice-29 assumptions; documentation is not completion evidence. The full release ledger is [production readiness](production-readiness.md).
 
-- Configuration lifecycle safeguards are implemented in slice 06, including notice, incoming transfer allowance, category-specific schedules, participant versioned rules and equal chip grants. Slice 27 adds a shared-plan configuration preview with aggregate affected-entry counts, current balances above a proposed cap, exact round schedules, and confirmation fingerprints. Separately authorized historical replay and result/award impact remain.
-- H2H late calendar edits: published pairings are immutable. Keep referenced gameweeks available and ensure upcoming deadline edits do not reopen a locked matchup. Persist forfeits by gameweek ID.
-- Catalogue import: manual records and atomic reviewed bulk imports are verified. Evidence-backed provider mappings and identifier conflict handling are implemented with version history. Slice 28 adds source-bound reviewed match drafts, explicit eligibility evidence and retained mapping/attempt references. Slice 30 adds explicitly enabled fixture-aware source collection with quota controls and crash recovery. Validated defensive-event normalization and automatic report acceptance remain; real coverage and measured cadence are activation gates.
-- Result previews: slice 29 adds overall rank projections, aggregate affected-prize decisions and confirmation fingerprints across result/prize revisions. Classic-group/H2H projections, hypothetical award allocations and global fact-correction fan-out previews remain before historical rule replay.
-- Staff grants/revocations are implemented. Achievements are verified. Chat and group moderation are verified. Scoped support and platform account suspension are verified. Sponsor operations and entry retirement are verified. Profile/export, consensual group handover and reviewed closure are verified; operator retention terms, backup expiry and exceptional privacy handling remain launch work. Prize terms/eligibility/approval/fulfillment are implemented; durable post-fulfillment correction cases and independent resolution are verified. Provider and valuation evidence, restore/load measurements and production credentials are separate release gates.
+## Implemented in the baseline
 
-- Current staff authorization is rechecked under a transaction barrier for reviewed writes; role revocation and account closure cannot cross an accepted staff mutation.
+- Configurable competition/rules publication, structural freeze, notice periods, exact previews and equal future chip grants.
+- Squads, strict deadlines, transfers, all chips, club-move grace, score calculation and coherent immutable result publications.
+- Classic/H2H projections, scoped hypothetical prize allocations, shared-fixture pre-write review, bounded owner-only historical rules replay and delivered-award correction cases.
+- Reviewed catalogue/valuation imports, source identity/mapping evidence, durable quota gateway, scheduled collection and ordinary FT normalization with ambiguity holds.
+- Current-authority staff controls, participant authentication/recovery, profile/export/closure, group handover, support/moderation, achievements, chat, sponsors, prize terms/approval/fulfillment and entry retirement.
+- Bilingual dynamic rule guides/admin handbook, responsive themed interfaces, public home rankings/winners/pitches and protected CI/container verification.
+
+## Active correctness work
+
+- Exceptional fixture decisions need explicit official evidence and retained disposition history; a full replay has a new identity, while resumed play replaces the cumulative report. Zero-performance rounds require reviewed settlement after lock. Implemented and verified locally in slice 38; protected CI remains required before merge.
+- Historical participant-snapshot repair must derive from original accepted-command evidence, retain original snapshot versions and bind publication to the repaired version. It remains distinct from ordinary editing and completed historical scoring-rule replay.
+- Provider automatic acceptance needs a versioned worker path, strict ambiguity/source/freshness gates, atomic acceptance and idempotency. Current collection does not imply accepted football facts.
+
+## Release evidence still required
+
+- Licensed Egyptian Premier League 2026/27 coverage and valuation supply, actual sample replay and approved price calibration.
+- Named staging/production infrastructure, verified email/TLS, external monitoring, off-host encrypted backups/WAL archiving and demonstrated clean-environment restoration.
+- Measured workload/cutoff contention and worker interruption on the selected hardware, retention/backup expiry procedures, operating/prize terms and final operator acceptance.
+
+Continue independently on software and local rehearsal while external inputs are pending. Preserve current behavior through exact-head tests and protected PRs; do not declare launch readiness because a test count increased.

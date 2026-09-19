@@ -268,22 +268,15 @@ export function MatchEditor({
               name="status"
               defaultValue={fixture.status}
             >
-              {[
-                'scheduled',
-                'live',
-                'suspended',
-                'postponed',
-                'finished',
-                'void',
-              ].map((status, i) => (
-                <option key={status} value={status}>
-                  {ar
-                    ? ['مجدولة', 'مباشرة', 'متوقفة', 'مؤجلة', 'انتهت', 'ملغاة'][
-                        i
-                      ]
-                    : status}
-                </option>
-              ))}
+              {['scheduled', 'live', 'suspended', 'postponed', 'finished'].map(
+                (status, i) => (
+                  <option key={status} value={status}>
+                    {ar
+                      ? ['مجدولة', 'مباشرة', 'متوقفة', 'مؤجلة', 'انتهت'][i]
+                      : status}
+                  </option>
+                ),
+              )}
             </select>
           </label>
           <label>

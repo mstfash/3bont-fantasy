@@ -12,7 +12,10 @@ export function collectionInterval(
   fixture: Pick<Fixture, 'kickoff' | 'status'>,
   now: Date,
 ): number | null {
-  if (!schedule.enabled || ['void', 'postponed'].includes(fixture.status))
+  if (
+    !schedule.enabled ||
+    ['void', 'awarded', 'postponed'].includes(fixture.status)
+  )
     return null;
   const elapsed = now.getTime() - Date.parse(fixture.kickoff);
   if (

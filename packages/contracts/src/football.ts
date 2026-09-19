@@ -90,6 +90,7 @@ export const fixtureSchema = z
       'postponed',
       'finished',
       'void',
+      'awarded',
     ]),
     homeGoals: z.int().nonnegative().nullable(),
     awayGoals: z.int().nonnegative().nullable(),

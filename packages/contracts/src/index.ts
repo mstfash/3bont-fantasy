@@ -54,3 +54,6 @@ export {
 } from './results.ts';
 export * from './match-review.ts';
 export * from './historical-rules.ts';
+
+export * from './fixture-dispositions.ts';
+export * from './empty-gameweek.ts';

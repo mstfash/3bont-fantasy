@@ -1,3 +1,8 @@
+import {
+  previewEmptyGameweek,
+  executeEmptyGameweek,
+} from '../src/empty-gameweek.ts';
+import { grantProofStaff, clearProofStaff } from './proof-staff.ts';
 import assert from 'node:assert/strict';
 import { randomUUID } from 'node:crypto';
 import { before, after, test } from 'node:test';
@@ -45,10 +50,31 @@ before(async () => {
   );
 });
 after(async () => {
+  await clearProofStaff(db);
   await db.destroy();
 });
 void test('retirement preserves elapsed-deadline snapshots, forfeits only future H2H rounds and cannot reset entry allowance', async () => {
   await seedDemoReplay(db);
+  const operator = {
+    accountId: randomUUID(),
+    sessionId: randomUUID(),
+    emailVerified: true,
+    authenticatedAt: new Date(),
+    mfaVerifiedAt: new Date(),
+  };
+  await grantProofStaff(db, operator.accountId, [
+    { role: 'owner', competitionId: null },
+  ]);
+  async function settleEmpty(id: string) {
+    const preview = await previewEmptyGameweek(db, operator, id);
+    await executeEmptyGameweek(db, operator, {
+      commandId: randomUUID(),
+      gameweekId: id,
+      expectedResultRevision: preview.round.resultRevision,
+      expectedFingerprint: preview.fingerprint,
+      reason: 'Synthetic round without fixtures reviewed for settlement',
+    });
+  }
   const source = (
     await db
       .selectFrom('competitions')
@@ -278,6 +304,7 @@ void test('retirement preserves elapsed-deadline snapshots, forfeits only future
     4000,
   );
   await publishGameweekResults(db, first.id);
+  await settleEmpty(first.id);
   const create = {
     kind: 'create' as const,
     commandId: randomUUID(),
@@ -356,6 +383,7 @@ void test('retirement preserves elapsed-deadline snapshots, forfeits only future
   );
   assert.equal((await advanceDueGameweeks(db, competition.id)).entries, 1);
   await publishGameweekResults(db, second.id);
+  await settleEmpty(second.id);
   assert.equal(
     (
       await db

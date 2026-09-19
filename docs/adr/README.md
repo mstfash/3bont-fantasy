@@ -42,3 +42,5 @@ All records currently accepted. Routine defaults are in canonical specifications
 - [0030 — Evidence-backed provider identities](0030-evidenced-provider-identities.md)
 
 - [0031 — Bounded historical scoring corrections](0031-bounded-historical-scoring-corrections.md)
+
+- [0032 - Evidenced exceptional fixture settlement](0032-evidenced-exceptional-fixture-settlement.md)

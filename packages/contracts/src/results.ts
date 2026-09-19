@@ -1,3 +1,4 @@
+import { fixtureDispositionChoiceSchema } from './fixture-dispositions.ts';
 import {
   providerNormalizationSelectionSchema,
   providerReportReviewSchema,
@@ -62,6 +63,14 @@ const commandBase = {
   reason: z.string().trim().min(5).max(1000),
 };
 export const matchDataCommandSchema = z.discriminatedUnion('kind', [
+  z.strictObject({
+    ...commandBase,
+    kind: z.literal('disposition'),
+    fixtureId: idSchema,
+    expectedRevision: z.int().positive(),
+    choice: fixtureDispositionChoiceSchema,
+    officialReference: z.string().trim().min(5).max(2000),
+  }),
   z.strictObject({
     ...commandBase,
     kind: z.literal('import'),
