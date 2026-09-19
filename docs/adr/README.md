@@ -40,3 +40,5 @@ All records currently accepted. Routine defaults are in canonical specifications
 - [0028 — Consensual group handover](0028-consensual-group-handover.md)
 - [0029 — Account closure and history](0029-account-closure-and-history.md)
 - [0030 — Evidence-backed provider identities](0030-evidenced-provider-identities.md)
+
+- [0031 — Bounded historical scoring corrections](0031-bounded-historical-scoring-corrections.md)

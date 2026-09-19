@@ -1,6 +1,6 @@
 import { requireCurrentStaffWrite } from './staff-write-access.ts';
 import { createHash, randomUUID } from 'node:crypto';
-import { sql, type Insertable } from 'kysely';
+import { sql, type Insertable, type Transaction } from 'kysely';
 import type { createDatabase, Database } from '@fantasy/persistence';
 import {
   gameweekSchema,
@@ -11,6 +11,7 @@ import {
 } from '@fantasy/contracts';
 import { calculateEntryResult } from './entry-calculation.ts';
 import { calculateResultImpact } from './result-impact.ts';
+import { lockResultDependencies } from './result-dependency-locks.ts';
 import { calculateRoundInputs } from './round-inputs.ts';
 import {
   requireCapability,
@@ -46,177 +47,183 @@ async function publishSnapshot(
     .transaction()
     .setIsolationLevel('repeatable read')
     .execute(async (tx) => {
-      const reference = await tx
-        .selectFrom('gameweeks')
-        .select('competition_id')
-        .where('id', '=', gameweekId)
-        .executeTakeFirst();
-      if (!reference) throw new CommandRejected('gameweek-unavailable');
+      return publishGameweekWithinTransaction(tx, gameweekId);
+    });
+}
+
+/** Canonical atomic publication; callers must hold authority before entering when acting for staff. */
+export async function publishGameweekWithinTransaction(
+  tx: Transaction<Database>,
+  gameweekId: string,
+) {
+  const reference = await tx
+    .selectFrom('gameweeks')
+    .select('competition_id')
+    .where('id', '=', gameweekId)
+    .executeTakeFirst();
+  if (!reference) throw new CommandRejected('gameweek-unavailable');
+  await tx
+    .selectFrom('competitions')
+    .select('id')
+    .where('id', '=', reference.competition_id)
+    .forUpdate()
+    .executeTakeFirstOrThrow();
+  const row = await tx
+    .selectFrom('gameweeks')
+    .select('data')
+    .where('id', '=', gameweekId)
+    .forUpdate()
+    .executeTakeFirstOrThrow();
+  const round = gameweekSchema.parse(row.data);
+  if (round.status === 'upcoming')
+    return { status: 'skipped' as const, revision: 0 };
+  const inputs = await calculateRoundInputs(tx, round);
+  const previous = await tx
+    .selectFrom('round_calculations')
+    .select('payload')
+    .where('gameweek_id', '=', gameweekId)
+    .where('revision', '=', round.resultRevision)
+    .executeTakeFirst();
+  const changed =
+    !previous || previous.payload.fingerprint !== inputs.fingerprint;
+  const now = (
+    await sql<{ now: Date }>`SELECT clock_timestamp() AS now`.execute(tx)
+  ).rows[0]?.now;
+  if (!now) throw new Error('Database clock unavailable');
+  if (round.status === 'finalized' || round.status === 'review') {
+    if (changed) {
       await tx
-        .selectFrom('competitions')
-        .select('id')
-        .where('id', '=', reference.competition_id)
-        .forUpdate()
-        .executeTakeFirstOrThrow();
-      const row = await tx
-        .selectFrom('gameweeks')
-        .select('data')
-        .where('id', '=', gameweekId)
-        .forUpdate()
-        .executeTakeFirstOrThrow();
-      const round = gameweekSchema.parse(row.data);
-      if (round.status === 'upcoming')
-        return { status: 'skipped' as const, revision: 0 };
-      const inputs = await calculateRoundInputs(tx, round);
-      const previous = await tx
-        .selectFrom('round_calculations')
-        .select('payload')
-        .where('gameweek_id', '=', gameweekId)
-        .where('revision', '=', round.resultRevision)
-        .executeTakeFirst();
-      const changed =
-        !previous || previous.payload.fingerprint !== inputs.fingerprint;
-      const now = (
-        await sql<{ now: Date }>`SELECT clock_timestamp() AS now`.execute(tx)
-      ).rows[0]?.now;
-      if (!now) throw new Error('Database clock unavailable');
-      if (round.status === 'finalized' || round.status === 'review') {
-        if (changed) {
-          await tx
-            .insertInto('result_reviews')
-            .values({
-              id: randomUUID(),
-              gameweek_id: gameweekId,
-              reason: `late-football-correction:${inputs.fingerprint}`,
-              status: 'open',
-              evidence_id: null,
-              resolved_at: null,
-              resolved_by: null,
-            })
-            .onConflict((oc) =>
-              oc
-                .columns(['gameweek_id', 'reason'])
-                .where('status', '=', 'open')
-                .doNothing(),
-            )
-            .execute();
-          if (round.status !== 'review')
-            await tx
-              .updateTable('gameweeks')
-              .set({ data: { ...round, status: 'review' } })
-              .where('id', '=', gameweekId)
-              .execute();
-        }
-        return {
-          status: changed ? ('review' as const) : ('unchanged' as const),
-          revision: round.resultRevision,
-        };
-      }
-      let revision = round.resultRevision;
-      let materialAt = round.lastMaterialChangeAt;
-      if (changed) {
-        revision++;
-        materialAt = now.toISOString();
-        const snapshots = await tx
-          .selectFrom('entry_snapshots')
-          .selectAll()
-          .where('gameweek_id', '=', gameweekId)
+        .insertInto('result_reviews')
+        .values({
+          id: randomUUID(),
+          gameweek_id: gameweekId,
+          reason: `late-football-correction:${inputs.fingerprint}`,
+          status: 'open',
+          evidence_id: null,
+          resolved_at: null,
+          resolved_by: null,
+        })
+        .onConflict((oc) =>
+          oc
+            .columns(['gameweek_id', 'reason'])
+            .where('status', '=', 'open')
+            .doNothing(),
+        )
+        .execute();
+      if (round.status !== 'review')
+        await tx
+          .updateTable('gameweeks')
+          .set({ data: { ...round, status: 'review' } })
+          .where('id', '=', gameweekId)
           .execute();
-        const playersById = new Map(
-          inputs.players.map((p) => [p.footballerId, p]),
-        );
-        let batch: Insertable<Database['entry_results']>[] = [];
-        for (const snapshot of snapshots) {
-          const locked = lockedEntrySchema.parse(snapshot.payload);
-          const result = calculateEntryResult(
-            locked,
-            round,
-            playersById,
-            inputs.settled,
-          );
-          if (result.status === 'blocked')
-            throw new CommandRejected(`snapshot-cannot-score:${result.reason}`);
-          const payload = result.payload;
-          batch.push({
-            entry_id: snapshot.entry_id,
-            competition_id: snapshot.competition_id,
-            gameweek_id: gameweekId,
-            revision,
-            points: payload.total,
-            payload,
-            published_at: now,
-          });
-          if (batch.length >= 100) {
-            await tx.insertInto('entry_results').values(batch).execute();
-            batch = [];
-          }
-        }
-        if (batch.length > 0)
-          await tx.insertInto('entry_results').values(batch).execute();
-        const calculation = roundCalculationSchema.parse({
-          rules: round.rules,
-          calculationVersion: 'round-v1',
-          gameweekId,
+    }
+    return {
+      status: changed ? ('review' as const) : ('unchanged' as const),
+      revision: round.resultRevision,
+    };
+  }
+  let revision = round.resultRevision;
+  let materialAt = round.lastMaterialChangeAt;
+  if (changed) {
+    revision++;
+    materialAt = now.toISOString();
+    const snapshots = await tx
+      .selectFrom('entry_snapshots')
+      .selectAll()
+      .where('gameweek_id', '=', gameweekId)
+      .execute();
+    const playersById = new Map(inputs.players.map((p) => [p.footballerId, p]));
+    let batch: Insertable<Database['entry_results']>[] = [];
+    for (const snapshot of snapshots) {
+      const locked = lockedEntrySchema.parse(snapshot.payload);
+      const result = calculateEntryResult(
+        locked,
+        round,
+        playersById,
+        inputs.settled,
+      );
+      if (result.status === 'blocked')
+        throw new CommandRejected(`snapshot-cannot-score:${result.reason}`);
+      const payload = result.payload;
+      batch.push({
+        entry_id: snapshot.entry_id,
+        competition_id: snapshot.competition_id,
+        gameweek_id: gameweekId,
+        revision,
+        points: payload.total,
+        payload,
+        published_at: now,
+      });
+      if (batch.length >= 100) {
+        await tx.insertInto('entry_results').values(batch).execute();
+        batch = [];
+      }
+    }
+    if (batch.length > 0)
+      await tx.insertInto('entry_results').values(batch).execute();
+    const calculation = roundCalculationSchema.parse({
+      rules: round.rules,
+      calculationVersion: 'round-v1',
+      gameweekId,
+      revision,
+      fingerprint: inputs.fingerprint,
+      calculatedAt: now.toISOString(),
+      settled: inputs.settled,
+      issues: inputs.issues,
+      players: inputs.players,
+    });
+    await tx
+      .insertInto('round_calculations')
+      .values({
+        gameweek_id: gameweekId,
+        revision,
+        fingerprint: inputs.fingerprint,
+        payload: calculation,
+      })
+      .execute();
+  }
+  const unresolvedReview = await tx
+    .selectFrom('result_reviews')
+    .select('id')
+    .where('gameweek_id', '=', gameweekId)
+    .where('status', '=', 'open')
+    .executeTakeFirst();
+  const finalizable =
+    inputs.settled &&
+    !unresolvedReview &&
+    materialAt !== null &&
+    now.getTime() >=
+      Date.parse(materialAt) + round.rules.correctionWindowHours * 3600_000;
+  const updated = gameweekSchema.parse({
+    ...round,
+    status: finalizable ? 'finalized' : 'provisional',
+    resultRevision: revision,
+    lastMaterialChangeAt: materialAt,
+    finalizedAt: finalizable ? now.toISOString() : null,
+    issues: inputs.issues,
+  });
+  await tx
+    .updateTable('gameweeks')
+    .set({ data: updated })
+    .where('id', '=', gameweekId)
+    .execute();
+  if (changed || finalizable)
+    await tx
+      .insertInto('audit_events')
+      .values({
+        id: randomUUID(),
+        actor_id: 'system:scoring',
+        action: finalizable ? 'results.finalized' : 'results.published',
+        scope_id: gameweekId,
+        reason: null,
+        payload: {
           revision,
           fingerprint: inputs.fingerprint,
-          calculatedAt: now.toISOString(),
           settled: inputs.settled,
-          issues: inputs.issues,
-          players: inputs.players,
-        });
-        await tx
-          .insertInto('round_calculations')
-          .values({
-            gameweek_id: gameweekId,
-            revision,
-            fingerprint: inputs.fingerprint,
-            payload: calculation,
-          })
-          .execute();
-      }
-      const unresolvedReview = await tx
-        .selectFrom('result_reviews')
-        .select('id')
-        .where('gameweek_id', '=', gameweekId)
-        .where('status', '=', 'open')
-        .executeTakeFirst();
-      const finalizable =
-        inputs.settled &&
-        !unresolvedReview &&
-        materialAt !== null &&
-        now.getTime() >=
-          Date.parse(materialAt) + round.rules.correctionWindowHours * 3600_000;
-      const updated = gameweekSchema.parse({
-        ...round,
-        status: finalizable ? 'finalized' : 'provisional',
-        resultRevision: revision,
-        lastMaterialChangeAt: materialAt,
-        finalizedAt: finalizable ? now.toISOString() : null,
-        issues: inputs.issues,
-      });
-      await tx
-        .updateTable('gameweeks')
-        .set({ data: updated })
-        .where('id', '=', gameweekId)
-        .execute();
-      if (changed || finalizable)
-        await tx
-          .insertInto('audit_events')
-          .values({
-            id: randomUUID(),
-            actor_id: 'system:scoring',
-            action: finalizable ? 'results.finalized' : 'results.published',
-            scope_id: gameweekId,
-            reason: null,
-            payload: {
-              revision,
-              fingerprint: inputs.fingerprint,
-              settled: inputs.settled,
-            },
-          })
-          .execute();
-      return { status: updated.status, revision };
-    });
+        },
+      })
+      .execute();
+  return { status: updated.status, revision };
 }
 
 export async function publishDueResults(db: ReturnType<typeof createDatabase>) {
@@ -312,28 +319,7 @@ export async function executeResultCommand(
       throw new CommandRejected('results-changed');
     // Imports and overrides take a fixture-row update lock. Hold shared locks
     // while validating the exact preview, without an old snapshot before receipt lookup.
-    const dependentPools = await tx
-      .selectFrom('prize_pools')
-      .select('data')
-      .where('competition_id', '=', round.competitionId)
-      .where(sql<string>`data->>'state'`, '=', 'published')
-      .execute();
-    const affectedRoundIds = [
-      ...new Set([
-        round.id,
-        ...dependentPools
-          .filter((p) => p.data.gameweekIds.includes(round.id))
-          .flatMap((p) => p.data.gameweekIds),
-      ]),
-    ];
-    await tx
-      .selectFrom('fixture_assignments')
-      .innerJoin('fixtures', 'fixtures.id', 'fixture_assignments.fixture_id')
-      .select('fixtures.id')
-      .where('fixture_assignments.gameweek_id', 'in', affectedRoundIds)
-      .orderBy('fixtures.id')
-      .forShare()
-      .execute();
+    await lockResultDependencies(tx, round);
     const candidate = await calculateResultImpact(tx, round);
     if (candidate.fingerprint !== command.expectedFingerprint)
       throw new CommandRejected('preview-changed');

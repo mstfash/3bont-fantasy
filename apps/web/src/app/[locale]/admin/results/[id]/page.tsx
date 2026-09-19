@@ -1,3 +1,6 @@
+import Link from 'next/link';
+import { capabilityScopes } from '@fantasy/application';
+import { ResultScoreChanges } from '@/components/result-score-changes';
 import { notFound } from 'next/navigation';
 import { idSchema } from '@fantasy/contracts';
 import { previewGameweekResults } from '@fantasy/application';
@@ -73,48 +76,20 @@ export default async function ResultReviewPage({
           </details>
         )}
       </section>
-      <section className="admin-panel">
-        <h2>{ar ? 'تغييرات النقاط' : 'Score changes'}</h2>
-        <div className="admin-table-scroll">
-          <table>
-            <thead>
-              <tr>
-                <th>{ar ? 'الفريق' : 'Squad'}</th>
-                <th>{ar ? 'المنشور' : 'Published'}</th>
-                <th>{ar ? 'المقترح' : 'Proposed'}</th>
-                <th>{ar ? 'الفرق' : 'Change'}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {changed.slice(0, 200).map((row) => (
-                <tr key={row.entryId}>
-                  <td>{row.name}</td>
-                  <td>{row.before === null ? '—' : row.before / 1000}</td>
-                  <td>
-                    {row.after === null
-                      ? ar
-                        ? 'متعذر'
-                        : 'Blocked'
-                      : row.after / 1000}
-                  </td>
-                  <td>
-                    {row.before !== null && row.after !== null
-                      ? (row.after - row.before) / 1000
-                      : '—'}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        {changed.length > 200 && (
-          <p>
-            {ar
-              ? 'تظهر أول ٢٠٠ نتيجة متغيرة.'
-              : 'Showing the first 200 changed results.'}
-          </p>
+      {preview.round.resultRevision > 0 &&
+        capabilityScopes(context.grants, 'results.replay').some(
+          (scope) => scope === null || scope === preview.round.competitionId,
+        ) && (
+          <section className="admin-panel">
+            <Link href={`/${locale}/admin/results/${p.id}/rules`}>
+              {ar
+                ? 'تصحيح قواعد جولة سابقة'
+                : 'Correct historical gameweek rules'}{' '}
+              ↗
+            </Link>
+          </section>
         )}
-      </section>
+      <ResultScoreChanges locale={locale} changes={preview.changes} />
       <ResultImpactSummary locale={locale} preview={preview} />
       {['finalized', 'review'].includes(preview.round.status) && (
         <ReopenResults

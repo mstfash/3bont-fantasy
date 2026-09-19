@@ -1,0 +1,122 @@
+{
+  "slice": 37,
+  "date": "2026-09-19",
+  "providerRequests": 0,
+  "automaticAcceptanceEnabled": false,
+  "localVerification": {
+    "status": "passed",
+    "command": "pnpm verify:local",
+    "unitAndHarnessCases": 116,
+    "postgresCases": 121,
+    "publicSmokeCombinations": 56,
+    "authenticatedE2E": "passed",
+    "historicalRulesE2E": "passed",
+    "typecheck": "passed",
+    "lint": "passed",
+    "productionBuild": "passed"
+  },
+  "sources": [
+    {
+      "path": "apps/web/src/app/[locale]/admin/results/[id]/page.tsx",
+      "sha256": "5939c7d5fd1597a843e184cf10a2cedd68b38a8f8400d5c4529ff9d8d6534500"
+    },
+    {
+      "path": "apps/web/src/app/[locale]/admin/results/[id]/rules/page.tsx",
+      "sha256": "d58430382d54dd0ee86cb988db1d1637531f20e09b163aa5cac5110a45f93ddb"
+    },
+    {
+      "path": "apps/web/src/app/api/v1/admin/historical-rules/route.ts",
+      "sha256": "851175014aeff8f5b60a90d02e517165610187bce4ff422b31622734185f8660"
+    },
+    {
+      "path": "apps/web/src/components/historical-rule-diff.tsx",
+      "sha256": "46a5b278b0179562208828451fb941aeb18c7464de6d5c21507b587d767ba820"
+    },
+    {
+      "path": "apps/web/src/components/historical-rules-confirm.tsx",
+      "sha256": "0f63d9ca2e58a5013658db5a934718654589fcf9838b57d8b764a3adb65c1745"
+    },
+    {
+      "path": "apps/web/src/components/historical-rules-form.tsx",
+      "sha256": "2d9a4f3ecb9a18d366b690e5572d693328be59aa40634a506c1c4f1cfe8b4aa1"
+    },
+    {
+      "path": "apps/web/src/components/result-score-changes.tsx",
+      "sha256": "36ced786eacc14722eb8d6957c47ee85d11dad4a619a2f3a79de3b5a8848d271"
+    },
+    {
+      "path": "apps/web/src/components/rules/scoring-rules.tsx",
+      "sha256": "67db9a72185ae03da360929caae53c349b225530b0d076fac5e0ed3ce3353ee3"
+    },
+    {
+      "path": "apps/web/src/lib/command-errors.ts",
+      "sha256": "fb54f319fdaa740cd2ed23f34a565458232b58b7f75ad403c7e79deca2df3b62"
+    },
+    {
+      "path": "apps/web/src/lib/help/admin-workflows.ts",
+      "sha256": "e309c83befae156309cea22fdbb5c13690258ec3d6572198eb052d171ecd43e4"
+    },
+    {
+      "path": "packages/application/src/authorization.ts",
+      "sha256": "0e33fae149ca639318a5e4b263314ec013fa134bd132ca2458d83427cc13848a"
+    },
+    {
+      "path": "packages/application/src/historical-rules.ts",
+      "sha256": "1ae80bf31ade1c92d51dfe6e35952863fbf3f2c2349cd3c401f1392700ee83e3"
+    },
+    {
+      "path": "packages/application/src/index.ts",
+      "sha256": "5e0198bbab9237b35a473f56de49503fb8e61d7fcf3f39f61946659ca86ba324"
+    },
+    {
+      "path": "packages/application/src/result-dependency-locks.ts",
+      "sha256": "4e5640e18d6c6cc2ea9a13c7815c7c4826cb46730b343fd06a97d348384a7a3a"
+    },
+    {
+      "path": "packages/application/src/results.ts",
+      "sha256": "83db7d4b36903f9e463aab66a15a969e5e91a691bd057041ca3e26a964039170"
+    },
+    {
+      "path": "packages/application/tests/postgres-historical-rules.test.ts",
+      "sha256": "4d3b7f428d9faa487d24172cf718e27ea0489b8c0233660ce98fa80a957144bf"
+    },
+    {
+      "path": "packages/contracts/src/historical-rules.ts",
+      "sha256": "37c42d7bf467cb065a560b035a44c726878f71830854dc6a34340ef72f2a82ae"
+    },
+    {
+      "path": "packages/contracts/src/index.ts",
+      "sha256": "5d994892988162923013d198460dc400fa740e457c40166bc68e4a0b98e53411"
+    },
+    {
+      "path": "scripts/browser-historical-rules.mjs",
+      "sha256": "6eb4533efdce4e298ed78c0143d3e9df3a4227548e616cccb46568eb900ecf1d"
+    },
+    {
+      "path": "scripts/browser-results.mjs",
+      "sha256": "90c47b55b635df60302e7d703e14da1cc7bc7bb61a886bb110e512ab444a8f3e"
+    }
+  ],
+  "scenarios": [
+    "Read-only repeatable proposal and strict allowed settings",
+    "Owner scope, fresh verification and revoked-owner receipt denial",
+    "Stale snapshot and fact evidence rejected",
+    "Injected publication failure rolls back rules, scores, reviews, audit and receipt",
+    "Incomplete inputs held",
+    "Concurrent retry publishes one revision matching canonical scores and prize projection",
+    "Recorded entries, snapshots, future rules and original calculations retained",
+    "24-hour correction window restarts and holds prize approval",
+    "Editing exits approval; Arabic confirmation and bilingual dynamic playbooks",
+    "Anonymous mutation denied; no browser crashes, uncaught errors or HTTP 5xx"
+  ],
+  "screenshots": [
+    "artifacts/web/historical-rules-en.png",
+    "artifacts/web/historical-rules-ar-mobile.png"
+  ],
+  "limitations": [
+    "Synthetic software proof; not provider coverage or valuation licensing",
+    "Exceptional fixtures and evidence-backed participant snapshot repair remain",
+    "Staging, measured load/recovery and operator rehearsal remain",
+    "Protected remote CI must pass on the exact PR head before merge"
+  ]
+}

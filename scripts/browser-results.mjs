@@ -1,3 +1,4 @@
+import { exerciseHistoricalRules } from './browser-historical-rules.mjs';
 import { reviewedMatchPost } from './browser-match-review.mjs';
 import assert from 'node:assert/strict';
 import { exerciseResultImpact } from './browser-result-impact.mjs';
@@ -279,6 +280,7 @@ export async function exerciseRoundResults(
     path: 'artifacts/web/admin-prices-en.png',
     fullPage: true,
   });
+  await exerciseHistoricalRules(page, pool, base, round.id, slug);
   await page.goto(`${base}/en/admin`);
   console.log(
     'Browser calendar extension and reviewed price-batch publication passed.',
