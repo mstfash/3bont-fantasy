@@ -56,6 +56,8 @@ jobs:
         run: pnpm local:setup
       - name: Seed the synthetic public rehearsal
         run: pnpm db:seed
+      - name: Replay the competition required by browser acceptance
+        run: pnpm demo:replay
       - name: Strict checks, disposable integrations, smoke and authenticated E2E
         run: pnpm verify:local
       - name: Remove disposable database
