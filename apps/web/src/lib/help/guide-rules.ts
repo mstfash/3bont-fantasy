@@ -51,6 +51,9 @@ export function playingSteps(
     ar
       ? `تابع تفاصيل النقاط وحالة النتائج. نافذة التصحيح ${n(rules.correctionWindowHours)} ساعة بعد اكتمال البيانات واستقرار المباريات؛ المشكلات المفتوحة تمنع الاعتماد النهائي.`
       : `Follow the points breakdown and result status. The correction window is ${n(rules.correctionWindowHours)} hours after complete data and settled fixtures; unresolved issues prevent finalization.`,
+    ar
+      ? 'الإلغاء أو النتيجة الإدارية الموثقة لا يمنحان نقاط أداء للاعبين. إذا لم تبقَ مباريات قابلة للعب، تعتمد الإدارة تسوية الجولة بعد الإغلاق؛ تبقى خصومات الانتقالات والشيبس المستهلكة. استئناف المباراة يستخدم نفس التشكيلة، والإعادة الكاملة تستخدم مباراة جديدة في جولة مستقبلية.'
+      : 'An evidenced void or awarded team result gives no footballer performance points. If no playable fixtures remain, admins explicitly settle the round after lock; transfer deductions and consumed chips remain. Resumed play uses the original lineup, while a full replay uses a new fixture in a future gameweek.',
   ];
 }
 export function competitionFacts(

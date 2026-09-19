@@ -1,3 +1,4 @@
+import { exceptionalSettlementMigration } from './migrations/0023-exceptional-settlement.ts';
 import { providerSchedulesMigration } from './migrations/0022-provider-schedules.ts';
 import { providerNormalizationMigration } from './migrations/0021-provider-normalization.ts';
 import { priceCalibrationMigration } from './migrations/0020-price-calibration.ts';
@@ -47,6 +48,7 @@ const applicationMigrations = [
   priceCalibrationMigration,
   providerNormalizationMigration,
   providerSchedulesMigration,
+  exceptionalSettlementMigration,
 ] as const;
 
 export async function migrateApplication(pool: Pool): Promise<void> {

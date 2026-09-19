@@ -1,3 +1,8 @@
+import { freezeFixtureAssignments } from './fixture-assignment-lock.ts';
+import {
+  applyFixtureDisposition,
+  latestFixtureDisposition,
+} from './fixture-dispositions.ts';
 import { loadProviderNormalization } from './provider-normalization.ts';
 import { requireCurrentStaffWrite } from './staff-write-access.ts';
 import { createHash, randomUUID } from 'node:crypto';
@@ -43,6 +48,7 @@ export async function applyMatchDataWithinTransaction(
   fingerprint: string,
 ) {
   await requireCurrentStaffWrite(tx, principal, 'facts.manage', null);
+  if (command.kind === 'disposition') await freezeFixtureAssignments(tx);
   await sql`SELECT pg_advisory_xact_lock(hashtextextended(${`${principal.accountId}:${command.commandId}`},0))`.execute(
     tx,
   );
@@ -83,7 +89,14 @@ export async function applyMatchDataWithinTransaction(
   if (!currentRow) throw new CommandRejected('fixture-unavailable');
   const current = fixtureSchema.parse(currentRow.data);
   let updated = current;
-  if (command.kind === 'import') {
+  if (command.kind === 'disposition') {
+    updated = await applyFixtureDisposition(tx, principal, current, command);
+  } else if (command.kind === 'import') {
+    const disposition = await latestFixtureDisposition(tx, fixtureId);
+    if (disposition && disposition.choice.outcome !== 'release')
+      throw new CommandRejected('fixture-disposition-active');
+    if (['void', 'awarded'].includes(command.observation.fixture.status))
+      throw new CommandRejected('fixture-disposition-required');
     if (current.revision !== command.expectedRevision)
       throw new CommandRejected('fixture-changed');
     const incoming = command.observation;
@@ -110,11 +123,7 @@ export async function applyMatchDataWithinTransaction(
         : [];
     if (eligible.length !== incoming.eligibleFootballerIds.length)
       throw new CommandRejected('footballer-outside-season');
-    if (
-      incoming.fixture.status !== 'void' &&
-      incoming.eligibilityComplete &&
-      eligible.length === 0
-    )
+    if (incoming.eligibilityComplete && eligible.length === 0)
       throw new CommandRejected('empty-eligibility-roster');
     const last = await tx
       .selectFrom('fixture_observations')
@@ -169,7 +178,10 @@ export async function applyMatchDataWithinTransaction(
     const previous = last
       ? canonicalObservation(last.payload, current.revision)
       : null;
-    if (JSON.stringify(normalized) !== JSON.stringify(previous)) {
+    if (
+      JSON.stringify(normalized) !== JSON.stringify(previous) ||
+      JSON.stringify(normalized.fixture) !== JSON.stringify(current)
+    ) {
       updated = { ...normalized.fixture, revision: current.revision + 1 };
       await tx
         .insertInto('fixture_observations')
@@ -279,10 +291,15 @@ export async function applyMatchDataWithinTransaction(
               footballerId: command.footballerId,
               change: command.change.kind,
             }
-          : {
-              source: command.source,
-              normalizationFingerprint: normalization?.fingerprint ?? null,
-            }),
+          : command.kind === 'disposition'
+            ? {
+                disposition: command.choice,
+                officialReference: command.officialReference,
+              }
+            : {
+                source: command.source,
+                normalizationFingerprint: normalization?.fingerprint ?? null,
+              }),
       },
     })
     .execute();

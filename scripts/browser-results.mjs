@@ -1,3 +1,4 @@
+import { exerciseExceptionalFixtures } from './browser-exceptional-fixtures.mjs';
 import { exerciseHistoricalRules } from './browser-historical-rules.mjs';
 import { reviewedMatchPost } from './browser-match-review.mjs';
 import assert from 'node:assert/strict';
@@ -281,6 +282,7 @@ export async function exerciseRoundResults(
     fullPage: true,
   });
   await exerciseHistoricalRules(page, pool, base, round.id, slug);
+  await exerciseExceptionalFixtures(page, pool, base, round.id, fixture.id);
   await page.goto(`${base}/en/admin`);
   console.log(
     'Browser calendar extension and reviewed price-batch publication passed.',

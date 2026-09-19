@@ -225,3 +225,7 @@ _Avoid_: Automatic match approval, scored match
 **Historical Rules Correction**:
 An authorized correction to the scoring rules of a previously published gameweek, producing revised points from the recorded squads and football evidence.
 _Avoid_: Participant squad repair, ordinary future configuration, rewriting accepted transfers
+
+## Fixture Disposition
+
+An evidenced official decision about a fixture's competitive treatment: void with or without a replacement fixture, or an awarded team result with no footballer performance. It determines whether its footballer contributions are excluded and retains the original match history. It is distinct from a temporary suspension, which preserves the same fixture and awaits a complete resumed report.

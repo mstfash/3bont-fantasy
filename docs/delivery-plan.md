@@ -10,9 +10,9 @@ Retrieved available source chat, preserved gaps, installed domain-modeling globa
 
 Direct answers Q01–Q16 and delegated D01–D15 now define vocabulary, gameplay, configuration lifecycle, corrections, modules, architecture and acceptance. Remaining unknowns are evidence/commercial gates, not an unanswered routine preference interview.
 
-## P2 — Provider and transaction proof — in progress
+## P2 — Provider and transaction proof — software verified; live evidence pending
 
-[Slice 01](implementation-slice-01.md) provides real PostgreSQL locking/idempotency/transactional-enqueue evidence and a durable-ceiling probe. Kysely integration, the core migration and deadline rollover are now exercised; provider samples, the complete quota controller and the remaining application workflows are still open. See [current build](current-build.md).
+[Slice 01](implementation-slice-01.md) provides real PostgreSQL locking/idempotency/transactional-enqueue evidence and a durable-ceiling probe. Kysely integration, the core migration and deadline rollover are now exercised; the durable quota controller and scheduled source collection are verified. Licensed current-season samples and automatic accepted reports remain open. See [current build](current-build.md).
 
 - P2.1: Resolve exact target season/phases and collect redacted completed-fixture samples plus two live windows; populate provider coverage matrix (E01).
 - P2.2: Identify and verify valuation source/import, dates, currency, display rights and representative coverage (E02).
@@ -75,4 +75,4 @@ Use the P identifiers above as initial issue keys. Each implementation item reco
 
 A feature is done only with typed implementation, runtime boundary validation, functional user/admin flow, material invariant/failure tests, migration/operating notes where applicable and updated docs. Keep single-purpose PRs that deliver usable behavior; no speculative packages, universal rule language or placeholder completeness.
 
-Next implementation order: participant privacy and provider/quota operations, followed by bulk import, exceptional replay and P4.6 automatic price calibration. Groups, H2H, staff/support, achievements, chat, sponsors, entry retirement and prize correction operations are implemented and verified in slices 05–13. P2.3–P2.5 provider/quota fixtures can continue with synthetic data while real coverage evidence is obtained. No external credentials, paid services or claimed data rights are implied by this plan.
+Current execution order is maintained in [production readiness](production-readiness.md): exceptional fixture settlement, evidence-backed snapshot repair, validated provider acceptance, deployment/recovery/load and final release rehearsal. Privacy, quota operations and reviewed bulk import have shipped; this historical sequencing is not an unresolved feature list. Groups, H2H, staff/support, achievements, chat, sponsors, entry retirement and prize correction operations are implemented and verified in slices 05–13. P2.3–P2.5 provider/quota fixtures can continue with synthetic data while real coverage evidence is obtained. No external credentials, paid services or claimed data rights are implied by this plan.

@@ -106,12 +106,16 @@ export const adminWorkflows = [
       'Preview the report or correction with a reason and source evidence. Inspect the shared-match impact across every linked competition before confirming. Restricted competitions remain part of the check; changed dependencies require a fresh preview. Explicit overrides persist until removed.',
       'Inspect overall, classic-league and H2H projections and pending issues. Private league details follow group read access. Reopen finalized rounds only through the reviewed result workflow.',
       'Check standings, affected prizes and delivered-award correction cases after publication.',
+      'Use Exceptional fixture decisions for official voids, new replay fixtures or awarded team scores. Release an active disposition before accepting a replacement report; resumed play needs one complete cumulative report.',
+      'If no playable fixtures remain, open the gameweek result review and Preview zero-performance settlement. Confirm after lock; accepted transfer deductions and consumed chips remain.',
     ],
     ar: [
       'اختر مباراة وراجع الأهلية والدقائق وجميع حقائق احتساب النقاط.',
       'عاين التقرير أو التصحيح مع السبب والدليل. راجع أثر المباراة على كل البطولات المرتبطة قبل التأكيد؛ تشمل المراجعة البطولات المحجوبة حسب الصلاحيات. تغيّر البيانات يتطلب معاينة جديدة. تبقى التجاوزات الصريحة حتى إزالتها.',
       'افحص معاينات الترتيب العام والدوريات الكلاسيكية والمواجهات والمشكلات المعلّقة. تخضع تفاصيل الدوريات الخاصة لصلاحية القراءة. أعد فتح الجولات المعتمدة فقط عبر مسار النتائج المراجَع.',
       'راجع الترتيب والجوائز المتأثرة وحالات تصحيح الجوائز المسلّمة بعد النشر.',
+      'استخدم القرارات الاستثنائية للإلغاء الرسمي أو مباراة إعادة جديدة أو نتيجة إدارية. ألغِ القرار الساري قبل قبول تقرير بديل؛ يحتاج الاستئناف تقريراً تراكمياً كاملاً.',
+      'إذا لم تبقَ مباريات قابلة للعب فافتح مراجعة نتائج الجولة ثم معاينة تسوية جولة بلا أداء. اعتمد بعد الإغلاق؛ تبقى خصومات الانتقالات والشيبس المستهلكة.',
     ],
   },
   {

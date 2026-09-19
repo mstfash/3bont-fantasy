@@ -566,6 +566,10 @@ try {
         [competitionId],
       );
       await client.query(
+        'DELETE FROM fantasy.empty_round_settlements WHERE gameweek_id IN (SELECT id FROM fantasy.gameweeks WHERE competition_id=$1)',
+        [competitionId],
+      );
+      await client.query(
         'DELETE FROM fantasy.gameweeks WHERE competition_id=$1',
         [competitionId],
       );
@@ -578,6 +582,10 @@ try {
       ]);
     }
     for (const fixtureId of cleanupFixtures) {
+      await client.query(
+        'DELETE FROM fantasy.fixture_dispositions WHERE fixture_id=$1',
+        [fixtureId],
+      );
       await client.query('DELETE FROM fantasy.audit_events WHERE scope_id=$1', [
         fixtureId,
       ]);

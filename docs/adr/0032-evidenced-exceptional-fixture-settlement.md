@@ -1,0 +1,3 @@
+# Require evidence before settling exceptional fixtures
+
+Void and administratively awarded fixtures require a reviewed disposition with an official reference before contributing confirmed zero performance; empty gameweeks require explicit settlement after their deadline. A full replay receives a distinct fixture and future unlocked assignment, while resumed play retains the original identity and uses a complete replacement report, because inferring zero from a status or adding partial reports can erase or double-count footballer performance. Dispositions persist until explicitly released and retain their evidence and affected-result review history.

@@ -89,6 +89,16 @@ export default async function ResultReviewPage({
             </Link>
           </section>
         )}
+      {preview.issues.includes('empty-gameweek-needs-settlement') && (
+        <section className="admin-panel">
+          <Link href={`/${locale}/admin/results/${p.id}/empty`}>
+            {ar
+              ? 'معاينة تسوية جولة بلا أداء'
+              : 'Preview zero-performance settlement'}{' '}
+            ↗
+          </Link>
+        </section>
+      )}
       <ResultScoreChanges locale={locale} changes={preview.changes} />
       <ResultImpactSummary locale={locale} preview={preview} />
       {['finalized', 'review'].includes(preview.round.status) && (

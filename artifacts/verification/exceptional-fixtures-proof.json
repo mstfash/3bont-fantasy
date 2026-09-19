@@ -1,0 +1,166 @@
+{
+  "slice": 38,
+  "date": "2026-09-19",
+  "providerRequests": 0,
+  "automaticAcceptanceEnabled": false,
+  "localVerification": {
+    "status": "passed",
+    "command": "pnpm verify:local",
+    "unitAndHarnessCases": 116,
+    "postgresCases": 128,
+    "publicSmokeCombinations": 56,
+    "authenticatedE2E": "passed",
+    "exceptionalFixtureE2E": "passed",
+    "typecheck": "passed",
+    "lint": "passed",
+    "productionBuild": "passed"
+  },
+  "sources": [
+    {
+      "path": "apps/web/src/app/[locale]/admin/matches/[id]/page.tsx",
+      "sha256": "0fadb720403b41f16a8fff67191e7051a8a39ff90ab390fe04704221b09ab838"
+    },
+    {
+      "path": "apps/web/src/app/[locale]/admin/results/[id]/empty/page.tsx",
+      "sha256": "65d976417ed42630a4a64fe2af30cebd62a7d1a4a2fd50f7ad344acb8fcf9a6a"
+    },
+    {
+      "path": "apps/web/src/app/[locale]/admin/results/[id]/page.tsx",
+      "sha256": "16097325b998cad92a679cdfa47b937e1dd878f1b60939316acc2da04aafc260"
+    },
+    {
+      "path": "apps/web/src/app/api/v1/admin/empty-gameweek/route.ts",
+      "sha256": "467ee9753a18efdb18241b20af7bd8e8ca2be2eed31ddd95236fea3b01035f1e"
+    },
+    {
+      "path": "apps/web/src/components/empty-gameweek-confirm.tsx",
+      "sha256": "d7f3c81fbb9d4cddf573c741f9352a89b9b0c7a78f484046abf2685545bcdbf4"
+    },
+    {
+      "path": "apps/web/src/components/fixture-disposition-editor.tsx",
+      "sha256": "46c8a27c0d7caf2ec51db04553a02e913c1b261e0b7a5b578a6354721ba72456"
+    },
+    {
+      "path": "apps/web/src/components/match-editor.tsx",
+      "sha256": "3b1b3fca5f9ef4df29169258544494e56d6995e8aa467a18de27ef6813b88da7"
+    },
+    {
+      "path": "apps/web/src/lib/command-errors.ts",
+      "sha256": "03c0043f3572751aa7642178c1812290e5295f1d34931df7a3ce3730a735eab7"
+    },
+    {
+      "path": "apps/web/src/lib/help/admin-workflows.ts",
+      "sha256": "20e534dc0524df665d4f720629377c6a469f639ccd63783800abad74026789bd"
+    },
+    {
+      "path": "apps/web/src/lib/help/guide-rules.ts",
+      "sha256": "c29e5d210422a57c50cae1d1e7891e7a3f82eed38a5597382b8ab66875357e0f"
+    },
+    {
+      "path": "packages/application/src/empty-gameweek.ts",
+      "sha256": "ab61cdd3126e70a34157794e6f1f80e3b3d63e3fec23df3fbb1c07e05fddcb28"
+    },
+    {
+      "path": "packages/application/src/fixture-dispositions.ts",
+      "sha256": "4fc055676c4c3299d1ef51235bd5582c07ec34492164141766c33d08adc1f8a2"
+    },
+    {
+      "path": "packages/application/src/fixture-settlement-inputs.ts",
+      "sha256": "5740a8b6dc8046edfe46a23bad52d8a131110d5d1a0b05dcbed2d1f3a70cd2a7"
+    },
+    {
+      "path": "packages/application/src/index.ts",
+      "sha256": "f0a8610715bf05cb69773df3bdd9280aba15f6db609ed55b8a2f490f552440b8"
+    },
+    {
+      "path": "packages/application/src/match-data.ts",
+      "sha256": "80ee1cbcff950bf444300b169a4404ae1041a0b26a2574d2c6c9b689414856d1"
+    },
+    {
+      "path": "packages/application/src/provider-collection-plan.ts",
+      "sha256": "6f5a65534184796e8caadd57251e1f095a8f9f2c01c421ae9ffa2e1486f3f044"
+    },
+    {
+      "path": "packages/application/src/round-inputs.ts",
+      "sha256": "7e1b34890d1d5f78b62944a1fe548b66c22181dc13169a755e3631b3fb48c6bf"
+    },
+    {
+      "path": "packages/application/tests/postgres-entry-lifecycle.test.ts",
+      "sha256": "134e10eafbdf0913707e1154a7019879d8352a2812a77f8b038aaf1e3c07492c"
+    },
+    {
+      "path": "packages/application/tests/postgres-fixture-dispositions.test.ts",
+      "sha256": "bf5b5331a9115b130c489989dd187563d509889f766fc5f1476998c0dc040199"
+    },
+    {
+      "path": "packages/contracts/src/empty-gameweek.ts",
+      "sha256": "d44531d3edc87e11f2620e2875eabe30b0790b6adafe95892394b64d156cf99d"
+    },
+    {
+      "path": "packages/contracts/src/fixture-dispositions.ts",
+      "sha256": "137aa46a848083df3c2ea4ee7b9d602d55d74f0b92a8b80af48edc811ee0e68d"
+    },
+    {
+      "path": "packages/contracts/src/football.ts",
+      "sha256": "3e4c0151fc42b65cfe306fc51f57f8ec2311e14c0809597a41d5c0a9680194f9"
+    },
+    {
+      "path": "packages/contracts/src/index.ts",
+      "sha256": "d184b1da666344889798eeb55e8d0516ac8bbabe7c64c9164997490a619b4b4b"
+    },
+    {
+      "path": "packages/contracts/src/results.ts",
+      "sha256": "4ea3b2c62ef0ac529ee336af50613b48f21122160ef28df7b5c00d843ef904d8"
+    },
+    {
+      "path": "packages/persistence/src/database.ts",
+      "sha256": "d7392dd1494c7004eddf5562c4fc902c57b662c69a36a7944641a57c04f224ce"
+    },
+    {
+      "path": "packages/persistence/src/migrate.ts",
+      "sha256": "4f501e6d88602a8e8ac0ff917abb35dd1ad480d6ea2ac485fe519622742ffc0f"
+    },
+    {
+      "path": "packages/persistence/src/migrations/0023-exceptional-settlement.ts",
+      "sha256": "9d92f1f76aed6437e58c6543d522c9763fca0fa509940137963f1e6e09dd1d82"
+    },
+    {
+      "path": "packages/persistence/tests/postgres.test.ts",
+      "sha256": "856a77c5e75467f661b8a8bfe57f549a7c488e03dbf218a13ac6bf89b9a60544"
+    },
+    {
+      "path": "scripts/browser-exceptional-fixtures.mjs",
+      "sha256": "a278ad7a3510b18978d2749f761beac528730b4ef048184eb3dff76790f06f63"
+    },
+    {
+      "path": "scripts/browser-results.mjs",
+      "sha256": "a2511352ae9c35495ee148496bb82deaaf2a17c9f1756c394908b0eeb3b174dc"
+    },
+    {
+      "path": "scripts/browser-smoke.mjs",
+      "sha256": "3e93fe610b097d5a25785ede10e1471d7657f58cde58a7e320619eb698811ed6"
+    }
+  ],
+  "scenarios": [
+    "Bare terminal-status settlement denied; global match scope enforced",
+    "Repeatable rollback-only disposition preview; stale and concurrent command handling",
+    "Void/replay/awarded official evidence persists against ordinary imports",
+    "Explicit zero-performance settlement preserves transfer deductions, locked squads and consumed chips",
+    "Injected publication failure rolls back approvals, results, reviews, audit and receipts",
+    "Release requires cumulative sporting report; awarded score is removed on release",
+    "Distinct replay identity and unlocked destination validation",
+    "Bilingual reviewed admin workflow, Arabic mobile overflow check and browser crash monitoring"
+  ],
+  "screenshots": [
+    "artifacts/web/fixture-disposition-en.png",
+    "artifacts/web/fixture-disposition-ar-mobile.png",
+    "artifacts/web/empty-gameweek-en.png"
+  ],
+  "limitations": [
+    "Synthetic software evidence; target-season data and valuation licenses remain unverified",
+    "Historical participant snapshot repair and provider acceptance remain release work",
+    "Named staging, email, external monitoring, measured recovery/load and operator acceptance remain",
+    "Protected CI must pass on the exact PR head before merge",
+    "Older releases do not understand awarded status; rollback must target a compatible build"
+  ]
+}

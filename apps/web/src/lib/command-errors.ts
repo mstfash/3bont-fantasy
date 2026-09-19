@@ -1,5 +1,41 @@
 import type { Locale } from './brand';
 const messages: Readonly<Record<string, { ar: string; en: string }>> = {
+  'fixture-disposition-required': {
+    en: 'Record a reviewed official disposition before excluding this fixture’s performance.',
+    ar: 'سجّل قراراً رسمياً مُراجعاً قبل استبعاد أداء المباراة.',
+  },
+  'fixture-disposition-active': {
+    en: 'An official disposition is active. Release it with evidence before accepting a new report or decision.',
+    ar: 'يوجد قرار رسمي سارٍ. ألغِه بالدليل قبل قبول تقرير أو قرار جديد.',
+  },
+  'fixture-disposition-missing': {
+    en: 'There is no active disposition to release.',
+    ar: 'لا يوجد قرار سارٍ لإلغائه.',
+  },
+  'invalid-replay-fixture': {
+    en: 'Choose a different unplayed fixture with the same season and clubs.',
+    ar: 'اختر مباراة مختلفة لم تبدأ لنفس الموسم والناديين.',
+  },
+  'replay-fixture-already-linked': {
+    en: 'That replay fixture already replaces another fixture.',
+    ar: 'مباراة الإعادة مرتبطة بالفعل بمباراة أخرى.',
+  },
+  'replay-destination-locked': {
+    en: 'The replacement fixture is assigned to a locked or expired gameweek.',
+    ar: 'مباراة الإعادة مرتبطة بجولة مغلقة أو تجاوزت موعدها.',
+  },
+  'empty-gameweek-not-locked': {
+    en: 'Wait until the deadline passes and the gameweek is locked.',
+    ar: 'انتظر مرور الموعد النهائي وإغلاق الجولة.',
+  },
+  'empty-gameweek-not-evidenced': {
+    en: 'Every assigned fixture must have an evidenced void or awarded disposition, or the round must have no fixtures.',
+    ar: 'يجب توثيق إلغاء أو نتيجة إدارية لكل مباراة، أو ألا تحتوي الجولة على مباريات.',
+  },
+  'empty-gameweek-already-settled': {
+    en: 'This exact zero-performance scope was already settled. Review the current results.',
+    ar: 'سبق تسوية هذا النطاق نفسه. راجع النتائج الحالية.',
+  },
   'preview-changed': {
     ar: 'تغيرت البيانات أو القرارات المتأثرة. عدّل المقترح واطلب معاينة جديدة قبل الاعتماد.',
     en: 'Inputs or affected decisions changed. Edit the proposal and request a fresh preview before approving.',

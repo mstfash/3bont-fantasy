@@ -1,3 +1,5 @@
+import { FixtureDispositionEditor } from '@/components/fixture-disposition-editor';
+import { latestFixtureDisposition } from '@fantasy/application';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import {
@@ -58,6 +60,25 @@ export default async function MatchPage({
       .orderBy('revision', 'desc')
       .execute(),
   ]);
+  const disposition = await latestFixtureDisposition(db, fixture.id);
+  const replacements = (
+    await db
+      .selectFrom('fixtures')
+      .select('data')
+      .where('season_id', '=', fixture.seasonId)
+      .where('id', '!=', fixture.id)
+      .orderBy('kickoff')
+      .execute()
+  )
+    .map((r) => r.data)
+    .filter(
+      (f) =>
+        f.homeClubId === fixture.homeClubId &&
+        f.awayClubId === fixture.awayClubId &&
+        ['scheduled', 'postponed'].includes(f.status),
+    );
+  const dispositionActive =
+    disposition && disposition.choice.outcome !== 'release';
   const observation = observationRow
     ? fixtureObservationSchema.parse(observationRow.payload)
     : null;
@@ -120,15 +141,31 @@ export default async function MatchPage({
           </p>
         </section>
       )}
-      <ProviderMatchWorkspace
-        sources={sources}
-        savedReview={savedReview}
+      <FixtureDispositionEditor
         locale={locale}
         fixture={fixture}
-        observation={observation}
-        footballers={footballers}
-        factRevisions={revisions}
+        previous={disposition}
+        replacements={replacements}
       />
+      {dispositionActive ? (
+        <section className="admin-panel">
+          <p>
+            {ar
+              ? 'القرار الرسمي ساري. ألغِ القرار بالدليل قبل قبول تقرير جديد. التقارير والأداء السابق محفوظان.'
+              : 'The official disposition is active. Release it with evidence before accepting another report. Earlier reports and performance remain recorded.'}
+          </p>
+        </section>
+      ) : (
+        <ProviderMatchWorkspace
+          sources={sources}
+          savedReview={savedReview}
+          locale={locale}
+          fixture={fixture}
+          observation={observation}
+          footballers={footballers}
+          factRevisions={revisions}
+        />
+      )}
     </AdminShell>
   );
 }

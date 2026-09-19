@@ -133,3 +133,9 @@ export {
   executeHistoricalRules,
   readHistoricalRulesHistory,
 } from './historical-rules.ts';
+
+export {
+  previewEmptyGameweek,
+  executeEmptyGameweek,
+} from './empty-gameweek.ts';
+export { latestFixtureDisposition } from './fixture-dispositions.ts';
