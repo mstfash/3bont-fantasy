@@ -1,0 +1,8 @@
+[Unit]
+Description=Daily encrypted differential backup
+[Timer]
+OnCalendar=Mon..Sat *-*-* 01:00:00 UTC
+Persistent=true
+Unit=3bont-backup@diff.service
+[Install]
+WantedBy=timers.target

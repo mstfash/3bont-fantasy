@@ -97,6 +97,24 @@ void test('production migration refuses a changed applied checksum', async () =>
     );
   }
 });
+void test('a readable schema on a read-only database is not application readiness', async () => {
+  await migrateApplication(pool);
+  const readOnly = new Pool({
+    connectionString,
+    max: 1,
+    options: '-c default_transaction_read_only=on',
+  });
+  try {
+    assert.ok(
+      (await readOnly.query('SELECT id FROM fantasy.schema_migrations LIMIT 1'))
+        .rows.length,
+    );
+    assert.equal(await applicationSchemaReady(readOnly), false);
+    assert.equal(await applicationSchemaReady(pool), true);
+  } finally {
+    await readOnly.end();
+  }
+});
 
 before(async () => {
   await pool.query(`

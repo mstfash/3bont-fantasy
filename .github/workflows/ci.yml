@@ -83,6 +83,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm container:build
       - run: pnpm test:containers
+      - run: pnpm backup:build
+      - run: pnpm test:recovery
 
   required:
     name: Required checks

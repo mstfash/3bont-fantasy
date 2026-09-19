@@ -1,0 +1,13 @@
+[Unit]
+Description=3BONT encrypted PostgreSQL backup (%i)
+Requires=docker.service
+After=docker.service network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/srv/3bont/current
+ExecStart=/usr/bin/node scripts/backup-operations.mjs %i /srv/3bont/release.env
+TimeoutStartSec=4h
+UMask=0077
+NoNewPrivileges=yes
+PrivateTmp=yes

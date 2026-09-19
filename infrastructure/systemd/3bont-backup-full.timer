@@ -1,0 +1,8 @@
+[Unit]
+Description=Weekly encrypted full backup
+[Timer]
+OnCalendar=Sun *-*-* 01:00:00 UTC
+Persistent=true
+Unit=3bont-backup@full.service
+[Install]
+WantedBy=timers.target

@@ -11,12 +11,13 @@ Run `pnpm test:containers` after building: it uses an isolated database/network,
 Create a private directory outside the checkout with mode 0700, and files with mode 0600:
 
 - `database-password`: a generated database password, used by the PostgreSQL secret mount.
+- `pgbackrest.conf`: reviewed encrypted off-host repository settings and a separately protected recovery passphrase, based on infrastructure/postgres/pgbackrest.conf.example.
 - `web.env`: `APP_BASE_URL` (the exact public HTTPS origin), `DATABASE_URL`, a generated `BETTER_AUTH_SECRET` of at least 32 characters, `MAIL_MODE=resend`, a verified `MAIL_FROM` and `RESEND_API_KEY`.
 - `worker.env`: `DATABASE_URL`; add `API_FOOTBALL_KEY` only when provider licensing, account limits and reconciliation are verified. The web process does not need that key.
 
 For the provided stack, the database URL connects to the internal `postgres` service, database `fantasy`, role `fantasy`, with the same password as the secret file. URL-encode its password. Keep the same database role/search path for migration and runtime so identity tables resolve consistently. Never print resolved Compose configuration or pass secrets as build arguments.
 
-A separate release environment file contains only `SECRETS_DIR` (absolute), immutable `WEB_IMAGE`, `WORKER_IMAGE` and `POSTGRES_IMAGE` references, and optionally `WEB_PORT`. Select a reviewed PostgreSQL 17 image digest. Resource limits in `infrastructure/production.compose.yml` are initial staging bounds, not measured host sizing: web 1 GiB/1 CPU, worker 768 MiB/1 CPU and PostgreSQL 2 GiB/1.5 CPU. Web uses ten database connections; worker application and queue pools are each capped at four. Leave additional host memory for the database cache, proxy and operating system.
+A separate release environment file contains only `SECRETS_DIR` (absolute), immutable `WEB_IMAGE`, `WORKER_IMAGE` and `POSTGRES_IMAGE` references, and optionally `WEB_PORT`. Build `pnpm backup:build` and use the reviewed PostgreSQL 17/pgBackRest release digest; see [backup and recovery](backup-recovery.md). Resource limits in `infrastructure/production.compose.yml` are initial staging bounds, not measured host sizing: web 1 GiB/1 CPU, worker 768 MiB/1 CPU and PostgreSQL 2 GiB/1.5 CPU. Web uses ten database connections; worker application and queue pools are each capped at four. Leave additional host memory for the database cache, proxy and operating system.
 
 ## Start a release
 
@@ -26,10 +27,14 @@ Use a clean staging database first. Commands below use a release environment fil
 docker compose --env-file /srv/3bont/release.env -f infrastructure/production.compose.yml config --quiet
 docker compose --env-file /srv/3bont/release.env -f infrastructure/production.compose.yml up -d postgres
 docker compose --env-file /srv/3bont/release.env -f infrastructure/production.compose.yml --profile operations run --rm migrate
+node scripts/backup-operations.mjs init /srv/3bont/release.env
+node scripts/backup-operations.mjs check /srv/3bont/release.env
+node scripts/backup-operations.mjs full /srv/3bont/release.env
+node scripts/backup-operations.mjs status /srv/3bont/release.env
 docker compose --env-file /srv/3bont/release.env -f infrastructure/production.compose.yml up -d web worker
 ```
 
-Stop on migration failure. The web readiness endpoint `/api/health` returns only `ready` or `unavailable`, with no-store caching. It validates database access and every migration/checksum required by that build; missing or changed schema returns HTTP 503. Newer additive migrations allow an older compatible build to run. The worker verifies schema readiness before creating queues or processing jobs. Docker health alone does not prove successful scoring, mail delivery or provider coverage; inspect the worker dashboard and test external monitoring.
+Stop on migration failure. The web readiness endpoint `/api/health` returns only `ready` or `unavailable`, with no-store caching. It requires a writable primary and validates every migration/checksum required by that build; missing or changed schema returns HTTP 503. Newer additive migrations allow an older compatible build to run. The worker verifies schema readiness before creating queues or processing jobs. Docker health alone does not prove successful scoring, mail delivery or provider coverage; inspect the worker dashboard and test external monitoring.
 
 The database has no published port. The web binds to host loopback only. Configure a host TLS reverse proxy to `127.0.0.1:3100`, preserving the public Host and replacing `X-Forwarded-For` with the actual trusted client address. Do not append an untrusted client-supplied forwarding chain. Test address isolation against the authentication rate limiter and configure any CDN trust separately. Keep TLS, DNS and certificate renewal evidence with the deployment.
 
@@ -37,7 +42,7 @@ The web and worker have read-only roots, temporary storage, dropped Linux capabi
 
 ## Restore and rollback
 
-This Compose volume is persistent storage, not an off-host backup. The [operating plan](operations.md) still requires encrypted base backups, WAL archival, retention and a clean-host restore drill. Before starting provider work against restored data, run the worker image's `dist/provider-restore-pause.js`, then reconcile usage with the provider account. Keep all live provider access paused throughout a rehearsal.
+This Compose volume is persistent storage, not an off-host backup. The [backup workflow](backup-recovery.md) implements encrypted base backups, WAL archival and local clean-volume restoration; actual off-host access, alerting and production-sized recovery still require the named deployment drill. Before starting provider work against restored data, run the worker image's `dist/provider-restore-pause.js`, then reconcile usage with the provider account. Keep all live provider access paused throughout a rehearsal.
 
 Retain the previous web/worker image digests. Additive migrations support compatible code rollback; never delete ledger/audit data or reverse migrations blindly. Reconcile external side effects before restarting jobs. Do not use `down --volumes` on a real environment.
 

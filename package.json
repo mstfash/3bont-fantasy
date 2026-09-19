@@ -24,6 +24,8 @@
     "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm build && pnpm test && pnpm test:harness",
     "demo:replay": "pnpm --filter @fantasy/worker... build && pnpm --filter @fantasy/worker demo:replay",
     "container:build": "node scripts/build-containers.mjs",
+    "backup:build": "node scripts/build-backup-image.mjs",
+    "test:recovery": "pnpm --filter @fantasy/application... build && node scripts/rehearse-recovery.mjs",
     "test:containers": "node scripts/container-smoke.mjs",
     "test:harness": "node --test scripts/tests/*.test.mjs",
     "test:smoke": "node scripts/public-smoke.mjs",

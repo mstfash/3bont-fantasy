@@ -48,3 +48,5 @@ All records currently accepted. Routine defaults are in canonical specifications
 [0033 — Restore snapshots from accepted decisions](0033-restore-snapshots-from-accepted-decisions.md)
 
 [0034 — Governed provider report acceptance](0034-governed-provider-report-acceptance.md)
+
+[0035 — Encrypted PostgreSQL recovery](0035-encrypted-postgres-recovery.md)

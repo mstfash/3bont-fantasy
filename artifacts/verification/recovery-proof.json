@@ -1,0 +1,63 @@
+{
+  "date": "2026-09-19T19:46:52.252Z",
+  "postgresVersion": "17.11 (Debian 17.11-1.pgdg12+2)",
+  "pgBackRestVersion": "pgBackRest 2.59.1",
+  "imageId": "sha256:7b96719549f753e5c4ff8c09e148d0e1d189c5652774a3be7541b0d1b9437383",
+  "status": "passed",
+  "providerRequests": 0,
+  "originalVolumeRemoved": true,
+  "encryptedRepository": true,
+  "wrongKeyRejected": true,
+  "missingConfigurationRejected": true,
+  "missingWalRejected": true,
+  "walOnlyTransactionRecovered": true,
+  "afterTargetTransactionExcluded": true,
+  "restoredScores": 18,
+  "scoreChecksumPreserved": true,
+  "schemaReady": true,
+  "providerPausedBeforeRestart": true,
+  "recoverySeconds": 37,
+  "boundary": "Disposable local volumes, not off-host S3 evidence or production-sized RPO/RTO measurement.",
+  "sources": [
+    {
+      "path": "infrastructure/postgres/Dockerfile",
+      "sha256": "79165dbc90451e452fe54e8f6a7eed8802589d6d2a633cb558aef56d4aa03c1b"
+    },
+    {
+      "path": "infrastructure/postgres/backup-entrypoint.sh",
+      "sha256": "a235bdb83e3db0dff1ed0a304337b854882dbdc80f61832951fb798ba0b51e37"
+    },
+    {
+      "path": "infrastructure/postgres/pgbackrest.conf.example",
+      "sha256": "302df05c10a63bbe23339d189991b8cc1d6f820d2cf58ccdc8b066a8035f8046"
+    },
+    {
+      "path": "infrastructure/production.compose.yml",
+      "sha256": "f71e613f2ad1a8529d56c53a8cd748b5602986060fe8f5ac7b4ba77ec82fc45a"
+    },
+    {
+      "path": "scripts/build-backup-image.mjs",
+      "sha256": "e41c1adda8bfd067fc08c7a2a9b6f70112043ee56852682d53f8818f86aa3e4f"
+    },
+    {
+      "path": "scripts/backup-operations.mjs",
+      "sha256": "d2c5e115c8bff54827ce5a0a54e6369db4175e2bfacd1c484708643b910af7c4"
+    },
+    {
+      "path": "scripts/rehearse-recovery.mjs",
+      "sha256": "e4d51e4e1e6285a8155d91a414d50b9db434868a6221994b31bf43c74e794443"
+    },
+    {
+      "path": "scripts/tests/backup-status.test.mjs",
+      "sha256": "18882f7064e012d853c1bc7003d4ea1eb57405d6783d9134bcc285123fe38af7"
+    },
+    {
+      "path": "packages/persistence/src/migrate.ts",
+      "sha256": "68263592aa00341986e12aba769795a1f2d049c6dcea02d8c3fe7c3569025b4b"
+    },
+    {
+      "path": "packages/persistence/tests/postgres.test.ts",
+      "sha256": "5e89d6a127edcfe27db688f773bfe25a47e0fbb19144aa4575197cc495d10ce2"
+    }
+  ]
+}
