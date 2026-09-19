@@ -1,4 +1,6 @@
 import type { previewGameweekResults } from '@fantasy/application';
+import { RankingImpactTable } from './ranking-impact-table';
+import { GroupResultImpact } from './group-result-impact';
 import type { Locale } from '@/lib/brand';
 
 type Preview = Awaited<ReturnType<typeof previewGameweekResults>>;
@@ -9,16 +11,10 @@ export function ResultImpactSummary({
   readonly locale: Locale;
   readonly preview: Pick<
     Preview,
-    'rankings' | 'rankingPolicy' | 'prizes' | 'settled'
+    'rankings' | 'rankingPolicy' | 'prizes' | 'settled' | 'groupImpact'
   >;
 }) {
   const ar = locale === 'ar';
-  const changed =
-    preview.rankings?.filter(
-      (row) =>
-        row.beforeRank !== row.afterRank ||
-        row.beforePoints !== row.afterPoints,
-    ) ?? [];
   return (
     <>
       <section className="admin-panel" aria-labelledby="ranking-impact-title">
@@ -46,59 +42,9 @@ export function ResultImpactSummary({
               : 'These projections are provisional; the round’s data is not yet complete.'}
           </p>
         )}
-        {preview.rankings === null ? (
-          <p role="status">
-            {ar
-              ? 'تعذرت معاينة الترتيب لأن نتيجة فريق واحد على الأقل غير متاحة للحساب.'
-              : 'Ranking projection is unavailable because at least one squad cannot be scored.'}
-          </p>
-        ) : changed.length === 0 ? (
-          <p>
-            {ar
-              ? 'لا تغيير في الترتيب أو مجموع النقاط.'
-              : 'No changes to overall ranks or point totals.'}
-          </p>
-        ) : (
-          <>
-            <div className="admin-table-scroll">
-              <table>
-                <thead>
-                  <tr>
-                    <th>{ar ? 'الفريق' : 'Squad'}</th>
-                    <th>{ar ? 'الترتيب المنشور' : 'Published rank'}</th>
-                    <th>{ar ? 'الترتيب المقترح' : 'Proposed rank'}</th>
-                    <th>{ar ? 'المجموع المنشور' : 'Published total'}</th>
-                    <th>{ar ? 'المجموع المقترح' : 'Proposed total'}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {changed.slice(0, 200).map((row) => (
-                    <tr key={row.entryId}>
-                      <td>{row.name}</td>
-                      <td>{row.beforeRank}</td>
-                      <td>{row.afterRank}</td>
-                      <td>{row.beforePoints / 1000}</td>
-                      <td>{row.afterPoints / 1000}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            {changed.length > 200 && (
-              <p>
-                {ar
-                  ? `تظهر أول ٢٠٠ من ${String(changed.length)} فريق متأثر.`
-                  : `Showing the first 200 of ${String(changed.length)} affected squads.`}
-              </p>
-            )}
-          </>
-        )}
-        <p>
-          {ar
-            ? 'ترتيب المجموعات والمواجهات المباشرة له نطاقه الخاص ولا يظهر في هذا الجدول.'
-            : 'Group standings and head-to-head matchups have their own scope and are not projected in this table.'}
-        </p>
+        <RankingImpactTable locale={locale} rankings={preview.rankings} />
       </section>
+      <GroupResultImpact locale={locale} impact={preview.groupImpact} />
       <section className="admin-panel" aria-labelledby="prize-impact-title">
         <h2 id="prize-impact-title">
           {ar

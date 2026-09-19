@@ -15,6 +15,7 @@ import {
   prizePoolSchema,
   prizeProposalSchema,
   lockedEntrySchema,
+  leagueGroupSchema,
 } from '@fantasy/contracts';
 import { assessPlayerPool, POSITIONS } from '@fantasy/domain';
 import { seedDemo } from '../src/demo.ts';
@@ -408,6 +409,69 @@ void test('scoring publishes coherent revisions, respects persistent overrides a
     expectedFingerprint: impact.fingerprint,
     reason: 'Reviewed score, rank and prize dependencies',
   };
+  // Group membership changes invalidate confirmation even while every football fact and overall rank is unchanged.
+  const group = leagueGroupSchema.parse({
+    id: randomUUID(),
+    competitionId: competition.id,
+    organizerId: owner.accountId,
+    name: 'Reopening dependency',
+    description: 'Synthetic',
+    visibility: 'public',
+    approvalRequired: false,
+    entryLimit: 2,
+    startGameweekId: null,
+    revision: 1,
+    createdAt: new Date().toISOString(),
+  });
+  await db
+    .insertInto('league_groups')
+    .values({
+      id: group.id,
+      competition_id: competition.id,
+      organizer_id: owner.accountId,
+      invitation_hash: 'b'.repeat(64),
+      revision: 1,
+      data: group,
+    })
+    .execute();
+  for (const e of [entry, rival])
+    await db
+      .insertInto('group_memberships')
+      .values({
+        group_id: group.id,
+        competition_id: competition.id,
+        entry_id: e.id,
+        account_id: e.accountId,
+        status: 'active',
+      })
+      .execute();
+  const groupPreview = await previewGameweekResults(
+    db,
+    owner,
+    grants,
+    round.id,
+  );
+  assert.equal(groupPreview.factsFingerprint, impact.factsFingerprint);
+  assert.deepEqual(groupPreview.rankings, impact.rankings);
+  assert.notEqual(groupPreview.fingerprint, impact.fingerprint);
+  await db
+    .updateTable('group_memberships')
+    .set({ status: 'left' })
+    .where('group_id', '=', group.id)
+    .where('entry_id', '=', rival.id)
+    .execute();
+  await assert.rejects(
+    executeResultCommand(db, owner, grants, {
+      ...reopen,
+      expectedFingerprint: groupPreview.fingerprint,
+    }),
+    { code: 'preview-changed' },
+  );
+  await db
+    .deleteFrom('group_memberships')
+    .where('group_id', '=', group.id)
+    .execute();
+  await db.deleteFrom('league_groups').where('id', '=', group.id).execute();
   // The football facts are unchanged, but a newly published prize changes the reviewed consequences.
   const prize = prizePoolSchema.parse({
     id: randomUUID(),

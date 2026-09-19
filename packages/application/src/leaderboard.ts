@@ -111,3 +111,24 @@ export async function standingsWithinTransaction(
     provisional: byEntry.get(rank.entryId)?.some((r) => !r.final) ?? false,
   }));
 }
+
+/** Publish-safe rank differences shared by overall and classic-group correction previews. */
+export function compareStandings(
+  before: Awaited<ReturnType<typeof standingsWithinTransaction>>,
+  after: Awaited<ReturnType<typeof standingsWithinTransaction>> | null,
+) {
+  if (after === null) return null;
+  const byEntry = new Map(after.map((row) => [row.entryId, row]));
+  return before.map((row) => {
+    const next = byEntry.get(row.entryId);
+    if (!next) throw new Error('Correction preview lost a ranked entry');
+    return {
+      entryId: row.entryId,
+      name: row.name,
+      beforeRank: row.rank,
+      afterRank: next.rank,
+      beforePoints: row.points,
+      afterPoints: next.points,
+    };
+  });
+}
