@@ -22,7 +22,7 @@
     "@fantasy/contracts": "workspace:*",
     "@fantasy/persistence": "workspace:*",
     "pg": "8.23.0",
-    "pg-boss": "12.11.2",
+    "pg-boss": "12.33.0",
     "zod": "4.6.5"
   },
   "devDependencies": {
