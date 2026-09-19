@@ -1,9 +1,12 @@
 import { setTimeout as wait } from 'node:timers/promises';
 import { randomUUID } from 'node:crypto';
-import { Pool } from 'pg';
 import { PgBoss } from 'pg-boss';
 import { z } from 'zod';
-import { createDatabase, applicationSchemaReady } from '@fantasy/persistence';
+import {
+  createDatabase,
+  applicationSchemaReady,
+  createManagedPool,
+} from '@fantasy/persistence';
 import {
   planProviderCollections,
   processNextProviderCollection,
@@ -32,7 +35,7 @@ const config = z
       ),
   })
   .parse(process.env);
-const pool = new Pool({
+const pool = createManagedPool({
   connectionString: config.DATABASE_URL,
   max: 4,
   connectionTimeoutMillis: 3000,
@@ -50,7 +53,7 @@ const boss = new PgBoss({
   connectionTimeoutMillis: 3000,
 });
 boss.on('error', (error) => {
-  console.error('Worker queue error:', error.message);
+  console.error('Worker queue error', { name: error.name });
 });
 await boss.start();
 const instanceId = randomUUID();

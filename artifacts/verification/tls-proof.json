@@ -1,6 +1,6 @@
 {
-  "verifiedAt": "2026-09-19T20:16:12.745Z",
-  "webImage": "sha256:6c8fb8463c73bd0f5416930b2439fdcc45032c075fff3db1f83b86341ef29d3d",
+  "verifiedAt": "2026-09-19T20:39:01.942Z",
+  "webImage": "sha256:dff4465ed6283e57c059c6d942d37762b1c097f31575bab9445bf95dae052e48",
   "proxyImage": "caddy:2-alpine@sha256:de23def33b17fb5d1290b0f6c2add1d70780e52341896c00a4c8a2a2fe9d355e",
   "sources": [
     {
@@ -13,11 +13,11 @@
     },
     {
       "path": "scripts/container-tls-proof.mjs",
-      "sha256": "c969d7747d51d451ea1afddf21c2dc6c16a0f0cf0f132b989d3c432043c0607c"
+      "sha256": "38ad7ef7ebcbe30d30ee7f2823cdf5c486a6f74769043b4165f70b9e57725926"
     },
     {
       "path": "scripts/container-smoke.mjs",
-      "sha256": "2ee83faba7ce7928766373b3ab66e4e7c414fc67cb4cb887e829b199e8a43179"
+      "sha256": "d1b35448c22975d2947d98aa87cc8c72d5b49674b532a006b82b43c5f7bb3597"
     },
     {
       "path": "packages/application/src/identity.ts",
@@ -25,7 +25,11 @@
     },
     {
       "path": "apps/web/src/server/runtime.ts",
-      "sha256": "1feb3afcd2e165bca696771c09d60579bc073f3eb563ae44a759393839d19849"
+      "sha256": "affff0ee7f9597b997429d02eb54046b0aa72c0be651a09f56cea7e44d351c63"
+    },
+    {
+      "path": "packages/persistence/src/pool.ts",
+      "sha256": "1374f6ab30b20c8969ba3bb4d0662abefcef639db73bc013ca916f18d8934269"
     },
     {
       "path": "apps/web/src/app/api/health/route.ts",
@@ -45,7 +49,8 @@
     "authenticated session and revocation",
     "cross-origin sign-out refused",
     "forged forwarding headers cannot bypass authentication limit",
-    "backend failure is observable without request tokens or cookies"
+    "backend failure is observable without request tokens or cookies",
+    "database restart preserves the web process, session and durable authentication limit"
   ],
   "limitations": [
     "Local internal CA, not public ACME/DNS/renewal evidence",
