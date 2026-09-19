@@ -6,7 +6,7 @@
   "sources": {
     "packages/application/src/provider-event-timeline.ts": "6631990ac5ffbca0c504c67ae548b55f0789cff25411da682f617c3a2fddf6dd",
     "packages/application/src/provider-match-parser.ts": "d9df91fb7fd685089969ad875ff3872a3c43148fac0c5a3aefd10de7bfabf8d8",
-    "apps/web/src/components/provider-match-workspace.tsx": "f164a96b46aadd580b473dd38dd1669f2fa167bb9f1554915f61516289ae2fa8"
+    "apps/web/src/components/provider-match-workspace.tsx": "f5a890b99633f0b02eba3c256b1bc90fdb9fc52b17c85dc0960180e03ca6f66f"
   },
   "localFullVerification": {
     "status": "passed",
@@ -36,5 +36,9 @@
     "No current-season access or valuation license established",
     "Reviewed drafts remain incomplete until staff establishes eligibility and verifies facts",
     "Historical rules replay and cross-competition correction projections remain open"
-  ]
+  ],
+  "review": {
+    "structure": "Reviewed provider parsing and pure event reconstruction remain separate; no automatic publication or persistence bypass.",
+    "visual": "English desktop and Arabic mobile review screens inspected; introduction updated to describe the derived draft facts."
+  }
 }

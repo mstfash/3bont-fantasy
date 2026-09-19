@@ -183,8 +183,8 @@ export function ProviderMatchWorkspace({
         </h2>
         <p>
           {ar
-            ? 'اختر أربعة ردود محفوظة للمباراة نفسها. تُملأ الدقائق والأهداف والتمريرات المتاحة، وتبقى البيانات الأخرى للمراجعة. لن تُحفظ نقاط أو نتائج من المعاينة.'
-            : 'Choose four saved responses for the same match. Available minutes, goals and assists are prefilled; other facts remain for review. Previewing saves no scores or results.'}
+            ? 'اختر أربعة ردود محفوظة للمباراة نفسها. تُقترح الإحصائيات والبيانات التي تؤيدها الأحداث المتسقة؛ وتظل القيم المفقودة أو المتعارضة غير معروفة. راجع البيانات قبل الحفظ. المعاينة لا تحفظ نقاطًا أو نتائج.'
+            : 'Choose four saved responses for the same match. Supported statistics and consistent event facts are proposed; missing or conflicting values stay unknown. Review the facts before saving. Previewing saves no scores or results.'}
         </p>
         {!sources ? (
           <p>
