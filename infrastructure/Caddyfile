@@ -1,0 +1,38 @@
+{
+	admin off
+	skip_install_trust
+	log {
+		output stdout
+		format filter {
+			request delete
+			wrap json
+		}
+	}
+	http_port {$HTTP_PORT:80}
+	https_port {$HTTPS_PORT:443}
+}
+
+{$APP_HOST} {
+	tls {
+		issuer {$TLS_ISSUER:acme}
+	}
+	encode zstd gzip
+	request_body {
+		max_size 16MB
+	}
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options nosniff
+		X-Frame-Options DENY
+		Referrer-Policy strict-origin-when-cross-origin
+		Content-Security-Policy "frame-ancestors 'none'; object-src 'none'; base-uri 'self'"
+		-Server
+	}
+	reverse_proxy {$APP_UPSTREAM:web:3100} {
+		# Default Caddy handling replaces untrusted X-Forwarded-* input.
+		# No CDN or other upstream proxy is trusted by this configuration.
+		header_up X-Real-IP {http.request.remote.host}
+		header_up -Forwarded
+		header_up -CF-Connecting-IP
+	}
+}

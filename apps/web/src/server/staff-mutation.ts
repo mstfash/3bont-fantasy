@@ -29,7 +29,8 @@ export async function staffMutation<T>(
       { status, headers: { 'Cache-Control': 'no-store' } },
     );
   try {
-    const { auth, db, config } = getRuntime();
+    const { getIdentity, db, config } = getRuntime();
+    const auth = await getIdentity();
     if (request.headers.get('origin') !== new URL(config.APP_BASE_URL).origin)
       return failure('access-denied', 403);
     const session = await auth.api.getSession({ headers: request.headers });

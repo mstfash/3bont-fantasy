@@ -7,6 +7,7 @@ export async function GET() {
   let ready: boolean;
   try {
     ready = await applicationSchemaReady(getRuntime().pool);
+    if (ready) await getRuntime().getIdentity();
   } catch {
     ready = false;
   }

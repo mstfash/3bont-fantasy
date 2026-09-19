@@ -1,0 +1,55 @@
+{
+  "verifiedAt": "2026-09-19T20:16:12.745Z",
+  "webImage": "sha256:6c8fb8463c73bd0f5416930b2439fdcc45032c075fff3db1f83b86341ef29d3d",
+  "proxyImage": "caddy:2-alpine@sha256:de23def33b17fb5d1290b0f6c2add1d70780e52341896c00a4c8a2a2fe9d355e",
+  "sources": [
+    {
+      "path": "infrastructure/Caddyfile",
+      "sha256": "afa2b7e0dee17f9d238d49a2dcd7639facf5c4773b172aa4df1ed0be337f9754"
+    },
+    {
+      "path": "infrastructure/production.compose.yml",
+      "sha256": "33bd8cc9e459e457f04507cf2652cfed38747495424f68935ac567270e7f356e"
+    },
+    {
+      "path": "scripts/container-tls-proof.mjs",
+      "sha256": "c969d7747d51d451ea1afddf21c2dc6c16a0f0cf0f132b989d3c432043c0607c"
+    },
+    {
+      "path": "scripts/container-smoke.mjs",
+      "sha256": "2ee83faba7ce7928766373b3ab66e4e7c414fc67cb4cb887e829b199e8a43179"
+    },
+    {
+      "path": "packages/application/src/identity.ts",
+      "sha256": "29e2acaae6cd36f269c8ed26b3262163d5b62012553e855d1264c44a48d750dd"
+    },
+    {
+      "path": "apps/web/src/server/runtime.ts",
+      "sha256": "1feb3afcd2e165bca696771c09d60579bc073f3eb563ae44a759393839d19849"
+    },
+    {
+      "path": "apps/web/src/app/api/health/route.ts",
+      "sha256": "3262ff4b26fd593171db784cc427bff6c1b9505f8041c4d8166ddea7773f213c"
+    },
+    {
+      "path": "apps/web/src/app/api/auth/[...all]/route.ts",
+      "sha256": "aadaf2c95abf23f010bdb7ecf537d6b8a8aa55bdf99ef72078291ecdc805faa3"
+    }
+  ],
+  "checks": [
+    "trusted test CA verifies TLS",
+    "HTTP redirects to HTTPS",
+    "EN/AR security headers",
+    "backend has no published port",
+    "production secure HttpOnly SameSite cookie",
+    "authenticated session and revocation",
+    "cross-origin sign-out refused",
+    "forged forwarding headers cannot bypass authentication limit",
+    "backend failure is observable without request tokens or cookies"
+  ],
+  "limitations": [
+    "Local internal CA, not public ACME/DNS/renewal evidence",
+    "Synthetic identity verified in isolated fixture; no real email delivery",
+    "No production host or capacity claim"
+  ]
+}

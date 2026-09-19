@@ -1,8 +1,8 @@
 {
-  "date": "2026-09-19T19:46:52.252Z",
+  "date": "2026-09-19T20:12:24.459Z",
   "postgresVersion": "17.11 (Debian 17.11-1.pgdg12+2)",
   "pgBackRestVersion": "pgBackRest 2.59.1",
-  "imageId": "sha256:7b96719549f753e5c4ff8c09e148d0e1d189c5652774a3be7541b0d1b9437383",
+  "imageId": "sha256:efc17adce288e9a567e5fae649e7132bdee5e17d5a9219e5490051d9115106f0",
   "status": "passed",
   "providerRequests": 0,
   "originalVolumeRemoved": true,
@@ -33,7 +33,7 @@
     },
     {
       "path": "infrastructure/production.compose.yml",
-      "sha256": "f71e613f2ad1a8529d56c53a8cd748b5602986060fe8f5ac7b4ba77ec82fc45a"
+      "sha256": "33bd8cc9e459e457f04507cf2652cfed38747495424f68935ac567270e7f356e"
     },
     {
       "path": "scripts/build-backup-image.mjs",

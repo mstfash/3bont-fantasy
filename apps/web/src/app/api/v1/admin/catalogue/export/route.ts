@@ -9,7 +9,8 @@ import { getRuntime } from '@/server/runtime';
 export async function GET(request: Request): Promise<Response> {
   const headers = { 'Cache-Control': 'no-store' };
   try {
-    const { db, auth } = getRuntime(),
+    const { db, getIdentity } = getRuntime(),
+      auth = await getIdentity(),
       session = await auth.api.getSession({ headers: request.headers });
     if (!session)
       return Response.json(

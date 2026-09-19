@@ -4,7 +4,8 @@ import { getRuntime } from './runtime';
 import type { Locale } from '@/lib/brand';
 
 export async function currentSession() {
-  const { auth, db } = getRuntime();
+  const { getIdentity, db } = getRuntime();
+  const auth = await getIdentity();
   const session = await auth.api.getSession({ headers: await headers() });
   if (!session || !session.user.emailVerified) return null;
   const account = await db

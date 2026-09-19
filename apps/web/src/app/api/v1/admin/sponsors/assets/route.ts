@@ -14,7 +14,8 @@ export async function POST(request: Request) {
   const fail = (code: string, status: number) =>
     Response.json({ code }, { status, headers });
   try {
-    const { db, auth, config } = getRuntime();
+    const { db, getIdentity, config } = getRuntime();
+    const auth = await getIdentity();
     if (request.headers.get('origin') !== new URL(config.APP_BASE_URL).origin)
       return fail('access-denied', 403);
     const session = await auth.api.getSession({ headers: request.headers });
