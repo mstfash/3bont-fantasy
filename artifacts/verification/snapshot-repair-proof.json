@@ -1,0 +1,172 @@
+{
+  "slice": 39,
+  "date": "2026-09-19",
+  "providerRequests": 0,
+  "automaticAcceptanceEnabled": false,
+  "localVerification": {
+    "status": "passed",
+    "command": "pnpm verify:local",
+    "unitAndHarnessCases": 116,
+    "postgresCases": 138,
+    "publicSmokeCombinations": 56,
+    "authenticatedE2E": "passed",
+    "snapshotRepairE2E": "passed",
+    "typecheck": "passed",
+    "lint": "passed",
+    "productionBuild": "passed"
+  },
+  "sources": [
+    {
+      "path": "apps/web/src/app/[locale]/admin/results/[id]/page.tsx",
+      "sha256": "adc6e2cdb5ac567f9d7df098004f41a772816e48302897d7c68883f303dfffd4"
+    },
+    {
+      "path": "apps/web/src/app/[locale]/admin/results/[id]/repair/page.tsx",
+      "sha256": "f2ddd18f27a8095dd8c828f1c1bd20c2a57ce28f231b60dce8d345af1a717f85"
+    },
+    {
+      "path": "apps/web/src/app/api/v1/admin/snapshot-repair/route.ts",
+      "sha256": "ca75d723864600e193a1d929bfa67b3321e4f4cbcdc828cbd39f084ce6c372a6"
+    },
+    {
+      "path": "apps/web/src/components/snapshot-repair-confirm.tsx",
+      "sha256": "2766031b46461839b93a79bd9e4faab76d70c8e7a9355f7c0dd6134db74cefda"
+    },
+    {
+      "path": "apps/web/src/components/snapshot-repair-diff.tsx",
+      "sha256": "15c83187aea06120ce1b71bde56b9c3e6c28bcfbc747689266e2a20d8a5dc122"
+    },
+    {
+      "path": "apps/web/src/lib/command-errors.ts",
+      "sha256": "11dfaa737adecdd930a7ac8a2fd94cd1c5aba8fb534a65db1205a1e28e45f0d3"
+    },
+    {
+      "path": "apps/web/src/lib/help/admin-workflows.ts",
+      "sha256": "52f0bf0e1e358db86bdbef214fcf69cc2c977e7d34df934e11980d34c2f739c6"
+    },
+    {
+      "path": "packages/application/src/account-export-builder.ts",
+      "sha256": "6a2842a8558e03d2422de0e9e75212072801ccac3778b99e8af0d2c12a460fec"
+    },
+    {
+      "path": "packages/application/src/account-export-queries.ts",
+      "sha256": "54266ee031ae0bea976f0aff50a3986729b206b3398b0ab1beab4cb196beed4f"
+    },
+    {
+      "path": "packages/application/src/empty-gameweek.ts",
+      "sha256": "651c08c4c2d90f9932e7583da3ec66e60159aaeb0c6c68dd83edc68c66b4e8f7"
+    },
+    {
+      "path": "packages/application/src/entry-snapshots.ts",
+      "sha256": "9264c91775aa68547e143b21a183c8103f9109b94a2cf7545c23b971903cf9d0"
+    },
+    {
+      "path": "packages/application/src/historical-rules.ts",
+      "sha256": "bc4dfb658e4fcbbfc08e82e692b4b4663e0f0da71b81832e340b875eca15c985"
+    },
+    {
+      "path": "packages/application/src/index.ts",
+      "sha256": "8d9a9cc97eeaf316b48c24c2c9f02165cb3f870f01e936f3e1c87a27e0976253"
+    },
+    {
+      "path": "packages/application/src/public-lineup.ts",
+      "sha256": "4a22b5886f41b1393da68f709d0531581583064b7b2129fd600f7fbe3a4fa71e"
+    },
+    {
+      "path": "packages/application/src/results.ts",
+      "sha256": "5999c2e75be8d8bdda5111cd88c7d9a0c3e1e605d87a9e66a44258564d835f98"
+    },
+    {
+      "path": "packages/application/src/reviewed-result-publication.ts",
+      "sha256": "4fc3ae8c1ff57984030fb2e6c96b26e35e03b1a5e2a695fc0cb0c60892a31ea5"
+    },
+    {
+      "path": "packages/application/src/round-inputs.ts",
+      "sha256": "07762f22cb80c45e3b08920b51fabd363b9422b053356feff779db5f0a86dd69"
+    },
+    {
+      "path": "packages/application/src/round-result-projection.ts",
+      "sha256": "6f4c92a9fe6cea9747d17173182123b4afad2c579147366e7e12346792cd702f"
+    },
+    {
+      "path": "packages/application/src/snapshot-repair-evidence.ts",
+      "sha256": "5ac658fa61e5434eeb126fe839a714d990379c66904df26f20f08c77f4060111"
+    },
+    {
+      "path": "packages/application/src/snapshot-repair.ts",
+      "sha256": "7df00f9d50126b31b0127adaeb8bb8eb61c36a5d93a98983bb6c73e1557bad91"
+    },
+    {
+      "path": "packages/application/tests/postgres-account-moderation.test.ts",
+      "sha256": "77b1f5e4c2a2de42a6a1d6dd7fd50a7e9f3e7ed038b40e4151d862338ff3b967"
+    },
+    {
+      "path": "packages/application/tests/postgres-catalogue.test.ts",
+      "sha256": "89089a3a7edb69ecd7344dfc0be38817caf88d07c7bf78f495ea51e832c63400"
+    },
+    {
+      "path": "packages/application/tests/postgres-snapshot-repair.test.ts",
+      "sha256": "d1002842e2571344fb5082cb31d0f1d90814fab6b151780de60e21fe35bb71be"
+    },
+    {
+      "path": "packages/contracts/src/index.ts",
+      "sha256": "f29f440a7a8f0ceeba700ab942f1d47566dd34b36f649da0de8519895774a89c"
+    },
+    {
+      "path": "packages/contracts/src/snapshot-repair.ts",
+      "sha256": "baa76fddf46786ac04cf751598586bc017613cd72a23d92114da0d0e3cbd10ba"
+    },
+    {
+      "path": "packages/persistence/src/database.ts",
+      "sha256": "dba1604b1a9c9944398533a3ed0d05644987d4c85c715666afafb83317e55bd0"
+    },
+    {
+      "path": "packages/persistence/src/migrate.ts",
+      "sha256": "596bc9b1b46bbe1c3c35484bd9907b74d75bbf33dbf03730c8caa8f8adeab289"
+    },
+    {
+      "path": "packages/persistence/src/migrations/0024-snapshot-repairs.ts",
+      "sha256": "dc328c1f1c2bcf640b8b0ac051c633138d4a5b6244c01988094e362f2789da36"
+    },
+    {
+      "path": "packages/persistence/tests/postgres.test.ts",
+      "sha256": "0c7a0c6c272c8b726b27341aa389fc77f332ff47451efcdb88eb85b14fd4e04f"
+    },
+    {
+      "path": "scripts/browser-results.mjs",
+      "sha256": "6afcf988699c1fd29a74f804815789e48327dd26b2f8b3d4b70c9db1a80b2ed5"
+    },
+    {
+      "path": "scripts/browser-smoke.mjs",
+      "sha256": "41e572d47fda65c82eac4097b7b5e879157c32253ca6bafab61945be1ad42c01"
+    },
+    {
+      "path": "scripts/browser-snapshot-repair.mjs",
+      "sha256": "bb0a9ec1094095f3cb519bafb1c70d5579b0e8500fd8d043b974d42732665378"
+    }
+  ],
+  "scenarios": [
+    "Actual accepted create/chip commands precede authoritative lock",
+    "Owner-only strict repair inputs exclude replacement lineups and receipt selection",
+    "Missing, late, ambiguous and changed evidence holds repair",
+    "Repeatable rollback-only preview and injected publication interruption",
+    "Concurrent confirmation publishes one repair/result revision",
+    "Original snapshots and published results remain; subsequent balances, transfers and chip inventories remain",
+    "Historical public lineup and later scoring-rule replay resolve the correct repair version",
+    "Malformed originals return safe public/preview states",
+    "Private exports include owner-visible repairs without staff notes or internal evidence",
+    "107 result revisions paginate without omission",
+    "Bilingual preview, Arabic confirmation, retained history, anonymous denial and mobile overflow checks"
+  ],
+  "screenshots": [
+    "artifacts/web/snapshot-repair-en.png",
+    "artifacts/web/snapshot-repair-ar-mobile.png"
+  ],
+  "limitations": [
+    "Repair requires a retained accepted command for the selected round; absent evidence remains an incident hold",
+    "Historical scoring repair does not repair unrelated current-state corruption",
+    "Compatible web/worker readers required after repairs exist; older builds are not safe rollback targets",
+    "Provider automatic acceptance, licensed real data, operational deployment/recovery/load and final acceptance remain",
+    "Exact-head protected CI required before merge"
+  ]
+}

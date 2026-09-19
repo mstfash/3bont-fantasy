@@ -1,6 +1,7 @@
 import { Kysely, PostgresDialect, type ColumnType } from 'kysely';
 import type { Pool } from 'pg';
 import type {
+  SnapshotRepair,
   FixtureDisposition,
   ProviderSchedule,
   ProviderCollection,
@@ -495,6 +496,13 @@ export interface Database {
     gameweek_id: string;
     locked_at: Timestamp;
     payload: unknown;
+  };
+  entry_snapshot_repairs: {
+    entry_id: string;
+    gameweek_id: string;
+    revision: number;
+    result_revision: number;
+    data: Document<SnapshotRepair>;
   };
   entry_results: {
     entry_id: string;

@@ -5,9 +5,10 @@ import {
   clubSchema,
   footballerSchema,
   entryResultSchema,
-  lockedEntrySchema,
   type Gameweek,
 } from '@fantasy/contracts';
+import { readPublishedSnapshot } from './entry-snapshots.ts';
+
 /** Caller has authorized a public competition. Only published results and the corresponding immutable lock are read. */
 export async function publishedLineupWithinTransaction(
   tx: Transaction<Database>,
@@ -22,16 +23,15 @@ export async function publishedLineupWithinTransaction(
     .where('gameweek_id', '=', round.id)
     .where('revision', '=', round.resultRevision)
     .executeTakeFirst();
-  const snapshot = await tx
-    .selectFrom('entry_snapshots')
-    .select('payload')
-    .where('entry_id', '=', entryId)
-    .where('competition_id', '=', round.competitionId)
-    .where('gameweek_id', '=', round.id)
-    .executeTakeFirst();
-  if (!resultRow || !snapshot) return null;
-  const result = entryResultSchema.parse(resultRow.payload),
-    locked = lockedEntrySchema.parse(snapshot.payload);
+  if (!resultRow) return null;
+  const locked = await readPublishedSnapshot(
+    tx,
+    entryId,
+    round.id,
+    round.resultRevision,
+  );
+  if (!locked) return null;
+  const result = entryResultSchema.parse(resultRow.payload);
   const ids = locked.roster.holdings.map((h) => h.footballerId);
   const catalogue = ids.length
     ? await tx

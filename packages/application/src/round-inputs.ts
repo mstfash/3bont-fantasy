@@ -15,6 +15,7 @@ import {
   sumPoints,
   type FixturePerformance,
 } from '@fantasy/domain';
+import { readRoundSnapshotRepairs } from './entry-snapshots.ts';
 
 /** Called inside the publisher's repeatable-read transaction: one coherent football-data snapshot. */
 export async function calculateRoundInputs(
@@ -193,6 +194,7 @@ export async function calculateRoundInputs(
     };
   });
   // Presentation and provider delivery IDs do not restart the correction window.
+  const repairs = await readRoundSnapshotRepairs(tx, round.id);
   const fingerprint = createHash('sha256')
     .update(
       JSON.stringify({
@@ -202,6 +204,15 @@ export async function calculateRoundInputs(
           .sort((a, b) => a.id.localeCompare(b.id)),
         evidence,
         issues,
+        ...(repairs.length
+          ? {
+              snapshotRepairs: repairs.map((r) => ({
+                entryId: r.entryId,
+                revision: r.revision,
+                snapshot: r.snapshot,
+              })),
+            }
+          : {}),
       }),
     )
     .digest('hex');

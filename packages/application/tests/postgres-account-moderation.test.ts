@@ -65,12 +65,19 @@ void test('platform account suspensions revoke sessions, reject scoped/stale aut
       granted_by: actor,
     })
     .execute();
+  // A verified session predates the write; do not accidentally simulate future MFA at a host/DB clock boundary.
+  const proofNow = (
+    await pool.query<{ now: Date }>(
+      "SELECT clock_timestamp() - interval '1 second' AS now",
+    )
+  ).rows[0]?.now;
+  assert.ok(proofNow);
   const principal = {
       accountId: actor,
       sessionId: randomUUID(),
       emailVerified: true,
-      mfaVerifiedAt: new Date(),
-      authenticatedAt: new Date(),
+      mfaVerifiedAt: proofNow,
+      authenticatedAt: proofNow,
     },
     grants = [{ role: 'moderator' as const, competitionId: null }],
     command = {

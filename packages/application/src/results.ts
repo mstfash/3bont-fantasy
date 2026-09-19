@@ -19,6 +19,7 @@ import {
   type StaffGrant,
 } from './authorization.ts';
 import { CommandRejected } from './errors.ts';
+import { readEffectiveRoundSnapshots } from './entry-snapshots.ts';
 
 export async function publishGameweekResults(
   db: ReturnType<typeof createDatabase>,
@@ -127,11 +128,7 @@ export async function publishGameweekWithinTransaction(
   if (changed) {
     revision++;
     materialAt = now.toISOString();
-    const snapshots = await tx
-      .selectFrom('entry_snapshots')
-      .selectAll()
-      .where('gameweek_id', '=', gameweekId)
-      .execute();
+    const snapshots = await readEffectiveRoundSnapshots(tx, gameweekId);
     const playersById = new Map(inputs.players.map((p) => [p.footballerId, p]));
     let batch: Insertable<Database['entry_results']>[] = [];
     for (const snapshot of snapshots) {

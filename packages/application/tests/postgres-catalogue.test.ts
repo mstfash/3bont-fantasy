@@ -28,12 +28,19 @@ after(async () => {
   await db.destroy();
 });
 void test('catalogue edits bind semantic revisions, preserve provenance and audit licensed valuations without repricing', async () => {
+  // A verified session predates the write; do not accidentally simulate future MFA at a host/DB clock boundary.
+  const proofNow = (
+    await pool.query<{ now: Date }>(
+      "SELECT clock_timestamp() - interval '1 second' AS now",
+    )
+  ).rows[0]?.now;
+  assert.ok(proofNow);
   const actor = {
     accountId: 'catalogue-proof',
     sessionId: 'catalogue-session',
     emailVerified: true,
-    mfaVerifiedAt: new Date(),
-    authenticatedAt: new Date(),
+    mfaVerifiedAt: proofNow,
+    authenticatedAt: proofNow,
   };
   const grants = [{ role: 'data-steward' as const, competitionId: null }];
   await grantProofStaff(db, actor.accountId, grants);

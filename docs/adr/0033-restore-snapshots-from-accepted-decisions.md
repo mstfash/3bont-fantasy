@@ -1,0 +1,3 @@
+# Restore snapshots only from accepted participant decisions
+
+Historical snapshot repair reconstructs the latest accepted choice before the authoritative deadline and publishes an immutable repair version together with its result revision. Owners cannot supply a replacement lineup or select an older, more favorable receipt; missing or ambiguous evidence blocks repair. Retaining the original snapshot and resolving each public result against its publication-time repair prevents a corrected lineup from appearing beside an older score. Later participant balances, transfers and chip inventories remain recorded; this operation repairs historical scoring evidence, not unrelated persistent-state corruption.

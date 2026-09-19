@@ -91,6 +91,7 @@ export async function buildNextAccountExport(
           scope: archive.scope,
           historySections: [
             'locked-squad',
+            'snapshot-repair',
             'entry-result',
             'group-membership-event',
             'own-chat-message',

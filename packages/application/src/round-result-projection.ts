@@ -8,6 +8,7 @@ import {
 } from '@fantasy/contracts';
 import { calculateRoundInputs } from './round-inputs.ts';
 import { calculateEntryResult } from './entry-calculation.ts';
+import { readEffectiveRoundSnapshots } from './entry-snapshots.ts';
 
 /** One coherent, in-memory replacement shared by competition and prize correction reviews. */
 export async function calculateRoundResultProjection(
@@ -16,17 +17,7 @@ export async function calculateRoundResultProjection(
 ) {
   const inputs = await calculateRoundInputs(tx, round);
   const [snapshots, previous] = await Promise.all([
-    tx
-      .selectFrom('entry_snapshots')
-      .innerJoin('entries', 'entries.id', 'entry_snapshots.entry_id')
-      .select([
-        'entry_snapshots.entry_id',
-        'entry_snapshots.payload',
-        'entries.data as entry',
-      ])
-      .where('entry_snapshots.gameweek_id', '=', round.id)
-      .orderBy('entry_snapshots.entry_id')
-      .execute(),
+    readEffectiveRoundSnapshots(tx, round.id),
     tx
       .selectFrom('entry_results')
       .select(['entry_id', 'payload'])
@@ -43,12 +34,10 @@ export async function calculateRoundResultProjection(
   );
   const replacement = new Map<string, EntryResult>();
   const changes = snapshots.map((snapshot) => {
-    const result = calculateEntryResult(
-      lockedEntrySchema.parse(snapshot.payload),
-      round,
-      players,
-      inputs.settled,
-    );
+    const locked = lockedEntrySchema.safeParse(snapshot.payload);
+    const result = locked.success
+      ? calculateEntryResult(locked.data, round, players, inputs.settled)
+      : { status: 'blocked' as const };
     if (result.status === 'scored')
       replacement.set(snapshot.entry_id, result.payload);
     return {

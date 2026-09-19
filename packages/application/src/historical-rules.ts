@@ -16,7 +16,7 @@ import { calculateResultImpact } from './result-impact.ts';
 import { visibleGroupImpact } from './group-result-impact.ts';
 import { hasPrizeReadScope } from './prize-access.ts';
 import { lockResultDependencies } from './result-dependency-locks.ts';
-import { publishGameweekWithinTransaction } from './results.ts';
+import { publishReviewedCorrection } from './reviewed-result-publication.ts';
 import { CommandRejected } from './errors.ts';
 const digest = (value: object) =>
   createHash('sha256').update(JSON.stringify(value)).digest('hex');
@@ -221,40 +221,12 @@ export async function executeHistoricalRules(
       await sql<{ now: Date }>`SELECT clock_timestamp() AS now`.execute(tx)
     ).rows[0]?.now;
     if (!now) throw new Error('Database clock unavailable');
-    await tx
-      .updateTable('result_reviews')
-      .set({
-        status: 'resolved',
-        resolved_at: now,
-        resolved_by: principal.accountId,
-      })
-      .where('gameweek_id', '=', round.id)
-      .where('status', '=', 'open')
-      .execute();
-    await tx
-      .updateTable('gameweeks')
-      .set({
-        data: {
-          ...proposal.candidate,
-          status: 'provisional',
-          finalizedAt: null,
-          lastMaterialChangeAt: now.toISOString(),
-        },
-      })
-      .where('id', '=', round.id)
-      .execute();
-    await publishGameweekWithinTransaction(tx, round.id);
-    const updated = gameweekSchema.parse(
-      (
-        await tx
-          .selectFrom('gameweeks')
-          .select('data')
-          .where('id', '=', round.id)
-          .executeTakeFirstOrThrow()
-      ).data,
+    const updated = await publishReviewedCorrection(
+      tx,
+      proposal.candidate,
+      principal.accountId,
+      now,
     );
-    if (updated.resultRevision !== round.resultRevision + 1)
-      throw new Error('Historical replay did not publish a new revision');
     await tx
       .insertInto('audit_events')
       .values({

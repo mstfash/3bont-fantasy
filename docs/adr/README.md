@@ -44,3 +44,5 @@ All records currently accepted. Routine defaults are in canonical specifications
 - [0031 — Bounded historical scoring corrections](0031-bounded-historical-scoring-corrections.md)
 
 - [0032 - Evidenced exceptional fixture settlement](0032-evidenced-exceptional-fixture-settlement.md)
+
+[0033 — Restore snapshots from accepted decisions](0033-restore-snapshots-from-accepted-decisions.md)

@@ -13,9 +13,11 @@ Updated 2026-09-19 against the shipped slice-37 baseline and the active producti
 
 ## Active correctness work
 
-- Exceptional fixture decisions need explicit official evidence and retained disposition history; a full replay has a new identity, while resumed play replaces the cumulative report. Zero-performance rounds require reviewed settlement after lock. Implemented and verified locally in slice 38; protected CI remains required before merge.
-- Historical participant-snapshot repair must derive from original accepted-command evidence, retain original snapshot versions and bind publication to the repaired version. It remains distinct from ordinary editing and completed historical scoring-rule replay.
+- Exceptional fixture decisions need explicit official evidence and retained disposition history; a full replay has a new identity, while resumed play replaces the cumulative report. Zero-performance rounds require reviewed settlement after lock. Merged after exact-head required CI in PR 13.
+- Historical participant-snapshot repair now derives from the latest original accepted command before deadline, retains original/repair versions and atomically publishes the repaired result. Slice 39 includes private exports, version-safe public reads and failure/concurrency/browser coverage.
 - Provider automatic acceptance needs a versioned worker path, strict ambiguity/source/freshness gates, atomic acceptance and idempotency. Current collection does not imply accepted football facts.
+
+- A01–A62 are indexed in [acceptance evidence](acceptance-evidence.md). Add a dedicated persisted club-move/next-transfer replay for A13/A59; static cap validation is not complete scenario evidence.
 
 ## Release evidence still required
 

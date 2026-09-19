@@ -59,7 +59,7 @@ void test('production core migration is atomic, concurrently idempotent and quer
   const migrations = await pool.query<{ count: string }>(
     'SELECT count(*) FROM fantasy.schema_migrations',
   );
-  assert.equal(migrations.rows[0]?.count, '23');
+  assert.equal(migrations.rows[0]?.count, '24');
   assert.equal(await applicationSchemaReady(pool), true);
   await assert.rejects(
     pool.query('INSERT INTO fantasy.seasons(id,data) VALUES($1,$2)', [

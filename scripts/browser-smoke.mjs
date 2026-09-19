@@ -542,6 +542,10 @@ try {
         [competitionId],
       );
       await client.query(
+        'DELETE FROM fantasy.entry_snapshot_repairs WHERE gameweek_id IN (SELECT id FROM fantasy.gameweeks WHERE competition_id=$1)',
+        [competitionId],
+      );
+      await client.query(
         'DELETE FROM fantasy.entry_snapshots WHERE competition_id=$1',
         [competitionId],
       );

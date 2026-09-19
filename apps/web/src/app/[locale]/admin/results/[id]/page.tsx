@@ -87,6 +87,14 @@ export default async function ResultReviewPage({
                 : 'Correct historical gameweek rules'}{' '}
               ↗
             </Link>
+            <p>
+              <Link href={`/${locale}/admin/results/${p.id}/repair`}>
+                {ar
+                  ? 'إصلاح سجل التشكيلة من دليل القبول'
+                  : 'Repair a snapshot from acceptance evidence'}{' '}
+                ↗
+              </Link>
+            </p>
           </section>
         )}
       {preview.issues.includes('empty-gameweek-needs-settlement') && (

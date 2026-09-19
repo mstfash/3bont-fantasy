@@ -13,7 +13,7 @@ import { visibleGroupImpact } from './group-result-impact.ts';
 import { hasPrizeReadScope } from './prize-access.ts';
 import { readFixtureSettlementInputs } from './fixture-settlement-inputs.ts';
 import { lockResultDependencies } from './result-dependency-locks.ts';
-import { publishGameweekWithinTransaction } from './results.ts';
+import { publishReviewedCorrection } from './reviewed-result-publication.ts';
 import { CommandRejected } from './errors.ts';
 const digest = (value: object) =>
   createHash('sha256').update(JSON.stringify(value)).digest('hex');
@@ -149,38 +149,12 @@ async function settle(
         throw new CommandRejected('preview-changed');
       if (!preview.settled || preview.rankings === null)
         throw new CommandRejected('replay-incomplete');
-      await tx
-        .updateTable('result_reviews')
-        .set({
-          status: 'resolved',
-          resolved_at: now,
-          resolved_by: principal.accountId,
-        })
-        .where('gameweek_id', '=', round.id)
-        .where('status', '=', 'open')
-        .execute();
-      await tx
-        .updateTable('gameweeks')
-        .set({
-          data: {
-            ...round,
-            status: 'provisional',
-            finalizedAt: null,
-            lastMaterialChangeAt: now.toISOString(),
-          },
-        })
-        .where('id', '=', round.id)
-        .execute();
-      await publishGameweekWithinTransaction(tx, round.id);
-      const updated = (
-        await tx
-          .selectFrom('gameweeks')
-          .select('data')
-          .where('id', '=', round.id)
-          .executeTakeFirstOrThrow()
-      ).data;
-      if (updated.resultRevision !== round.resultRevision + 1)
-        throw new Error('Settlement did not publish a complete new revision');
+      const updated = await publishReviewedCorrection(
+        tx,
+        round,
+        principal.accountId,
+        now,
+      );
       await tx
         .insertInto('audit_events')
         .values({

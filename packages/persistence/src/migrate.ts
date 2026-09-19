@@ -24,6 +24,7 @@ import { priceBatchesMigration } from './migrations/0004-price-batches.ts';
 import { matchResultsMigration } from './migrations/0003-match-results.ts';
 import { coreMigration } from './migrations/0001-core.ts';
 import { staffSecurityMigration } from './migrations/0002-staff-security.ts';
+import { snapshotRepairsMigration } from './migrations/0024-snapshot-repairs.ts';
 
 const applicationMigrations = [
   coreMigration,
@@ -49,6 +50,7 @@ const applicationMigrations = [
   providerNormalizationMigration,
   providerSchedulesMigration,
   exceptionalSettlementMigration,
+  snapshotRepairsMigration,
 ] as const;
 
 export async function migrateApplication(pool: Pool): Promise<void> {
