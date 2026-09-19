@@ -7,6 +7,7 @@ import { createDatabase, applicationSchemaReady } from '@fantasy/persistence';
 import {
   planProviderCollections,
   processNextProviderCollection,
+  acceptNextProviderReport,
   buildNextAccountExport,
   purgeAccountExports,
   purgeGroupHandovers,
@@ -171,15 +172,27 @@ await boss.work('provider-collection', { batchSize: 1 }, async () => {
         break;
       if (result.attempted) await wait(1000);
     }
+    const accepted =
+      performance.now() - began < 24_000
+        ? await acceptNextProviderReport(db)
+        : null;
+    if (accepted?.state === 'held')
+      issues.push({
+        kind: 'provider-collection',
+        id: accepted.batchId,
+        code: 'provider-report-held',
+      });
     return {
       counts: {
         providerAutomationEnabled: 1,
+        providerReportsAccepted: accepted?.state === 'accepted' ? 1 : 0,
+        providerReportsHeld: accepted?.state === 'held' ? 1 : 0,
         collectionsPlanned: plan.planned,
         providerAttempts: attempts,
         collectionsCompleted: completed,
         collectionsHeld: held,
       },
-      issueCount: held,
+      issueCount: issues.length,
       issues,
     };
   });

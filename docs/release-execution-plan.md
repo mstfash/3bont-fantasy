@@ -26,7 +26,7 @@ The user's six priorities are the working order. A passing local suite is eviden
 4. Publish through the existing transactional result workflow. Delivered prizes create review cases; history and fulfillment receipts are preserved.
 5. Implemented in slice 37: owner-authorized bounded historical rules replay reuses canonical projections and atomically publishes rules and results. Ordinary future-rule editing and recorded participant decisions remain unchanged.
 6. Implemented in slice 38: reviewed exceptional fixture dispositions and explicit zero-performance settlement, retaining original facts and participant decisions.
-7. Implemented in slice 39: owner-only snapshot repair from accepted command evidence, retained repair/result versions, private exports and atomic publication. Next: provider acceptance, explicit club-move replay and operational gates. See [production readiness](production-readiness.md) for the complete release gates.
+7. Implemented in slice 39: owner-only snapshot repair from accepted command evidence, retained repair/result versions, private exports and atomic publication. Slice 40 implements governed FT acceptance and explicit club-move replay. Next: deployment/recovery/load and external data gates. See [production readiness](production-readiness.md) for the complete release gates.
 
 ## Evidence discipline
 

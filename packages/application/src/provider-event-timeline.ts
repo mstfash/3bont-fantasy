@@ -270,6 +270,21 @@ export function deriveProviderTimeline(input: {
         (player.goals !== null && player.goals > 0)
       )
         return hold('timeline-participation-conflict');
+      // Explicit zeroes are usable; omission from a feed is still unknown.
+      if (
+        player.minutes === 0 &&
+        player.goals === 0 &&
+        player.yellow === 0 &&
+        player.red === 0
+      )
+        facts.set(player.id, {
+          goals: 0,
+          ownGoals: 0,
+          penaltyMisses: 0,
+          concededWhileOnPitch: 0,
+          concededAfterDismissal: 0,
+          discipline: { kind: 'none' },
+        });
       continue;
     }
     if (

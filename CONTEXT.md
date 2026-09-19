@@ -233,3 +233,7 @@ An evidenced official decision about a fixture's competitive treatment: void wit
 ## Historical Snapshot Repair
 
 An evidenced restoration of a gameweek’s locked squad from the participant’s latest accepted pre-deadline choice. It corrects the historical scoring record while retaining the original record and later participant decisions. It does not permit a new post-deadline selection.
+
+## Automatic Report Acceptance
+
+Acceptance of a collected football report under an explicitly approved season policy when its identity, participation and statistical evidence is complete. Reports that fail those conditions remain held for review. Acceptance of football facts does not reopen finalized fantasy results or replace explicit administrative overrides.

@@ -1,4 +1,5 @@
 import { exerciseProviderSchedules } from './browser-provider-schedules.mjs';
+import { exerciseProviderAcceptance } from './browser-provider-acceptance.mjs';
 import assert from 'node:assert/strict';
 import { createHash, randomUUID } from 'node:crypto';
 import { expect } from '@playwright/test';
@@ -275,6 +276,7 @@ export async function exerciseProviderNormalization(page, pool, base) {
     });
     await page.setViewportSize({ width: 1440, height: 1000 });
     await exerciseProviderSchedules(page, pool, base, f.binding.id);
+    await exerciseProviderAcceptance(page, pool, base, f.binding.id);
     await page.goto(`${base}/en/admin`);
     console.log(
       'Provider normalization: reviewed sources, unknown bench minutes, retained evidence, anonymous denial and Arabic mobile passed.',
@@ -310,6 +312,13 @@ export async function exerciseProviderNormalization(page, pool, base) {
         "DELETE FROM fantasy.commands WHERE result->>'bindingId'=$1",
         [f.binding.id],
       );
+      await client.query(
+        'DELETE FROM fantasy.provider_acceptance_policies WHERE binding_id=$1',
+        [f.binding.id],
+      );
+      await client.query('DELETE FROM fantasy.audit_events WHERE scope_id=$1', [
+        f.binding.id,
+      ]);
       await client.query(
         'DELETE FROM fantasy.provider_schedules WHERE binding_id=$1',
         [f.binding.id],

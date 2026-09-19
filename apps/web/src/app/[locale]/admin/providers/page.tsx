@@ -45,6 +45,11 @@ export default async function ProvidersPage({
             : 'Every attempt, page and retry is counted before dispatch. Published football facts have a separate validation lifecycle.'}
         </p>
       </div>
+      <p>
+        <Link href={`/${locale}/admin/providers/acceptance`}>
+          {ar ? 'سياسة قبول التقارير' : 'Report acceptance policy'} ↗
+        </Link>
+      </p>
       <section className="group-card">
         <h2>
           {account?.state === 'enabled'

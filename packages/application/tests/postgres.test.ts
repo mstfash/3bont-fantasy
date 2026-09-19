@@ -1,3 +1,8 @@
+import {
+  executeCatalogueCommand,
+  catalogueFingerprint,
+} from '../src/catalogue.ts';
+import { catalogueCommandSchema, footballerSchema } from '@fantasy/contracts';
 import { grantProofStaff, clearProofStaff } from './proof-staff.ts';
 import assert from 'node:assert/strict';
 import { randomUUID } from 'node:crypto';
@@ -629,6 +634,212 @@ void test('entry commands enforce ownership, retry identity, revisions, caps and
       2,
     );
   });
+  await t.test(
+    'a real club move preserves held squads and the next transfer must restore the club limit',
+    async () => {
+      const participant = {
+        ...principal,
+        accountId: randomUUID(),
+        sessionId: randomUUID(),
+      };
+      const acceptedAt = (
+        await pool.query<{ now: Date }>(
+          "SELECT clock_timestamp() - interval '1 second' AS now",
+        )
+      ).rows[0]?.now;
+      assert.ok(acceptedAt);
+      const steward = {
+        ...participant,
+        accountId: randomUUID(),
+        sessionId: randomUUID(),
+        mfaVerifiedAt: acceptedAt,
+        authenticatedAt: acceptedAt,
+      };
+      const grants = [{ role: 'data-steward' as const, competitionId: null }];
+      await grantProofStaff(db, participant.accountId, []);
+      await grantProofStaff(db, steward.accountId, grants);
+      const created = await executeEntryCommand(db, participant, {
+        ...command,
+        commandId: randomUUID(),
+      });
+      const heldIds = new Set(
+        created.state.roster.holdings.map((h) => h.footballerId),
+      );
+      const footballers = (
+        await db
+          .selectFrom('footballers')
+          .select('data')
+          .where('id', 'in', [...heldIds])
+          .execute()
+      ).map((r) => footballerSchema.parse(r.data));
+      const targetClub = footballers[0]?.clubId;
+      assert.ok(targetClub);
+      const already = footballers.filter((f) => f.clubId === targetClub);
+      const moved = footballers
+        .filter((f) => f.clubId !== targetClub)
+        .slice(0, 4 - already.length);
+      assert.equal(already.length + moved.length, 4);
+      const changeClub = async (footballer: (typeof footballers)[number]) => {
+        const current = (
+          await db
+            .selectFrom('footballers')
+            .select('data')
+            .where('id', '=', footballer.id)
+            .executeTakeFirstOrThrow()
+        ).data;
+        await executeCatalogueCommand(
+          db,
+          steward,
+          grants,
+          catalogueCommandSchema.parse({
+            kind: 'footballer',
+            commandId: randomUUID(),
+            footballer,
+            expectedFingerprint: catalogueFingerprint(current),
+            reason: 'Synthetic verified real-world club transfer',
+          }),
+        );
+      };
+      try {
+        for (const f of moved) await changeClub({ ...f, clubId: targetClub });
+        assert.deepEqual(
+          (
+            await db
+              .selectFrom('entries')
+              .select('data')
+              .where('id', '=', created.id)
+              .executeTakeFirstOrThrow()
+          ).data,
+          created,
+          'Catalogue changes cannot force a sale, rewrite bank or add a transfer hit',
+        );
+        const edited = await executeEntryCommand(
+          db,
+          participant,
+          entryCommandSchema.parse({
+            kind: 'lineup',
+            commandId: randomUUID(),
+            competitionId: competition.id,
+            gameweekId: gameweek.id,
+            entryId: created.id,
+            expectedRevision: created.revision,
+            lineup,
+          }),
+        );
+        assert.deepEqual(
+          edited.state.roster.holdings,
+          created.state.roster.holdings,
+        );
+        assert.equal(
+          edited.state.transfersThisRound,
+          created.state.transfersThisRound,
+        );
+        const currentMarket = await db
+          .selectFrom('competition_players')
+          .innerJoin(
+            'footballers',
+            'footballers.id',
+            'competition_players.footballer_id',
+          )
+          .select(['competition_players.data as pool', 'footballers.club_id'])
+          .where('competition_players.competition_id', '=', competition.id)
+          .execute();
+        const heldByClub = new Map<string, number>();
+        for (const f of currentMarket.filter((f) =>
+          heldIds.has(f.pool.footballerId),
+        ))
+          heldByClub.set(f.club_id, (heldByClub.get(f.club_id) ?? 0) + 1);
+        const pair = (fromTarget: boolean) => {
+          for (const outgoing of currentMarket.filter(
+            (f) =>
+              heldIds.has(f.pool.footballerId) &&
+              (f.club_id === targetClub) === fromTarget,
+          )) {
+            const incoming = currentMarket.find(
+              (f) =>
+                !heldIds.has(f.pool.footballerId) &&
+                f.pool.position === outgoing.pool.position &&
+                f.club_id !== targetClub &&
+                (heldByClub.get(f.club_id) ?? 0) < 3 &&
+                f.pool.price <= outgoing.pool.price,
+            );
+            if (incoming) return { outgoing, incoming };
+          }
+          throw new Error(
+            'Synthetic catalogue needs an affordable positional replacement',
+          );
+        };
+        const transfer = ({ outgoing, incoming }: ReturnType<typeof pair>) => {
+          const from = outgoing.pool.footballerId,
+            to = incoming.pool.footballerId;
+          const replace = (id: string) => (id === from ? to : id);
+          const roster = edited.state.roster;
+          return entryCommandSchema.parse({
+            kind: 'transfer',
+            commandId: randomUUID(),
+            competitionId: competition.id,
+            gameweekId: gameweek.id,
+            entryId: created.id,
+            expectedRevision: edited.revision,
+            transfers: [{ out: from, in: to }],
+            quotes: [outgoing, incoming].map((f) => ({
+              footballerId: f.pool.footballerId,
+              priceRevision: f.pool.priceRevision,
+            })),
+            lineup: {
+              starterIds: roster.starterIds.map(replace),
+              reserveIds: roster.reserveIds.map(replace),
+              captaincy: roster.captaincy
+                ? {
+                    captainId: replace(roster.captaincy.captainId),
+                    viceCaptainId: replace(roster.captaincy.viceCaptainId),
+                  }
+                : null,
+            },
+          });
+        };
+        await assert.rejects(
+          executeEntryCommand(db, participant, transfer(pair(false))),
+          /club-cap/u,
+        );
+        assert.deepEqual(
+          (
+            await db
+              .selectFrom('entries')
+              .select('data')
+              .where('id', '=', created.id)
+              .executeTakeFirstOrThrow()
+          ).data,
+          edited,
+          'Rejected unrelated transfer is atomic',
+        );
+        const corrected = await executeEntryCommand(
+          db,
+          participant,
+          transfer(pair(true)),
+        );
+        assert.equal(
+          corrected.state.roster.holdings.filter(
+            (h) =>
+              currentMarket.find((f) => f.pool.footballerId === h.footballerId)
+                ?.club_id === targetClub,
+          ).length,
+          3,
+        );
+        assert.equal(
+          corrected.state.transfersThisRound,
+          edited.state.transfersThisRound + 1,
+        );
+      } finally {
+        for (const f of moved) await changeClub(f);
+        await db.deleteFrom('entries').where('id', '=', created.id).execute();
+        await db
+          .deleteFrom('commands')
+          .where('actor_id', 'in', [participant.accountId, steward.accountId])
+          .execute();
+      }
+    },
+  );
   await t.test(
     'waiting across the deadline is rejected; an accepted retry still succeeds',
     async () => {
