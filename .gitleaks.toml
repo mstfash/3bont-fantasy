@@ -1,0 +1,15 @@
+# Retain all built-in detection rules. Only this verified source checksum is exempt.
+# AND scopes it to its proof file; a different value or another path is still scanned.
+# https://github.com/gitleaks/gitleaks#configuration
+[extend]
+useDefault = true
+
+[[rules]]
+id = "generic-api-key"
+
+[[rules.allowlists]]
+description = "Verified SHA-256 of packages/application/src/prize-access.ts in slice 35 proof"
+condition = "AND"
+regexTarget = "secret"
+paths = ['''^artifacts/verification/prize-impact-proof\.json$''']
+regexes = ['''^c94d52a2a4276c48ce666e4c0699c96f73585871ea64868e6bcb362ceefe3c6b$''']

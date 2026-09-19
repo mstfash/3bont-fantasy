@@ -104,12 +104,14 @@ export const adminWorkflows = [
     en: [
       'Publish the pool’s terms, eligibility, period and tie handling before collecting award candidates.',
       'Prepare candidates from the required final results and review exclusions.',
+      'Open Result correction projections on the prize page to compare published-score and proposed allocations using current eligibility. Recorded decisions remain separate; held projections cannot authorize delivery.',
       'A different authorized approver must approve. Record external delivery with its receipt.',
       'A later correction creates a review case; never overwrite the original delivery record.',
     ],
     ar: [
       'انشر شروط الجائزة والأهلية والفترة ومعالجة التعادل قبل تجهيز المرشحين.',
       'جهّز المرشحين من النتائج النهائية المطلوبة وراجع الاستبعادات.',
+      'افتح معاينات تصحيح النتائج من صفحة الجائزة لمقارنة التوزيع بالنقاط المنشورة والمقترحة وفق الأهلية الحالية. تبقى القرارات المسجلة منفصلة؛ المعاينة المعلّقة لا تجيز التسليم.',
       'يجب أن يوافق مسؤول آخر مخوّل. سجّل التسليم الخارجي بإيصاله.',
       'ينشئ التصحيح اللاحق حالة مراجعة؛ لا تستبدل سجل التسليم الأصلي.',
     ],
@@ -120,11 +122,13 @@ export const adminWorkflows = [
     path: '/admin/prizes',
     en: [
       'Review prepared candidates, terms, eligibility and result revisions.',
+      'Inspect correction projections directly from the prize page. Compare recorded awards separately; a hypothetical allocation never changes a delivered award or moves money.',
       'Approve only with current authority and independence from the preparation and recipient conflicts.',
       'If evidence changed, request a fresh proposal rather than approving stale results.',
     ],
     ar: [
       'راجع المرشحين المجهّزين والشروط والأهلية ونسخ النتائج.',
+      'افحص معاينات التصحيح مباشرة من صفحة الجائزة وقارن الجوائز المسجلة بشكل منفصل. لا يغيّر التوزيع الافتراضي جائزة مسلّمة ولا ينقل أموالاً.',
       'وافق بصلاحية حالية ومع استقلالك عن الإعداد وتعارض المصالح مع المستفيد.',
       'إذا تغيّرت الأدلة فاطلب مقترحاً جديداً بدلاً من اعتماد نتائج قديمة.',
     ],

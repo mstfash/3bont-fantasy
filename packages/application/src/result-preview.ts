@@ -1,5 +1,6 @@
 import type { createDatabase } from '@fantasy/persistence';
 import { gameweekSchema } from '@fantasy/contracts';
+import { hasPrizeReadScope } from './prize-access.ts';
 import { visibleGroupImpact } from './group-result-impact.ts';
 import { calculateResultImpact } from './result-impact.ts';
 import {
@@ -33,9 +34,13 @@ export async function previewGameweekResults(
         round.competitionId,
         new Date(),
       );
-      const { groupImpact, ...impact } = await calculateResultImpact(tx, round);
+      const { groupImpact, prizeImpacts, ...impact } =
+        await calculateResultImpact(tx, round);
       return {
         ...impact,
+        prizeImpacts: hasPrizeReadScope(grants, round.competitionId)
+          ? prizeImpacts
+          : null,
         groupImpact: await visibleGroupImpact(
           tx,
           groupImpact,

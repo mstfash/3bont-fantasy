@@ -19,6 +19,7 @@ import {
 } from '@fantasy/contracts';
 import { assessPlayerPool, POSITIONS } from '@fantasy/domain';
 import { seedDemo } from '../src/demo.ts';
+import { createIdentity, migrateIdentity } from '../src/identity.ts';
 import { competitionStandings } from '../src/leaderboard.ts';
 import { advanceDueGameweeks } from '../src/deadlines.ts';
 import { executeEntryCommand } from '../src/entry-commands.ts';
@@ -41,6 +42,14 @@ const pool = new Pool({ connectionString, max: 6 });
 const db = createDatabase(pool);
 before(async () => {
   await migrateApplication(pool);
+  await migrateIdentity(
+    createIdentity(pool, {
+      baseURL: 'http://127.0.0.1:3100',
+      secret: randomUUID() + randomUUID(),
+      secureCookies: false,
+      sendMail: async () => {},
+    }),
+  );
 });
 after(async () => {
   await clearProofStaff(db);

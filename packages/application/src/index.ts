@@ -120,3 +120,5 @@ export {
   readNormalizationSources,
   readSavedProviderReview,
 } from './provider-normalization.ts';
+
+export { previewPrizeResultCorrection } from './prize-result-preview.ts';

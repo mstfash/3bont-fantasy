@@ -312,11 +312,25 @@ export async function executeResultCommand(
       throw new CommandRejected('results-changed');
     // Imports and overrides take a fixture-row update lock. Hold shared locks
     // while validating the exact preview, without an old snapshot before receipt lookup.
+    const dependentPools = await tx
+      .selectFrom('prize_pools')
+      .select('data')
+      .where('competition_id', '=', round.competitionId)
+      .where(sql<string>`data->>'state'`, '=', 'published')
+      .execute();
+    const affectedRoundIds = [
+      ...new Set([
+        round.id,
+        ...dependentPools
+          .filter((p) => p.data.gameweekIds.includes(round.id))
+          .flatMap((p) => p.data.gameweekIds),
+      ]),
+    ];
     await tx
       .selectFrom('fixture_assignments')
       .innerJoin('fixtures', 'fixtures.id', 'fixture_assignments.fixture_id')
       .select('fixtures.id')
-      .where('fixture_assignments.gameweek_id', '=', round.id)
+      .where('fixture_assignments.gameweek_id', 'in', affectedRoundIds)
       .orderBy('fixtures.id')
       .forShare()
       .execute();
@@ -383,6 +397,12 @@ export async function executeResultCommand(
               (sum, group) => sum + group.headToHead.length,
               0,
             ),
+            prizeProjections: {
+              available: candidate.prizeImpacts.filter((p) => p.after !== null)
+                .length,
+              held: candidate.prizeImpacts.filter((p) => p.after === null)
+                .length,
+            },
             prizes: candidate.prizes,
           },
         },

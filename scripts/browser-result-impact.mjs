@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { exerciseGroupImpact } from './browser-group-impact.mjs';
+import { exercisePrizeImpact } from './browser-prize-impact.mjs';
 import { randomUUID } from 'node:crypto';
 import { expect } from '@playwright/test';
 import { publishGameweekResults } from '../packages/application/dist/index.js';
@@ -43,6 +44,7 @@ export async function exerciseResultImpact(
   });
   assert.equal(response.status(), 200);
   assert.equal((await publishGameweekResults(db, round.id)).status, 'review');
+  await exercisePrizeImpact(page, pool, base, round, entry);
   await page.goto(`${base}/en/admin/results/${round.id}`);
   const rankings = page.getByRole('region', {
     name: 'Overall ranking impact',
