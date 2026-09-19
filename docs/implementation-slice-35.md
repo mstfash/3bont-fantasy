@@ -27,3 +27,5 @@ Authenticated browser coverage follows prize-page links in English desktop and A
 ## Remaining work
 
 This slice estimates one gameweek in one competition against currently reviewed facts. The next correction step is a pre-write global fixture preview covering every affected competition, followed by controlled historical rules replay. Current-season provider coverage, licensed valuations, staging and measured load/restore evidence remain separate release gates. No provider requests or live activation are needed for this slice.
+
+The remote secret scan classified the SHA-256 of `prize-access.ts` as a generic API key. The checksum was recomputed from the source. `.gitleaks.toml` retains the built-in rules and exempts only that exact value in this exact proof file, using an AND condition. This remains valid after a squash merge; it does not exclude future checksums or the file itself. A disposable scanner probe accepted the checksum and rejected a different synthetic credential in the same proof file. See [Gitleaks configuration](https://github.com/gitleaks/gitleaks#configuration).

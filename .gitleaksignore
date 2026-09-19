@@ -1,3 +1,0 @@
-# Exact historical false positive: verified SHA-256 of packages/application/src/prize-access.ts.
-# This excludes only the proof checksum in this immutable commit, not future file content or credentials.
-c3cd0cc232bfc35534ac2a33ddcd012603dc397b:artifacts/verification/prize-impact-proof.json:generic-api-key:17
