@@ -31,9 +31,18 @@ export async function exerciseHomeBoard(page, pool, base) {
           4,
         );
         await expect(board.locator('.captain-badge')).toHaveCount(1);
+        await expect(
+          board.getByRole('img', {
+            name: locale === 'ar' ? 'الكابتن' : 'Captain',
+            exact: true,
+          }),
+        ).toHaveCount(1);
         const leaders = board.locator('.leaderboard-list > li');
         assert.ok((await leaders.count()) > 0 && (await leaders.count()) <= 5);
         await expect(leaders.first().locator('.rank-movement')).toBeVisible();
+        await expect(leaders.first().getByRole('img')).toHaveAccessibleName(
+          /^(Up|Down|Unchanged|New|صعد|هبط|ثابت|جديد)/u,
+        );
         await expect(board.locator('.synthetic-banner')).toContainText(
           locale === 'ar' ? 'بيانات تجريبية' : 'SYNTHETIC',
         );

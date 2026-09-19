@@ -28,6 +28,7 @@ export function StandingsMovement({
             : `Down ${String(-delta)}`;
   return (
     <span
+      role="img"
       className={`rank-movement ${delta !== null && delta > 0 ? 'movement-up' : delta !== null && delta < 0 ? 'movement-down' : ''}`}
       aria-label={label}
     >

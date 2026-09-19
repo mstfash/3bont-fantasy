@@ -13,7 +13,7 @@
     "typecheck": "passed",
     "lint": "passed",
     "productionBuild": "passed",
-    "followup": "After the first-place contrast-only CSS adjustment, pnpm check and anonymous home-board E2E passed again. Final-head required CI reruns the complete suite."
+    "followup": "Full pnpm verify:local passed again after the contrast and screen-reader fixes, including bilingual accessible-name assertions for movement and captain indicators."
   },
   "sources": [
     {
@@ -66,11 +66,11 @@
     },
     {
       "path": "apps/web/src/components/standings-movement.tsx",
-      "sha256": "b2a8577005cf60d355088b86669233b445c12fb44a5af08dac5694cce286efff"
+      "sha256": "513ee6d0c3b9a1979d8c76cb9830cf4a5c457366c3ab5f944561ff4026df9fe2"
     },
     {
       "path": "apps/web/src/components/winning-pitch.tsx",
-      "sha256": "07cea1d8a2874617a279dde812a3fbcd946e2914600b43b8ea110fa499651abe"
+      "sha256": "b6468dfa4d591a6a14706d0a8c8f5f4e27649f7935771d5f8d591dd1955b663e"
     },
     {
       "path": "apps/web/src/lib/command-errors.ts",
@@ -146,7 +146,7 @@
     },
     {
       "path": "scripts/browser-home-board.mjs",
-      "sha256": "4d5f3c65dc64e3fbc20790a7919fbb9347b0d89c52a9142b16aea0d1188ab103"
+      "sha256": "f5e03f4d6d08a4dfc856291c885cd24921be6f7cbc16cca9f9d9c56c485797aa"
     },
     {
       "path": "scripts/browser-match-review.mjs",
@@ -167,7 +167,7 @@
   ],
   "review": {
     "structure": "Canonical mutation, ranking and result projection functions are reused. Rollback previews remain inside the application transaction boundary; public readers expose locked published lineups only. No high-confidence structural blockers found.",
-    "visual": "English desktop and Arabic mobile home boards inspected in dark/light themes. Jersey numbers, standings arrows, benches and localized help render correctly. Authenticated mobile navigation overflow was caught by E2E and fixed with wrapping."
+    "visual": "English desktop and Arabic mobile home boards inspected in dark/light themes. Jersey numbers, standings arrows, benches and localized help render correctly. Authenticated mobile navigation overflow was caught by E2E and fixed with wrapping. Screen-reader snapshots exposed unnamed movement/captain indicators; explicit image roles and localized names now pass browser assertions."
   },
   "limits": [
     "Results are published database data refreshed every minute, not live provider ingestion. Synthetic replay is explicitly labeled.",

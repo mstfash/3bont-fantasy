@@ -26,6 +26,7 @@ export function WinningPitch({
           <FootballShirt color={p.color} number={p.shirtNumber} />
           {p.captain && (
             <span
+              role="img"
               className="captain-badge"
               aria-label={ar ? 'الكابتن' : 'Captain'}
             >
@@ -66,6 +67,7 @@ export function WinningPitch({
       </div>
       <div
         className="winning-pitch"
+        role="group"
         aria-label={ar ? 'ملعب التشكيلة المحتسبة' : 'Scoring formation pitch'}
       >
         <div className="field-markings" aria-hidden="true">
