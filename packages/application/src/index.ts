@@ -139,3 +139,8 @@ export {
   executeEmptyGameweek,
 } from './empty-gameweek.ts';
 export { latestFixtureDisposition } from './fixture-dispositions.ts';
+export {
+  previewSnapshotRepair,
+  executeSnapshotRepair,
+  readSnapshotRepairWorkspace,
+} from './snapshot-repair.ts';

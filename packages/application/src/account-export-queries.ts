@@ -29,9 +29,14 @@ export function accountExportQueries(
         sql<ArchiveRow>`SELECT (s.entry_id::text||':'||s.gameweek_id::text) AS cursor,jsonb_build_object('entryId',s.entry_id,'competitionId',s.competition_id,'gameweekId',s.gameweek_id,'lockedAt',s.locked_at,'squad',s.payload) AS data FROM fantasy.entry_snapshots s JOIN fantasy.entries e ON e.id=s.entry_id WHERE e.account_id=${accountId} AND ${competition('s.competition_id')} AND ${history(sql.ref('s.locked_at'))} AND (s.entry_id::text||':'||s.gameweek_id::text)>${cursor} ORDER BY cursor LIMIT 100`,
     },
     {
+      kind: 'snapshot-repair',
+      page: (cursor) =>
+        sql<ArchiveRow>`SELECT (r.entry_id::text||':'||r.gameweek_id::text||':'||r.revision::text) AS cursor,jsonb_build_object('entryId',r.entry_id,'competitionId',e.competition_id,'gameweekId',r.gameweek_id,'repairRevision',r.revision,'resultRevision',r.result_revision,'recordedAt',r.data->'recordedAt','squad',r.data->'snapshot','acceptedAt',r.data->'source'->'acceptedAt') AS data FROM fantasy.entry_snapshot_repairs r JOIN fantasy.entries e ON e.id=r.entry_id WHERE e.account_id=${accountId} AND ${competition('e.competition_id')} AND ${history(sql`(r.data->>'recordedAt')::timestamptz`)} AND (r.entry_id::text||':'||r.gameweek_id::text||':'||r.revision::text)>${cursor} ORDER BY cursor LIMIT 100`,
+    },
+    {
       kind: 'entry-result',
       page: (cursor) =>
-        sql<ArchiveRow>`SELECT (r.entry_id::text||':'||r.gameweek_id::text) AS cursor,jsonb_build_object('entryId',r.entry_id,'competitionId',r.competition_id,'gameweekId',r.gameweek_id,'revision',r.revision,'publishedAt',r.published_at,'result',r.payload) AS data FROM fantasy.entry_results r JOIN fantasy.entries e ON e.id=r.entry_id WHERE e.account_id=${accountId} AND ${competition('r.competition_id')} AND ${history(sql.ref('r.published_at'))} AND (r.entry_id::text||':'||r.gameweek_id::text)>${cursor} ORDER BY cursor LIMIT 100`,
+        sql<ArchiveRow>`SELECT (r.entry_id::text||':'||r.gameweek_id::text||':'||r.revision::text) AS cursor,jsonb_build_object('entryId',r.entry_id,'competitionId',r.competition_id,'gameweekId',r.gameweek_id,'revision',r.revision,'publishedAt',r.published_at,'result',r.payload) AS data FROM fantasy.entry_results r JOIN fantasy.entries e ON e.id=r.entry_id WHERE e.account_id=${accountId} AND ${competition('r.competition_id')} AND ${history(sql.ref('r.published_at'))} AND (r.entry_id::text||':'||r.gameweek_id::text||':'||r.revision::text)>${cursor} ORDER BY cursor LIMIT 100`,
     },
     {
       kind: 'group-membership',

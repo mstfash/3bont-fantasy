@@ -24,6 +24,18 @@ const messages: Readonly<Record<string, { ar: string; en: string }>> = {
     en: 'The replacement fixture is assigned to a locked or expired gameweek.',
     ar: 'مباراة الإعادة مرتبطة بجولة مغلقة أو تجاوزت موعدها.',
   },
+  'snapshot-source-unavailable': {
+    en: 'No complete accepted choice before this deadline is available. Preserve the incident evidence for owner review.',
+    ar: 'لا يتوفر دليل كامل لاختيارات مقبولة قبل الموعد النهائي. احتفظ بأدلة الواقعة لمراجعة المالك.',
+  },
+  'snapshot-source-ambiguous': {
+    en: 'Acceptance evidence has an ambiguous order. Repair is held for investigation.',
+    ar: 'ترتيب أدلة القبول غير واضح. أُوقف الإصلاح لحين التحقيق.',
+  },
+  'snapshot-no-change': {
+    en: 'This snapshot already matches the latest accepted pre-deadline choices.',
+    ar: 'السجل يطابق بالفعل آخر اختيارات مقبولة قبل الموعد النهائي.',
+  },
   'empty-gameweek-not-locked': {
     en: 'Wait until the deadline passes and the gameweek is locked.',
     ar: 'انتظر مرور الموعد النهائي وإغلاق الجولة.',

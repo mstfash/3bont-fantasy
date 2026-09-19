@@ -229,3 +229,7 @@ _Avoid_: Participant squad repair, ordinary future configuration, rewriting acce
 ## Fixture Disposition
 
 An evidenced official decision about a fixture's competitive treatment: void with or without a replacement fixture, or an awarded team result with no footballer performance. It determines whether its footballer contributions are excluded and retains the original match history. It is distinct from a temporary suspension, which preserves the same fixture and awaits a complete resumed report.
+
+## Historical Snapshot Repair
+
+An evidenced restoration of a gameweek’s locked squad from the participant’s latest accepted pre-deadline choice. It corrects the historical scoring record while retaining the original record and later participant decisions. It does not permit a new post-deadline selection.

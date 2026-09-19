@@ -1,0 +1,17 @@
+# Slice 39 — evidence-backed historical squad repair
+
+A current owner can restore a corrupted locked squad from its latest accepted participant command before the authoritative deadline. The result review links directly to a bilingual searchable squad selector, receipt metadata, complete before/after choices and canonical overall/classic/H2H/prize impact. Staff cannot submit a replacement lineup or select an older receipt. Missing, late or ambiguous evidence holds the incident for investigation.
+
+## Publication and history
+
+The original snapshot remains immutable. A repair version stores the reconstructed roster, purchase prices, bank, chip and transfer deduction with acceptance evidence, reason and actor. It is linked to the exact result revision by a deferred database constraint. Preview stages the same repair inside a rollback-only transaction; confirmation checks the same evidence fingerprint and atomically reopens, repairs and publishes. Worker, prize and historical-rule projections share the effective snapshot reader. Public historical scores resolve only repairs published at their own revision. Malformed original records cannot crash the public lineup or result preview.
+
+The correction interval restarts. Later entry state, transfers, balances and consumed chip inventory remain recorded. The operation repairs historical scoring evidence; a broader corruption incident affecting current account state still requires separate investigation and recovery. An unchanged round without a retained accepted command is held, rather than inferring undocumented choices. Minimal acceptance evidence is retained with the repair so later account closure can purge general command receipts without invalidating published history.
+
+Private game-data exports include each owned repair’s public scoring fields without internal source state or staff notes. Result-history pagination now includes the result revision in its cursor, preserving more than 100 revisions for the same squad/gameweek.
+
+## Verification and rollout
+
+Regression tests use actual accepted create/chip commands before a real cutoff, then inject historical corruption. They exercise owner scope, strict inputs, repeatable previews, missing/late/ambiguous evidence, stale source/snapshot protection, malformed originals, interrupted publication, concurrent confirmation, immutable old results, unchanged future decisions and subsequent rule correction. The full local run passed strict build/types/lint, 116 unit/harness cases, 138 PostgreSQL cases (9 persistence + 129 application), 56 public smoke combinations and authenticated bilingual E2E. Browser proof uses a real accepted command before cutoff, injects a corrupted lock, reviews in English/Arabic, confirms in Arabic and verifies retained originals, unchanged subsequent decisions and coherent restored results. Two existing authorization fixtures now anchor their session time before the database clock rather than accidentally simulating future MFA. Production authorization is unchanged. Source-bound evidence is recorded in artifacts/verification/snapshot-repair-proof.json; exact-head protected CI remains required before merge.
+
+Migration 0024 adds repair history and its publication constraint. All web/worker processes must use compatible snapshot readers before publishing repairs. Older releases ignore repair records and can mix incorrect lineups with corrected scores; a rollback after repairs exist must target a compatible build. Never delete repair history or reverse the migration to make an old build start.

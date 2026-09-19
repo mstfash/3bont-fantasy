@@ -11,6 +11,8 @@ import {
   advanceDueGameweeks,
   publishGameweekResults,
 } from '../packages/application/dist/index.js';
+import { setTimeout } from 'node:timers/promises';
+import { exerciseSnapshotRepair } from './browser-snapshot-repair.mjs';
 
 export async function exerciseRoundResults(
   page,
@@ -84,7 +86,7 @@ export async function exerciseRoundResults(
     'UPDATE fantasy.fixture_assignments SET fixture_id=$1 WHERE competition_id=$2 AND gameweek_id=$3',
     [fixture.id, competition.id, round.id],
   );
-  const deadline = new Date(Date.now() - 1000).toISOString();
+  const deadline = new Date(Date.now() + 100).toISOString();
   await pool.query(
     'UPDATE fantasy.gameweeks SET deadline=$1,data=$2 WHERE id=$3',
     [
@@ -98,6 +100,7 @@ export async function exerciseRoundResults(
     ],
   );
   const db = createDatabase(pool);
+  await setTimeout(150);
   assert.equal((await advanceDueGameweeks(db, competition.id)).locked, 1);
   assert.equal(
     (await publishGameweekResults(db, round.id)).status,
@@ -283,6 +286,7 @@ export async function exerciseRoundResults(
   });
   await exerciseHistoricalRules(page, pool, base, round.id, slug);
   await exerciseExceptionalFixtures(page, pool, base, round.id, fixture.id);
+  await exerciseSnapshotRepair(page, pool, base, round.id, entry.id);
   await page.goto(`${base}/en/admin`);
   console.log(
     'Browser calendar extension and reviewed price-batch publication passed.',
