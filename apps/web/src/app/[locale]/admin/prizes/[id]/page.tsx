@@ -105,6 +105,37 @@ export default async function PrizeAdministration({
           </Link>
         )}
       </section>
+      {pool.state === 'published' && (
+        <section className="admin-panel">
+          <h2>
+            {ar ? 'معاينة أثر تصحيح النتائج' : 'Result correction projections'}
+          </h2>
+          <p>
+            {ar
+              ? 'اختر جولة لمقارنة الجوائز بالنقاط المنشورة مع التصحيح المقترح، دون تعديل أي قرار.'
+              : 'Choose a round to compare published-score awards with a proposed correction, without changing any decision.'}
+          </p>
+          <details>
+            <summary>{ar ? 'اختر الجولة' : 'Choose a gameweek'}</summary>
+            <ul>
+              {rounds
+                .filter(
+                  (r) =>
+                    pool.gameweekIds.includes(r.id) && r.resultRevision > 0,
+                )
+                .map((r) => (
+                  <li key={r.id}>
+                    <Link
+                      href={`/${locale}/admin/prizes/${pool.id}/corrections/${r.id}`}
+                    >
+                      {r.name[locale]}
+                    </Link>
+                  </li>
+                ))}
+            </ul>
+          </details>
+        </section>
+      )}
       {pool.state === 'draft' && canPrepare && (
         <section className="group-card">
           <h2>{ar ? 'تحرير المسودة' : 'Edit draft'}</h2>

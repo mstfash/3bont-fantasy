@@ -1,10 +1,10 @@
+import { requirePrizeReader } from './prize-access.ts';
+export { requirePrizeReader } from './prize-access.ts';
 import { prizeEvidenceFingerprint } from './prize-correction-observation.ts';
 import type { createDatabase } from '@fantasy/persistence';
 import { type PrizePreview } from '@fantasy/contracts';
 import {
   AccessDenied,
-  capabilityScopes,
-  requireCapability,
   type Principal,
   type StaffGrant,
 } from './authorization.ts';
@@ -12,18 +12,6 @@ import { CommandRejected } from './errors.ts';
 import { calculatePrizePreview } from './prize-preview.ts';
 import { requireGroupReader } from './group-access.ts';
 type DB = ReturnType<typeof createDatabase>;
-export function requirePrizeReader(
-  principal: Principal,
-  grants: readonly StaffGrant[],
-  competitionId: string,
-) {
-  const capability = capabilityScopes(grants, 'prizes.prepare').some(
-    (s) => s === null || s === competitionId,
-  )
-    ? 'prizes.prepare'
-    : 'prizes.approve';
-  requireCapability(principal, grants, capability, competitionId, new Date());
-}
 export async function readPrizeAdministration(
   db: DB,
   principal: Principal,

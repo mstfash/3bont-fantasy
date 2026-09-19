@@ -1,0 +1,41 @@
+{
+  "slice": 35,
+  "date": "2026-09-19",
+  "providerRequests": 0,
+  "automaticAcceptanceEnabled": false,
+  "localVerification": {
+    "status": "passed",
+    "unitAndHarnessCases": 116,
+    "postgresCases": 99,
+    "publicSmokeCombinations": 56,
+    "authenticatedE2E": "passed",
+    "typecheck": "passed",
+    "lint": "passed",
+    "productionBuild": "passed"
+  },
+  "sources": {
+    "packages/application/src/prize-access.ts": "c94d52a2a4276c48ce666e4c0699c96f73585871ea64868e6bcb362ceefe3c6b",
+    "packages/application/src/prize-allocation-inputs.ts": "5f084c9d50fe26a11eb642b95d92a40f5769daec6ff6fe28df9327bed714791c",
+    "packages/application/src/prize-preview.ts": "b6e5b4db252da542ef984c5b5c1dc15a27a48310711c23f9cde04c18139e0bb8",
+    "packages/application/src/prize-result-impact.ts": "5261e22b69332e9f14f99f3d45919a16a2e100971918f0c5919ee73a79f4feb2",
+    "packages/application/src/prize-result-preview.ts": "8010d61284228d6c7ab910827982bf53fe5725adde1b3b1344dfe768cd814c01",
+    "packages/application/src/round-result-projection.ts": "a64a1aa28a07330f559130f59b7a014e3bf76613e47872d652d47ed6c45d9429",
+    "packages/application/src/result-impact.ts": "c8a5d01e60362b617f0a62629b62f0f8ced8e0b0773f7c49c2f1ef68ab8b0f95",
+    "packages/application/src/result-preview.ts": "aa9f83025858b59d295b51f4309dabcb1259e7cc0cdd1d4a5716bf9f35c72362",
+    "packages/application/src/results.ts": "99467e64e784c12d35d61db0d3cbd5bdcc28a095c8a22ad3a37d2336d1070c0a",
+    "apps/web/src/components/prizes/result-impact.tsx": "cc60b9ad652abb6d5da75537f85c499fed67ffc97bd07c7b061b1273253babd9",
+    "apps/web/src/components/result-impact-summary.tsx": "cfca56e0d1a31da342e926efa2867ac9e7ba874663706f1cdc80f895ca6a2277",
+    "apps/web/src/app/[locale]/admin/prizes/[id]/corrections/[gameweek]/page.tsx": "8d5c525d7f871aad148b396ed71c6136ca8ee247b304452d4551177688430571",
+    "packages/application/tests/postgres-prize-result-impact.test.ts": "58c04fe00d46ccdf14931c25e4153a77859a203d5fdb1054b7ba850bcb78a395",
+    "scripts/browser-prize-impact.mjs": "60a250b12e55f68fae59559b388ed37a4207805dd17af3d760a177085aa231fa"
+  },
+  "review": {
+    "structure": "No high-confidence structural blockers. Strict preparation and hypothetical allocation share eligibility and allocation mechanics without bypassing finality. Financial read authorization precedes the new prize-only preview; competition responses redact financial details. Reopening binds all affected pool dependencies.",
+    "visual": "English desktop and Arabic mobile inspected; fixed navigation, internal table scrolling, localized help and links retained."
+  },
+  "limits": [
+    "One competition/gameweek against currently reviewed facts; global pre-write shared-fixture preview and historical rules replay remain open",
+    "Hypothetical allocations do not prepare, approve, deliver, refund or recover awards",
+    "No provider requests, current-season coverage validation, live acceptance, staging deployment or production load/restore proof"
+  ]
+}

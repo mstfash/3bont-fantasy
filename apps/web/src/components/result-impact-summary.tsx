@@ -1,4 +1,5 @@
 import type { previewGameweekResults } from '@fantasy/application';
+import { PrizeResultImpact } from './prizes/result-impact';
 import { RankingImpactTable } from './ranking-impact-table';
 import { GroupResultImpact } from './group-result-impact';
 import type { Locale } from '@/lib/brand';
@@ -11,7 +12,12 @@ export function ResultImpactSummary({
   readonly locale: Locale;
   readonly preview: Pick<
     Preview,
-    'rankings' | 'rankingPolicy' | 'prizes' | 'settled' | 'groupImpact'
+    | 'rankings'
+    | 'rankingPolicy'
+    | 'prizes'
+    | 'settled'
+    | 'groupImpact'
+    | 'prizeImpacts'
   >;
 }) {
   const ar = locale === 'ar';
@@ -103,6 +109,21 @@ export function ResultImpactSummary({
           </>
         )}
       </section>
+      {preview.prizeImpacts === null
+        ? preview.prizes.publishedPools > 0 && (
+            <p>
+              {ar
+                ? 'تفاصيل التوزيع متاحة لأدوار إدارة الجوائز واعتمادها فقط.'
+                : 'Allocation details require prize preparation or approval access.'}
+            </p>
+          )
+        : preview.prizeImpacts.map((impact) => (
+            <PrizeResultImpact
+              key={impact.pool.id}
+              impact={impact}
+              locale={locale}
+            />
+          ))}
     </>
   );
 }
