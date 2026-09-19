@@ -7,7 +7,7 @@ import {
 import { getRuntime } from '@/server/runtime';
 
 export async function POST(request: Request): Promise<Response> {
-  const { config, auth, db } = getRuntime();
+  const { config, getIdentity, db } = getRuntime();
   if (request.headers.get('origin') !== new URL(config.APP_BASE_URL).origin)
     return Response.json({ code: 'access-denied' }, { status: 403 });
   try {
@@ -15,7 +15,7 @@ export async function POST(request: Request): Promise<Response> {
     const input: unknown = JSON.parse(text);
     await verifyStaffChallenge(
       db,
-      auth,
+      await getIdentity(),
       request.headers,
       staffChallengeSchema.parse(input),
     );

@@ -6,6 +6,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { promisify } from 'node:util';
 import { setTimeout } from 'node:timers/promises';
+import { verifyTlsBoundary } from './container-tls-proof.mjs';
 const execute = promisify(execFile),
   suffix = randomBytes(6).toString('hex');
 const directory = await mkdtemp(join(tmpdir(), '3bont-container-proof-'));
@@ -15,6 +16,7 @@ const network = `3bont-proof-${suffix}`,
   worker = `${network}-worker`,
   unready = `${network}-unready`;
 const containers = [];
+const additionalNetworks = [];
 let networkCreated = false;
 const secretValues = [];
 const docker = async (args, timeout = 30000) =>
@@ -90,6 +92,39 @@ try {
     `APP_ENV=local\nAPP_BASE_URL=http://127.0.0.1:3100\nDATABASE_URL=postgresql://fantasy:${password}@database:5432/fantasy_container_proof\nBETTER_AUTH_SECRET=${randomBytes(32).toString('hex')}\nMAIL_MODE=local\nMAIL_OUTBOX_DIR=/tmp/mail\n`,
     { mode: 0o600 },
   );
+  // Validate the real release template without resolving or printing private
+  // production configuration. These files belong only to this disposable run.
+  for (const name of [
+    'web.env',
+    'worker.env',
+    'database-password',
+    'pgbackrest.conf',
+  ])
+    await writeFile(join(directory, name), 'PROOF_ONLY=true\n', {
+      mode: 0o600,
+    });
+  const releasePath = join(directory, 'release.env');
+  await writeFile(
+    releasePath,
+    [
+      `SECRETS_DIR=${directory}`,
+      'APP_HOST=fantasy.example.test',
+      `WEB_IMAGE=${imageIds.web}`,
+      `WORKER_IMAGE=${imageIds.worker}`,
+      'POSTGRES_IMAGE=3bont-fantasy-postgres:local-proof',
+      '',
+    ].join('\n'),
+    { mode: 0o600 },
+  );
+  await privateRun([
+    'compose',
+    '--env-file',
+    releasePath,
+    '-f',
+    'infrastructure/production.compose.yml',
+    'config',
+    '--quiet',
+  ]);
   await docker(['network', 'create', network]);
   networkCreated = true;
   containers.push(database);
@@ -154,6 +189,17 @@ try {
     }
   }, 'unmigrated web returns unavailable');
   assert.deepEqual(await (await health()).json(), { status: 'unavailable' });
+  for (const method of ['GET', 'POST']) {
+    const unavailableIdentity = await fetch(`${base}/api/auth/get-session`, {
+      method,
+      ...(method === 'POST' ? { body: '{}' } : {}),
+      signal: AbortSignal.timeout(6000),
+    });
+    assert.equal(unavailableIdentity.status, 503);
+    assert.deepEqual(await unavailableIdentity.json(), {
+      code: 'SERVICE_UNAVAILABLE',
+    });
+  }
   containers.push(unready);
   await privateRun([
     'run',
@@ -240,6 +286,20 @@ try {
   const logo = await fetch(`${base}/brand/3bont-fantasy-en-light.png`);
   assert.equal(logo.status, 200);
   assert.match(logo.headers.get('content-type') ?? '', /^image\/png/u);
+  await verifyTlsBoundary({
+    docker: privateRun,
+    eventually,
+    sql,
+    directory,
+    network,
+    database,
+    additionalNetworks,
+    containers,
+    hardened,
+    webImage: imageIds.web,
+    password,
+    localBase: base,
+  });
   containers.push(worker);
   await privateRun([
     'run',
@@ -289,7 +349,9 @@ try {
         checks: [
           'unmigrated web unavailable',
           'unmigrated worker refused',
+          'unmigrated identity unavailable and healthy authentication after migration',
           'migration command',
+          'production Compose template validates without exposing configuration',
           'ready response and no-store',
           'changed checksum unavailable',
           'non-root web and worker',
@@ -305,7 +367,7 @@ try {
         limitations: [
           'No production deployment',
           'No off-host restoration or load benchmark',
-          'Source checkout has no committed release revision',
+          'Local images use the working checkout; production requires an exact protected commit and registry digests',
         ],
       },
       null,
@@ -318,9 +380,12 @@ try {
 } catch (error) {
   const diagnostics = [];
   for (const name of containers) {
-    const log = await docker(['logs', '--tail', '35', name]).catch(
-      () => 'Container log unavailable',
-    );
+    const log = await execute('docker', ['logs', '--tail', '35', name], {
+      timeout: 10000,
+      maxBuffer: 1024 * 1024,
+    })
+      .then(({ stdout, stderr }) => stdout + stderr)
+      .catch(() => 'Container log unavailable');
     const state = await docker([
       'inspect',
       '--format',
@@ -340,6 +405,8 @@ try {
 } finally {
   for (const name of containers.reverse())
     await docker(['rm', '--force', name]).catch(() => {});
+  for (const name of additionalNetworks.reverse())
+    await docker(['network', 'rm', name]).catch(() => {});
   if (networkCreated) await docker(['network', 'rm', network]).catch(() => {});
   await rm(directory, { recursive: true, force: true });
 }

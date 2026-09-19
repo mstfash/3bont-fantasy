@@ -11,7 +11,8 @@ export async function GET(
 ) {
   const id = idSchema.safeParse((await params).id).data;
   if (!id) return new Response(null, { status: 404 });
-  const { db, auth } = getRuntime();
+  const { db, getIdentity } = getRuntime();
+  const auth = await getIdentity();
   try {
     const session = await auth.api.getSession({ headers: request.headers });
     const staff = session

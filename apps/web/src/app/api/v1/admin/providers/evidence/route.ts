@@ -11,7 +11,8 @@ export async function GET(request: Request): Promise<Response> {
     'X-Content-Type-Options': 'nosniff',
   };
   try {
-    const { db, auth } = getRuntime();
+    const { db, getIdentity } = getRuntime();
+    const auth = await getIdentity();
     const session = await auth.api.getSession({ headers: request.headers });
     if (!session)
       return Response.json(

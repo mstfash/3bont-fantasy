@@ -1,11 +1,18 @@
 import { Pool } from 'pg';
-import { createDatabase } from '@fantasy/persistence';
+import { applicationSchemaReady, createDatabase } from '@fantasy/persistence';
 import {
   createIdentity,
   localMailTransport,
   parseApplicationConfiguration,
   resendMailTransport,
 } from '@fantasy/application';
+
+export class IdentityUnavailable extends Error {
+  constructor() {
+    super('Identity is not ready');
+    this.name = 'IdentityUnavailable';
+  }
+}
 
 function createRuntime() {
   const config = parseApplicationConfiguration(process.env);
@@ -19,13 +26,28 @@ function createRuntime() {
     config.MAIL_MODE === 'local'
       ? localMailTransport(config.MAIL_OUTBOX_DIR)
       : resendMailTransport(config.RESEND_API_KEY ?? '', config.MAIL_FROM);
-  const auth = createIdentity(pool, {
-    baseURL: config.APP_BASE_URL,
-    secret: config.BETTER_AUTH_SECRET,
-    secureCookies: config.APP_ENV === 'production',
-    sendMail,
-  });
-  return { config, pool, db: createDatabase(pool), auth };
+  let identity: Promise<ReturnType<typeof createIdentity>> | undefined;
+  const getIdentity = (): Promise<ReturnType<typeof createIdentity>> => {
+    identity ??= (async () => {
+      if (!(await applicationSchemaReady(pool)))
+        throw new IdentityUnavailable();
+      const auth = createIdentity(pool, {
+        baseURL: config.APP_BASE_URL,
+        secret: config.BETTER_AUTH_SECRET,
+        secureCookies: config.APP_ENV === 'production',
+        sendMail,
+      });
+      await auth.$context;
+      return auth;
+    })().catch(() => {
+      // A probe during startup must not permanently cache failed identity
+      // initialization. Concurrent callers share one attempt; later calls retry.
+      identity = undefined;
+      throw new IdentityUnavailable();
+    });
+    return identity;
+  };
+  return { config, pool, db: createDatabase(pool), getIdentity };
 }
 
 let runtime: ReturnType<typeof createRuntime> | undefined;
