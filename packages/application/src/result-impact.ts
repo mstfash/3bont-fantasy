@@ -8,9 +8,10 @@ import {
   type EntryResult,
   type Gameweek,
 } from '@fantasy/contracts';
+import { calculateGroupResultImpact } from './group-result-impact.ts';
 import { calculateRoundInputs } from './round-inputs.ts';
 import { calculateEntryResult } from './entry-calculation.ts';
-import { standingsWithinTransaction } from './leaderboard.ts';
+import { standingsWithinTransaction, compareStandings } from './leaderboard.ts';
 
 /** Caller holds a consistent read snapshot, or the competition/fixture write barriers. */
 export async function calculateResultImpact(
@@ -98,22 +99,13 @@ export async function calculateResultImpact(
         },
       })
     : null;
-  const afterByEntry = new Map(afterRanks?.map((row) => [row.entryId, row]));
-  const rankings =
-    afterRanks === null
-      ? null
-      : beforeRanks.map((before) => {
-          const after = afterByEntry.get(before.entryId);
-          if (!after) throw new Error('Correction preview lost a ranked entry');
-          return {
-            entryId: before.entryId,
-            name: before.name,
-            beforeRank: before.rank,
-            afterRank: after.rank,
-            beforePoints: before.points,
-            afterPoints: after.points,
-          };
-        });
+  const rankings = compareStandings(beforeRanks, afterRanks);
+  const groupImpact = await calculateGroupResultImpact(
+    tx,
+    competition,
+    round,
+    complete ? replacement : null,
+  );
   const affectedPools = pools.filter((pool) =>
     pool.data.gameweekIds.includes(round.id),
   );
@@ -149,7 +141,8 @@ export async function calculateResultImpact(
   const fingerprint = createHash('sha256')
     .update(
       JSON.stringify({
-        version: 'result-impact-v1',
+        version: 'result-impact-v2',
+        groups: groupImpact.fingerprint,
         roundId: round.id,
         facts: inputs.fingerprint,
         rankingPolicy: competition.rules.ranking,
@@ -188,6 +181,7 @@ export async function calculateResultImpact(
     changes,
     rankings,
     rankingPolicy: competition.rules.ranking,
+    groupImpact,
     prizes,
   };
 }

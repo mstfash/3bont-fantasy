@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { exerciseGroupImpact } from './browser-group-impact.mjs';
 import { randomUUID } from 'node:crypto';
 import { expect } from '@playwright/test';
 import { publishGameweekResults } from '../packages/application/dist/index.js';
@@ -119,6 +120,7 @@ export async function exerciseResultImpact(
   ).rows;
   assert.equal(audit.length, 1);
   assert.equal(audit[0].payload.impact.prizes.publishedPools, 1);
+  await exerciseGroupImpact(page, pool, base);
   console.log(
     'Browser correction impact passed: overall ranks, prize holds, Arabic mobile layout and reviewed reopening.',
   );

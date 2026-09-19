@@ -1,0 +1,37 @@
+{
+  "slice": 34,
+  "date": "2026-09-19",
+  "providerRequests": 0,
+  "automaticAcceptanceEnabled": false,
+  "localVerification": {
+    "status": "passed",
+    "unitAndHarnessCases": 116,
+    "postgresCases": 89,
+    "publicSmokeCombinations": 56,
+    "authenticatedE2E": "passed",
+    "typecheck": "passed",
+    "lint": "passed",
+    "productionBuild": "passed"
+  },
+  "sources": {
+    "packages/application/src/group-result-impact.ts": "8bc4ccbd054ba76bceef62e7979c33163f05f9095090dc9dd0fc584b85bc975b",
+    "packages/application/src/head-to-head-standings.ts": "32151acd40b3f88c8082d26e8d270be8eb06a50a3611727fcd7e9a4c3a20c16b",
+    "packages/application/src/head-to-head-query.ts": "0b67574bc0b6aa3b03edbe6d8da0d577c14d54c3957b3544cafac545bd82dd47",
+    "packages/application/src/leaderboard.ts": "60269224dc46f7adcce8b02a954d679b3e6584e2c07cd4daccbdcd1344daa83e",
+    "packages/application/src/result-impact.ts": "121936d8864a11476f8ad93919b1050ca71faa11e41598d6de8e854d7b232d65",
+    "packages/application/src/result-preview.ts": "9016df3a6e748274217e30cc342ba5186614654eea175d376b1c4e9705889cd0",
+    "packages/application/src/results.ts": "731cd67712c3f47439394d914ca78b6b63764307afb693bb40eed3ad795169af",
+    "apps/web/src/components/group-result-impact.tsx": "4c971e52c101e22499023f3438bc229154d928cb7cdcfcb88d1b7bc142193bfe",
+    "apps/web/src/components/ranking-impact-table.tsx": "8665381bc633aa71940e08931601a51f7c8a05c3ed5c45d8aa41e360a64658e8",
+    "apps/web/src/components/result-impact-summary.tsx": "11034b174369946df1d0243c9c032d462743fb6c7f20131b0b275ac93b8a6109"
+  },
+  "review": {
+    "structure": "No high-confidence structural blockers. Published and projected H2H calculations share one loader/calculation; classic and overall rank differences share one helper. Private dependencies are filtered before the staff read response.",
+    "visual": "English desktop and Arabic mobile inspected; fixed navigation and internal horizontal table scrolling preserved."
+  },
+  "limits": [
+    "One competition/gameweek preview using reviewed current facts",
+    "Hypothetical prize allocations, global shared-fixture correction preview and historical rules replay remain open",
+    "No current-season provider validation, live acceptance, staging deployment or production load/restore proof"
+  ]
+}

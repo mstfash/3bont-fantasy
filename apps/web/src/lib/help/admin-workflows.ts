@@ -87,13 +87,13 @@ export const adminWorkflows = [
     en: [
       'Select a fixture and review eligibility, minutes and all scoring facts.',
       'Import or correct the report with a reason and source evidence; explicit overrides persist until removed.',
-      'Inspect competition result previews and pending issues. Reopen finalized rounds only through the reviewed result workflow.',
+      'Inspect overall, classic-league and H2H projections and pending issues. Private league details follow group read access. Reopen finalized rounds only through the reviewed result workflow.',
       'Check standings, affected prizes and delivered-award correction cases after publication.',
     ],
     ar: [
       'اختر مباراة وراجع الأهلية والدقائق وجميع حقائق احتساب النقاط.',
       'استورد التقرير أو صححه بسبب ودليل؛ تبقى التجاوزات الصريحة حتى إزالتها.',
-      'افحص معاينات نتائج البطولات والمشكلات المعلّقة. أعد فتح الجولات المعتمدة فقط عبر مسار النتائج المراجَع.',
+      'افحص معاينات الترتيب العام والدوريات الكلاسيكية والمواجهات والمشكلات المعلّقة. تخضع تفاصيل الدوريات الخاصة لصلاحية القراءة. أعد فتح الجولات المعتمدة فقط عبر مسار النتائج المراجَع.',
       'راجع الترتيب والجوائز المتأثرة وحالات تصحيح الجوائز المسلّمة بعد النشر.',
     ],
   },

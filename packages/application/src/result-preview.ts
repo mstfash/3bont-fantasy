@@ -1,5 +1,6 @@
 import type { createDatabase } from '@fantasy/persistence';
 import { gameweekSchema } from '@fantasy/contracts';
+import { visibleGroupImpact } from './group-result-impact.ts';
 import { calculateResultImpact } from './result-impact.ts';
 import {
   requireCapability,
@@ -32,6 +33,14 @@ export async function previewGameweekResults(
         round.competitionId,
         new Date(),
       );
-      return calculateResultImpact(tx, round);
+      const { groupImpact, ...impact } = await calculateResultImpact(tx, round);
+      return {
+        ...impact,
+        groupImpact: await visibleGroupImpact(
+          tx,
+          groupImpact,
+          principal.accountId,
+        ),
+      };
     });
 }

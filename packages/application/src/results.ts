@@ -378,6 +378,11 @@ export async function executeResultCommand(
               candidate.rankings?.filter(
                 (row) => row.beforeRank !== row.afterRank,
               ).length ?? null,
+            groupScopes: candidate.groupImpact.groups.length,
+            headToHeadEditions: candidate.groupImpact.groups.reduce(
+              (sum, group) => sum + group.headToHead.length,
+              0,
+            ),
             prizes: candidate.prizes,
           },
         },
