@@ -193,6 +193,9 @@ void test('duplicate and VAR events cannot silently rewrite a timeline', () => {
   for (const events of [
     [goal(1, 1, 20), goal(1, 1, 20)],
     [{ ...goal(1, 1, 20), type: 'Var', detail: 'Goal cancelled' }],
+    // Observed in the retained Egyptian 2024 match: an overturned penalty
+    // decision must not become a scored or missed penalty.
+    [{ ...goal(1, 1, 20), type: 'Var', detail: 'Penalty cancelled' }],
   ]) {
     const result = deriveProviderTimeline(fixture(events));
     assert.deepEqual(result.issues, ['timeline-event-ambiguous']);

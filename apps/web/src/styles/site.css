@@ -185,14 +185,18 @@
 .pitch-box.bottom {
   bottom: -1px;
 }
-.pitch-number {
+.pitch-brand-mark {
   z-index: 1;
-  font-family: var(--font-display);
-  font-size: clamp(260px, 34vw, 480px);
-  font-weight: 700;
-  line-height: 1;
-  color: var(--accent);
-  transform: skew(-9deg);
+  width: min(78%, 400px);
+  aspect-ratio: 600 / 488;
+  background: var(--accent);
+  /* Show only the original numeral: x=2366, y=1636, w=600, h=488
+     within the unchanged 5331 × 4450 transparent source logo. */
+  mask-image: url('/brand/originals/en-light.png');
+  mask-mode: alpha;
+  mask-size: 888.5% 911.8852%;
+  mask-position: 50.0106% 41.2923%;
+  mask-repeat: no-repeat;
   opacity: 0.92;
 }
 .pitch-stamp {
@@ -375,8 +379,8 @@
     border-inline-start: 0;
     border-top: 1px solid var(--border);
   }
-  .pitch-number {
-    font-size: 320px;
+  .pitch-brand-mark {
+    width: min(72%, 300px);
   }
   .hero-copy {
     padding-block: 44px;

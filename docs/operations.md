@@ -33,6 +33,8 @@ These are workload hypotheses, not customer demand. Load generation must state r
 
 One VPS initially runs reverse proxy/TLS, web, worker and PostgreSQL through reproducible containers. Bound worker concurrency, connection pools and memory so ingestion cannot starve transfers. Pin release images/dependencies; isolate staging data and keys. Keep secrets outside Git, redact logs and verify backups do not expose credentials.
 
+Keep host time synchronized and verify application/PostgreSQL clocks after VM sleep, restore or host migration. Staff proof timestamps come from PostgreSQL; authorization rejects future timestamps and expired proofs. Do not relax those checks to conceal clock drift. Integration fixtures for already-authenticated sessions use past timestamps rather than assuming simultaneous host/VM clocks.
+
 Use encrypted off-host database base backups plus continuous WAL archiving for point-in-time recovery, with 30-day retention as an initial policy and separate protected encryption keys. Monitor archive lag against RPO. Keep migration/restore runbooks and conduct a clean-host drill; a successful backup job is not restore evidence. PostgreSQL describes the mechanism in its [continuous archiving documentation](https://www.postgresql.org/docs/current/continuous-archiving.html).
 
 After restoration, run `pnpm --filter @fantasy/worker provider:pause-after-restore` before any provider worker fetch. Keep external traffic paused until its quota ledger is reconciled conservatively with verified current provider usage. A backup may predate already-spent calls. Reconcile pending email/fulfillment effects and idempotency before restarting workers; do not replay real payments (no automated payment integration is selected).

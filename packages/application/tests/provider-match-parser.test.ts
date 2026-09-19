@@ -232,6 +232,23 @@ void test('equal roster and statistics counts cannot hide a one-for-one player i
       error.code === 'normalization-lineup-conflict',
   );
 });
+void test('zero provider player IDs are held as invalid sources without becoming anonymous footballers', () => {
+  for (const resource of ['players', 'lineups'] as const) {
+    const f = providerTimelineFixture();
+    const row =
+      resource === 'players'
+        ? f.sources.players.payload.response[0]?.players[0]
+        : f.sources.lineups.payload.response[0]?.startXI[0];
+    assert.ok(row);
+    row.player.id = 0;
+    assert.throws(
+      () => parseProviderMatch(f.fixture, f.binding, f.mappings, f.sources),
+      (error: unknown) =>
+        error instanceof CommandRejected &&
+        error.code === 'normalization-source-invalid',
+    );
+  }
+});
 void test('missing goal aggregates are recovered from reconciled goal events, never from a null-to-zero default', () => {
   const f = providerTimelineFixture();
   const sources = {

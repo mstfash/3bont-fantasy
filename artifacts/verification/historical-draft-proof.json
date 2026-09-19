@@ -1,0 +1,18 @@
+{
+  "observedAt": "2026-09-19T21:48:50.676Z",
+  "competitionId": "5e6a9a08-267f-4338-a737-e25be4aee715",
+  "slug": "egypt-2024-test",
+  "state": "draft",
+  "clubs": 18,
+  "fixtures": 9,
+  "allFactsIncomplete": true,
+  "publicRouteStatuses": {
+    "en": 404,
+    "ar": 404
+  },
+  "visibleOnHome": false,
+  "sourceSha256": "27c611139a8d2616e50049a84e684751ae4d4a2a3a06d8e523ff32045419cc90",
+  "outboundProviderRequests": 0,
+  "applicationPostgresTests": 143,
+  "successfulRealMatchScoring": false
+}

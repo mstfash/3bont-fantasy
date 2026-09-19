@@ -21,13 +21,20 @@ export async function advanceDueGameweeks(
 ): Promise<DeadlineRun> {
   let discovery = db
     .selectFrom('gameweeks')
-    .select(['id', 'competition_id'])
-    .where('deadline', '<=', sql<Date>`clock_timestamp()`)
-    .where(sql<string>`data->>'status'`, '=', 'upcoming')
-    .orderBy('deadline')
+    .innerJoin('competitions', 'competitions.id', 'gameweeks.competition_id')
+    .select(['gameweeks.id', 'gameweeks.competition_id'])
+    .where('gameweeks.deadline', '<=', sql<Date>`clock_timestamp()`)
+    .where(sql<string>`gameweeks.data->>'status'`, '=', 'upcoming')
+    // Exclude inactive competitions before the batch limit, otherwise old
+    // drafts can permanently consume every discovery slot.
+    .where(sql<string>`competitions.data->>'status'`, 'in', [
+      'published',
+      'running',
+    ])
+    .orderBy('gameweeks.deadline')
     .limit(50);
   if (competitionId)
-    discovery = discovery.where('competition_id', '=', competitionId);
+    discovery = discovery.where('gameweeks.competition_id', '=', competitionId);
   const due = await discovery.execute();
   let lockedCount = 0;
   let entryCount = 0;

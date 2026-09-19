@@ -86,7 +86,7 @@ export default async function Home({
             <div className="pitch-box top" />
             <div className="pitch-box bottom" />
           </div>
-          <span className="pitch-number">3</span>
+          <span className="pitch-brand-mark" />
           <div className="pitch-stamp">
             YOUR SQUAD.
             <br />

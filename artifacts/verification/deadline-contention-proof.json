@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-09-19T20:36:32.710Z",
+  "verifiedAt": "2026-09-19T22:11:18.230Z",
   "status": "passed",
   "accounts": 100,
   "competitionsSharingSeason": 2,
@@ -18,7 +18,7 @@
     },
     {
       "path": "packages/application/src/deadlines.ts",
-      "sha256": "eafc9284e1d466a75686bd766bb150a1de96a0db5784f2328af3feb050453ba0"
+      "sha256": "1da5a0641362c07fe4c1ffc262b02ed06c3b43d74c0b35f107e9674ded0e1438"
     },
     {
       "path": "packages/application/src/entry-commands.ts",

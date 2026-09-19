@@ -10,6 +10,8 @@
   },
   "scripts": {
     "test:browser": "node scripts/browser-smoke.mjs",
+    "test:provider:replay": "pnpm --filter @fantasy/application... build && node scripts/replay-provider-match.mjs",
+    "test:historical:setup": "pnpm --filter @fantasy/worker... build && pnpm --filter @fantasy/worker test:historical:setup ../../.local/provider-validation/2026-09-19-replay-fixtures.json",
     "db:seed": "pnpm --filter @fantasy/worker... build && pnpm --filter @fantasy/worker db:seed",
     "dev": "turbo run dev",
     "local:setup": "node scripts/local-setup.mjs",

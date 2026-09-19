@@ -29,6 +29,7 @@ export { parseApplicationConfiguration } from './configuration.ts';
 export type { ApplicationConfiguration } from './configuration.ts';
 export { executeEntryCommand, CommandRejected } from './entry-commands.ts';
 export { seedDemo } from './demo.ts';
+export { seedHistoricalTestDraft } from './historical-test-draft.ts';
 export {
   loadStaffContext,
   verifyStaffChallenge,
