@@ -116,7 +116,7 @@
   color: var(--text-muted);
 }
 .leaderboard-list li:first-child .board-rank {
-  color: var(--accent);
+  color: var(--text);
 }
 .board-entry a {
   display: block;

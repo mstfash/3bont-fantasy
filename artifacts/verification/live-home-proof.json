@@ -12,7 +12,8 @@
     "authenticatedE2E": "passed",
     "typecheck": "passed",
     "lint": "passed",
-    "productionBuild": "passed"
+    "productionBuild": "passed",
+    "followup": "After the first-place contrast-only CSS adjustment, pnpm check and anonymous home-board E2E passed again. Final-head required CI reruns the complete suite."
   },
   "sources": [
     {
@@ -81,7 +82,7 @@
     },
     {
       "path": "apps/web/src/styles/home-board.css",
-      "sha256": "13e52478c597a732a4d056042560f674aba4ba0b2af4579a5e6672c9037c1a16"
+      "sha256": "8ca5d6fa09d8f32996e145c724da2fc41f50c38093a8caee4627cb5057250da8"
     },
     {
       "path": "apps/web/src/styles/site.css",
