@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { parseProviderMatch } from '../src/provider-match-parser.ts';
+import { providerTimelineFixture } from './provider-timeline-fixture.ts';
 import { normalizationFixture } from './provider-normalization-fixture.ts';
 import { CommandRejected } from '../src/errors.ts';
 void test('provider draft preserves missing values, never infers unused-bench minutes or on-pitch goals, and records used mappings', () => {
@@ -120,4 +121,161 @@ void test('shootout or replay statuses cannot be silently normalized as an ordin
         e.code === 'normalization-status-needs-review',
     );
   }
+});
+
+void test('complete reviewed draft derives substitution, own-goal and penalty facts while keeping acceptance gated', () => {
+  const f = providerTimelineFixture();
+  const result = parseProviderMatch(
+    f.fixture,
+    f.binding,
+    f.mappings,
+    f.sources,
+  );
+  const find = (id: number) => {
+    const row = result.observation.performances.find(
+      (p) => p.footballerId === f.identities.get(id),
+    );
+    assert.ok(row);
+    return row;
+  };
+  assert.equal(find(8003).statistics.minutes, 60);
+  assert.equal(find(8003).statistics.ownGoals, 1);
+  assert.equal(find(8003).statistics.concededWhileOnPitch, 2);
+  assert.equal(find(8003).statistics.concededAfterDismissal, 0);
+  assert.equal(find(8024).statistics.concededWhileOnPitch, 1);
+  assert.equal(find(8001).statistics.penaltyMisses, 1);
+  assert.equal(find(8014).statistics.penaltySaves, 1);
+  assert.equal(find(8014).statistics.savesIncludingPenalties, 2);
+  assert.deepEqual(find(8014).discipline, { kind: 'none' });
+  assert.equal(find(8002).statistics.minutes, null);
+  assert.equal(result.observation.fixture.factsComplete, false);
+  assert.equal(result.observation.eligibilityComplete, false);
+  assert.equal(
+    result.issues.some((issue) => issue.startsWith('timeline-')),
+    false,
+  );
+});
+void test('missing and inconsistent penalty/save aggregates remain unknown in the review draft', () => {
+  for (const options of [
+    { saves: null },
+    { saved: null },
+    { saves: 0, saved: 1 },
+    { saves: 4, saved: 2 },
+  ]) {
+    const f = providerTimelineFixture(options);
+    const result = parseProviderMatch(
+      f.fixture,
+      f.binding,
+      f.mappings,
+      f.sources,
+    );
+    const keeper = result.observation.performances.find(
+      (p) => p.footballerId === f.identities.get(8014),
+    );
+    assert.ok(keeper);
+    assert.equal(keeper.statistics.penaltySaves, null);
+    assert.equal(keeper.statistics.savesIncludingPenalties, null);
+  }
+  for (const missed of [null, 0, 2]) {
+    const f = providerTimelineFixture({ missed });
+    const result = parseProviderMatch(
+      f.fixture,
+      f.binding,
+      f.mappings,
+      f.sources,
+    );
+    const player = result.observation.performances.find(
+      (p) => p.footballerId === f.identities.get(8001),
+    );
+    assert.ok(player);
+    assert.equal(player.statistics.penaltyMisses, null);
+  }
+});
+void test('multiple goalkeeper reports cannot claim more penalty saves than the opposing misses', () => {
+  const f = providerTimelineFixture();
+  const away = f.sources.players.payload.response.find(
+    (team) => team.team.id === 7002,
+  );
+  assert.ok(away);
+  const second = away.players.find((row) => row.player.id === 8024)
+    ?.statistics[0];
+  assert.ok(second);
+  second.games.position = 'G';
+  second.goals.saves = 1;
+  second.penalty.saved = 1;
+  const result = parseProviderMatch(
+    f.fixture,
+    f.binding,
+    f.mappings,
+    f.sources,
+  );
+  for (const id of [8014, 8024]) {
+    const keeper = result.observation.performances.find(
+      (p) => p.footballerId === f.identities.get(id),
+    );
+    assert.ok(keeper);
+    assert.equal(keeper.statistics.penaltySaves, null);
+  }
+});
+void test('equal roster and statistics counts cannot hide a one-for-one player identity mismatch', () => {
+  const f = providerTimelineFixture();
+  const team = f.sources.players.payload.response[0];
+  const row = team?.players[0];
+  assert.ok(team && row);
+  const originalCount = team.players.length;
+  row.player.id = 999999;
+  assert.equal(team.players.length, originalCount);
+  assert.throws(
+    () => parseProviderMatch(f.fixture, f.binding, f.mappings, f.sources),
+    (error: unknown) =>
+      error instanceof CommandRejected &&
+      error.code === 'normalization-lineup-conflict',
+  );
+});
+void test('missing goal aggregates are recovered from reconciled goal events, never from a null-to-zero default', () => {
+  const f = providerTimelineFixture();
+  const sources = {
+    ...f.sources,
+    players: {
+      ...f.sources.players,
+      payload: {
+        ...f.sources.players.payload,
+        response: f.sources.players.payload.response.map((team) => ({
+          ...team,
+          players: team.players.map((row) => ({
+            ...row,
+            statistics: row.statistics.map((stats) => ({
+              ...stats,
+              goals: { ...stats.goals, total: null },
+            })),
+          })),
+        })),
+      },
+    },
+  };
+  const result = parseProviderMatch(f.fixture, f.binding, f.mappings, sources);
+  const scorer = result.observation.performances.find(
+    (p) => p.footballerId === f.identities.get(8001),
+  );
+  const defender = result.observation.performances.find(
+    (p) => p.footballerId === f.identities.get(8003),
+  );
+  assert.ok(scorer && defender);
+  assert.equal(scorer.statistics.goals, 2);
+  assert.equal(defender.statistics.goals, 0);
+  const incomplete = {
+    ...sources,
+    events: {
+      ...sources.events,
+      payload: { ...sources.events.payload, response: [], results: 0 },
+    },
+  };
+  const held = parseProviderMatch(f.fixture, f.binding, f.mappings, incomplete);
+  assert.ok(held.issues.includes('timeline-score-conflict'));
+  assert.equal(
+    held.observation.performances.find(
+      (p) => p.footballerId === f.identities.get(8001),
+    )?.statistics.goals,
+    null,
+  );
 });

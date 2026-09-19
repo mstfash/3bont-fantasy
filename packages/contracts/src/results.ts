@@ -140,7 +140,10 @@ export type RoundCalculation = z.infer<typeof roundCalculationSchema>;
 
 export const providerNormalizationPreviewSchema = z.strictObject({
   selection: providerNormalizationSelectionSchema,
-  adapterVersion: z.literal('api-football-reviewed-v1'),
+  adapterVersion: z.enum([
+    'api-football-reviewed-v1',
+    'api-football-reviewed-v2',
+  ]),
   fingerprint: z.string().regex(/^[a-f0-9]{64}$/u),
   observation: fixtureObservationSchema,
   binding: providerSeasonBindingSchema,

@@ -7,6 +7,7 @@ import {
   type ProviderSeasonBinding,
 } from '@fantasy/contracts';
 import { CommandRejected } from './errors.ts';
+import { deriveProviderTimeline } from './provider-event-timeline.ts';
 const id = z.int().positive();
 const count = z.int().min(0).max(10000).nullish();
 const envelope = z.object({
@@ -36,8 +37,12 @@ const playerTeam = z.object({
         statistics: z
           .array(
             z.object({
-              games: z.object({ minutes: count }),
-              goals: z.object({ total: count, assists: count }),
+              games: z.object({
+                minutes: count,
+                position: z.string().nullish(),
+              }),
+              goals: z.object({ total: count, assists: count, saves: count }),
+              penalty: z.object({ missed: count, saved: count }).optional(),
               cards: z.object({ yellow: count, red: count }).optional(),
             }),
           )
@@ -54,6 +59,8 @@ const lineup = z.object({
 const event = z.object({
   team: z.object({ id }),
   player: z.object({ id: id.nullable() }),
+  assist: z.object({ id: id.nullable() }).optional(),
+  time: z.object({ elapsed: count, extra: count }).optional(),
   type: z.string(),
   detail: z.string(),
 });
@@ -187,7 +194,56 @@ export function parseProviderMatch(
       participants.set(row.player.id, team.team.id);
       resolve('footballer', row.player.id);
     }
-  const issues = [
+  const rawStatistics = new Map(
+    teams.data.flatMap((team) =>
+      team.players.map((row) => [row.player.id, row.statistics[0]] as const),
+    ),
+  );
+  const timeline = deriveProviderTimeline({
+    home: source.teams.home.id,
+    away: source.teams.away.id,
+    homeGoals: source.goals.home ?? null,
+    awayGoals: source.goals.away ?? null,
+    players: lineups.data.flatMap((team) =>
+      [...team.startXI, ...team.substitutes].map((row) => {
+        const stats = rawStatistics.get(row.player.id);
+        return {
+          id: row.player.id,
+          teamId: team.team.id,
+          starter: team.startXI.some((p) => p.player.id === row.player.id),
+          minutes: stats?.games.minutes ?? null,
+          goals: stats?.goals.total ?? null,
+          yellow: stats?.cards?.yellow ?? null,
+          red: stats?.cards?.red ?? null,
+        };
+      }),
+    ),
+    events: events.data.map((item) => ({
+      ...item,
+      time: item.time
+        ? {
+            elapsed: item.time.elapsed ?? null,
+            extra: item.time.extra ?? null,
+          }
+        : undefined,
+    })),
+  });
+  const goalkeeperPenaltyTotals = new Map(
+    teams.data.map((team) => {
+      const counts = team.players
+        .flatMap((row) => row.statistics)
+        .filter((stats) => stats.games.position === 'G')
+        .map((stats) => stats.penalty?.saved ?? null);
+      return [
+        team.team.id,
+        counts.some((value) => value === null)
+          ? null
+          : counts.reduce<number>((total, value) => total + (value ?? 0), 0),
+      ] as const;
+    }),
+  );
+  const issues: string[] = [
+    ...timeline.issues,
     'eligibility-needs-evidence',
     'defensive-timeline-needs-review',
     'penalties-and-own-goals-need-review',
@@ -203,20 +259,43 @@ export function parseProviderMatch(
         throw new CommandRejected('normalization-lineup-conflict');
       const stats = row.statistics[0];
       if (!stats) throw new CommandRejected('normalization-source-invalid');
+      const derived = timeline.facts.get(row.player.id);
+      const missedByOpponents = [...timeline.facts].reduce(
+        (total, [playerId, facts]) =>
+          participants.get(playerId) !== team.team.id
+            ? total + facts.penaltyMisses
+            : total,
+        0,
+      );
+      const saves = stats.goals.saves ?? null,
+        penaltySaved = stats.penalty?.saved ?? null;
+      const teamPenaltySaves = goalkeeperPenaltyTotals.get(team.team.id);
+      const savesVerified =
+        derived &&
+        stats.games.position === 'G' &&
+        saves !== null &&
+        penaltySaved !== null &&
+        penaltySaved <= saves &&
+        teamPenaltySaves !== null &&
+        teamPenaltySaves !== undefined &&
+        teamPenaltySaves <= missedByOpponents;
       return {
         footballerId: resolve('footballer', row.player.id),
         statistics: {
           minutes: stats.games.minutes ?? null,
-          goals: stats.goals.total ?? null,
+          goals: stats.goals.total ?? derived?.goals ?? null,
           assists: stats.goals.assists ?? null,
-          ownGoals: null,
-          penaltyMisses: null,
-          concededWhileOnPitch: null,
-          concededAfterDismissal: null,
-          savesIncludingPenalties: null,
-          penaltySaves: null,
+          ownGoals: derived?.ownGoals ?? null,
+          penaltyMisses:
+            derived && stats.penalty?.missed === derived.penaltyMisses
+              ? derived.penaltyMisses
+              : null,
+          concededWhileOnPitch: derived?.concededWhileOnPitch ?? null,
+          concededAfterDismissal: derived?.concededAfterDismissal ?? null,
+          savesIncludingPenalties: savesVerified ? saves : null,
+          penaltySaves: savesVerified ? penaltySaved : null,
         },
-        discipline: null,
+        discipline: derived?.discipline ?? null,
       };
     }),
   );
