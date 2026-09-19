@@ -1,0 +1,3 @@
+# Use pgBackRest for encrypted PostgreSQL recovery
+
+Production recovery uses a pinned PostgreSQL/pgBackRest image, encrypted off-host base backups and continuous WAL archiving. The operator reviews a separate repository and key per environment, with timed backups and archive/freshness checks. Application readiness requires a writable primary, not merely readable migration tables. Recovery must restore into an isolated empty volume, reach the selected target, preserve published competition history and pause external provider effects before writes resume. An executable disposable drill validates those mechanisms; real off-host credentials, alerting and production-sized RPO/RTO remain deployment evidence gates.

@@ -89,6 +89,10 @@ export async function migrateApplication(pool: Pool): Promise<void> {
 export async function applicationSchemaReady(pool: Pool): Promise<boolean> {
   return withTransaction(pool, async (client) => {
     await client.query("SET LOCAL statement_timeout='2s'");
+    const primary = await client.query<{ writable: boolean }>(
+      "SELECT NOT pg_is_in_recovery() AND current_setting('transaction_read_only')='off' AS writable",
+    );
+    if (!primary.rows[0]?.writable) return false;
     const result = await client.query<{ id: string; checksum: string }>(
       'SELECT id,checksum FROM fantasy.schema_migrations WHERE id=ANY($1::text[])',
       [applicationMigrations.map((m) => m.id)],

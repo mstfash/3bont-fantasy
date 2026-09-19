@@ -1,0 +1,8 @@
+[Unit]
+Description=Verify backup freshness and WAL archival every five minutes
+[Timer]
+OnBootSec=3min
+OnUnitActiveSec=5min
+Unit=3bont-backup@status.service
+[Install]
+WantedBy=timers.target

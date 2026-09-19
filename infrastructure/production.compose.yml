@@ -1,13 +1,21 @@
 name: 3bont-fantasy
 services:
   postgres:
-    image: ${POSTGRES_IMAGE:?Set a reviewed PostgreSQL 17 image digest}
+    image: ${POSTGRES_IMAGE:?Set the built PostgreSQL 17 pgBackRest image digest}
     restart: unless-stopped
     environment:
       POSTGRES_DB: fantasy
       POSTGRES_USER: fantasy
       POSTGRES_PASSWORD_FILE: /run/secrets/database_password
-    secrets: [database_password]
+    secrets: [database_password, pgbackrest_config]
+    command:
+      - postgres
+      - -c
+      - archive_mode=on
+      - -c
+      - archive_timeout=60
+      - -c
+      - archive_command=pgbackrest --stanza=fantasy archive-push %p
     volumes:
       - database:/var/lib/postgresql/data
     healthcheck:
@@ -89,6 +97,8 @@ services:
     mem_limit: 512m
     logging: *bounded_logs
 secrets:
+  pgbackrest_config:
+    file: ${SECRETS_DIR}/pgbackrest.conf
   database_password:
     file: ${SECRETS_DIR}/database-password
 volumes:

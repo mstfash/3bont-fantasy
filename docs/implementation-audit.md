@@ -1,6 +1,6 @@
 # Implementation audit — remaining release work
 
-Updated 2026-09-19 against the shipped slice-39 baseline and the active production-readiness work. This replaces stale slice-29 assumptions; documentation is not completion evidence. The full release ledger is [production readiness](production-readiness.md).
+Updated 2026-09-19 against the shipped slice-40 baseline and the active production-readiness work. This replaces stale slice-29 assumptions; documentation is not completion evidence. The full release ledger is [production readiness](production-readiness.md).
 
 ## Implemented in the baseline
 
@@ -15,7 +15,7 @@ Updated 2026-09-19 against the shipped slice-39 baseline and the active producti
 
 - Exceptional fixture decisions need explicit official evidence and retained disposition history; a full replay has a new identity, while resumed play replaces the cumulative report. Zero-performance rounds require reviewed settlement after lock. Merged after exact-head required CI in PR 13.
 - Historical participant-snapshot repair now derives from the latest original accepted command before deadline, retains original/repair versions and atomically publishes the repaired result. Slice 39 includes private exports, version-safe public reads and failure/concurrency/browser coverage.
-- Slice 40 adds owner-approved automatic FT acceptance, strict data/source/freshness holds, atomic evidence and idempotency. Full local verification passed; licensed provider validation remains separate.
+- Slice 40 adds owner-approved automatic FT acceptance, strict data/source/freshness holds, atomic evidence and idempotency. Merged after exact-head CI in PR 15; licensed provider validation remains separate.
 
 - A01–A62 are indexed in [acceptance evidence](acceptance-evidence.md). A dedicated persisted club-move/next-transfer replay for A13/A59 now exercises actual catalogue moves and repair transfers.
 
@@ -26,3 +26,5 @@ Updated 2026-09-19 against the shipped slice-39 baseline and the active producti
 - Measured workload/cutoff contention and worker interruption on the selected hardware, retention/backup expiry procedures, operating/prize terms and final operator acceptance.
 
 Continue independently on software and local rehearsal while external inputs are pending. Preserve current behavior through exact-head tests and protected PRs; do not declare launch readiness because a test count increased.
+
+Slice 41 implements encrypted base/WAL backup tooling and clean-volume recovery with wrong-key/missing-WAL checks. Writable-primary readiness is enforced. Local mechanism proof does not close off-host access, alert delivery or production-sized recovery evidence.
