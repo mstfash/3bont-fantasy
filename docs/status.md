@@ -4,6 +4,8 @@ Updated 2026-09-19.
 
 Provider discovery: the supplied Free key authenticates but rejects 2026 (allowed 2022–2024). Three requests made; last daily remaining header was 98. Origin is connected to the supplied GitHub repository. Automatic collection remains off. See [account evidence and next steps](provider-account-validation-2026-09-19.md) and [valuation sourcing](market-valuation-sourcing.md).
 
+See [release execution order](release-execution-plan.md) and [slice 33](implementation-slice-33.md) for the Git checkpoint, mandatory CI and reviewed match-timeline work.
+
 ## Implemented and verified
 
 - Source archive, domain glossary, direct-answer history, delegated recommendations, canonical rules, release scope, evidence gates and delivery plan.

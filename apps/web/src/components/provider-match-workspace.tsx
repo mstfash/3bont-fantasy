@@ -26,6 +26,30 @@ const fields = [
   ['eventsAttemptId', 'fixtures/events', 'Events', 'أحداث المباراة'],
 ] as const;
 const issueLabels: Readonly<Record<string, { en: string; ar: string }>> = {
+  'timeline-lineup-incomplete': {
+    en: 'The timeline needs two complete starting elevens with unique player identities.',
+    ar: 'يحتاج تسلسل الأحداث إلى تشكيلين أساسيين كاملين دون تكرار هوية أي لاعب.',
+  },
+  'timeline-time-missing': {
+    en: 'An event has missing or unsupported timing. Verify stoppage time and exclude shootouts.',
+    ar: 'توقيت أحد الأحداث مفقود أو غير مدعوم. راجع الوقت بدل الضائع واستبعد ركلات الترجيح.',
+  },
+  'timeline-event-ambiguous': {
+    en: 'Duplicate events, video reviews or events in the same minute leave the sequence uncertain.',
+    ar: 'تكرار الأحداث أو مراجعة الفيديو أو وقوع أحداث في الدقيقة نفسها يجعل ترتيبها غير مؤكد.',
+  },
+  'timeline-score-conflict': {
+    en: 'The goal events do not establish the reported final score.',
+    ar: 'أحداث الأهداف لا تثبت النتيجة النهائية المسجلة.',
+  },
+  'timeline-participation-conflict': {
+    en: 'Lineups, substitutions, dismissals and reported playing minutes do not agree.',
+    ar: 'يوجد اختلاف بين التشكيلات والتبديلات والطرد ودقائق المشاركة المسجلة.',
+  },
+  'timeline-cards-conflict': {
+    en: 'Card events and totals disagree; affected defensive and disciplinary facts stay unknown.',
+    ar: 'تختلف أحداث البطاقات عن إجمالياتها؛ تظل البيانات الدفاعية والانضباطية المتأثرة غير معروفة.',
+  },
   'eligibility-needs-evidence': {
     en: 'Establish the complete historical eligibility roster, including non-appearances.',
     ar: 'راجع قائمة المؤهلين وقت المباراة، بما فيها من لم يشارك.',

@@ -1,0 +1,40 @@
+{
+  "slice": 33,
+  "date": "2026-09-19",
+  "providerRequestsThisSlice": 0,
+  "automaticAcceptanceEnabled": false,
+  "sources": {
+    "packages/application/src/provider-event-timeline.ts": "6631990ac5ffbca0c504c67ae548b55f0789cff25411da682f617c3a2fddf6dd",
+    "packages/application/src/provider-match-parser.ts": "d9df91fb7fd685089969ad875ff3872a3c43148fac0c5a3aefd10de7bfabf8d8",
+    "apps/web/src/components/provider-match-workspace.tsx": "f164a96b46aadd580b473dd38dd1669f2fa167bb9f1554915f61516289ae2fa8"
+  },
+  "localFullVerification": {
+    "status": "passed",
+    "unitAndHarnessCases": 108,
+    "postgresCases": 83,
+    "publicSmokeCombinations": 56,
+    "authenticatedE2E": "passed",
+    "note": "Full suite before the final conservative dismissal-total hold. Final change separately passed application types, lint and 31 unit cases; remote PR CI validates final contents."
+  },
+  "finalApplicationChecks": {
+    "typecheck": "passed",
+    "lint": "passed",
+    "unitCases": 31
+  },
+  "ciBaseline": {
+    "checkpoint": "d7ca961f09b96f3423803a3488b1dbe0eb2d1394",
+    "pullRequest": "https://github.com/mstfash/3bont-fantasy/pull/7",
+    "passingRun": "https://github.com/mstfash/3bont-fantasy/actions/runs/35443701962",
+    "mergeCommit": "75e4c2ee94bf25199974c2e4ca5f6272a75cfba9",
+    "requiredCheck": "Required checks",
+    "githubAppId": 15368,
+    "enforceAdmins": true,
+    "strictCurrentHead": true
+  },
+  "limits": [
+    "Synthetic source evidence only",
+    "No current-season access or valuation license established",
+    "Reviewed drafts remain incomplete until staff establishes eligibility and verifies facts",
+    "Historical rules replay and cross-competition correction projections remain open"
+  ]
+}
