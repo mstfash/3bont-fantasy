@@ -334,6 +334,48 @@ try {
     'provider automation disabled by default',
   );
   assert.equal(await docker(['exec', worker, 'id', '-u']), '1000');
+  const completedCycles = Number(
+    await sql(
+      "SELECT count(*) FROM fantasy.worker_runs WHERE task='game-cycle' AND status='ok'",
+    ),
+  );
+  const startedAt = await docker([
+    'inspect',
+    '--format',
+    '{{.State.StartedAt}}',
+    worker,
+  ]);
+  assert.ok(
+    Number(
+      await sql(
+        "SELECT count(*) FROM pg_stat_activity WHERE application_name='3bont-fantasy-worker' AND state='idle'",
+      ),
+    ) > 0,
+  );
+  await sql(
+    "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE application_name='3bont-fantasy-worker' AND state='idle'",
+  );
+  await privateRun([
+    'exec',
+    worker,
+    'node',
+    '--input-type=module',
+    '-e',
+    "import {PgBoss} from 'pg-boss';const boss=new PgBoss({connectionString:process.env.DATABASE_URL,schema:'fantasy_jobs'});boss.on('error',()=>{});await boss.start();await boss.send('lock-gameweeks');await boss.stop();",
+  ]);
+  await eventually(
+    async () =>
+      Number(
+        await sql(
+          "SELECT count(*) FROM fantasy.worker_runs WHERE task='game-cycle' AND status='ok'",
+        ),
+      ) > completedCycles,
+    'worker processes another durable job after losing idle database connections',
+  );
+  assert.equal(
+    await docker(['inspect', '--format', '{{.State.StartedAt}}', worker]),
+    startedAt,
+  );
   await docker(['stop', '--time', '20', worker], 30000);
   assert.equal(
     await docker(['inspect', '--format', '{{.State.ExitCode}}', worker]),
@@ -361,6 +403,7 @@ try {
           'durable game-cycle job',
           'provider automation disabled by default',
           'graceful worker shutdown',
+          'worker survives idle PostgreSQL disconnect and completes its next durable job',
         ],
         environment:
           'Isolated local Docker database and network; no live mail or provider traffic',

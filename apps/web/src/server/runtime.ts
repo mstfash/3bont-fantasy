@@ -1,5 +1,8 @@
-import { Pool } from 'pg';
-import { applicationSchemaReady, createDatabase } from '@fantasy/persistence';
+import {
+  applicationSchemaReady,
+  createDatabase,
+  createManagedPool,
+} from '@fantasy/persistence';
 import {
   createIdentity,
   localMailTransport,
@@ -16,7 +19,7 @@ export class IdentityUnavailable extends Error {
 
 function createRuntime() {
   const config = parseApplicationConfiguration(process.env);
-  const pool = new Pool({
+  const pool = createManagedPool({
     connectionString: config.DATABASE_URL,
     max: 10,
     connectionTimeoutMillis: 3000,

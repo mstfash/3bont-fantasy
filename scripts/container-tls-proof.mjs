@@ -288,6 +288,46 @@ export async function verifyTlsBoundary({
         'Forged forwarding headers share the actual client rate limit',
       );
     }
+    const startedAt = await docker([
+      'inspect',
+      '--format',
+      '{{.State.StartedAt}}',
+      web,
+    ]);
+    await docker(['stop', '--time', '10', database]);
+    assert.equal(
+      (await send('/api/health')).status,
+      503,
+      'Database outage is unavailable without crashing the web process',
+    );
+    await docker(['start', database]);
+    await eventually(async () => {
+      try {
+        return (await send('/api/health')).status === 200;
+      } catch {
+        return false;
+      }
+    }, 'same web process recovers after database restart');
+    assert.equal(
+      await docker(['inspect', '--format', '{{.State.StartedAt}}', web]),
+      startedAt,
+    );
+    assert.equal(
+      JSON.parse(
+        (await send('/api/auth/get-session', { headers: { cookie } })).body,
+      ).user.email,
+      email,
+    );
+    const stillLimited = await send('/api/auth/sign-in/email', {
+      method: 'POST',
+      headers: authHeaders,
+      body: JSON.stringify({ email, password: accountPassword }),
+    });
+    assert.equal(
+      stillLimited.status,
+      429,
+      'Database restart does not reset the durable authentication limit',
+    );
     const signedOut = await send('/api/auth/sign-out', {
       method: 'POST',
       headers: { ...authHeaders, cookie },
@@ -327,6 +367,7 @@ export async function verifyTlsBoundary({
       'scripts/container-smoke.mjs',
       'packages/application/src/identity.ts',
       'apps/web/src/server/runtime.ts',
+      'packages/persistence/src/pool.ts',
       'apps/web/src/app/api/health/route.ts',
       'apps/web/src/app/api/auth/[...all]/route.ts',
     ];
@@ -357,6 +398,7 @@ export async function verifyTlsBoundary({
             'cross-origin sign-out refused',
             'forged forwarding headers cannot bypass authentication limit',
             'backend failure is observable without request tokens or cookies',
+            'database restart preserves the web process, session and durable authentication limit',
           ],
           limitations: [
             'Local internal CA, not public ACME/DNS/renewal evidence',

@@ -1,0 +1,33 @@
+{
+  "verifiedAt": "2026-09-19T20:36:32.710Z",
+  "status": "passed",
+  "accounts": 100,
+  "competitionsSharingSeason": 2,
+  "entries": 200,
+  "initialAcceptedCommands": 300,
+  "queuedLateRequestsRejected": 200,
+  "snapshotsRolledBackBeforeRecovery": 25,
+  "snapshotsAfterRecovery": 200,
+  "competingRecoveryRuns": 6,
+  "originalReceiptsPreserved": true,
+  "exactInventoryAndBalancePreserved": true,
+  "sources": [
+    {
+      "path": "packages/application/tests/postgres-deadline-contention.test.ts",
+      "sha256": "cf325f2df0a08584d006a90cf78c8461d7848ff96eab3ba284a42598d8b4e3d5"
+    },
+    {
+      "path": "packages/application/src/deadlines.ts",
+      "sha256": "eafc9284e1d466a75686bd766bb150a1de96a0db5784f2328af3feb050453ba0"
+    },
+    {
+      "path": "packages/application/src/entry-commands.ts",
+      "sha256": "d6b2b2a5806bad82ce6cebef1eb7e25c1ead08e81030cec2fbcffd5c9bd09595"
+    },
+    {
+      "path": "packages/persistence/src/pool.ts",
+      "sha256": "1374f6ab30b20c8969ba3bb4d0662abefcef639db73bc013ca916f18d8934269"
+    }
+  ],
+  "boundary": "Disposable PostgreSQL correctness rehearsal with direct application commands. Not the full HTTP/browser workload, production-sized history, a throughput benchmark or named-host capacity evidence."
+}
