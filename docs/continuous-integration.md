@@ -1,14 +1,14 @@
 # Git checkpoint and mandatory verification
 
-The `CI` workflow runs for pull requests, main/codex branch pushes, merge groups and manual dispatch. Every job uses read-only repository permissions. Actions are pinned to reviewed commit IDs; dependency update PRs keep those pins maintainable. The workflow needs no production credentials or paid football requests.
+The `CI` workflow runs for pull requests, main branch pushes, merge groups and manual dispatch. Every job uses read-only repository permissions. Actions are pinned to reviewed commit IDs; dependency update PRs keep those pins maintainable. The workflow needs no production credentials or paid football requests.
 
 Three independent jobs feed the stable `Required checks` gate:
 
 1. Full reachable Git history scanning with Gitleaks 8.30.1, using a checksum-verified binary and redacted output.
-2. Frozen dependency installation, strict formatting/lint/types/build/unit checks, disposable PostgreSQL integration tests, 56 public smoke combinations and authenticated browser E2E. CI generates its own private environment, local mail sink and synthetic database; no developer environment is copied.
+2. Frozen dependency installation, strict formatting/lint/types/build/unit checks, disposable PostgreSQL integration tests, 56 public smoke combinations and authenticated browser E2E. CI generates its own private environment, local mail sink, synthetic catalogue and scored competition replay; no developer environment is copied.
 3. Linux web/worker image builds and isolated runtime/readiness/migration/worker tests.
 
-Skipped, cancelled and failed dependencies make the gate fail. Branch protection must require this gate from GitHub Actions on an up-to-date pull request, including for administrators. Workflow presence alone does not enforce merging; the live repository setting is verified separately when the baseline is published. No path filters may skip the required gate.
+Skipped, cancelled and failed dependencies make the gate fail. Branch protection must require this gate from GitHub Actions on an up-to-date pull request, including for administrators. Workflow presence alone does not enforce merging; the live main-branch protection was configured and read back on 2026-09-19: strict current-head checks from GitHub Actions (app 15368), pull requests required, enforcement includes administrators, force pushes/deletion disabled. No path filters may skip the required gate.
 
 Raw source-chat exports, private environments, database/mail files, runtime logs and generated browser screenshots are excluded from Git. Curated product decisions, source code and sanitized verification records form the checkpoint. Generated screenshots remain local review artifacts; CI does not upload mail, account exports, logs or database snapshots.
 
