@@ -217,3 +217,65 @@ void test('multiple goalkeeper reports cannot claim more penalty saves than the 
     assert.equal(keeper.statistics.penaltySaves, null);
   }
 });
+void test('equal roster and statistics counts cannot hide a one-for-one player identity mismatch', () => {
+  const f = providerTimelineFixture();
+  const team = f.sources.players.payload.response[0];
+  const row = team?.players[0];
+  assert.ok(team && row);
+  const originalCount = team.players.length;
+  row.player.id = 999999;
+  assert.equal(team.players.length, originalCount);
+  assert.throws(
+    () => parseProviderMatch(f.fixture, f.binding, f.mappings, f.sources),
+    (error: unknown) =>
+      error instanceof CommandRejected &&
+      error.code === 'normalization-lineup-conflict',
+  );
+});
+void test('missing goal aggregates are recovered from reconciled goal events, never from a null-to-zero default', () => {
+  const f = providerTimelineFixture();
+  const sources = {
+    ...f.sources,
+    players: {
+      ...f.sources.players,
+      payload: {
+        ...f.sources.players.payload,
+        response: f.sources.players.payload.response.map((team) => ({
+          ...team,
+          players: team.players.map((row) => ({
+            ...row,
+            statistics: row.statistics.map((stats) => ({
+              ...stats,
+              goals: { ...stats.goals, total: null },
+            })),
+          })),
+        })),
+      },
+    },
+  };
+  const result = parseProviderMatch(f.fixture, f.binding, f.mappings, sources);
+  const scorer = result.observation.performances.find(
+    (p) => p.footballerId === f.identities.get(8001),
+  );
+  const defender = result.observation.performances.find(
+    (p) => p.footballerId === f.identities.get(8003),
+  );
+  assert.ok(scorer && defender);
+  assert.equal(scorer.statistics.goals, 2);
+  assert.equal(defender.statistics.goals, 0);
+  const incomplete = {
+    ...sources,
+    events: {
+      ...sources.events,
+      payload: { ...sources.events.payload, response: [], results: 0 },
+    },
+  };
+  const held = parseProviderMatch(f.fixture, f.binding, f.mappings, incomplete);
+  assert.ok(held.issues.includes('timeline-score-conflict'));
+  assert.equal(
+    held.observation.performances.find(
+      (p) => p.footballerId === f.identities.get(8001),
+    )?.statistics.goals,
+    null,
+  );
+});

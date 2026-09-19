@@ -1,11 +1,11 @@
 {
   "slice": 33,
   "date": "2026-09-19",
-  "providerRequestsThisSlice": 0,
+  "providerRequestsThisSlice": 5,
   "automaticAcceptanceEnabled": false,
   "sources": {
-    "packages/application/src/provider-event-timeline.ts": "6631990ac5ffbca0c504c67ae548b55f0789cff25411da682f617c3a2fddf6dd",
-    "packages/application/src/provider-match-parser.ts": "d9df91fb7fd685089969ad875ff3872a3c43148fac0c5a3aefd10de7bfabf8d8",
+    "packages/application/src/provider-event-timeline.ts": "00b02ac80056c55e5523c62315e7c2f1878e7c8f1b246e0618754cea281efa60",
+    "packages/application/src/provider-match-parser.ts": "2f58731dc94603de00b7db5ecd36ea1b8159dd67736dde840b92fb32b239fd25",
     "apps/web/src/components/provider-match-workspace.tsx": "f5a890b99633f0b02eba3c256b1bc90fdb9fc52b17c85dc0960180e03ca6f66f",
     "packages/contracts/src/results.ts": "ecfb972e5230b87f7a7c294efd9e2e1caa72561ccd5f9791c57d7bd5d97c85cc",
     "packages/application/src/provider-normalization.ts": "042af32015efb414ae39bdf90d97c6511abae1a0552017bad70039fb349c98e4"
@@ -21,8 +21,8 @@
   "finalApplicationChecks": {
     "typecheck": "passed",
     "lint": "passed",
-    "unitCases": 31,
-    "postgresCases": 74
+    "unitCases": 33,
+    "note": "Final historical-sample regressions and goal-evidence recovery. PostgreSQL version compatibility was separately verified before these last pure parser changes."
   },
   "ciBaseline": {
     "checkpoint": "d7ca961f09b96f3423803a3488b1dbe0eb2d1394",
@@ -36,7 +36,7 @@
     "passingMainRun": "https://github.com/mstfash/3bont-fantasy/actions/runs/35444105345"
   },
   "limits": [
-    "Synthetic source evidence only",
+    "Golden fixtures are synthetic; one real historical sample was held and no facts imported",
     "No current-season access or valuation license established",
     "Reviewed drafts remain incomplete until staff establishes eligibility and verifies facts",
     "Historical rules replay and cross-competition correction projections remain open"
@@ -52,5 +52,26 @@
       "api-football-reviewed-v2"
     ],
     "storedEvidenceVersionTest": "passed"
+  },
+  "historicalSample": {
+    "league": 233,
+    "season": 2024,
+    "fixtureId": 1312376,
+    "sourceCalls": 4,
+    "statusCalls": 1,
+    "sourceWindowMs": 115827,
+    "statisticsPlayersOutsideRoster": 1,
+    "rosterPlayersMissingStatistics": 1,
+    "adapterOutcome": "normalization-lineup-conflict",
+    "timelineOutcome": "timeline-event-ambiguous",
+    "imported": false,
+    "lastObservedDailyRemaining": 95,
+    "rawResponses": "private ignored files only",
+    "regression": "Synthetic identity mismatch plus evidence-based goal recovery and incomplete-ledger hold; no live test requests"
+  },
+  "versionCompatibilityChecks": {
+    "unitCases": 31,
+    "postgresCases": 74,
+    "status": "passed"
   }
 }

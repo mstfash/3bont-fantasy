@@ -23,6 +23,7 @@ export interface TimelineEvent {
   readonly detail: string;
 }
 export interface TimelineFacts {
+  readonly goals: number;
   readonly ownGoals: number;
   readonly penaltyMisses: number;
   readonly concededWhileOnPitch: number;
@@ -274,8 +275,7 @@ export function deriveProviderTimeline(input: {
     if (
       player.minutes === null ||
       player.minutes !== (state.left ?? 90) - state.entered ||
-      player.goals === null ||
-      player.goals !== state.goals
+      (player.goals !== null && player.goals !== state.goals)
     )
       return hold('timeline-participation-conflict');
     if (player.red !== (state.dismissed ? 1 : 0))
@@ -297,6 +297,7 @@ export function deriveProviderTimeline(input: {
       continue;
     }
     facts.set(player.id, {
+      goals: state.goals,
       ownGoals: state.ownGoals,
       penaltyMisses: state.penaltyMisses,
       concededWhileOnPitch: state.concededWhileOnPitch,

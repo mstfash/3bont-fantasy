@@ -201,11 +201,17 @@ void test('score mismatch, missing statistics and contradictory participation ne
   player(minutes, 12, { minutes: null });
   const missingSub = fixture();
   player(missingSub, 12, { minutes: 60 });
-  const missingGoal = fixture();
-  player(missingGoal, 12, { goals: null });
+  const conflictingGoal = fixture();
+  player(conflictingGoal, 12, { goals: 1 });
   const invisibleReserve = fixture();
   player(invisibleReserve, 24, { minutes: 10 });
-  for (const f of [score, minutes, missingSub, missingGoal, invisibleReserve]) {
+  for (const f of [
+    score,
+    minutes,
+    missingSub,
+    conflictingGoal,
+    invisibleReserve,
+  ]) {
     const result = deriveProviderTimeline(f);
     assert.equal(result.facts.size, 0);
     assert.ok(result.issues.length);

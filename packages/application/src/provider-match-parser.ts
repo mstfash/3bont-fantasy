@@ -283,7 +283,7 @@ export function parseProviderMatch(
         footballerId: resolve('footballer', row.player.id),
         statistics: {
           minutes: stats.games.minutes ?? null,
-          goals: stats.goals.total ?? null,
+          goals: stats.goals.total ?? derived?.goals ?? null,
           assists: stats.goals.assists ?? null,
           ownGoals: derived?.ownGoals ?? null,
           penaltyMisses:
