@@ -221,3 +221,7 @@ A provisional match report assembled from provider responses for staff review. I
 **Provider collection**:
 A gathering of a real fixture's provider reports under an operator's season collection schedule. Completed collection supplies sources for review, not accepted match facts or published fantasy results.
 _Avoid_: Automatic match approval, scored match
+
+**Historical Rules Correction**:
+An authorized correction to the scoring rules of a previously published gameweek, producing revised points from the recorded squads and football evidence.
+_Avoid_: Participant squad repair, ordinary future configuration, rewriting accepted transfers

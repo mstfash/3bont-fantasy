@@ -32,8 +32,8 @@ export function ScoringRuleControls({
       <summary>{ar ? 'نقاط أداء اللاعبين' : 'Footballer scoring'}</summary>
       <p>
         {ar
-          ? 'القيم بالنقاط الظاهرة للمشارك. تعديلاتك تطبق على الجولات المستقبلية غير المغلقة.'
-          : 'Values are participant-facing points. Changes apply to future unlocked gameweeks.'}
+          ? 'القيم بالنقاط الظاهرة للمشارك. راجع نطاق التغيير قبل التأكيد.'
+          : 'Values are participant-facing points. Review the scope of your change before confirming.'}
       </p>
       <div className="form-pair">
         <RuleNumber

@@ -1,5 +1,25 @@
 import type { Locale } from './brand';
 const messages: Readonly<Record<string, { ar: string; en: string }>> = {
+  'preview-changed': {
+    ar: 'تغيرت البيانات أو القرارات المتأثرة. عدّل المقترح واطلب معاينة جديدة قبل الاعتماد.',
+    en: 'Inputs or affected decisions changed. Edit the proposal and request a fresh preview before approving.',
+  },
+  'results-changed': {
+    ar: 'تغيرت نسخة النتائج. راجع الجولة واطلب معاينة جديدة.',
+    en: 'The result revision changed. Review the gameweek and request a fresh preview.',
+  },
+  'replay-no-change': {
+    ar: 'لم تتغير قواعد النقاط. عدّل قاعدة قبل طلب المعاينة.',
+    en: 'Scoring rules are unchanged. Change a rule before requesting a preview.',
+  },
+  'replay-source-unavailable': {
+    ar: 'نسخة الحساب الأصلية غير متاحة. راجع السجل قبل التصحيح.',
+    en: 'The original calculation is unavailable. Review the recorded evidence before correcting it.',
+  },
+  'replay-incomplete': {
+    ar: 'أكمل بيانات النقاط والنتائج المسجلة قبل نشر التصحيح.',
+    en: 'Complete scoring inputs and recorded results before publishing this correction.',
+  },
   'match-preview-changed': {
     ar: 'تغيّر أثر التصحيح. راجع معاينة جديدة قبل الحفظ.',
     en: 'The correction impact changed. Review a fresh preview before saving.',

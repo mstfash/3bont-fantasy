@@ -128,3 +128,8 @@ export {
   readPublicRoundStandings,
 } from './competition-pulse.ts';
 export { readPublicLineup } from './public-lineup.ts';
+export {
+  previewHistoricalRules,
+  executeHistoricalRules,
+  readHistoricalRulesHistory,
+} from './historical-rules.ts';

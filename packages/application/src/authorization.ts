@@ -3,6 +3,7 @@ export type { StaffRole } from '@fantasy/contracts';
 export type Capability =
   | 'staff.manage'
   | 'competition.manage'
+  | 'results.replay'
   | 'facts.manage'
   | 'moderation.manage'
   | 'prizes.prepare'
@@ -27,6 +28,7 @@ const capabilities: Readonly<Record<StaffRole, readonly Capability[]>> = {
     'staff.manage',
     'competition.manage',
     'facts.manage',
+    'results.replay',
     'moderation.manage',
     'prizes.prepare',
     'prizes.approve',

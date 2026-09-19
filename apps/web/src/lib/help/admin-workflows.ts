@@ -2,6 +2,23 @@ import type { Capability } from '@fantasy/application';
 import type { HelpTopic } from './topics';
 export const adminWorkflows = [
   {
+    topic: 'results',
+    capability: 'results.replay',
+    path: '/admin',
+    en: [
+      'From a competition gameweek, open its result review, then Correct historical gameweek rules. Owner access and fresh staff verification are required.',
+      'Change only the selected gameweek’s footballer scoring, captain multipliers or automatic substitutions. Preview the exact rule differences and effects on squads, rankings, H2H and prizes.',
+      'Confirm with evidence only when inputs are complete. A changed preview must be reviewed again. Publication is atomic and restarts the original correction window.',
+      'Recorded selections, transfer costs, consumed chips, price transactions and future rules remain intact. Prior calculations remain in Calculation history; selected-gameweek playbooks show the revised rules.',
+    ],
+    ar: [
+      'افتح مراجعة نتائج الجولة من البطولة ثم تصحيح قواعد جولة سابقة. يلزم حساب المالك وتحقق حديث للجلسة.',
+      'عدّل نقاط اللاعبين أو مضاعفات الكابتن أو التبديلات التلقائية للجولة المختارة فقط. راجع اختلاف القواعد وأثره على الفرق والترتيب والمواجهات والجوائز.',
+      'اعتمد بالدليل بعد اكتمال المدخلات. تغيّر المعاينة يتطلب مراجعة جديدة. ينشر التصحيح دفعة واحدة ويعيد بدء نافذة التصحيح الأصلية.',
+      'تبقى الاختيارات المسجلة وخصومات الانتقالات والشيبس المستهلكة والأسعار والقواعد المستقبلية كما هي. تبقى الحسابات السابقة في سجل النسخ؛ يعرض دليل الجولة المختارة قواعدها المصححة.',
+    ],
+  },
+  {
     topic: 'configuration',
     capability: 'competition.manage',
     path: '/admin/competitions',

@@ -20,7 +20,7 @@ Publish flow: draft → validate → preview affected entries/rounds → publish
 
 Before first lock but after registration opens, structural edits require validating every existing draft/squad. Block changes that invalidate activated entries or their purchased holdings; use a new competition if repair would be required. “Before first lock” does not authorize silent loss of participant choices.
 
-Historical scoring changes are a separate, permissioned preview/replay operation referencing explicit rule and fact revisions. They do not mutate the normal configuration timeline or participant transfer history.
+Historical scoring changes use a separate owner-only preview/replay for one published gameweek, with fresh staff verification and exact rule, fact, result and recorded-snapshot references. Only footballer scoring, captain multipliers and automatic substitutions can change. Confirmation atomically publishes a new round-specific rule/result version and restarts the correction interval; it does not mutate the normal configuration timeline or participant transfer history. Structural settings and accepted decisions are preserved. See [slice 37](implementation-slice-37.md).
 
 A feature toggle controls availability, not erasure. Disabling a module blocks new actions while preserving existing standings, awards, audit and earned inventory. Block deactivation that would abandon an active H2H edition, published prize promise or already committed chip; schedule it after settlement. Dependency validation rejects Triple Captain without captaincy, prizes without eligibility/tie rules, or scoring categories without supported data.
 

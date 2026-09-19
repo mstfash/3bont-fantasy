@@ -1,0 +1,3 @@
+# Correct historical scoring without replaying participant decisions
+
+Historical rules corrections are owner-authorized, reviewed operations for one published gameweek at a time. They may change footballer scoring, captain multipliers and automatic substitutions, while retaining the recorded squad, formations, captain selections, consumed chips, transfer deductions and price transactions. Applying the whole current competition template retrospectively would silently rewrite decisions participants made under the original terms, so corrections receive a new round-specific rules version and an atomic result revision without modifying the ordinary future configuration timeline; prior calculations, facts and delivered awards remain recorded.
